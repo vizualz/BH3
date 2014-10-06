@@ -1,0 +1,70 @@
+﻿body {
+}
+
+.preview
+{
+display: none;
+}
+
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.gallerycontainer{
+position: relative;
+/*Add a height attribute and set to largest image's height to prevent overlaying*/
+}
+
+.imgcontainer{
+position: relative;
+/*Add a height attribute and set to largest image's height to prevent overlaying*/
+}
+
+.thumbnail img{
+border: 1px solid white;
+margin: 0 5px 5px 0;
+}
+
+.thumbnail:hover{
+background-color: #CCCCCC;
+}
+
+.thumbnail:hover img{
+background-color: #CCCCCC;
+border: 1px solid #FFFFFF;
+}
+
+.thumbnailz spanz{ /*CSS for enlarged image*/
+position: absolute;
+background-color: transparent;
+padding: 5px;
+left: -1000px;
+/*border: 1px dashed gray; */
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.thumbnail span{ /*CSS for enlarged image*/
+ background-color: rgba(0, 0, 0, 0);
+    color: #000000;
+    left: -1000px;
+    padding: 5px;
+    position: absolute;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+.thumbnail:hover span{ /*CSS for enlarged image*/
+visibility: visible;
+/*top: 0;*/
+/*left: 230px;*/ /*position where enlarged image should offset horizontally */
+z-index: 50;
+
+
+/*display: block;*/
+position: absolute;
+top: 0px;
+left: 20px;
+/*z-index: 1;*/
+}

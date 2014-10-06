@@ -1,0 +1,1594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD5B5BED-A380-4B3F-94CF-D2BCC62C86CB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>BoardHunt</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BoardHunt</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BoardHunt, Version=1.0.4986.26682, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BoardHunt.dll</HintPath>
+    </Reference>
+    <Reference Include="DALLayer, Version=1.0.5138.6789, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DALLayer\bin\Debug\DALLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2, Version=2.5.2912.22119, Culture=neutral, PublicKeyToken=4f86767c9b519a06">
+      <HintPath>..\..\..\BoardHunt Latest\BoardHunt\BoardHunt\bin\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="RSS.NET, Version=0.86.3589.21629, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RSS.NET\bin\Release\RSS.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Yedda.Twitter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BoardHunt Latest\BoardHunt\BoardHunt\bin\Yedda.Twitter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about.aspx" />
+    <Content Include="advanced_search.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="changepoststatus.aspx" />
+    <Content Include="contact.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="images\1.gif" />
+    <Content Include="images\2.gif" />
+    <Content Include="images\about.gif" />
+    <Content Include="images\Accounts.gif" />
+    <Content Include="images\ads\bessell.gif" />
+    <Content Include="images\ads\surfaid.gif" />
+    <Content Include="images\allboards_big.gif" />
+    <Content Include="images\allboards_bigon.gif" />
+    <Content Include="images\arrow.gif" />
+    <Content Include="images\AskaProBanner.gif" />
+    <Content Include="images\atarget.gif" />
+    <Content Include="images\BackToResults.gif" />
+    <Content Include="images\badge_fb.png" />
+    <Content Include="images\badge_fblarge.png" />
+    <Content Include="images\badge_su.gif" />
+    <Content Include="images\badge_twit.png" />
+    <Content Include="images\badge_twitlarge.png" />
+    <Content Include="images\barrel.gif" />
+    <Content Include="images\bessell.gif" />
+    <Content Include="images\BHMatrix.jpg" />
+    <Content Include="images\BHQualityBadge.gif" />
+    <Content Include="images\blog.gif" />
+    <Content Include="images\BlogBanner.gif" />
+    <Content Include="images\boardhelp.gif" />
+    <Content Include="images\bodyMatrix.gif" />
+    <Content Include="images\Boost.gif" />
+    <Content Include="images\BoostBig.gif" />
+    <Content Include="images\BoostSm120x80.gif" />
+    <Content Include="images\Boost_cart.gif" />
+    <Content Include="images\boost_off.gif" />
+    <Content Include="images\boost_on.gif" />
+    <Content Include="images\boysen.gif" />
+    <Content Include="images\Bubble.gif" />
+    <Content Include="images\Bubble.jpg" />
+    <Content Include="images\bubble.png" />
+    <Content Include="images\bump.gif" />
+    <Content Include="images\Buy.gif" />
+    <Content Include="images\Buy2.gif" />
+    <Content Include="images\camera2.gif" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\carve.gif" />
+    <Content Include="images\cell.gif" />
+    <Content Include="images\comments_03.gif" />
+    <Content Include="images\CouponDefault.gif" />
+    <Content Include="images\couponz.gif" />
+    <Content Include="images\couponz.jpg" />
+    <Content Include="images\coupon_footer.gif" />
+    <Content Include="images\croes.png" />
+    <Content Include="images\Dealz.gif" />
+    <Content Include="images\DealzHomeIcon.gif" />
+    <Content Include="images\ecosystem.gif" />
+    <Content Include="images\email.gif" />
+    <Content Include="images\eyeboards.gif" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\fb_share.gif" />
+    <Content Include="images\fb_share.jpg" />
+    <Content Include="images\fb_share.png" />
+    <Content Include="images\fish.gif" />
+    <Content Include="images\fish_big.gif" />
+    <Content Include="images\fish_bigon.gif" />
+    <Content Include="images\flag.gif" />
+    <Content Include="images\FreakCoder.gif" />
+    <Content Include="images\freeride.gif" />
+    <Content Include="images\freestyle.gif" />
+    <Content Include="images\freestyle_03.gif" />
+    <Content Include="images\funshape.gif" />
+    <Content Include="images\funshape_big.gif" />
+    <Content Include="images\funshape_bigon.gif" />
+    <Content Include="images\greenbox.gif" />
+    <Content Include="images\greencheck.gif" />
+    <Content Include="images\greencheckbox.png" />
+    <Content Include="images\greencheck_03.gif" />
+    <Content Include="images\gun.gif" />
+    <Content Include="images\gun_big.gif" />
+    <Content Include="images\gun_bigon.gif" />
+    <Content Include="images\help.gif" />
+    <Content Include="images\help_askapro.gif" />
+    <Content Include="images\homepic_boards.jpg" />
+    <Content Include="images\hunt.gif" />
+    <Content Include="images\hunt_off.gif" />
+    <Content Include="images\hybrid.gif" />
+    <Content Include="images\icon_ask_off.gif" />
+    <Content Include="images\icon_ask_on.gif" />
+    <Content Include="images\icon_blogoff.gif" />
+    <Content Include="images\icon_blogon.gif" />
+    <Content Include="images\icon_create.gif" />
+    <Content Include="images\icon_editoff.gif" />
+    <Content Include="images\icon_editon.gif" />
+    <Content Include="images\icon_favsoff.gif" />
+    <Content Include="images\icon_favson.gif" />
+    <Content Include="images\icon_postoff.gif" />
+    <Content Include="images\icon_poston.gif" />
+    <Content Include="images\icon_profileo.gif" />
+    <Content Include="images\icon_profileoff.gif" />
+    <Content Include="images\icon_profileon.gif" />
+    <Content Include="images\icon_showcase.gif" />
+    <Content Include="images\icon_showcase2.gif" />
+    <Content Include="images\icon_showcaseoff.gif" />
+    <Content Include="images\icon_showcaseon.gif" />
+    <Content Include="images\id_back.gif" />
+    <Content Include="images\Image2.gif" />
+    <Content Include="images\IMG.jpg" />
+    <Content Include="images\IMG_0002.jpg" />
+    <Content Include="images\IMG_0003.jpg" />
+    <Content Include="images\IMG_0004.jpg" />
+    <Content Include="images\IMG_0006.jpg" />
+    <Content Include="images\IMG_0007.jpg" />
+    <Content Include="images\IMG_0008.jpg" />
+    <Content Include="images\IMG_0009.jpg" />
+    <Content Include="images\kaualogo.gif" />
+    <Content Include="images\key.gif" />
+    <Content Include="images\key_carve.gif" />
+    <Content Include="images\key_fish.gif" />
+    <Content Include="images\key_freeride.gif" />
+    <Content Include="images\key_freestyle.gif" />
+    <Content Include="images\key_funshape.gif" />
+    <Content Include="images\key_gun.gif" />
+    <Content Include="images\key_longboard.gif" />
+    <Content Include="images\key_pro.gif" />
+    <Content Include="images\key_shortboard.gif" />
+    <Content Include="images\key_skate.gif" />
+    <Content Include="images\key_standup.gif" />
+    <Content Include="images\key_wanted.gif" />
+    <Content Include="images\left.gif" />
+    <Content Include="images\left_1.gif" />
+    <Content Include="images\left_arrow.png" />
+    <Content Include="images\longboard.gif" />
+    <Content Include="images\longboard_big.gif" />
+    <Content Include="images\longboard_bigon.gif" />
+    <Content Include="images\MatrixHeader.gif" />
+    <Content Include="images\matrix_logo.gif" />
+    <Content Include="images\menu_account_off.gif" />
+    <Content Include="images\menu_account_on.gif" />
+    <Content Include="images\menu_ask.gif" />
+    <Content Include="images\menu_ask_edit_off.gif" />
+    <Content Include="images\menu_ask_edit_on.gif" />
+    <Content Include="images\menu_ask_off.gif" />
+    <Content Include="images\menu_ask_on.gif" />
+    <Content Include="images\menu_coupon.gif" />
+    <Content Include="images\menu_create_ad_edit_off.gif" />
+    <Content Include="images\menu_create_ad_edit_on.gif" />
+    <Content Include="images\menu_create_ad_off.gif" />
+    <Content Include="images\menu_create_ad_on.gif" />
+    <Content Include="images\menu_favs_off.gif" />
+    <Content Include="images\menu_favs_on.gif" />
+    <Content Include="images\menu_sell.gif" />
+    <Content Include="images\mini_ad.gif" />
+    <Content Include="images\mini_ad2.gif" />
+    <Content Include="images\myspacebdrp.gif" />
+    <Content Include="images\myspacebg.jpg" />
+    <Content Include="images\newuser.gif" />
+    <Content Include="images\Next.JPG" />
+    <Content Include="images\nicawave.gif" />
+    <Content Include="images\nopic128.jpg" />
+    <Content Include="images\nopic32.jpg" />
+    <Content Include="images\nopic64.jpg" />
+    <Content Include="images\nopicyet.gif" />
+    <Content Include="images\orangebox.gif" />
+    <Content Include="images\otherboard.gif" />
+    <Content Include="images\other_off.gif" />
+    <Content Include="images\other_on.gif" />
+    <Content Include="images\page screen short.jpg" />
+    <Content Include="images\PayPal_mark_37x23.gif" />
+    <Content Include="images\PP_btn_xpressCheckout.gif" />
+    <Content Include="images\Previous.JPG" />
+    <Content Include="images\pro.gif" />
+    <Content Include="images\Procart.gif" />
+    <Content Include="images\ProSignup.gif" />
+    <Content Include="images\pro_03.gif" />
+    <Content Include="images\qna.jpg" />
+    <Content Include="images\red_err_excl.jpg" />
+    <Content Include="images\red_err_excl.png" />
+    <Content Include="images\right.gif" />
+    <Content Include="images\right_1.gif" />
+    <Content Include="images\right_arrow.png" />
+    <Content Include="images\rss.png" />
+    <Content Include="images\sell.gif" />
+    <Content Include="images\selling.gif" />
+    <Content Include="images\sell_off.gif" />
+    <Content Include="images\SFSimg.jpg" />
+    <Content Include="images\SH.gif" />
+    <Content Include="images\shaperhouse.gif" />
+    <Content Include="images\shaperhousemore.gif" />
+    <Content Include="images\shaperhouse_home.gif" />
+    <Content Include="images\Shaperhouse_homeoff.gif" />
+    <Content Include="images\shaperhouse_menu.gif" />
+    <Content Include="images\shaper_cart.gif" />
+    <Content Include="images\shaper_left.png" />
+    <Content Include="images\shaper_left_hover.png" />
+    <Content Include="images\shaper_right.png" />
+    <Content Include="images\shaper_right_hover.png" />
+    <Content Include="images\share.gif" />
+    <Content Include="images\shortboard.gif" />
+    <Content Include="images\shortboard_big.gif" />
+    <Content Include="images\shortboard_bigon.gif" />
+    <Content Include="images\showcase.gif" />
+    <Content Include="images\sidearrow.gif" />
+    <Content Include="images\sign-up.gif" />
+    <Content Include="images\signup.gif" />
+    <Content Include="images\signupuser.gif" />
+    <Content Include="images\signupuser.jpg" />
+    <Content Include="images\skateboard.gif" />
+    <Content Include="images\slect.jpg" />
+    <Content Include="images\slectshaper.jpg" />
+    <Content Include="images\smcell.gif" />
+    <Content Include="images\snowboards.gif" />
+    <Content Include="images\snow_off.gif" />
+    <Content Include="images\snow_on.gif" />
+    <Content Include="images\social\delicious_footer.gif" />
+    <Content Include="images\social\fb_footer.gif" />
+    <Content Include="images\social\stumbleupon_footer.gif" />
+    <Content Include="images\social\su_16x16.bmp" />
+    <Content Include="images\social\twitter_footer.gif" />
+    <Content Include="images\sold.gif" />
+    <Content Include="images\standup.gif" />
+    <Content Include="images\surfboardhelp.gif" />
+    <Content Include="images\SurfboardVoucherBanner.gif" />
+    <Content Include="images\surfrider.gif" />
+    <Content Include="images\surftrip_leader.gif" />
+    <Content Include="images\surf_off.gif" />
+    <Content Include="images\surf_on.gif" />
+    <Content Include="images\target_green.gif" />
+    <Content Include="images\target_orange.gif" />
+    <Content Include="images\tdown_dis.gif" />
+    <Content Include="images\tdown_off.gif" />
+    <Content Include="images\tdown_on.gif" />
+    <Content Include="images\textcoupon.gif" />
+    <Content Include="images\thmbNail_Image2.gif" />
+    <Content Include="images\thumbsdown_off.gif" />
+    <Content Include="images\thumbsdown_on.png" />
+    <Content Include="images\thumbsup_off.gif" />
+    <Content Include="images\thumbsup_on.png" />
+    <Content Include="images\tup_dis.gif" />
+    <Content Include="images\tup_off.gif" />
+    <Content Include="images\tup_on.gif" />
+    <Content Include="images\twitbird.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="images\upgrade_ad.gif" />
+    <Content Include="images\used-surfboards.jpg" />
+    <Content Include="images\user.gif" />
+    <Content Include="images\VerticalVoucherImage.gif" />
+    <Content Include="images\vintage.gif" />
+    <Content Include="images\vintage_big.gif" />
+    <Content Include="images\vintage_bigon.gif" />
+    <Content Include="images\Voucher.gif" />
+    <Content Include="images\VoucherBadge.gif" />
+    <Content Include="images\VoucherInfo.gif" />
+    <Content Include="images\VoucherOrderForm.gif" />
+    <Content Include="images\Voucher_buy_badge.gif" />
+    <Content Include="images\Voucher_home_icon.gif" />
+    <Content Include="images\wait.gif" />
+    <Content Include="images\wantedbig.gif" />
+    <Content Include="images\wantedsm.gif" />
+    <Content Include="images\wave_barrel.gif" />
+    <Content Include="images\wave_roller.gif" />
+    <Content Include="images\xcessy_off.gif" />
+    <Content Include="images\xcessy_on.gif" />
+    <Content Include="ImpImages\Image1.gif" />
+    <Content Include="ImpImages\Image2.gif" />
+    <Content Include="ImpImages\Image3.gif" />
+    <Content Include="include\Controls\BoostHoriz.ascx" />
+    <Content Include="include\Controls\VanityCtl.ascx" />
+    <Content Include="ItemDetails.aspx" />
+    <Content Include="m\surfboard.aspx" />
+    <Content Include="scripts\jquery-1.3.2.min.js" />
+    <Content Include="scripts\jquery.uploadify.js" />
+    <Content Include="scripts\uploader.swf" />
+    <Content Include="style\reapeterstyle.css" />
+    <Content Include="style\style.css" />
+    <Content Include="style\uploadify.css" />
+    <Content Include="surfboard.aspx" />
+    <Content Include="edit_item.aspx" />
+    <Content Include="edit_profile.aspx" />
+    <Content Include="favorites.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Global.asax">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="images\back.gif" />
+    <Content Include="images\backpage.gif" />
+    <Content Include="images\backpage2.gif" />
+    <Content Include="images\BHLogo.gif" />
+    <Content Include="images\boards.gif" />
+    <Content Include="images\camera.gif" />
+    <Content Include="images\cancel.gif" />
+    <Content Include="images\clear.gif" />
+    <Content Include="images\colornavbar.gif" />
+    <Content Include="images\continue.gif" />
+    <Content Include="images\done.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\favorites.gif" />
+    <Content Include="images\icon_edit.gif" />
+    <Content Include="images\icon_edit2.gif" />
+    <Content Include="images\icon_favs.gif" />
+    <Content Include="images\icon_favs2.gif" />
+    <Content Include="images\icon_post.gif" />
+    <Content Include="images\icon_post2.gif" />
+    <Content Include="images\icon_profile.gif" />
+    <Content Include="images\icon_profile2.gif" />
+    <Content Include="images\imgDeleted.gif" />
+    <Content Include="images\login.gif" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\nextpage.gif" />
+    <Content Include="images\nextpage2.gif" />
+    <Content Include="images\NoImage.gif" />
+    <Content Include="images\preview.gif" />
+    <Content Include="images\s1x1.gif" />
+    <Content Include="images\send.gif" />
+    <Content Include="images\tails.gif" />
+    <Content Include="images\update.gif" />
+    <Content Include="images\wanted.gif" />
+    <Content Include="include\footerMob.aspx" />
+    <Content Include="include\HeaderMob.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="login.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="m\adtest.aspx" />
+    <Content Include="m\index.aspx" />
+    <Content Include="m\surfboardsforsale.aspx" />
+    <Content Include="post.aspx" />
+    <Content Include="post_finish.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="post_item.aspx" />
+    <Content Include="post_manager.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="preview_post.aspx" />
+    <Content Include="register_finish.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="register_user.aspx" />
+    <Content Include="Shaper\Surfboards.aspx" />
+    <Content Include="style\mob_global.css" />
+    <Content Include="style\global.css" />
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BlogManager.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>BlogManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BlogManager.aspx.designer.cs">
+      <DependentUpon>BlogManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ContactAllUsers.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ContactAllUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ContactAllUsers.aspx.designer.cs">
+      <DependentUpon>ContactAllUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ElJefe.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ElJefe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ElJefe.aspx.designer.cs">
+      <DependentUpon>ElJefe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FavMaster.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FavMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FavMaster.aspx.designer.cs">
+      <DependentUpon>FavMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PostMaster.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PostMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PostMaster.aspx.designer.cs">
+      <DependentUpon>PostMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserProfileManager.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>UserProfileManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserProfileManager.aspx.designer.cs">
+      <DependentUpon>UserProfileManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="changepoststatus.aspx.cs">
+      <DependentUpon>changepoststatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="changepoststatus.aspx.designer.cs">
+      <DependentUpon>changepoststatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\AdSenseHelper.cs" />
+    <Compile Include="classes\comparetwoimage.cs" />
+    <Compile Include="classes\Vote.cs" />
+    <Compile Include="classes\User.cs" />
+    <Compile Include="classes\Coupon.cs" />
+    <Compile Include="classes\Invoice.cs" />
+    <Compile Include="classes\MatrixArray.cs" />
+    <Compile Include="classes\Mobile\Sms.cs" />
+    <Compile Include="classes\oAuth.cs" />
+    <Compile Include="classes\oAuthTwitter.cs" />
+    <Compile Include="classes\util.cs" />
+    <Compile Include="classes\xml\xmlHelper.cs" />
+    <Compile Include="httpFileCollection.cs" />
+    <Compile Include="include\Controls\BoostHoriz.ascx.cs">
+      <DependentUpon>BoostHoriz.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\BoostHoriz.ascx.designer.cs">
+      <DependentUpon>BoostHoriz.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\VanityCtl.ascx.cs">
+      <DependentUpon>VanityCtl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\VanityCtl.ascx.designer.cs">
+      <DependentUpon>VanityCtl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.designer.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m\surfboard.aspx.cs">
+      <DependentUpon>surfboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m\surfboard.aspx.designer.cs">
+      <DependentUpon>surfboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="surfboard.aspx.cs">
+      <DependentUpon>surfboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="surfboard.aspx.designer.cs">
+      <DependentUpon>surfboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Boardhelp.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Boardhelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Boardhelp.aspx.designer.cs">
+      <DependentUpon>Boardhelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\footerMob.aspx.cs">
+      <DependentUpon>footerMob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\HeaderMob.aspx.cs">
+      <DependentUpon>HeaderMob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\HeaderMob.aspx.designer.cs">
+      <DependentUpon>HeaderMob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matrix.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Matrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matrix.aspx.designer.cs">
+      <DependentUpon>Matrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="advanced_search.aspx.cs">
+      <DependentUpon>advanced_search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="advanced_search.aspx.designer.cs">
+      <DependentUpon>advanced_search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bidder\BidDetails.aspx.cs">
+      <DependentUpon>BidDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\BidDetails.aspx.designer.cs">
+      <DependentUpon>BidDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bidder\PostBid.aspx.cs">
+      <DependentUpon>PostBid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\PostBid.aspx.designer.cs">
+      <DependentUpon>PostBid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bidder\BidResults.aspx.cs">
+      <DependentUpon>BidResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\BidResults.aspx.designer.cs">
+      <DependentUpon>BidResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bidder\Blog\Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogEdit.aspx.cs">
+      <DependentUpon>BlogEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogItem.aspx.cs">
+      <DependentUpon>BlogItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogPreview.aspx.cs">
+      <DependentUpon>BlogPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogFinish.aspx.cs">
+      <DependentUpon>BlogFinish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="classes\BaseItem.cs" />
+    <Compile Include="classes\Bids.cs" />
+    <Compile Include="classes\blog.cs" />
+    <Compile Include="classes\BoardBidItem.cs" />
+    <Compile Include="classes\BoardItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\Image.cs" />
+    <Compile Include="classes\Login.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\PP\Configuration.cs" />
+    <Compile Include="classes\PP\PayPalHelper.cs" />
+    <Compile Include="classes\PP\wwHTTP.cs" />
+    <Compile Include="classes\PP\wwHttpUtils.cs" />
+    <Compile Include="classes\Email.cs" />
+    <Compile Include="classes\Encryptor.cs" />
+    <Compile Include="classes\hasher.cs" />
+    <Compile Include="classes\Question.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="classes\RandomPassword.cs" />
+    <Compile Include="classes\SurfBoard.cs" />
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogResults.aspx.cs">
+      <DependentUpon>BlogResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bidder\Blog\BlogDetails.aspx.cs">
+      <DependentUpon>BlogDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\Shapers.ascx.cs">
+      <DependentUpon>Shapers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\Shapers.ascx.designer.cs">
+      <DependentUpon>Shapers.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m\adtest.aspx.cs">
+      <DependentUpon>adtest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m\adtest.aspx.designer.cs">
+      <DependentUpon>adtest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m\surfboardsforsale.aspx.cs">
+      <DependentUpon>surfboardsforsale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m\surfboardsforsale.aspx.designer.cs">
+      <DependentUpon>surfboardsforsale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qp\Coupons.aspx.cs">
+      <DependentUpon>Coupons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qp\Coupons.aspx.designer.cs">
+      <DependentUpon>Coupons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qp\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qp\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qp\Manager.aspx.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qp\Manager.aspx.designer.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qp\Post.aspx.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qp\Post.aspx.designer.cs">
+      <DependentUpon>Post.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qp\Preview.aspx.cs">
+      <DependentUpon>Preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qp\Preview.aspx.designer.cs">
+      <DependentUpon>Preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\Surfboards.aspx.cs">
+      <DependentUpon>Surfboards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shaper\Surfboards.aspx.designer.cs">
+      <DependentUpon>Surfboards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ModelDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ModelDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ModelDetails.aspx.designer.cs">
+      <DependentUpon>ModelDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouse.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShaperHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouse.aspx.designer.cs">
+      <DependentUpon>ShaperHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouseBeta.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShaperHouseBeta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouseBeta.aspx.designer.cs">
+      <DependentUpon>ShaperHouseBeta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouseMore.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShaperHouseMore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperHouseMore.aspx.designer.cs">
+      <DependentUpon>ShaperHouseMore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\ShaperVideos.aspx.cs">
+      <DependentUpon>ShaperVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shaper\ShaperVideos.aspx.designer.cs">
+      <DependentUpon>ShaperVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\SurfboardShaper.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SurfboardShaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaper\SurfboardShaper.aspx.designer.cs">
+      <DependentUpon>SurfboardShaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Comments.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Comments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Comments.aspx.designer.cs">
+      <DependentUpon>Comments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\Boost.ascx.cs">
+      <DependentUpon>Boost.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\Boost.ascx.designer.cs">
+      <DependentUpon>Boost.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\LBlogs.ascx.cs">
+      <DependentUpon>LBlogs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\LBlogs.ascx.designer.cs">
+      <DependentUpon>LBlogs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\LBoards.ascx.cs">
+      <DependentUpon>LBoards.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\LBoards.ascx.designer.cs">
+      <DependentUpon>LBoards.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\LComment.ascx.cs">
+      <DependentUpon>LComment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\LComment.ascx.designer.cs">
+      <DependentUpon>LComment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Controls\LQuestions.ascx.cs">
+      <DependentUpon>LQuestions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Controls\LQuestions.ascx.designer.cs">
+      <DependentUpon>LQuestions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\HeaderIdx.aspx.cs">
+      <DependentUpon>HeaderIdx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\HeaderIdx.aspx.designer.cs">
+      <DependentUpon>HeaderIdx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index2.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>index2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index2.aspx.designer.cs">
+      <DependentUpon>index2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\BoardMatcher.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>BoardMatcher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\BoardMatcher.aspx.designer.cs">
+      <DependentUpon>BoardMatcher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Close.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Close.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Close.aspx.designer.cs">
+      <DependentUpon>Close.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\CloseWindow.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CloseWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\CloseWindow.aspx.designer.cs">
+      <DependentUpon>CloseWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\DudiersTest.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>DudiersTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\DudiersTest.aspx.designer.cs">
+      <DependentUpon>DudiersTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Latest.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Latest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Latest.aspx.designer.cs">
+      <DependentUpon>Latest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\StyleTest.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>StyleTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\StyleTest.aspx.designer.cs">
+      <DependentUpon>StyleTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\PostQ.aspx.designer.cs">
+      <DependentUpon>PostQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\QDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>QDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\QDetails.aspx.designer.cs">
+      <DependentUpon>QDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search_results.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>search_results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search_results.aspx.designer.cs">
+      <DependentUpon>search_results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showcase\ShowcaseDetails.aspx.cs">
+      <DependentUpon>ShowcaseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showcase\ShowcaseDetails.aspx.designer.cs">
+      <DependentUpon>ShowcaseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showcase\ShowcaseResults.aspx.cs">
+      <DependentUpon>ShowcaseResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showcase\ShowcaseResults.aspx.designer.cs">
+      <DependentUpon>ShowcaseResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Surfboardsforsale.aspx.cs">
+      <DependentUpon>Surfboardsforsale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Surfboardsforsale.aspx.designer.cs">
+      <DependentUpon>Surfboardsforsale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadCS.ashx.cs">
+      <DependentUpon>UploadCS.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserMenu.aspx.cs">
+      <DependentUpon>UserMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMenu.aspx.designer.cs">
+      <DependentUpon>UserMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edit_item.aspx.designer.cs">
+      <DependentUpon>edit_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edit_profile.aspx.designer.cs">
+      <DependentUpon>edit_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\errHandler.aspx.designer.cs">
+      <DependentUpon>ErrHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="favorites.aspx.designer.cs">
+      <DependentUpon>favorites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forget_pass.aspx.designer.cs">
+      <DependentUpon>forget_pass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="help\boardhelp.aspx.designer.cs">
+      <DependentUpon>boardhelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Header2.aspx.cs">
+      <DependentUpon>Header2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Header2.aspx.designer.cs">
+      <DependentUpon>Header2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="item_details.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>item_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="item_details.aspx.designer.cs">
+      <DependentUpon>item_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\MenuTest.aspx.cs">
+      <DependentUpon>MenuTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Labs\MenuTest.aspx.designer.cs">
+      <DependentUpon>MenuTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Moo.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Moo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\Moo.aspx.designer.cs">
+      <DependentUpon>Moo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\SearchItems.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SearchItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Labs\SearchItems.aspx.designer.cs">
+      <DependentUpon>SearchItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="maintenance.aspx.designer.cs">
+      <DependentUpon>maintenance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay\Confirmation.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay\Confirmation.aspx.designer.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay\OrderForm.aspx.cs">
+      <DependentUpon>OrderForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pay\OrderForm.aspx.designer.cs">
+      <DependentUpon>OrderForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay\PPIPNConf.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PPIPNConf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay\PPIPNConf.aspx.designer.cs">
+      <DependentUpon>PPIPNConf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="post_finish.aspx.designer.cs">
+      <DependentUpon>post_finish.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="post_item.aspx.designer.cs">
+      <DependentUpon>post_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="post_manager.aspx.designer.cs">
+      <DependentUpon>post_manager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="preview_post.aspx.designer.cs">
+      <DependentUpon>preview_post.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\FinishQ.aspx.designer.cs">
+      <DependentUpon>FinishQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Qna\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\PostQ.aspx.cs">
+      <DependentUpon>PostQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Qna\FinishQ.aspx.cs">
+      <DependentUpon>FinishQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Qna\PreviewQ.aspx.cs">
+      <DependentUpon>PreviewQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Qna\PreviewQ.aspx.designer.cs">
+      <DependentUpon>PreviewQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register_finish.aspx.designer.cs">
+      <DependentUpon>register_finish.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register_user.aspx.designer.cs">
+      <DependentUpon>register_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showcase\showcase_item.aspx.designer.cs">
+      <DependentUpon>showcase_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showcase\showcase_preview.aspx.designer.cs">
+      <DependentUpon>showcase_preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionManager.aspx.cs">
+      <DependentUpon>SubscriptionManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\errHandler.aspx.cs">
+      <DependentUpon>ErrHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="help\HowWeWork.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>HowWeWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="help\HowWeWork.aspx.designer.cs">
+      <DependentUpon>HowWeWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\footer.aspx.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\footer.aspx.designer.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="include\Header.aspx.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="include\Header.aspx.designer.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showcase\showcase.aspx.cs">
+      <DependentUpon>showcase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showcase\showcase_item.aspx.cs">
+      <DependentUpon>showcase_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showcase\showcase_preview.aspx.cs">
+      <DependentUpon>showcase_preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="help\boardhelp.aspx.cs">
+      <DependentUpon>boardhelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="help\help.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="help\help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="maintenance.aspx.cs">
+      <DependentUpon>maintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forget_pass.aspx.cs">
+      <DependentUpon>forget_pass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit_item.aspx.cs">
+      <DependentUpon>edit_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit_profile.aspx.cs">
+      <DependentUpon>edit_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorLog.cs" />
+    <Compile Include="favorites.aspx.cs">
+      <DependentUpon>favorites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post.aspx.cs">
+      <DependentUpon>post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post_finish.aspx.cs">
+      <DependentUpon>post_finish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post_item.aspx.cs">
+      <DependentUpon>post_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post_manager.aspx.cs">
+      <DependentUpon>post_manager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="preview_post.aspx.cs">
+      <DependentUpon>preview_post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register_finish.aspx.cs">
+      <DependentUpon>register_finish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register_user.aspx.cs">
+      <DependentUpon>register_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubscriptionManager.aspx.designer.cs">
+      <DependentUpon>SubscriptionManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upgrade.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Upgrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upgrade.aspx.designer.cs">
+      <DependentUpon>Upgrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\QManager.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>QManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qna\QManager.aspx.designer.cs">
+      <DependentUpon>QManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wsBH\BHService.asmx.cs">
+      <DependentUpon>BHService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Content Include="Surfboardsforsale.aspx" />
+    <EmbeddedResource Include="about.aspx.resx">
+      <DependentUpon>about.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="advanced_search.aspx.resx">
+      <DependentUpon>advanced_search.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\BidDetails.aspx.resx">
+      <DependentUpon>BidDetails.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\PostBid.aspx.resx">
+      <DependentUpon>PostBid.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\BidResults.aspx.resx">
+      <DependentUpon>BidResults.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\Blog.aspx.resx">
+      <DependentUpon>Blog.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogEdit.aspx.resx">
+      <DependentUpon>BlogEdit.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogItem.aspx.resx">
+      <DependentUpon>BlogItem.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogPreview.aspx.resx">
+      <DependentUpon>BlogPreview.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogFinish.aspx.resx">
+      <DependentUpon>BlogFinish.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contact.aspx.resx">
+      <DependentUpon>contact.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogResults.aspx.resx">
+      <DependentUpon>BlogResults.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bidder\Blog\BlogDetails.aspx.resx">
+      <DependentUpon>BlogDetails.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qp\Settings.aspx.resx">
+      <DependentUpon>Settings.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qp\Manager.aspx.resx">
+      <DependentUpon>Manager.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qp\Post.aspx.resx">
+      <DependentUpon>Post.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="qp\Preview.aspx.resx">
+      <DependentUpon>Preview.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showcase\ShowcaseDetails.aspx.resx">
+      <DependentUpon>ShowcaseDetails.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showcase\ShowcaseResults.aspx.resx">
+      <DependentUpon>ShowcaseResults.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMenu.aspx.resx">
+      <DependentUpon>UserMenu.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.aspx.resx">
+      <DependentUpon>Profile.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qna\List.aspx.resx">
+      <DependentUpon>List.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qna\PostQ.aspx.resx">
+      <DependentUpon>PostQ.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qna\FinishQ.aspx.resx">
+      <DependentUpon>FinishQ.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qna\PreviewQ.aspx.resx">
+      <DependentUpon>PreviewQ.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubscriptionManager.aspx.resx">
+      <DependentUpon>SubscriptionManager.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showcase\showcase.aspx.resx">
+      <DependentUpon>showcase.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showcase\showcase_item.aspx.resx">
+      <DependentUpon>showcase_item.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showcase\showcase_preview.aspx.resx">
+      <DependentUpon>showcase_preview.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="maintenance.aspx.resx">
+      <DependentUpon>maintenance.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forget_pass.aspx.resx">
+      <DependentUpon>forget_pass.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edit_item.aspx.resx">
+      <DependentUpon>edit_item.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edit_profile.aspx.resx">
+      <DependentUpon>edit_profile.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="favorites.aspx.resx">
+      <DependentUpon>favorites.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="index.aspx.resx">
+      <DependentUpon>index.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.aspx.resx">
+      <DependentUpon>login.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="post.aspx.resx">
+      <DependentUpon>post.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="post_finish.aspx.resx">
+      <DependentUpon>post_finish.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="post_item.aspx.resx">
+      <DependentUpon>post_item.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="post_manager.aspx.resx">
+      <DependentUpon>post_manager.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="preview_post.aspx.resx">
+      <DependentUpon>preview_post.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="register_finish.aspx.resx">
+      <DependentUpon>register_finish.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="register_user.aspx.resx">
+      <DependentUpon>register_user.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="help\boardhelp.aspx" />
+    <Content Include="help\board_help.aspx" />
+    <Content Include="help\help.aspx" />
+    <Content Include="help\tail_help.aspx" />
+    <Content Include="maintenance.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="forget_pass.aspx">
+      <SubType>Form</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bidder\BidDetails.aspx" />
+    <Content Include="Bidder\PostBid.aspx" />
+    <Content Include="Bidder\BidResults.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Bidder\Blog\Blog.aspx" />
+    <Content Include="Bidder\Blog\BlogEdit.aspx" />
+    <Content Include="Bidder\Blog\BlogItem.aspx" />
+    <Content Include="Bidder\Blog\BlogPreview.aspx" />
+    <Content Include="Bidder\Blog\BlogFinish.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Bidder\Blog\BlogResults.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Bidder\Blog\BlogDetails.aspx" />
+    <Content Include="images\NextOff.gif" />
+    <Content Include="images\PymtsBy_150x40.gif" />
+    <Content Include="images\target_white.gif" />
+    <Content Include="include\Header2.aspx" />
+    <Content Include="include\js\countdown.js" />
+    <Content Include="include\js\dropdown.js" />
+    <Content Include="item_details.aspx" />
+    <Content Include="Labs\MenuTest.aspx" />
+    <Content Include="Labs\Moo.aspx" />
+    <Content Include="Labs\MooTipsTest.htm" />
+    <Content Include="Labs\SearchItems.aspx" />
+    <Content Include="Pay\Confirmation.aspx" />
+    <Content Include="Pay\OrderForm.aspx" />
+    <Content Include="Pay\PPIPNConf.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Qna\List.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Qna\PostQ.aspx" />
+    <Content Include="Qna\FinishQ.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Qna\PreviewQ.aspx" />
+    <Content Include="style\dropdown.css" />
+    <Content Include="style\popup.css" />
+    <Content Include="SubscriptionManager.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Errors\ErrHandler.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="help\HowWeWork.aspx" />
+    <Content Include="include\footer.aspx" />
+    <Content Include="include\js\bh.js" />
+    <Content Include="include\js\emenu.js" />
+    <Content Include="include\Header.aspx" />
+    <Content Include="showcase\showcase.aspx" />
+    <Content Include="showcase\showcase_item.aspx" />
+    <Content Include="showcase\showcase_preview.aspx" />
+    <Content Include="style\hover.css" />
+    <Content Include="style\tips.css" />
+    <Content Include="Upgrade.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\BlogManager.aspx" />
+    <Content Include="Admin\ContactAllUsers.aspx" />
+    <Content Include="Admin\ElJefe.aspx" />
+    <Content Include="Admin\FavMaster.aspx" />
+    <Content Include="Admin\PostMaster.aspx" />
+    <Content Include="Admin\Reports.aspx" />
+    <Content Include="Admin\UserProfileManager.aspx" />
+    <Content Include="include\Boardhelp.aspx" />
+    <Content Include="include\js\jquery.cluetip.js" />
+    <Content Include="Labs\Video.htm" />
+    <Content Include="Matrix.aspx" />
+    <Content Include="Close.htm" />
+    <Content Include="include\Controls\Shapers.ascx" />
+    <Content Include="include\js\superfish.js" />
+    <Content Include="Labs\example.htm" />
+    <Content Include="Matrix\index.html" />
+    <Content Include="qp\Coupons.aspx" />
+    <Content Include="qp\Settings.aspx" />
+    <Content Include="qp\Manager.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="qp\Post.aspx" />
+    <Content Include="qp\Preview.aspx" />
+    <Content Include="Shaperhouse\index.html" />
+    <Content Include="Shaper\ModelDetails.aspx" />
+    <Content Include="Shaper\ShaperHouse.aspx" />
+    <Content Include="Shaper\ShaperHouseBeta.aspx" />
+    <Content Include="Shaper\ShaperHouseMore.aspx" />
+    <Content Include="Shaper\ShaperVideos.aspx" />
+    <Content Include="Shaper\SurfboardShaper.aspx" />
+    <Content Include="include\ads\tileAd.htm" />
+    <Content Include="include\Comments.aspx" />
+    <Content Include="include\Controls\Boost.ascx" />
+    <Content Include="include\ads\LeaderAd.htm" />
+    <Content Include="include\ads\SkyScraperAd.htm" />
+    <Content Include="include\Controls\LBlogs.ascx" />
+    <Content Include="include\Controls\LBoards.ascx" />
+    <Content Include="include\Controls\LComment.ascx" />
+    <Content Include="include\Controls\LQuestions.ascx" />
+    <Content Include="include\HeaderIdx.aspx" />
+    <Content Include="include\js\addthis.js" />
+    <Content Include="include\js\googles.js" />
+    <Content Include="index2.aspx" />
+    <Content Include="Labs\BoardMatcher.aspx" />
+    <Content Include="Labs\Close.aspx" />
+    <Content Include="Labs\CloseWindow.aspx" />
+    <Content Include="Labs\DudiersTest.aspx" />
+    <Content Include="Labs\Latest.aspx" />
+    <Content Include="Labs\StyleTest.aspx" />
+    <Content Include="Qna\QDetails.aspx" />
+    <Content Include="search_results.aspx" />
+    <Content Include="showcase\ShowcaseDetails.aspx" />
+    <Content Include="showcase\ShowcaseResults.aspx" />
+    <Content Include="style\jquery.cluetip.css" />
+    <Content Include="style\superfish.css" />
+    <Content Include="Templates\dbManager.txt" />
+    <Content Include="Templates\Notes.txt" />
+    <Content Include="UserMenu.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="Qna\QManager.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="wsBH\BHService.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="images\images\" />
+    <Folder Include="images\surfboards\" />
+    <Folder Include="Properties\" />
+    <Folder Include="style\old\" />
+    <Folder Include="TempAddImages\" />
+    <Folder Include="users\" />
+    <Folder Include="Xml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="font\Helvetica LT Condensed Light.ttf" />
+    <None Include="scripts\uploader.fla" />
+    <Content Include="UploadCS.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6524</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

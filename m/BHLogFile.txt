@@ -1,0 +1,30 @@
+Trace:    :strSQL: SELECT bt.iValue, * FROM tblEntry e INNER JOIN tblUser u
+                                        ON e.iUser = u.id
+                                        AND e.iUser IN (SELECT DISTINCT id FROM tblUser WHERE adtype < 3) INNER JOIN LK_BoardType bt
+                            ON bt.iD = e.iBoardType WHERE  e.Location = 'All' AND e.iCategory = '1' AND e.adType < 3  AND e.iStatus = 1  ORDER BY e.dCreateDate DESC
+Date		: 7/20/2012 Time: 14:54:09.3864000
+^^-------------------------------------------------------------------^^
+Trace:    :SFS:ItemGet():Error Msg: Conversion failed when converting the varchar value 'All' to data type int.
+Date		: 7/20/2012 Time: 14:54:09.3864000
+^^-------------------------------------------------------------------^^
+Trace:    :Error: SELECT bt.iValue, * FROM tblEntry e INNER JOIN tblUser u
+                                        ON e.iUser = u.id
+                                        AND e.iUser IN (SELECT DISTINCT id FROM tblUser WHERE adtype < 3) INNER JOIN LK_BoardType bt
+                            ON bt.iD = e.iBoardType WHERE  e.Location = 'All' AND e.iCategory = '1' AND e.adType < 3  AND e.iStatus = 1  ORDER BY e.dCreateDate DESC
+Date		: 7/20/2012 Time: 14:54:09.3864000
+^^-------------------------------------------------------------------^^
+Trace:    :strSQL: SELECT bt.iValue, * FROM tblEntry e INNER JOIN tblUser u
+                                        ON e.iUser = u.id
+                                        AND e.iUser IN (SELECT DISTINCT id FROM tblUser WHERE adtype < 3) INNER JOIN LK_BoardType bt
+                            ON bt.iD = e.iBoardType WHERE  e.Location = 'All' AND e.iCategory = '1' AND e.adType < 3  AND e.iStatus = 1  ORDER BY e.dCreateDate DESC
+Date		: 7/20/2012 Time: 14:54:16.6404000
+^^-------------------------------------------------------------------^^
+Trace:    :SFS:ItemGet():Error Msg: Conversion failed when converting the varchar value 'All' to data type int.
+Date		: 7/20/2012 Time: 14:54:16.6404000
+^^-------------------------------------------------------------------^^
+Trace:    :Error: SELECT bt.iValue, * FROM tblEntry e INNER JOIN tblUser u
+                                        ON e.iUser = u.id
+                                        AND e.iUser IN (SELECT DISTINCT id FROM tblUser WHERE adtype < 3) INNER JOIN LK_BoardType bt
+                            ON bt.iD = e.iBoardType WHERE  e.Location = 'All' AND e.iCategory = '1' AND e.adType < 3  AND e.iStatus = 1  ORDER BY e.dCreateDate DESC
+Date		: 7/20/2012 Time: 14:54:16.6404000
+^^-------------------------------------------------------------------^^

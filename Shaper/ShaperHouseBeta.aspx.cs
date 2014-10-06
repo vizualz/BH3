@@ -1,0 +1,82 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+namespace BoardHunt.Shaper
+{
+    public partial class ShaperHouseBeta : System.Web.UI.Page
+    {
+        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        protected System.Web.UI.WebControls.LinkButton lnkPost;
+
+        override protected void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            //this.lnkLoginFirst.Click += new System.EventHandler(this.lnkLoginFirst_Click);
+            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
+            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
+            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+        }
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Put user code to initialize the page here
+            lnkSignIn.Text = Global.SetLnkSignIn();
+            lnkSignUp.Text = Global.SetLnkSignUp();
+
+            LoadControls();
+        }
+
+        private void LoadControls()
+        {
+            pnlLoggedIn.Visible = false;
+            pnlLoggedOut.Visible = false;
+
+            if (Session["LoggedIn"].ToString() == "Yes")
+                pnlLoggedIn.Visible = false;
+            else
+                pnlLoggedOut.Visible = false;
+        }
+
+        private void lnkSignIn_Click(object sender, System.EventArgs e)
+        {
+            Global.NavigatePage(lnkSignIn.Text);
+        }
+
+        private void lnkSignUp_Click(object sender, System.EventArgs e)
+        {
+            Global.NavigatePage(lnkSignUp.Text);
+        }
+
+        private void lnkPost_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("../post.aspx", false);
+        }
+
+        protected void imgBtnBuy_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["ServiceId"] = "3";
+            Response.Redirect("../Pay/OrderForm.aspx", false);
+        }
+    }
+}

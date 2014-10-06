@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face{
+font-family:Helvetica LT Condensed Light;
+src: url('../font/Helvetica LT Condensed Light.ttf');
+}
+
+.slct_box{
+
+height:auto;
+float:left;
+
+
+}
+.cls{
+	font-size:1px;
+	clear:both;
+}
+.btn_left{
+	float:left;
+
+	
+	}
+.btn_left a{
+	float:left;
+	margin:0 4px;
+	background-image:url(../images/left-1.jpg);
+	width:17px;
+	height:17px;
+	background-repeat:no-repeat;
+	
+	}	
+.btn_left a:hover{
+	background-image:url(../images/right-1.jpg);
+	width:17px;
+	height:17px;
+	background-repeat:no-repeat;
+}	
+
+.btn_left_blue{
+	float:left;
+
+	
+	}
+.btn_left_blue a{
+	float:left;
+	margin:0 4px;
+	background-image:url(../images/right-grey.jpg);
+	width:17px;
+	height:17px;
+	background-repeat:no-repeat;
+	
+	}	
+.btn_left_blue a:hover{
+	background-image:url(../images/right.jpg);
+	width:17px;
+	height:17px;
+	background-repeat:no-repeat;
+}	
+
+
+	
+.info_txt{
+border: medium none;
+float: left;
+font-family: Helvetica LT Condensed Light;
+font-size: 14px;
+margin-left: 5px;
+margin-right: 4px;
+text-transform: uppercase;
+	
+	
+	}
+.option_box{
+background-image: url("../images/slect.jpg");
+background-repeat: no-repeat;
+border: medium none;
+float: left;
+font-size: 10px;
+height: 17px;
+margin: 0 5px;
+padding: 0 2px;
+width: 26px;
+}		
+	

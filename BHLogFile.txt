@@ -1,0 +1,4 @@
+Trace:    :strSQL: SELECT t.iThumbsup, t.iThumbsdown, tblUser.txtFirstName, tblUser.txtEmail, tblUser.txtPhonenum, tblUser.userDir, tblUser.iShowPhoneNum, tblUser.notify_comment_flg, tblEntry.*
+                ,(SELECT top 1 id from tblEntry where id > 1297 AND iCategory=1 and iStatus=1 ORDER BY id ASC) AS nextID, (SELECT top 1 id from tblEntry where id < 1297 AND iCategory=1 and iStatus=1 ORDER BY id DESC) AS prevID, (SELECT count(*) from tblNudge WHERE iItem = 1297) AS numNudges  FROM tblUser INNER JOIN tblEntry ON tblUser.Id = tblEntry.iUser  LEFT JOIN tblVote t ON t.iEntry = tblEntry.iD  WHERE tblEntry.iD = '1297'
+Date		: 6/12/2013 Time: 22:38:56.6907427
+^^-------------------------------------------------------------------^^

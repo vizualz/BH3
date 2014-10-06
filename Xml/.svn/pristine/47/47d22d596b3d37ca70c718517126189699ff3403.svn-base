@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<services>
+  <service id="1">
+    <name>Boost</name>
+    <pageTitle>Boost is good</pageTitle>
+    <description>
+    Boost your board
+    </description>
+  </service>
+  <service id="2">
+    <name>Bidder</name>
+    <description>
+
+    </description>
+  </service>
+  <service id="3">
+    <name>ShaperHouse</name>
+    <pageTitle></pageTitle>
+    <description>
+
+    </description>
+  </service>
+  <service id="4">
+    <name>Coupon</name>
+    <pageTitle></pageTitle>
+    <itemTitle></itemTitle>
+    <description>
+
+    </description>
+  </service>
+  
+  <service id="5">
+    <name>Surfboard Voucher</name>
+    <pageTitle>Pay $25 for a $75 Voucher towards a New Custom Surfboard</pageTitle>
+    <itemTitle>$75 Surfboard Voucher with:</itemTitle>
+    <description>
+      <![CDATA[ <br>]]>
+    </description>
+    <cancelMsg>
+      Your voucher purchase was cancelled.
+      <![CDATA[ <br><br>]]>
+      Visit ShaperHouse again when you're ready to buy your custom built board.
+    </cancelMsg>
+    <emailSubject>Your Surfboard Voucher</emailSubject>
+    <emailBodyAny>
+      Thanks for buying a Boardhunt Surfboard Voucher.  This is the first step in getting your new custom board!
+      <![CDATA[ <br><br>]]>
+      This voucher redeemable for a
+      $75 discount off a custom built surfboard from the shaper you have selected.  If you still haven't selected a shaper, you may choose from any of the participating listed in the voucher program on Shaperhouse.com.
+      <![CDATA[ <br><br>]]>
+      Now that you have your voucher, you'll need to contact them directly, give them your BVP verification code, and you can then begin designing your custom board.
+      <![CDATA[ <br><br>]]>
+      The shaper MUST be an active participant in our Boardhunt Voucher Program (BVP) denoted by the green shield.
+      <![CDATA[ <br><br>]]>
+      Call us at 1-888-292-6993 if you have any questions.
+  </emailBodyAny>
+    <emailBodySpecific>
+      Thanks for buying a Boardhunt Surfboard Voucher.
+      <![CDATA[ <br><br>]]>
+      This entitles you to a
+      $75 discount off a custom build surfboard from any shaper participating in the Boardhunt Voucher Program (BVP).
+      <![CDATA[ <br><br>]]>
+      Listed below are contact details and the BVP verification code which you will need to give to your shaper.  Call them at your next chance to begin.  Enjoy your ride!
+      <![CDATA[ <br><br>]]>
+      Call us at 1-888-292-6993 if you have any questions.
+      <![CDATA[ <br><br>]]>
+    </emailBodySpecific>    
+  </service>
+  <service id="6">
+    <name>Boardhunt Pro Membership</name>
+    <pageTitle>Upgrade to PRO to get all the features.</pageTitle>
+    <itemTitle>BH Pro Membership</itemTitle>
+    <duration>
+      <months>12</months>
+    </duration>
+    <description>
+      <![CDATA[ <br>]]>
+      Nudge Sellers
+      <![CDATA[ <br>]]>      
+      Unlimited Postings
+      <![CDATA[ <br>]]>
+      Advanced Search Filters
+    </description>
+    <cancelMsg>
+      Your membership purchase was cancelled.
+      <![CDATA[ <br><br>]]>
+      Upgrade your account anytime after you login to get all the added features.
+    </cancelMsg>
+    <emailSubject>Boardhunt Pro Membership - 1 Year</emailSubject>
+    <emailBodyAny>
+      Thanks for buying a Boardhunt Pro Membership.  It's good for 1 entire year!
+      <![CDATA[ <br><br>]]>
+      Unlimited postings
+      <![CDATA[ <br>]]>
+      Unlimited Boosts
+      <![CDATA[ <br>]]>
+      Advanced Search filters 
+      <![CDATA[ <br><br>]]>
+      Call us at 1-888-292-6993 if you have any questions.
+    </emailBodyAny>
+    <confThanks>You're now a PRO Memeber on Boardhunt!</confThanks>
+    <confDetails>You have access to premium features for 1 year.</confDetails>
+  </service>
+  <service id="7">
+    <name>Boardhunt Pro Membership - 3 Mos</name>
+    <pageTitle>Upgrade to PRO to get all the features.</pageTitle>
+    <itemTitle>BH Pro Membership</itemTitle>
+    <duration>
+      <months>3</months>
+    </duration>
+    <description>
+      <![CDATA[ <br>]]>
+      Nudge Sellers
+      <![CDATA[ <br>]]>
+      Unlimited Postings
+      <![CDATA[ <br>]]>
+      Advanced Search Filters
+    </description>
+    <cancelMsg>
+      Your membership purchase was cancelled.
+      <![CDATA[ <br><br>]]>
+      Upgrade your account anytime after you login to get all the added features.
+    </cancelMsg>
+    <emailSubject>Boardhunt Pro Membership</emailSubject>
+    <emailBodyAny>
+      Thanks for buying a Boardhunt Pro Membership.  It's good for 1 entire year!
+      <![CDATA[ <br><br>]]>
+      Unlimited postings
+      <![CDATA[ <br>]]>
+      Unlimited Boosts
+      <![CDATA[ <br>]]>
+      Advanced Search filters
+      <![CDATA[ <br><br>]]>
+      Call us at 1-888-292-6993 if you have any questions.
+    </emailBodyAny>
+    <confThanks>You're now a PRO Memeber on Boardhunt!</confThanks>
+    <confDetails>You have access to premium features for 3 months.</confDetails>
+  </service>  
+</services>
+
+<!--<purchaseOrder orderDate="1999-10-20">
+  <shipTo country="US">
+    <name>Alice Smith</name>
+    <street>123 Maple Street</street>
+    <city>Mill Valley</city>
+    <state>CA</state>
+    <zip>90952</zip>
+  </shipTo>
+  <billTo country="US">
+    <name>Robert Smith</name>
+    <street>8 Oak Avenue</street>
+    <city>Old Town</city>
+    <state>PA</state>
+    <zip>95819</zip>
+  </billTo>
+  <comment>Hurry, my lawn is going wild!</comment>
+  <items>
+    <item partNum="872-AA">
+      <productName>Lawnmower</productName>
+      <quantity>1</quantity>
+      <USPrice>148.95</USPrice>
+      <comment>Confirm this is electric</comment>
+    </item>
+    <item partNum="926-AA">
+      <productName>Baby Monitor</productName>
+      <quantity>1</quantity>
+      <USPrice>39.98</USPrice>
+      <shipDate>1999-05-21</shipDate>
+    </item>
+  </items>
+</purchaseOrder>-->
