@@ -9,8 +9,38 @@
 // ------------------------------------------------------------------------------
 
 namespace BoardHunt.qp {
-	
-	
+
+
 	public partial class Preview {
+
+		protected System.Web.UI.HtmlControls.HtmlForm Form1;
+
+		protected System.Web.UI.WebControls.Panel pnlError;
+
+		protected System.Web.UI.WebControls.Panel pnlDetails;
+
+		protected System.Web.UI.WebControls.Label lblTitle;
+
+		protected System.Web.UI.WebControls.Image Pic1;
+
+		protected System.Web.UI.WebControls.Label lblDetailsData;
+
+		protected System.Web.UI.WebControls.Label lblDateData;
+
+		protected System.Web.UI.WebControls.Button btnEdit;
+
+		protected System.Web.UI.WebControls.Button btnSave;
+
+		protected System.Web.UI.WebControls.Button btnBuy;
+
+		protected System.Web.UI.WebControls.LinkButton lnkInfo;
+
+		protected System.Web.UI.WebControls.Label lblStatus;
+
+		protected System.Web.UI.WebControls.HiddenField hdnProcPics;
+
+		protected System.Web.UI.WebControls.HiddenField hdnUserDir;
+
+		protected System.Web.UI.WebControls.HiddenField hdnAdType;
 	}
 }

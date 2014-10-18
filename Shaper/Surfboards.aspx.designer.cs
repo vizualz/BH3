@@ -9,14 +9,106 @@
 // ------------------------------------------------------------------------------
 
 namespace BoardHunt.Shaper {
-	
-	
+
+
 	public partial class Surfboards {
-		
+
+		protected System.Web.UI.HtmlControls.HtmlForm Form1;
+
+		protected System.Web.UI.WebControls.Label lblNoResult;
+
+		protected BoardHunt.include.Controls.Shapers ShapersAll;
+
+		protected System.Web.UI.WebControls.Panel pnlFilter;
+
+		protected System.Web.UI.WebControls.Button btnSearch2;
+
+		protected System.Web.UI.WebControls.TextBox txtFilterKwd;
+
+		protected System.Web.UI.WebControls.DropDownList cboBoardType;
+
+		protected System.Web.UI.WebControls.DropDownList cboCondition;
+
+		protected System.Web.UI.WebControls.TextBox txtHtFt;
+
+		protected System.Web.UI.WebControls.TextBox txtHtIn;
+
+		protected System.Web.UI.WebControls.TextBox txtHtFtMax;
+
+		protected System.Web.UI.WebControls.TextBox txtHtInMax;
+
+		protected System.Web.UI.WebControls.DropDownList cboFins;
+
+		protected System.Web.UI.WebControls.DropDownList cboTailType;
+
+		protected System.Web.UI.WebControls.TextBox txtMinPrice;
+
+		protected System.Web.UI.WebControls.TextBox txtMaxPrice;
+
+		protected System.Web.UI.WebControls.DropDownList cboAdType;
+
+		protected System.Web.UI.WebControls.DropDownList cboLocation;
+
+		protected System.Web.UI.WebControls.DropDownList cboPostingType;
+
+		protected System.Web.UI.WebControls.Panel pnlFltSurf;
+
+		protected System.Web.UI.WebControls.Button btnSearch;
+
+		protected System.Web.UI.WebControls.Label lblFB;
+
+		protected System.Web.UI.WebControls.Label lblViews;
+
+		protected System.Web.UI.WebControls.Label lblLocation;
+
+		protected System.Web.UI.WebControls.ImageButton imgGoBack;
+
+		protected System.Web.UI.WebControls.HyperLink HypNavPrim;
+
+		protected System.Web.UI.WebControls.Label lblCat;
+
+		protected System.Web.UI.WebControls.Label lblCount;
+
+		protected System.Web.UI.WebControls.ImageButton topcmdPrev;
+
+		protected System.Web.UI.WebControls.TextBox toptxtCurrentPage;
+
+		protected System.Web.UI.WebControls.Label toplblcpage;
+
+		protected System.Web.UI.WebControls.ImageButton topcmdNext;
+
+		protected System.Web.UI.WebControls.DataList dlEntryList;
+
 		protected System.Web.UI.WebControls.ImageButton imgBtnModel;
-		
+
 		protected System.Web.UI.WebControls.LinkButton LinkButton3;
-		
+
 		protected System.Web.UI.WebControls.LinkButton lnkViewNow;
+
+		protected System.Web.UI.WebControls.ImageButton cmdPrev;
+
+		protected System.Web.UI.WebControls.TextBox txtCurrentPage;
+
+		protected System.Web.UI.WebControls.Label lblcpage;
+
+		protected System.Web.UI.WebControls.ImageButton cmdNext;
+
+		protected System.Web.UI.WebControls.HiddenField hdnBackColor;
+
+		protected System.Web.UI.WebControls.HiddenField hdnLocVal;
+
+		protected System.Web.UI.WebControls.HiddenField hdniCat;
+
+		protected System.Web.UI.WebControls.HiddenField hdnServer;
+
+		protected System.Web.UI.WebControls.HiddenField hdniBoardType;
+
+		protected System.Web.UI.WebControls.HiddenField hdnKeywords;
+
+		protected System.Web.UI.WebControls.HiddenField hdnUiD;
+
+		protected System.Web.UI.WebControls.HiddenField hdnUN;
+
+		protected System.Web.UI.WebControls.Label lblMessage;
 	}
 }

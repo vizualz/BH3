@@ -29,131 +29,34 @@ namespace BoardHunt.Qna {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFilter;
-        
-        /// <summary>
-        /// txtFilterKwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtFilterKwd;
-        
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// lblLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblLocation;
-        
-        /// <summary>
-        /// lblCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblCount;
-        
-        /// <summary>
-        /// lblNoResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblNoResult;
-        
-        /// <summary>
-        /// dlEntryList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.DataList dlEntryList;
-        
-        /// <summary>
-        /// cmdPrev control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton cmdPrev;
         
-        /// <summary>
-        /// lblCurrentPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+       
         protected global::System.Web.UI.WebControls.Label lblCurrentPage;
-        
-        /// <summary>
-        /// placeHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.PlaceHolder placeHolder;
-        
-        /// <summary>
-        /// cmdNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton cmdNext;
-        
-        /// <summary>
-        /// hdnBackColor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnBackColor;
-        
-        /// <summary>
-        /// hdnLocVal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnLocVal;
-        
-        /// <summary>
-        /// boost1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::BoardHunt.include.Controls.Boost boost1;
-        
-        /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

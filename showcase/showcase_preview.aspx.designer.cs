@@ -72,14 +72,7 @@ namespace BoardHunt.showcase {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Pic3;
-        
-        /// <summary>
-        /// Pic4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image Pic4;
         
         /// <summary>

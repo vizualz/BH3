@@ -9,8 +9,14 @@
 // ------------------------------------------------------------------------------
 
 namespace BoardHunt.Qna {
-	
-	
+
+
 	public partial class FinishQ {
+
+		protected System.Web.UI.HtmlControls.HtmlForm Form1;
+
+		protected System.Web.UI.WebControls.Label lblMessage;
+
+		protected System.Web.UI.WebControls.HyperLink lnkPostItem;
 	}
 }

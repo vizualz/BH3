@@ -40,7 +40,7 @@
                 <div style="width: 1000px; height: 600px">
                     <div class="midgrey16" style="float: left; width: 453px; margin-bottom: 30px; margin-top: 30px"
                         align="left">
-                        <img align="left" src="images/accounts.gif" />
+                        <img align="left" src="images/accounts.png" />
                         <br />
                     </div>
                     <div align="right" style="float: right; width: 400px; height: 500px">
@@ -249,23 +249,9 @@
                     </div>
                 </div>
                 <div style="float: left; margin-left: 60px; width: 905px" align="left" class="dkgrey14">
-                    <span class="midorange30b">Video: Why Go Pro?</span><br />
                     <br />
-                    <iframe width="802" height="541" frameborder="0" scrolling="no" src="http://www.screencast-o-matic.com/embed?sc=cXj0cK330&amp;w=800&amp;v=3"
-                        id="I1" name="I1"></iframe>
+                    <span class="midorange20b">Want to advertise on Boardhunt?<a href="/contact.aspx" class="ltgreen_orange20">&nbsp;&nbsp;Contact us</a> for details.</span>
                     <br />
-                    <br />
-                    <span class="midorange30b">Business Pricing:</span><br />
-                    <br />
-                    <span class="dkrgrey14">Shaperhouse:</span> Shapers must sign up to post models.
-                    Visit <a class="orange_orange14u" href="http://www.malzook.com/Shaper/ShaperHouseMore.aspx">
-                        here</a> for details.
-                    <br />
-                    <span class="dkrgrey14">Text Coupons:</span> One month for $25 or 3 months for $50.
-                    Contact us to get started.<br />
-                    <span class="dkrgrey14">Vouchers:</span> Contact us for details.
-                    <br />
-                    <span class="dkrgrey14">Banner Advertise on BH:</span> Contact us for details.
                     <br />
                     <br />
                     <span class="midorange30b">FAQ</span><br />

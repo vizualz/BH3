@@ -1,18 +1,6 @@
  
 <!-- Google ads: Leader -->
 
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
-    GA_googleAddSlot("ca-pub-0007702553564747", "Leader");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
-</script>
 
 <div style="text-align: center; margin:0px" >
     <div align="center" style="border:solid 0px #000000; text-align: left; margin-left: auto; margin-right: auto; width: 996px;">
@@ -22,7 +10,7 @@
                 <tr>
                     <td style="width:150px">
                         <a href="/index.aspx">
-                            <img src="http://www.malzook.com/images/BHLogo.gif" border="0" alt="Boardhunt Logo"/>&nbsp;&nbsp;&nbsp;</a></td>
+                            <img src="http://www.boardhunt.com/images/BHLogo.gif" border="0" alt="Boardhunt Logo"/>&nbsp;&nbsp;&nbsp;</a></td>
                     <td>
                         <!-- #include file="../include/ads/LeaderAd.htm" -->
                     </td>
@@ -43,21 +31,18 @@
     </div>
 
 <%--COLOR SPACER--%>                                                     
-    <div style="background-color:#444444; height:2px;"><img src="http://www.malzook.com/images/s1x1.gif" alt="spacer" /></div>
+    <div style="background-color:#444444; height:2px;"><img src="http://www.boardhunt.com/images/s1x1.gif" alt="spacer" /></div>
 
 <%--BEGIN NAV MENU--%>
         <div align="center" style="border-bottom:solid 2px #444444; background-color:#444444;">
         <div align="right" style="border:solid 0px red; background-color:#444444; width:996px; text-align: left; margin-left:0px; margin-right:0px; height:30px">
 		<ul class="sf-menu">
-			<li style="width:100px"> 
+			<li style="width:80px"> 
 				<a class="menu" href="/index.aspx">Home</a>
 			</li>
-			<li style="width:200px">
+			<li style="width:180px">
 				<a class="menu" href="/Surfboardsforsale.aspx?iCat=1">Used Surfboards</a>
 				<ul style="display:none">
-					<li>
-					<a href="/Surfboardsforsale.aspx?iCat=1">&nbsp;Surfboards ></a>
-					    <ul style="display:none">
 						<li><a href="/Surfboardsforsale.aspx?iCat=1&bt=1">&nbsp;Shortboard</a></li>
 						<li><a href="/Surfboardsforsale.aspx?iCat=1&bt=2">&nbsp;Longboard</a></li>
 						<li><a href="/Surfboardsforsale.aspx?iCat=1&bt=4">&nbsp;Modern/Retro Fish</a></li>
@@ -68,46 +53,32 @@
                         <li><a href="/Surfboardsforsale.aspx?iCat=1&bt=128">&nbsp;Pro Model</a></li>
 						<li style="border-bottom:solid 1px #444444"><a href="/Surfboardsforsale.aspx?iCat=1&bt=256">&nbsp;Vintage</a></li>						
 						</ul>
-					</li>
-					
-					<li>
-						<a href="/Surfboardsforsale.aspx?loc=all&iCat=3">&nbsp;Other</a>
-                            <ul style="display:none">
-					            <li>
-						            <a href="/Surfboardsforsale.aspx?loc=all&iCat=2">&nbsp;Snowboards</a>
-					            </li>
-                                <li style="border-bottom:solid 1px #444444">
-						            <a href="/Surfboardsforsale.aspx?loc=all&iCat=4">&nbsp;Accessories</a>
-					           </li>
-                           </ul>
-                    </li>				
-				</ul>
 			</li>
-			<li style="width:220px">
-		        <a class="menu" href="/Shaper/surfboards.aspx">New Surfboard Models</a>
+			<li style="width:180px">
+		        <a class="menu" href="/Shaper/surfboards.aspx">New Surfboards</a>
 					    <ul style="display:none">
 						<li><a href="/Shaper/ShaperHouse.aspx">&nbsp;ShaperHouse</a></li>
                         <li><a href="/Shaper/surfboards.aspx">&nbsp;Latest Models</a></li>
-                        <li><a href="/Shaper/ShaperVideos.aspx">&nbsp;Shaper Videos</a></li>
+                        <li style="border-bottom:solid 1px #444444"><a href="http://www.surfboardbrandshq.com/surfboard-brands/">&nbsp;Brand List</a></li>   
      					</ul>	        
 		    </li>
-            <li style="width:150px">
-		        <a class="menu" href="/qna/list.aspx?iCat=1');">Board Help</a>
+
+		    <li style="width:100px">
+		        <a class="menu" href="#">Media</a>
+					    <ul style="display:none">
+						<li><a href="http://www.boardhunt.tumblr.com">&nbsp;Blog</a></li>
+                        <li style="border-bottom:solid 1px #444444"><a href="/Shaper/ShaperVideos.aspx">&nbsp;Videos</a></li>
+		                    
+     					</ul>	        
+		    </li>               
+				
+			<li style="width:150px">
+		        <a class="menu" href="/qna/list.aspx?iCat=1');">Tools</a>
 					    <ul style="display:none">
 					    <li><a href="/qna/list.aspx?iCat=1">Ask-a-Pro</a></li>
-					    <li><a href="/Matrix.aspx">Board Matrix</a></li>
-					    <%--<li><a href="/Blog/BlogResults.aspx">Blog</a></li>
-						<li><a href="/qp/Coupons.aspx">Dealz</a></li>--%>						
-     					</ul>	        
-            <li style="width:80px">
-		        <a class="hunt" href="http://astore.amazon.com/boardhunt-20">Store</a>
-					    	        
-		    </li>
-	
-<%--			<li style="width:120px" class="menu">
-				<a class="menu" href="javascript:navTo('.com/showcase/ShowcaseResults.aspx');">Showcase</a>
-			</li>--%>							
-					    
+					    <li style="border-bottom:solid 1px #444444"><a href="/Matrix.aspx">Board Matrix</a></li>				
+     					</ul>	
+             </li>		    
 			<li style="width:80px; text-align:center; color:#ff9900;">
 				<a href="/Surfboardsforsale.aspx?loc=all&iCat=1" class="hunt">&nbsp;Hunt&nbsp;</a>
                     

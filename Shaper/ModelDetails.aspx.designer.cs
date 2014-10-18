@@ -174,77 +174,23 @@ namespace BoardHunt.Shaper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGenDims;
-        
-        /// <summary>
-        /// lblPriceData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblPriceData;
         
-        /// <summary>
-        /// imgBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton imgBuy;
         
-        /// <summary>
-        /// pnlShip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Panel pnlShip;
-        
-        /// <summary>
-        /// lblShip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblShip;
-        
-        /// <summary>
-        /// lblPhoneData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblPhoneData;
-        
-        /// <summary>
-        /// lnkEmailData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.LinkButton lnkEmailData;
-        
-        /// <summary>
-        /// lblDetailsData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+   
         protected global::System.Web.UI.WebControls.Label lblDetailsData;
-        
-        /// <summary>
-        /// btnMore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.LinkButton btnMore;
         
         /// <summary>
@@ -282,14 +228,7 @@ namespace BoardHunt.Shaper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlRatings;
-        
-        /// <summary>
-        /// imgGoBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton imgGoBack;
         
         /// <summary>
@@ -309,14 +248,7 @@ namespace BoardHunt.Shaper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFB;
-        
-        /// <summary>
-        /// imgAddFav control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton imgAddFav;
         
         /// <summary>
@@ -327,41 +259,13 @@ namespace BoardHunt.Shaper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblViews;
-        
-        /// <summary>
-        /// Pic2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image Pic2;
-        
-        /// <summary>
-        /// Pic3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image Pic3;
-        
-        /// <summary>
-        /// Pic4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image Pic4;
-        
-        /// <summary>
-        /// hdnPic1URL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnPic1URL;
         
         /// <summary>
@@ -372,32 +276,11 @@ namespace BoardHunt.Shaper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnPic2URL;
-        
-        /// <summary>
-        /// hdnPic3URL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnPic3URL;
-        
-        /// <summary>
-        /// hdnPic4URL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnPic4URL;
-        
-        /// <summary>
-        /// hdnEId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnEId;
         
         /// <summary>

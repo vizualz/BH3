@@ -9,8 +9,34 @@
 // ------------------------------------------------------------------------------
 
 namespace BoardHunt.Qna {
-	
-	
+
+
 	public partial class PreviewQ {
+
+		protected System.Web.UI.HtmlControls.HtmlForm Form1;
+
+		protected System.Web.UI.WebControls.Panel pnlError;
+
+		protected System.Web.UI.WebControls.Panel pnlDetails;
+
+		protected System.Web.UI.WebControls.Label lblQuestion;
+
+		protected System.Web.UI.WebControls.Label lblDetailsData;
+
+		protected System.Web.UI.WebControls.Label lblDateData;
+
+		protected System.Web.UI.WebControls.LinkButton lnkEmailData;
+
+		protected System.Web.UI.WebControls.Label lblTags;
+
+		protected System.Web.UI.WebControls.Label lblStatus;
+
+		protected System.Web.UI.WebControls.ImageButton imgGoBack;
+
+		protected System.Web.UI.WebControls.ImageButton imgContinue;
+
+		protected System.Web.UI.WebControls.HiddenField hdnProcPics;
+
+		protected System.Web.UI.WebControls.HiddenField hdnUserDir;
 	}
 }

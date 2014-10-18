@@ -11,113 +11,33 @@ namespace BoardHunt {
     
     
     public partial class post_manager {
-        
-        /// <summary>
-        /// Form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
-        
-        /// <summary>
-        /// lnkMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HyperLink lnkMenu;
-        
-        /// <summary>
-        /// lblCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+ 
         protected global::System.Web.UI.WebControls.Label lblCount;
         
-        /// <summary>
-        /// lblNoResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblNoResult;
-        
-        /// <summary>
-        /// dlEntryList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.DataList dlEntryList;
         
-        /// <summary>
-        /// cmdPrev control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.ImageButton cmdPrev;
-        
-        /// <summary>
-        /// lblCurrentPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+  
         protected global::System.Web.UI.WebControls.Label lblCurrentPage;
         
-        /// <summary>
-        /// cmdNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+  
         protected global::System.Web.UI.WebControls.ImageButton cmdNext;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+ 
         protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
-        /// hdnAdType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.HiddenField hdnAdType;
         
-        /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

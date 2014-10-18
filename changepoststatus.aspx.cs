@@ -12,7 +12,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
-using System.Security.Cryptography;
 using System.Text;
 using DALLayer;
 using System.Security.Cryptography;

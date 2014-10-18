@@ -12,5 +12,8 @@ namespace BoardHunt.help {
 	
 	
 	public partial class help {
+		protected System.Web.UI.HtmlControls.HtmlForm form1;
+
+		protected System.Web.UI.WebControls.Image imgHelp;
 	}
 }

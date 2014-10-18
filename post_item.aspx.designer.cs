@@ -597,31 +597,11 @@ namespace BoardHunt {
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputFile File1;
         
-        /// <summary>
-        /// File2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.HtmlControls.HtmlInputFile File2;
-        
-        /// <summary>
-        /// img3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image img3;
-        
-        /// <summary>
-        /// rdoImgMgr3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.RadioButtonList rdoImgMgr3;
         
         /// <summary>
@@ -641,14 +621,7 @@ namespace BoardHunt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rdoImgMgr4;
-        
-        /// <summary>
-        /// File3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.HtmlControls.HtmlInputFile File3;
         
         /// <summary>

@@ -28,13 +28,14 @@ namespace BoardHunt.Errors
 	/// </summary>
     public partial class ErrHandler : System.Web.UI.Page
 	{
-        //protected System.Web.UI.WebControls.Panel pnlHeader;
+        protected System.Web.UI.WebControls.Panel pnlHeader;
 		protected System.Web.UI.WebControls.ImageButton ImageButton1;
 		protected System.Web.UI.WebControls.ImageButton ImageButton2;
         protected System.Web.UI.WebControls.LinkButton lnkSignIn;
         protected System.Web.UI.WebControls.LinkButton lnkSignUp;
         protected System.Web.UI.WebControls.LinkButton lnkPost;
-        //protected System.Web.UI.WebControls.Label lblMessage;
+        protected System.Web.UI.WebControls.Label lblMessage;
+		protected System.Web.UI.WebControls.Label lblMessage2;
 
         #region Web Form Designer generated code
         override protected void OnInit(EventArgs e)

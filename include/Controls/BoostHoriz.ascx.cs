@@ -10,7 +10,6 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using DALLayer;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Collections.Generic;
 
 namespace BoardHunt.include.Controls

@@ -9,8 +9,30 @@
 // ------------------------------------------------------------------------------
 
 namespace BoardHunt.Qna {
-	
-	
+
+
 	public partial class PostQ {
+
+		protected System.Web.UI.HtmlControls.HtmlForm Form1;
+
+		protected System.Web.UI.WebControls.HyperLink lnkSell;
+
+		protected System.Web.UI.WebControls.Label lblTxtCount;
+
+		protected System.Web.UI.WebControls.TextBox txtQuestion;
+
+		protected System.Web.UI.WebControls.TextBox txtTags;
+
+		protected System.Web.UI.WebControls.CheckBox chkNotify;
+
+		protected System.Web.UI.WebControls.ImageButton imgNext;
+
+		protected System.Web.UI.WebControls.HiddenField hdnEditNew;
+
+		protected System.Web.UI.WebControls.HiddenField hdnQId;
+
+		protected System.Web.UI.WebControls.HiddenField hdnUId;
+
+		protected System.Web.UI.WebControls.Label lblMessage;
 	}
 }

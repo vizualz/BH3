@@ -288,7 +288,7 @@ div#preloaded-images {
 .white10b{font-family: Trebuchet MS; font-size: 10px; color:#FFFFFF; font-weight: bold; }
 .white12{font-family: Trebuchet MS; font-size: 12px; color:#FFFFFF; }
 .white12b{font-family: Trebuchet MS; font-size: 12px; color:#FFFFFF; font-weight: bold; }
-.white14{font-family: Trebuchet MS; font-size: 14px; color:#FFFFFF;}
+.white14{font-family: Trebuchet MS; font-size: 14px; color:#FFFFFF; }
 .white14b{font-family: Trebuchet MS; font-size: 14px; color:#FFFFFF; font-weight: bold; }
 .white16{font-family: Trebuchet MS; font-size: 16px; color:#FFFFFF; }
 .white16b{font-family: Trebuchet MS; font-size: 16px; color:#FFFFFF; font-weight: bold; }
@@ -638,7 +638,7 @@ a.grey_grey22:hover{font-family: verdana; font-size:22px; color:#666666; font-we
 /*end new*/
 
 
-a{color:#b31b3b; text-decoration: none; font-size:12px; font-family: Trebuchet MS; font-weight:bold}
+a{color:#666666; text-decoration: none; font-size:12px; font-family: Trebuchet MS; font-weight:bold}
 a:hover{color: #FF9900; text-decoration: none;  font-size:12px; font-family: Trebuchet MS; font-weight:bold}
 
 a.email{font-family:verdana; font-size:10px; color:#666666; text-decoration:underline;}
@@ -1095,4 +1095,3 @@ height:auto;
   {margin-left:15px !important;
       
       }  
-    
