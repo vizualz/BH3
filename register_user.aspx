@@ -133,7 +133,7 @@
                                     </td>
                                     <td class="midgrey16b" align="left" valign="middle">
 
-                                        <asp:TextBox ID="txtPhoneNum" runat="server" CssClass="defaultText defaultTextActive" MaxLength="8" Width="250" title="optional"></asp:TextBox>
+                                        <asp:TextBox ID="txtPhoneNum" runat="server" CssClass="defaultText defaultTextActive" MaxLength="20" Width="250" title="optional"></asp:TextBox>
 <%--                                        <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="!" OnServerValidate="CheckPhoneNum"
                                             CssClass="error"></asp:CustomValidator>
                                         &nbsp;<span class="midorange12">(optional)&nbsp;&nbsp;</span>--%>
