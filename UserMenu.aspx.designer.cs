@@ -21,11 +21,15 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.ImageButton imgBtnAcct;
 		
+		protected System.Web.UI.WebControls.Button btnEditProfile;
+		
 		protected System.Web.UI.WebControls.Button btnUpgradePro;
 		
-		protected System.Web.UI.WebControls.LinkButton lnkEditProfile;
-		
 		protected System.Web.UI.WebControls.LinkButton lnkFav;
+		
+		protected System.Web.UI.WebControls.Label lblBoardPostCnt;
+		
+		protected System.Web.UI.WebControls.Label lblNudgeCnt;
 		
 		protected System.Web.UI.WebControls.Panel pnlShaper;
 		
@@ -94,5 +98,7 @@ namespace BoardHunt {
 		protected System.Web.UI.WebControls.HiddenField hdnMT;
 		
 		protected System.Web.UI.WebControls.HiddenField hdnShaperAcctValid;
+		
+		protected System.Web.UI.WebControls.HiddenField hdnIsPro;
 	}
 }
