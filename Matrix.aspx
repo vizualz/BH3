@@ -346,7 +346,7 @@ GA_googleFetchAds();
                                         <td colspan="2">
                                             &nbsp;</td>
                                         <td align="left">
-                                            <asp:Button ID="btnSearch" Text="Submit" runat="server" CssClass="midgreen24b" Width="130px"
+                                            <asp:Button ID="btnSearch" Text="Go" runat="server" CssClass="midgreen24b" Width="130px"
                                                 OnClick="btnSearch_Click" />&nbsp;&nbsp; <a href="javascript:resetFilter()" class="dkgrey_orange12">
                                                     clear</a>
                                         </td>

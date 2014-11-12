@@ -639,6 +639,7 @@
             <asp:HiddenField ID="hdnStatus" runat="server" />
             <asp:HiddenField ID="hdnMsg" Value="" runat="server" />
             <asp:HiddenField ID="hdnAcctStatus" Value="" runat="server" />
+            <asp:HiddenField ID="hdnNudgeCnt" Value="" runat="server" />
             <div id="push">
             </div>
         </form>

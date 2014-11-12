@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Configuration;
-using System.Configuration;
-using System.Configuration;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -25,7 +23,9 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.LinkButton lnkSignIn;
 		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
 		protected System.Web.UI.WebControls.LinkButton lnkPost;
-        protected const int FREE_BOARD_COUNT = 10;
+		protected const int FREE_BOARD_COUNT = 5;
+		protected const string NUDGE_UPGRADE = @"Time to Upgrade | You're out of Nudges. Upgrade your account now.";
+		protected const string POST_UPGRADE = @"Time to Upgrade | You're out of Posts. Upgrade your account now.";
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
@@ -38,9 +38,9 @@ namespace BoardHunt
                 lnkSignIn.Text = Global.SetLnkSignIn();
                 lnkSignUp.Text = Global.SetLnkSignUp();
 
+				CheckForPro();
                 BindData();
-                CheckForPro();
-                ShowLinks();
+				//ShowLinks();
 
                 if (hdnACT.Value == Global.ACCT_BIZ)
                 {
@@ -81,7 +81,6 @@ namespace BoardHunt
             this.lnkAddNewModel.Click += new System.EventHandler(this.lnkAddNewModel_Click);
             this.lnkEditModel.Click += new System.EventHandler(this.lnkEditModel_Click);
             this.lnkFav.Click += new System.EventHandler(this.lnkFav_Click);
-            this.lnkEditProfile.Click += new System.EventHandler(this.lnkEditProfile_Click);
             this.lnkSellGear.Click += new System.EventHandler(this.lnkSellGear_Click);
             this.lnkEditGear.Click += new System.EventHandler(this.lnkEditGear_Click);
             this.lnkAskEdit.Click += new System.EventHandler(this.lnkAskEdit_Click);
@@ -93,10 +92,6 @@ namespace BoardHunt
             this.lnkBuyQP.Click += new System.EventHandler(this.lnkBuyQP_Click);
             this.lnkManageQP.Click += new System.EventHandler(this.lnkManageQP_Click);
             this.lnkSettings.Click += new System.EventHandler(this.lnkSettings_Click);
-            
-
-            //TODO:
-            //this.imgBidder.Click += new System.Web.UI.ImageClickEventHandler(this.imgBidder_Click);
 
 		}
 		#endregion
@@ -149,18 +144,63 @@ namespace BoardHunt
 
         protected void CheckForPro()
         {
-                //check for pro and.. 
-                BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
-                string i = oWS.isPro(Convert.ToInt32(Session["userId"].ToString())).ToString();
+			string iUID = Session["userId"].ToString();
+			string i;
+			int iBoardCnt = -1;
+			int iNudgeCount = -1;
+			const string bStr = @"Surfboard";
+
+            //check for pro and..
+			BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
+			i = oWS.isPro(Convert.ToInt32(iUID)).ToString();
+			iNudgeCount = oWS.GetNudgeCountForMonth (Convert.ToInt32(iUID));
+
+			hdnIsPro.Value = i;
+
 
                 //set style accordingly
-                if (i == "1")
-                    btnUpgradePro.Visible = false;
-                else
-                    btnUpgradePro.Visible = true;
-        }
+			if (i == "1") {
+				btnUpgradePro.Visible = false;
+				lblNudgeCnt.Text = iNudgeCount.ToString() + "&nbsp;Nudges";
+				iBoardCnt = oWS.GetActiveBoardCount (Convert.ToInt32 (iUID), 0, 1);
+				if (iBoardCnt  == 1)
+					lblBoardPostCnt.Text = iBoardCnt + "&nbsp;" + bStr +  "&nbsp;posted";
+				else
+					lblBoardPostCnt.Text = iBoardCnt + "&nbsp;" + bStr +  "s posted";
+			}
+			else
+			{
+				//get remaining monthly nudges
 
-        protected bool hasCoupons()
+				if (iNudgeCount == 4)
+					lblNudgeCnt.Text = (5 - iNudgeCount) .ToString() + "&nbsp;Nudge remaining";
+				else
+					lblNudgeCnt.Text = (5 - iNudgeCount) .ToString() + "&nbsp;Nudges remaining";
+
+				btnUpgradePro.Visible = true;
+				iBoardCnt = oWS.GetActiveBoardCount (Convert.ToInt32 (iUID),1, 0);
+				if (iBoardCnt  == 1)
+					lblBoardPostCnt.Text = iBoardCnt + "&nbsp;" + bStr +  "&nbsp;posted";
+				else
+					lblBoardPostCnt.Text = iBoardCnt + "&nbsp;" + bStr +  "s posted";
+
+				if (iBoardCnt > 4)
+				{
+					//string js = "$.jGrowl.defaults.position = 'center-middle';$.jGrowl('" + NUDGE_UPGRADE + "',{sticky: true});return false;";
+					//js = "return false;";
+					//lnkSellGear.OnClientClick = js;
+
+					lnkSellGear.Text = "&nbsp;UPGRADE";
+					lnkSellGear.CssClass = "Tips ltgreen_green18";
+					string strUpgradeMsg = POST_UPGRADE;
+					lnkSellGear.Attributes.Add("title", strUpgradeMsg);
+					lnkSellGear.CommandArgument = "1";
+
+				}
+        	}
+
+		}
+		protected bool hasCoupons()
         {
             string strSQL = string.Empty;
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
@@ -191,20 +231,24 @@ namespace BoardHunt
 
         protected void BindData()
         {
-            //TODO: need to break up into 2 parts: part1) get userdir / part 2 isPro?
+			//TODO: need to break up into 2 parts: part1) get userdir / part 2) isPro?
 
             string userDir = "";
             string strSQL = string.Empty;
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
 
             dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
-
+			/*
             strSQL = @"SELECT coalesce(s.iStatus, 0) as Pro, u.iD, u.profilePic, u.txtUserName, u.userDir, u.iAcctType, u.iStatus, u.iMerchantType, (SELECT iServiceVal FROM tblServices WHERE iServiceVal = 3 AND iUserId = " + Session["userId"].ToString() + ") as iService,";
             strSQL += @" (SELECT COUNT(*)FROM tblEntry WHERE iCategory = 1 AND iUser= '" + Session["userId"].ToString() + "' AND iStatus=1 ) as boardCnt";
-            //strSQL += @" (SELECT iStatus FROM tblServices WHERE iServiceVal = 6 AND iUserId = '" + Session["userId"].ToString() + "') as Pro ";
             strSQL += @" FROM tblUser u";
             strSQL += @" LEFT JOIN tblServices s ON s.iUserId ='" + Session["userId"].ToString() + "'";
             strSQL += @" WHERE u.id = '" + Session["userId"].ToString() + "'"; 
+			*/
+			strSQL = @"SELECT u.iD, u.profilePic, u.txtUserName, u.userDir, u.iAcctType, u.iStatus, u.iMerchantType";
+			strSQL += @" FROM tblUser u";
+			strSQL += @" LEFT JOIN tblServices s ON s.iUserId ='" + Session["userId"].ToString() + "'";
+			strSQL += @" WHERE u.id = '" + Session["userId"].ToString() + "'"; 
 
          
             try
@@ -218,30 +262,22 @@ namespace BoardHunt
                     imgBtnAcct.ImageUrl = FormatPicPath(dbManager.DataReader["userDir"].ToString(), dbManager.DataReader["profilePic"].ToString());
                     hypAcctEdit.Text = dbManager.DataReader["txtUserName"].ToString();
                     hypAcctEdit.NavigateUrl = "edit_profile.aspx";
-                    if (dbManager.DataReader["Pro"].ToString() == "1")
-                        btnUpgradePro.Visible = false;
+ 
           
-
                     lblBoardCount.Visible = false;
-                    if (System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString() == "http://www.malzook.com") //?
-                    {
-                        if (dbManager.DataReader["boardCnt"] != null)
-                        {
-                            lblBoardCount.Text = "Surfboards(" + dbManager.DataReader["boardCnt"].ToString() + ")";
-                            lblBoardCount.Visible = true;
-                        }
-                    }
 
                     Session["userDir"] = userDir;
                     hdnACT.Value = dbManager.DataReader["iAcctType"].ToString();
                     hdnMT.Value = dbManager.DataReader["iMerchantType"].ToString();
-                    if (dbManager.DataReader["iService"] != null)
-                    {
-                        if (dbManager.DataReader["iService"].ToString() == "3")
-                        hdnShaperAcctValid.Value = "Y";
-                    }
 
-                    //ErrorLog.ErrorRoutine(false, "hdnShaperAcctValid.Value: " + hdnShaperAcctValid.Value);
+					//replace by isShaper
+					//if (dbManager.DataReader["iService"] != null)
+					//{
+					//    if (dbManager.DataReader["iService"].ToString() == "3")
+					//    hdnShaperAcctValid.Value = "Y";
+					//}
+					//if 
+
                 }
                 else
                 {
@@ -274,19 +310,18 @@ namespace BoardHunt
                 case Global.ACCT_BIZ:
                     pnlShowcase.Visible = false;
                     if (hdnMT.Value == Global.MERCHANT_SHAPER)
+					{
+					//TODO LATER: Check if Shaper Account is paid up
                         pnlShaper.Visible = true;
-                    //Shaper has valid  site?
-                    if (hdnShaperAcctValid.Value == "Y")
-                    {
                         pnlShaperCtls.Visible = true;
                         pnlShaperBuy.Visible = false;
-                    }
+					}
                     else
                     {
                         pnlShaperCtls.Visible = false;
                         pnlShaperBuy.Visible = true;
                     }
-                    pnlQP.Visible = true;
+					pnlQP.Visible = false;
                     break;
                 case Global.ACCT_ADMIN:
                     pnlShowcase.Visible = true;
@@ -304,20 +339,10 @@ namespace BoardHunt
                 }
             }
 
-            //Hide Subscriptions always: feature not implemented
-            pnlSUB.Visible = false;
-            //Hide Bidder always: feature not implemented
+			//Not implemented
+			pnlShowcase.Visible = false;
+			pnlSUB.Visible = false; //subscriptions
             pnlBidder.Visible = false;
-
-            //**MALZOOK only** TODO: REMOVE this line below
-            if (System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString() == "http://www.malzook.com")
-            {
-                //check for shapers and show bidder links
-                if (hdnACT.Value == "2" && hdnMT.Value == "1")
-                {
-                    pnlShaper.Visible = true;
-                }
-            }
  
         }
 /*
@@ -375,7 +400,7 @@ namespace BoardHunt
  */
         private void lnkSellGear_Click(object sender, System.EventArgs e)
 		{
-            if (lnkSellGear.Text.IndexOf("Upgrade") > 0)
+			if (lnkSellGear.CommandArgument == "1")
             {
                 Session["ServiceId"] = "6";
                 Response.Redirect("Pay/OrderForm.aspx", true);
@@ -389,12 +414,7 @@ namespace BoardHunt
 		{
 			Response.Redirect("post_manager.aspx",false);
 		}
-/*
- */
-        private void lnkEditProfile_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("edit_profile.aspx", false);
-		}
+
 /*
  */
         private void lnkFav_Click(object sender, System.EventArgs e)
@@ -475,6 +495,11 @@ namespace BoardHunt
             Session["ServiceId"] = "6";
             Response.Redirect("Pay/OrderForm.aspx", false);
         }
+
+		protected void btnSettings_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("edit_profile.aspx", false);
+		}
 
         protected void lnkBlogNew_Click(object sender, EventArgs e)
         {

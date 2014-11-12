@@ -16,13 +16,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
 
     <script src="include/js/jquery.cluetip.js" type="text/javascript"></script>
-
     <link rel="stylesheet" href="style/jquery.cluetip.css" type="text/css" />
+
+    <script type="text/javascript" src="include/js/jquery.jgrowl.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function() {
 
-    $('input.Tips').cluetip({splitTitle: '|', width: 165,clickThrough:     true});
+    $('a.Tips').cluetip({splitTitle: '|', width: 165,clickThrough:     true});
     $('span.Tips').cluetip({splitTitle: '|'});
 
     jQuery(function(){
@@ -54,25 +55,33 @@
                             <asp:ImageButton ID="imgBtnAcct" CssClass="Tips" title="Account|Change your pic, displayname, or other account settings"
                                 ImageUrl="images/menu_account_off.gif" BackColor="#f0f0f0" runat="server" /><br /><br />
                         </div>
-                        <div align="center" style="float: right; border: solid 0px white; width: 300px;">
-                                <span class="dkgrey40">My Account</span><br /><span class="midorange12"></span>
-                                <br />
-                                <asp:Button ID="btnUpgradePro" runat="server" height="45px" Width="160px" CssClass="btnGo Tips" Text="Upgrade to Pro" Visible="true" 
-                                    onclick="btnUpgradePro_Click" title="Upgrade Account|Get all premium features including Nudge and Advanced Filters" />
+                        <div align="center" style="float: right; border: solid 0px black; width: 300px;">
+                                <span class="dkgrey40">Dashboard</span><br /><span class="midorange12"></span>
+                                <asp:Button ID="btnEditProfile" runat="server" height="30px" Width="160px" CssClass="gobutton" Text="Edit Profile" Visible="true" 
+                                    onclick="btnSettings_Click" title="Edit|Change your settings" />
+                                
+                                <br /><br />
+                                <asp:Button ID="btnUpgradePro" runat="server" height="30px" Width="160px" CssClass="gobutton Tips" Text="Upgrade to Pro" Visible="true" 
+                                    onclick="btnUpgradePro_Click" title="Upgrade Account|Get all the Pro features including Nudge and Advanced Filters" />
                                 
                        </div>
                     </div>
                     
-                    <div id="profileDivRt" style="margin-left: 10px; float: right; border: solid 0px white; width: 200px; height: 80px; background-color: #f0f0f0"
-                        align="center">
-                        <br />
+                    <div id="profileDivRt" style="margin-left: 10px;padding-left: 3px; float: right; border: solid 0px white; width: 200px; height: 80px; background-color: #f0f0f0"
+                        align="left">
+                        <!---<br />
                         <asp:LinkButton ID="lnkEditProfile" runat="server" CssClass="grey_grey18">&nbsp;Edit Account Info</asp:LinkButton>
+                        -->
                         <br />
-                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="grey_grey18">&nbsp;Favorite Boards</asp:LinkButton>
+                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="grey_grey18">Favorites</asp:LinkButton>
+                        <br />
+                        <asp:Label id="lblBoardPostCnt" runat="server" CssClass="midorange18"></asp:Label>
+                        <br />
+                        <asp:Label id="lblNudgeCnt" runat="server" CssClass="midorange18"></asp:Label>
                     </div>
                 </div>
                 <!-- SHAPERS -->
-                <div align="center" style="border: solid 0px white; width: 900px;">
+                <div align="center" style="border: solid 0px black; width: 900px;">
                 
                 <asp:Panel ID="pnlShaper" runat="server">
                     <div align="center"  style="background-color: #ffffff; width: 550px; height: 130px;">
@@ -150,11 +159,11 @@
                     <div id="Div2" style="float: left; width: 395px; border: solid 0px green" align="center">
                         <br />
                         <div style="float: left; border: solid 0px white; width: 150px">
-                            <asp:ImageButton CssClass="Tips" title="Sell|Post your items for sale so buyers can contact you and make a cash offer."
+                            <asp:ImageButton CssClass="Tips" title="Sell|Post your surboards up for sale so buyers can make you a cash offer."
                                 ID="ImageButton1" ImageUrl="images/menu_sell.gif" runat="server" />
                         </div>
                         <div align="left" style="float: left; border: solid 0px white; width: 225px">
-                            <span class="midgreen30b" style="height: 50px">Sell Used Gear</span>
+                            <span class="midgreen30b" style="height: 50px">Sell Surfboards</span>
                             <br /><span class="dkgrey14">New, used, or wanted items.</span><br />
                                 <asp:Label ID="lblBoardCount" runat="server" CssClass="midorange12"></asp:Label>
                         </div>
@@ -256,6 +265,7 @@
             <asp:HiddenField ID="hdnACT" runat="server" />
             <asp:HiddenField ID="hdnMT" runat="server" />
             <asp:HiddenField ID="hdnShaperAcctValid" runat="server" Value="N" />
+            <asp:HiddenField ID="hdnIsPro" runat="server" Value="-1" />
             <div id="push">
             </div>
         </form>

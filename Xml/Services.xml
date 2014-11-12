@@ -75,30 +75,30 @@
     </duration>
     <description>
       <![CDATA[ <br>]]>
-      Nudge Sellers
+      - Unlimited Nudges
       <![CDATA[ <br>]]>      
-      Unlimited Postings
+      - Unlimited Postings
       <![CDATA[ <br>]]>
-      Advanced Search Filters
+      - Advanced Search Filters
     </description>
     <cancelMsg>
-      Your membership purchase was cancelled.
+      Your Pro Membership purchase was cancelled.
       <![CDATA[ <br><br>]]>
-      Upgrade your account anytime after you login to get all the added features.
+      Upgrade your account anytime after logging in to get all the added features.
     </cancelMsg>
     <emailSubject>Boardhunt Pro Membership - 1 Year</emailSubject>
     <emailBodyAny>
       Thanks for buying a Boardhunt Pro Membership.  It's good for 1 entire year!
       <![CDATA[ <br><br>]]>
-      Unlimited postings
+      - Unlimited postings
       <![CDATA[ <br>]]>
-      Unlimited Boosts
+      - Unlimited Boosts
       <![CDATA[ <br>]]>
-      Advanced Search filters 
+      - Advanced Search filters 
       <![CDATA[ <br><br>]]>
-      Call us at 1-888-292-6993 if you have any questions.
+      Email us at info@boardhunt.com if you have any questions.
     </emailBodyAny>
-    <confThanks>You're now a PRO Memeber on Boardhunt!</confThanks>
+    <confThanks>Sweet! You're now a Boardhunt PRO Memeber!</confThanks>
     <confDetails>You have access to premium features for 1 year.</confDetails>
   </service>
   <service id="7">
@@ -110,7 +110,7 @@
     </duration>
     <description>
       <![CDATA[ <br>]]>
-      Nudge Sellers
+      Unlimited Nudges
       <![CDATA[ <br>]]>
       Unlimited Postings
       <![CDATA[ <br>]]>
@@ -131,9 +131,9 @@
       <![CDATA[ <br>]]>
       Advanced Search filters
       <![CDATA[ <br><br>]]>
-      Call us at 1-888-292-6993 if you have any questions.
+      Email us at info@boardhunt.com if you have any questions.
     </emailBodyAny>
-    <confThanks>You're now a PRO Memeber on Boardhunt!</confThanks>
+    <confThanks>You're now a Boardhunt PRO Memeber!</confThanks>
     <confDetails>You have access to premium features for 3 months.</confDetails>
   </service>  
 </services>

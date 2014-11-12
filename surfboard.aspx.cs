@@ -48,15 +48,16 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.TextBox txtPassword;
         protected System.Web.UI.WebControls.CheckBox chkNotify;
 
-        protected const string ERR_MSG = @"Whoops!  Something happened.  The geek team will 
+		protected const string ERR_MSG = @"Whoops!  Something happened.  Team Geek will 
                                     have this fixed shortly.";
         protected const string ERR_MSG2 = @"Dah!  Something happened.  Boardhunt is on it.  Check back shortly. Meanwhile check out some 
                                         other boards <a href='/surfboardsforsale.aspx' class='midorange14b'>here</a>";
-        protected const string MSG_NUDGED = @"The seller was nudged.";
-        protected const string LOGIN_FIRST = @"Pro Account Feature|Big Timesaver!  Nudge automatically asks, ""Is the board still for sale?""  Check your e-mail for a reply.";
-        protected const string LOGIN_FIRST_ERR = @"You must log in to use the time-saving Nudge feature. ";
+		protected const string MSG_NUDGED = @"The seller was Nudged.";
+		protected const string LOGIN_FIRST = @"Pro Account Feature|Nudge automatically sends the seller an email asking, ""Is the board still for sale?""  Check your e-mail for a reply.";
+		protected const string LOGIN_FIRST_NAG = @"You must log in to use the time-saving Nudge feature. ";
         protected const string NUDGE_GO = "Nudge | Click to automatically email the seller asking them if this board is still available.";
-        //protected const string NUDGE_UPGRADE = @"You must upgrade your account to Pro to use Nudge. You can upgrade in the account section in the <a href=\'UserMenu.aspx\'>User Menu</a>.";
+		protected const string NUDGE_UPGRADE = @"Time to Upgrade | You're out of Nudges. Upgrade your account now.";
+		protected const int NUDGE_MAX = 5;
 
         static string b_id;
         #region Web Form Designer generated code
@@ -117,7 +118,7 @@ namespace BoardHunt
             }
             else
             {
-                lblStatus.Text = "Something went wrong.  Click <a href='surfboardsforsale.aspx?iCat=1'>HERE</a> to view surfboards.";
+				lblStatus.Text = "Something went wrong.  Click <a href='surfboardsforsale.aspx?iCat=1'>HERE</a> to view Surfboards again.";
                 lblStatus.ForeColor = Color.White;
                 return;
             }
@@ -127,45 +128,58 @@ namespace BoardHunt
             lblCommentCount.BackColor = Color.Orange;
             //lblWallMessage.Text = "<a id=\"toggle2\" class=\"ltgreen_orange12\" href=\"#\"><u>Login</u></a>&nbsp;to write on the Wall.";
 
-            ////////
-
+            
+			//Nudge Button prelim setup
             btnNudge.Enabled = true;
             btnNudge.Visible = true;
             btnNudge.CssClass = "Tips btnGo";
-            string strNudgeMsg = LOGIN_FIRST;
+			string strNudgeMsg = string.Empty;
+
 
             if (Session["LoggedIn"].ToString() == "Yes")
             {
-                //check for pro and.. 
+				//check for Pro and stuff the value and repurpose for later 
                 BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
-                hdnAcctStatus.Value = oWS.isPro(Convert.ToInt32(Session["userId"].ToString())).ToString();
+				int iUserID = Convert.ToInt32(Session["userId"]);
+				hdnAcctStatus.Value = oWS.isPro(iUserID).ToString();
 
-                btnNudge.CssClass = "Tips btnGo";
-                strNudgeMsg = NUDGE_GO;
+				if (hdnAcctStatus.Value == "1") {
+					strNudgeMsg = NUDGE_GO;
+				} 
+				else {
+					//check for nudge limit
+					if (oWS.GetNudgeCountForMonth(iUserID) >= NUDGE_MAX) {
+						//UPGRADE NOW: stop nudge and show time to upgrade nag msg
+						hdnNudgeCnt.Value = "1";
+						strNudgeMsg = NUDGE_UPGRADE;
 
-                //re-enable NUDGE
-                //set style accordingly
-                //if (hdnAcctStatus.Value == "1")
-                //{
-                //    btnNudge.CssClass = "Tips btnStep";
-                //    strNudgeMsg = NUDGE_GO;
-                //}
-                //else
-                //    btnNudge.Attributes.Add("OnClick", "$.jGrowl.defaults.position = 'center-middle';$.jGrowl('" + NUDGE_UPGRADE + "',{sticky: true});return false;");
+						btnNudge.Attributes.Add ("onmouseover", "SetElement('btnNudge','Upgrade')");
+						btnNudge.Attributes.Add ("onmouseout", "SetElement('btnNudge','Nudge')");
+						//btnNudge.Attributes.Add("OnClick", "$.jGrowl.defaults.position = 'center-middle';$.jGrowl('" + NUDGE_UPGRADE + "',{sticky: true});return false;");
+						//add 'UPGRADE' on hover
+					}
+					else
+					{
+						//all clear keep nudging
+						strNudgeMsg = NUDGE_GO;
+					}
+				}
 
-                //check nudge
-                //strNudgeMsg = "Nudge|Click here to automatically send the seller an email asking if this board is still available.";
+				//btnNudge.CssClass = "Tips btnGo";
+				//strNudgeMsg = NUDGE_GO;
 
                 lblWallMessage.Text = "Got a comment or question?";
                 pnlLogin.Visible = false;
                 btnPostComment.Attributes.Add("OnClick", "if(CheckComment()==false){alert('Try typing something into the box.');event.returnValue=false;return false;}else{return true;}");
             }
-            else
+			else //user not logged in
             {
-                //TODO: add popup with email textbox if not logged in
-                btnNudge.Attributes.Add("OnClick", "$.jGrowl.defaults.position = 'center-middle';$.jGrowl('" + LOGIN_FIRST_ERR + "',{sticky: true});return false;");
+				//TODO: add a login control if not logged in or create an easy way for user to login
+			    strNudgeMsg = LOGIN_FIRST;
+				btnNudge.Attributes.Add("OnClick", "$.jGrowl.defaults.position = 'center-middle';$.jGrowl('" + LOGIN_FIRST_NAG + "',{sticky: true});return false;");
             }
 
+			//attach routed message
             btnNudge.Attributes.Add("title", strNudgeMsg);
 
             if (!Page.IsPostBack)
@@ -183,6 +197,46 @@ namespace BoardHunt
             HeaderInit();
 
         }
+
+		protected int checkedMonthlyNudgeCount()
+		{
+			return 5;
+
+			//get current month
+			int mo = DateTime.Now.Month;
+
+			//sp_GetNudgeCountForMonth
+			//select count(iUser) from tblNudge where iUser = 5578 and Month(dAdded) = Month(CURRENT_TIMESTAMP)  
+			//and Year(dAdded)= Year(CURRENT_TIMESTAMP)
+
+			//log nudge
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
+
+			try
+			{
+				dbManager.Open();
+
+				dbManager.CreateParameters(1);
+				dbManager.AddParameters(0, "@UserId", Convert.ToInt32(Session["userId"].ToString()));
+
+				dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "sp_GetNudgeCountForMonth");
+
+				return 1;
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "ID:Nudge:Error:" + ex.Message);
+				classes.Email.SendErrorEmail("ID:Nudge:Bug returning mNudgeCount " + ex.Message);
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+		}
+
         /*
          */
         private void BindData()
@@ -204,7 +258,6 @@ namespace BoardHunt
             strSQL += " LEFT JOIN tblVote t ON t.iEntry = tblEntry.iD ";
             strSQL += " WHERE tblEntry.iD = '" + hdnEId.Value + "'";
 
-            ErrorLog.ErrorRoutine(false, "strSQL: " + strSQL);
 
             SqlConnection myConnection = new SqlConnection(myConnectString);
             SqlCommand objCommand = new SqlCommand(strSQL, myConnection);
@@ -573,12 +626,10 @@ namespace BoardHunt
 
                             if (Session[voteVal] == null)
                             {
-                                ErrorLog.ErrorRoutine(false, "Session[voteVal] NULL");
                                 imgTdown.Enabled = imgTup.Enabled = true;
                             }
                             else //disallow voting
                             {
-                                ErrorLog.ErrorRoutine(false, "Session[voteVal] not NULL: " + Session[voteVal].ToString());
                                 if (Session[voteVal].ToString() == "Y")
                                 {
                                     lblGoodDeal.Text = "";
@@ -920,11 +971,17 @@ namespace BoardHunt
         {
             if (Session["LoggedIn"].ToString() == "Yes")
             {
+				//reroute to upgrade
+				if (hdnNudgeCnt.Value == "1")
+				{
+					Session["ServiceId"] = "6";
+					Response.Redirect ("~/Pay/OrderForm.aspx?", true);
+				}
                 Nudge();
             }
             else
             {
-                hdnMsg.Value = LOGIN_FIRST_ERR;
+				hdnMsg.Value = LOGIN_FIRST_NAG;
                 return;
             }
             hdnMsg.Value = MSG_NUDGED;
@@ -933,7 +990,12 @@ namespace BoardHunt
             btnNudge.Text = "Nudged";
         }
 
-        //bump seller
+		protected void setupNudge()
+		{
+			return;
+		}
+
+		//nudge seller
         protected void Nudge()
         {
             string msg = "I'm interested in your " + lblBrandData.Text + " board:<br>";
@@ -966,7 +1028,7 @@ namespace BoardHunt
                 dbManager.AddParameters(0, "@UserId", Convert.ToInt32(Session["userId"].ToString()));
                 dbManager.AddParameters(1, "@ItemID", Convert.ToInt32(hdnEId.Value));
 
-                dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "sp_LogNudge");
+				dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "sp_LogNudge");
             }
             catch (Exception ex)
             {

@@ -86,8 +86,8 @@
                                             Full name:&nbsp;</td>
                                         <td align="left" style="width: 300px">
                                             <asp:TextBox ID="txtFullName" runat="server" CssClass="dkrgrey14" Style="width: 200px"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFullName"
-                                                Font-Bold="True" ErrorMessage="!"></asp:RequiredFieldValidator>
+                                            <!-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFullName"
+                                                Font-Bold="True" ErrorMessage="!"></asp:RequiredFieldValidator>-->
                                         </td>
                                     </tr>
                                     <tr>

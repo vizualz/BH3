@@ -168,7 +168,7 @@ namespace BoardHunt.m
                 //Check for cut and paste URL bug: check for NULL;
                 if (Request.UrlReferrer != null)
                 {
-                    ViewState["ReferURL"] = Request.UrlReferrer.ToString();
+					ViewState ["ReferURL"] = Request.UrlReferrer.ToString ();
                 }
                 BindData();
                 //BindUpgrades();
@@ -471,7 +471,7 @@ namespace BoardHunt.m
                             Pic1ThmbNail.Visible = true;
                             hdnPic1URL.Value = GetPicPath(SQLReader["txtImgPath1"], strUserDir);
                         }
-
+							
                         Pic2.ImageUrl = GetPicPath(SQLReader["txtImgPath2"], strUserDir);
                         if ((Path.GetFileName(Pic2.ImageUrl)) == "s1x1.gif")
                         {
@@ -529,12 +529,13 @@ namespace BoardHunt.m
                             hdnPic4URL.Value = GetPicPath(SQLReader["txtImgPath4"], strUserDir);
                         }
 
+
                         //NO IMAGES were uploaded
                         if (picCount < 1)
                         {
                             pnlRatings.Visible = false;
                             Pic1.ImageUrl = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"] + "/images/noimage.gif";
-                            pnlComments.Visible = true;
+							//pnlComments.Visible = true;
 
                             //old
                             //Pic1.Width = 162;

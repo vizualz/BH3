@@ -57,10 +57,16 @@ namespace BoardHunt
 			Global.AuthenticateUser("post.aspx");
             //Global.AuthenticateUser();
 
-            if (Session["isPro"].ToString() != "1") //if not Pro acct the check to see if they're maxed out of posts
+			string iUID = Session["userId"].ToString();
+			string i;
+
+			BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
+			i = oWS.isPro(Convert.ToInt32(iUID)).ToString();
+	
+			if (i != "1") //if not Pro acct the check to see if they're maxed out of posts
             {
-                if (classes.User.NeedsUpgrade(Convert.ToInt32(Session["userId"].ToString())))
-                    Response.Redirect("/UserMenu.aspx", true); //TODO: add message
+				if (oWS.GetActiveBoardCount(Convert.ToInt32(iUID), 1, 0) > 4 )
+                    Response.Redirect("/UserMenu.aspx", true); 
             }
 
             // Put user code to initialize the page here

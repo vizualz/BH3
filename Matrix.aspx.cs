@@ -419,7 +419,6 @@ namespace BoardHunt
         
 
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-
             dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
 
             try

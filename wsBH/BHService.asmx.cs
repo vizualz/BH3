@@ -33,10 +33,11 @@ namespace BoardHunt.wsBH
         }
 
         /*
+         * OBSOLETE: See GetBoardCountForYear
         */
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string GetLiveBoardCount(int iData)
+		public string GetLiveBoardCount(int iData, int iPro )
         {
             ErrorLog.ErrorRoutine(false, "WS:GetLiveBoardCount");
 
@@ -121,6 +122,91 @@ namespace BoardHunt.wsBH
             return true;
         }
 
+		[WebMethod]
+		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public int GetActiveBoardCount(int uID, int thisYear, int iPro)
+		{
+
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
+			ErrorLog.ErrorRoutine (false, "oWS:GetYearlyBoardCount:uID: " + uID);
+
+			try
+			{
+				int retVal = -1;
+
+
+				dbManager.CreateParameters(3);
+				dbManager.AddParameters(0, "@UserID", uID);
+				dbManager.AddParameters(1, "@thisYear", thisYear);
+				dbManager.AddParameters(2, "@iPro", iPro);
+				dbManager.Open();
+
+				dbManager.ExecuteReader(CommandType.StoredProcedure, "[sp_ActiveBoardCount]");
+				if (dbManager.DataReader.Read())
+				{
+					retVal = Convert.ToInt32(dbManager.DataReader["boardCount"]);
+				}
+				ErrorLog.ErrorRoutine(false,"ws:NudgeCount: " + retVal);
+				return retVal;
+
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "ws:GetBoardCount:Error: " + ex.Message);
+				classes.Email.SendErrorEmail("ws:GetBoardCount: Failed: " + ex.Message);
+				return 0;
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+		}
+
+		[WebMethod]
+		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public int GetNudgeCountForMonth(int uID)
+		{
+
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
+			ErrorLog.ErrorRoutine (false, "oWS:GetNudgeCountForMonth:uID: " + uID);
+
+			try
+			{
+				int retVal = -1;
+
+				dbManager.CreateParameters(1);
+				dbManager.AddParameters(0, "@UserID", uID);
+				dbManager.Open();
+
+				dbManager.ExecuteReader(CommandType.StoredProcedure, "[sp_GetNudgeCountForMonth]");
+				if (dbManager.DataReader.Read())
+				{
+					retVal = Convert.ToInt32(dbManager.DataReader["nudgeCount"]);
+				}
+				ErrorLog.ErrorRoutine(false,"ws:NudgeCount: " + retVal);
+				return retVal;
+
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "ws:GetNudgesForMonth:Error: " + ex.Message);
+				classes.Email.SendErrorEmail("ws:GetNudgesForMonth: Failed: " + ex.Message);
+				return 0;
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+		}
+
         [WebMethod]
         //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int isPro(int uID)
@@ -128,8 +214,6 @@ namespace BoardHunt.wsBH
 
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
             dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
-
-            //todo: check services table for entry with id and status = 1; if cool then enable btnNudge
 
             try
             {
@@ -160,6 +244,43 @@ namespace BoardHunt.wsBH
             
         }
       
+		[WebMethod]
+		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public int isShaper(int uID)
+		{
+
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
+			try
+			{
+				int retVal = 0;
+
+				dbManager.CreateParameters(2);
+				dbManager.AddParameters(0, "@UserID", uID);
+				dbManager.AddParameters(1,"@returnValue",null,ParameterDirection.ReturnValue);
+
+				dbManager.Open();
+				dbManager.ExecuteNonQuery(CommandType.StoredProcedure, "sp_IsShaper");
+				retVal = Convert.ToInt32(dbManager.Parameters[1].Value);
+
+				return retVal;
+
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "ws:isShaper:Error: " + ex.Message);
+				classes.Email.SendErrorEmail("ws:isShaper:isShaper Failed: " + ex.Message);
+				return 0;
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+		}
+
         public void boost(int uID,int uEntryId)
         {
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);

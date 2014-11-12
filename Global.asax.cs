@@ -302,7 +302,7 @@ namespace BoardHunt
 		{
 			if (HttpContext.Current.Session["LoggedIn"].ToString() == "Yes")
 			{
-				return "my menu";
+				return "dashboard";
 			}
 			else
 			{
@@ -338,7 +338,7 @@ namespace BoardHunt
                     //TODO: redir only if it's a secured page
                     HttpContext.Current.Response.Redirect(HttpContext.Current.Request.RawUrl, true);
 					break;
-				case "my menu":
+			case "dashboard":
                     HttpContext.Current.Response.Redirect(theURL + "/UserMenu.aspx", true);
 					break;
                 case "Upgrade":
