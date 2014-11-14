@@ -42,6 +42,7 @@ namespace BoardHunt
                 BindData();
 				//ShowLinks();
 
+
                 if (hdnACT.Value == Global.ACCT_BIZ)
                 {
                     pnlQP.Visible = true;
@@ -56,6 +57,7 @@ namespace BoardHunt
                     pnlQP.Visible = false;
 
             }
+			pnlQP.Visible = false;
 		}
 
 		#region Web Form Designer generated code
@@ -157,11 +159,18 @@ namespace BoardHunt
 
 			hdnIsPro.Value = i;
 
+			//Below will the Nudge, Active Boards, and Favorites Count
 
-                //set style accordingly
+			lnkFav.Text = oWS.GetFavsCount (Convert.ToInt32 (iUID)) + "&nbsp;Favorites";
+
+            //set style accordingly
 			if (i == "1") {
 				btnUpgradePro.Visible = false;
+				if(iNudgeCount == 1)
+					lblNudgeCnt.Text = iNudgeCount.ToString() + "&nbsp;Nudge";
+				else
 				lblNudgeCnt.Text = iNudgeCount.ToString() + "&nbsp;Nudges";
+
 				iBoardCnt = oWS.GetActiveBoardCount (Convert.ToInt32 (iUID), 0, 1);
 				if (iBoardCnt  == 1)
 					lblBoardPostCnt.Text = iBoardCnt + "&nbsp;" + bStr +  "&nbsp;posted";
@@ -190,7 +199,7 @@ namespace BoardHunt
 					//js = "return false;";
 					//lnkSellGear.OnClientClick = js;
 
-					lnkSellGear.Text = "&nbsp;UPGRADE";
+					lnkSellGear.Text = "UPGRADE";
 					lnkSellGear.CssClass = "Tips ltgreen_green18";
 					string strUpgradeMsg = POST_UPGRADE;
 					lnkSellGear.Attributes.Add("title", strUpgradeMsg);

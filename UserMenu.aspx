@@ -73,7 +73,7 @@
                         <asp:LinkButton ID="lnkEditProfile" runat="server" CssClass="grey_grey18">&nbsp;Edit Account Info</asp:LinkButton>
                         -->
                         <br />
-                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="grey_grey18">Favorites</asp:LinkButton>
+                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="midorange18">Favorites</asp:LinkButton>
                         <br />
                         <asp:Label id="lblBoardPostCnt" runat="server" CssClass="midorange18"></asp:Label>
                         <br />

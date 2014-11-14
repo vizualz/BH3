@@ -345,22 +345,10 @@ namespace BoardHunt {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTailData;
         
-        /// <summary>
-        /// lblFinsData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblFinsData;
         
-        /// <summary>
-        /// pnlGenDims control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Panel pnlGenDims;
         
         /// <summary>
@@ -498,13 +486,7 @@ namespace BoardHunt {
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgAddFav;
         
-        /// <summary>
-        /// lblNudges control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblNudges;
         
         /// <summary>
@@ -668,5 +650,6 @@ namespace BoardHunt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnAcctStatus;
+		protected global::System.Web.UI.WebControls.HiddenField hdnNudgeCnt;
     }
 }

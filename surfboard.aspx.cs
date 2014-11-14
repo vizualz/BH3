@@ -49,7 +49,7 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.CheckBox chkNotify;
 
 		protected const string ERR_MSG = @"Whoops!  Something happened.  Team Geek will 
-                                    have this fixed shortly.";
+                                    have this fixed real soon.";
         protected const string ERR_MSG2 = @"Dah!  Something happened.  Boardhunt is on it.  Check back shortly. Meanwhile check out some 
                                         other boards <a href='/surfboardsforsale.aspx' class='midorange14b'>here</a>";
 		protected const string MSG_NUDGED = @"The seller was Nudged.";

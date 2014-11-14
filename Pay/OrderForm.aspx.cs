@@ -101,6 +101,7 @@ namespace BoardHunt.Pay
             if (!Page.IsPostBack)
             {
                 Global.AuthenticateUser();
+				classes.Email.SendErrorEmail("Pageview on Orderform: user: " + Session["userId"].ToString() + " ServiceId: " + Session["ServiceId"] );
 
                 // Put user code to initialize the page here
                 lnkSignIn.Text = Global.SetLnkSignIn();

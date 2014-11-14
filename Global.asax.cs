@@ -91,12 +91,11 @@ namespace BoardHunt
  */ 
 		protected void Application_Error(Object sender, EventArgs e)
 		{
-            //return;
 
             Exception myError = Server.GetLastError();
 
-            //if (myError.InnerException.ToString().IndexOf("Invalid viewstate") > -1)
-            //    return;
+            if (myError.InnerException.ToString().IndexOf("Invalid viewstate") > -1)
+                return;
 
             //do a send e-mail here
             //Create an instance of the MailMessage class

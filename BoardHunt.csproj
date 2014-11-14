@@ -63,9 +63,6 @@
     <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="FredCK.FCKeditorV2, Version=2.5.2912.22119, Culture=neutral, PublicKeyToken=4f86767c9b519a06">
-      <HintPath>..\..\..\BoardHunt Latest\BoardHunt\BoardHunt\bin\FredCK.FCKeditorV2.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -81,17 +78,12 @@
     </Reference>
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Yedda.Twitter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\BoardHunt Latest\BoardHunt\BoardHunt\bin\Yedda.Twitter.dll</HintPath>
-    </Reference>
     <Reference Include="BoardHunt">
       <HintPath>bin\BoardHunt.dll</HintPath>
     </Reference>
@@ -1547,6 +1539,7 @@
     <None Include="font\Helvetica LT Condensed Light.ttf" />
     <None Include="scripts\uploader.fla" />
     <Content Include="UploadCS.ashx" />
+    <None Include="Xml\Services.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

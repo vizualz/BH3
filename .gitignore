@@ -110,3 +110,17 @@ favorites.aspx.designer.cs
 edit_profile.aspx.designer.cs
 
 Bidder/PostBid.aspx.designer.cs
+
+bin/BoardHunt.dll
+
+bin/BoardHunt.dll.mdb
+
+Debug/BHLogFile.txt
+
+bin/BoardHunt.dll.mdb
+
+surfboard.aspx.designer.cs
+
+bin/DALLayer.dll
+
+Surfboardsforsale.aspx.designer.cs

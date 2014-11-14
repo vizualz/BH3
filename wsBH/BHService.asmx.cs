@@ -124,6 +124,46 @@ namespace BoardHunt.wsBH
 
 		[WebMethod]
 		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public int GetFavsCount(int uID)
+		{
+
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
+			try
+			{
+				int retVal = -1;
+
+
+				dbManager.CreateParameters(1);
+				dbManager.AddParameters(0, "@UserID", uID);
+				dbManager.Open();
+
+				dbManager.ExecuteReader(CommandType.StoredProcedure, "[sp_GetFavs]");
+				if (dbManager.DataReader.Read())
+				{
+					retVal = Convert.ToInt32(dbManager.DataReader["nCount"]);
+				}
+				ErrorLog.ErrorRoutine(false,"ws:GetFavsCount: " + retVal);
+				return retVal;
+
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "ws:sp_GetFavs:Error: " + ex.Message);
+				classes.Email.SendErrorEmail("ws:sp_GetFavs: Failed: " + ex.Message);
+				return 0;
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+		}
+
+		[WebMethod]
+		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public int GetActiveBoardCount(int uID, int thisYear, int iPro)
 		{
 
