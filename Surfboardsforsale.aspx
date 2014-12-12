@@ -121,42 +121,12 @@
 </script>
 <script type='text/javascript'>
     GA_googleAddSlot("ca-pub-0007702553564747", "Leader");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
-</script>
-
-<!-- Google ads: Box -->
-
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
     GA_googleAddSlot("ca-pub-0007702553564747", "Box");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
-</script>
-
-<!-- Google ads: Wide Skyscraper -->
-
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
     GA_googleAddSlot("ca-pub-0007702553564747", "Wide_Skyscraper");
 </script>
 <script type='text/javascript'>
     GA_googleFetchAds();
 </script>
-
-
 
 </head>
 <body>
@@ -180,8 +150,8 @@
                 <asp:Label CssClass="midgrey18" ID="lblNoResult" runat="server"></asp:Label><br />
             </div>
             <div align="center">
-                <div align="center" id="container" style="width: 1000px;">
-                    <div id="wrapper" align="center" style="width: 1000px">
+                <div align="center" id="container" style="width: 1000px; border: solid 1px blue">
+                    <div id="wrapper" align="center" style="width: 1000px; border: solid 1px black">
                         <%--LEFT COLUMN--%>
                         <%--FILTER--%>
                           <%-- <div id="left" style="width: 170px;">     
@@ -214,7 +184,7 @@
                             <bh:ShowBoost ID="boost" runat="server"></bh:ShowBoost>
                         </div>
                             <div class="clr_fix"></div>
-                        <div class="adver_lft_panel">
+                        <div class="adver_lft_panel" style="border: solid 1px red">
                             <asp:Panel runat="server" Width="142px" ID="pnlFilter" BorderStyle="solid" BorderColor="#99CC33"
                                 BorderWidth="0">
                                 <table border="0" bgcolor="#ffffff" width="142px" cellpadding="0" cellspacing="0">
@@ -444,17 +414,7 @@
                                                 <img src="images/s1x1.gif" alt="" />
                                             </td>
                                         </tr>
-                                        <%-- <asp:Panel ID="pnlFltSurf" runat="server">
-                                    <tr>
-                                        <td bgcolor="#FFFFFF" height="10">
-                                            <img src="images/s1x1.gif" alt="" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#99CC33" height="10">
-                                            <img src="images/s1x1.gif" alt="" /></td>
 
-                                    </tr>
-                                </asp:Panel>--%>
                                         <tr>
                                             <td style="background-color: #99CC33; height: 1px">
                                                 <img src="images/s1x1.gif" alt="" />
@@ -488,7 +448,7 @@
                             <!-- Start: Ads -->
                             <!-- #include file="include/ads/SkyScraperAd.htm" -->
                         </div>
-                            <div class="middle_adver_panel">
+                            <div class="middle_adver_panel" style="border: solid 1px #CCCCCC">
                             <div align="center">
                                 <!-- Google ads: Links Only Horizontal -->
                                 <script type="text/javascript"><!--
@@ -534,7 +494,7 @@
                                 </table>
                                 <table  align="center">
                                     <asp:DataList  RepeatLayout="Table" BorderColor="#CC6600" BorderStyle="Solid"
-                                        BorderWidth="0" ID="dlEntryList" runat="server" EnableViewState="true" OnItemCommand="View_ItemDetail">
+                                        BorderWidth="1" ID="dlEntryList" runat="server" EnableViewState="true" OnItemCommand="View_ItemDetail">
                                         <HeaderTemplate>
                                             <tr>
                                                 <td colspan="0" bgcolor="#ff9900" height="1px">

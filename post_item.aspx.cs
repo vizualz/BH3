@@ -1256,8 +1256,8 @@ namespace BoardHunt
                         lblError.Visible = true;
                         return false;
                     }
-                    //check for 2.5 MB max
-                    if (IntFileSize <= 0 || IntFileSize >= 2621440)
+					//check for 4.0 MB max
+					if (IntFileSize <= 0 || IntFileSize >= 4194304)
                     {
                         lblError.Text = lblInstructions.Text = "File too big. Scale it down and try again.";
                         lblError.ForeColor = lblInstructions.ForeColor = Color.Black;

@@ -45,20 +45,21 @@
                 <!-- PROFILE -->
                 
                 <br />
-                <div align="left" style="background-color: #ffffff; width: 900px; height: 130px; border-bottom: solid 5px #666666">
-                    <div id="profileDivLt" style="float: left; width: 600px; border: solid 0px #666666"
+                <div align="left" style="background-color: #ffffff; width: 900px; height: 140px; border-bottom: solid 5px #666666">
+                    <div id="profileDivLt" style="float: left; width: 600px; height:140px; border: solid 0px #666666"
                         align="center">
                         
-                        <div style="float: left; border: solid 0px black; width: 250px; height: 120px; background-color: #f0f0f0"><br />
+                        <div style="float: left; border: solid 0px black; width: 250px; height: 136px; background-color: #f0f0f0"><br />
                         <asp:HyperLink ID="hypAcctEdit" CssClass="orange_dkorange18" runat="server"></asp:HyperLink>
-                            <br />
+                        <br/>
                             <asp:ImageButton ID="imgBtnAcct" CssClass="Tips" title="Account|Change your pic, displayname, or other account settings"
-                                ImageUrl="images/menu_account_off.gif" BackColor="#f0f0f0" runat="server" /><br /><br />
+                                ImageUrl="images/menu_account_off.gif" BackColor="#f0f0f0" runat="server" /><br />
+                           <asp:Button ID="btnEditProfile" runat="server" height="20px" Width="80px" CssClass="btnStep" Text="Edit Profile" Visible="true" 
+                                    onclick="btnSettings_Click" title="Edit|Change your settings" Style="font-size: 11px; margin-top:2px" />
                         </div>
                         <div align="center" style="float: right; border: solid 0px black; width: 300px;">
                                 <span class="dkgrey40">Dashboard</span><br /><span class="midorange12"></span>
-                                <asp:Button ID="btnEditProfile" runat="server" height="30px" Width="160px" CssClass="gobutton" Text="Edit Profile" Visible="true" 
-                                    onclick="btnSettings_Click" title="Edit|Change your settings" />
+
                                 
                                 <br /><br />
                                 <asp:Button ID="btnUpgradePro" runat="server" height="30px" Width="160px" CssClass="gobutton Tips" Text="Upgrade to Pro" Visible="true" 
@@ -67,13 +68,13 @@
                        </div>
                     </div>
                     
-                    <div id="profileDivRt" style="margin-left: 10px;padding-left: 3px; float: right; border: solid 0px white; width: 200px; height: 80px; background-color: #f0f0f0"
+                    <div id="profileDivRt" style="margin-left: 10px;padding-left: 3px; float: right; border: solid 0px white; width: 200px; height: 136px; background-color: #f0f0f0"
                         align="left">
                         <!---<br />
                         <asp:LinkButton ID="lnkEditProfile" runat="server" CssClass="grey_grey18">&nbsp;Edit Account Info</asp:LinkButton>
                         -->
                         <br />
-                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="midorange18">Favorites</asp:LinkButton>
+                        <asp:LinkButton ID="lnkFav" runat="server" CssClass="orange_dkorange18">Favorites</asp:LinkButton>
                         <br />
                         <asp:Label id="lblBoardPostCnt" runat="server" CssClass="midorange18"></asp:Label>
                         <br />
