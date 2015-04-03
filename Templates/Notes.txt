@@ -1,4 +1,4 @@
-<div id="header"><img src="http://www.malzook.com/images/BHLogo.gif" border="0" class="logo" alt="Boardhunt"></div>
+
 
 http://www.malzook.com/wsBH/BHService.asmx/GetLiveBoardCount
 User-Agent: Fiddler
