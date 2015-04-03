@@ -13,13 +13,13 @@
     <div align="center" style="margin-top:100px">
     <img src="/images/BHLogo.gif" alt="logo" width="250"/>
     <br /><br /><br /><br />
-    <asp:Button ID="btnHunt" runat="server" Text="Hunt Boards" CssClass="btnMob" 
+    <asp:Button ID="btnHunt" runat="server" Text="Mobile Site" CssClass="btnMob" 
             style="width: 330px;height: 100px" onclick="btnHunt_Click"></asp:Button><br /><br />
     <asp:Button ID="Button1" runat="server" Text="Full Site" CssClass="btnMob" 
             style="width: 330px;height: 100px" onclick="Button1_Click"></asp:Button>
             <br />
     <div style="height:200px">&nbsp;</div>
-    <span class="midgrey20">(c) 2012 Boardhunt LLC </span>
+    <span class="midgrey20">(c) 2015 Boardhunt LLC </span>
 
     </div>
     <br /><br /><br />

@@ -96,13 +96,13 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
         <!-- #include file="include/HeaderIdx.aspx" -->
         <div align="center">
             <!-- top half -->
-            <div style="background-color: #FFFFFF; background-image: url(../images/homepic_boards.jpg);
-                background-repeat: no-repeat; height: 350px; width: 1100px; align: center; cellpadding: 0px;
-                cellspacing: 0px; border: 0;">
+            <div style="background-color: #FFFFFF; background-image: url(../images/HomepageHarlan.jpg);
+                background-repeat: no-repeat; height: 350px; width: 1024px; align: center; cellpadding: 0px;
+                cellspacing: 0px; border: solid 1px Black;">
                 <div align="left"> 
                 <div style="margin-left: 20px; margin-top: 10px; margin-bottom: 50px">
                     <span class="white40">Used Surfboards for Sale</span><br />
-                    <span class="white20g">Connecting buyers and sellers online.<br /><br /></span>
+                    <span class="white20g">Connecting buyers and sellers online.</span><br /><br />
                         <br />
                     
                     <asp:Button ID="btnSearchSurfboard" OnCommand="ImageButton_Click" CssClass="btnBigOrg" style="padding:10px" 
@@ -113,41 +113,30 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
                         Text="Sell Surfboards" onclick="btnSellSurfboard_Click" />
                         <br />
                         
-                   <div style="margin-top:90px; margin-bottom:0px; width: 1100; height:0px; border: solid 0px Black">
-                    
-                        <br />
-                        <div align="left" class="white20g" style="margin-top:0px; margin-bottom:5px; margin-left:10px; float:left; width:150px;">
-                                    Why Boardhunt?<br />
-                                    </div>
-                   
-                    <div align="left" class="white14" bgcolor="222222" style="margin-top:0px; margin-bottom:0px; margin-left:40px; float:left; width:260px;">
-                                    <a align="left" class="orange_dkorange16" href="Surfboardsforsale.aspx">Free</a><br />
-                                    Post up to 5 boards at a time</div>
-                    
-                    <div align="left" class="white14" bgcolor="222222" style="margin-top:0px; margin-bottom:0px; margin-left:35px; float:left; width:260px;">
-                                    <a align="left" class="orange_dkorange16" href="register_user.aspx">Easier</a><br />
-                                    Use multiple filters</div>
-                           
-                   
-                    <div align="left" class="white14" bgcolor="222222" style="margin-top:0px; margin-left:25px; margin-bottom:0px; float:left; width:260px;">
-                                    <a align="left" class="orange_dkorange16" href="register_user.aspx">Knowledge</a><br />
-                                     We know boards</div>
-                                    
-                                   
-                    </div>
 
-                    </div>
-                    </div>
-                    </div>
-                    
-                    <%--END TOP--%>
-                    <%--BEGIN BOTTOM--%>
-                
- 
-                <!-- end master table: todo remove -->
-           
-           
-      
+               </div>
+             </div>
+             </div>
+                        <div style="margin-top:5px; margin-bottom:0px; height:200px; width: 1024px;  border: solid 0px Black">
+                        <br />
+                        <div align="left" class="black20b" style="margin-top:0px; margin-bottom:5px; margin-left:10px; float:left; width:250px;">
+                                    Easier<br/>
+                                    Find boards with fewer clicks
+                                    </div>
+	                    <div align="center" class="black14b" bgcolor="222222" style="margin-top:0px; margin-bottom:0px; margin-left:10px; float:left; width:250px;">
+	                                    <a align="left" class="orange_dkorange16" href="Surfboardsforsale.aspx">Quality</a><br />
+	                                    No junk boards<br/>Categorized and tidy</div>
+	                    <div align="center" class="black14b" bgcolor="222222" style="margin-top:0px; margin-bottom:0px; margin-left:15px; float:left; width:250px;">
+	                                    <a align="left" class="orange_dkorange16" href="register_user.aspx">Secure</a><br />
+	                                    From a community of surfers<br/> No freaks!</div>
+	                    <div align="center" class="black14b" bgcolor="222222" style="margin-top:0px; margin-left:0px; margin-bottom:0px; float:left; width:200px;">
+	                                    <a align="left" class="orange_dkorange16" href="register_user.aspx">Insight</a><br />
+	                                     Use The Matrix & ShaperHouse<br/>Get ideas on what to ride</div>        
+                 	</div>
+
+             </div>
+			</div>
+
     </form>
     <br />
     <div align="center">
