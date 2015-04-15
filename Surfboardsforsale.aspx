@@ -1,9 +1,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Surfboardsforsale.aspx.cs" Inherits="BoardHunt.Surfboardsforsale" %>
-
 <%@ Register TagPrefix="bh" TagName="ShowBoost" Src="~/include/Controls/BoostHoriz.ascx" %>
 
 
-<%--<%@ Reference Control="~/include/Controls/BoostHoriz.ascx"%>--%>
+<%@ Reference Control="~/include/Controls/BoostHoriz.ascx"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 
@@ -12,12 +11,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta name="description" content="Find new and used surfboards for sale by others in the surfing community"/>
     <meta name="keywords" content="used surfboards, surfboards for sale, buy surfboards, sell surfboards, surfboard, surfboards, surfboard blogs, surfing blogs, surfboard advice" />
+
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all" />
-			<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
-			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" type="text/javascript"></script>
-			<script src="http://jquery-ui.googlecode.com/svn/tags/latest/external/jquery.bgiframe-2.1.1.js" type="text/javascript"></script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/i18n/jquery-ui-i18n.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/i18n/jquery-ui-i18n.min.js" type="text/javascript"></script>
     
     <script type="text/javascript" src="include/js/superfish.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
@@ -134,58 +134,40 @@
     <div id="main" align="center">
         <!-- #include file="include/Header.aspx" -->
         <%--PAGE NAV--%>
-        <div align="center">
-            <div class="dkgrey12" align="left" style="width: 645px; margin-left: 0px; margin-top: 20px;
-                vertical-align: baseline">
+        <div align="center" style="width: 100%; border: 0px solid red">
+            <div class="dkgrey12" align="left" style="width: 1000px; margin-left: 0px; margin-top: 20px;
+                vertical-align: baseline; border: 0px solid black">
                 <br />
                 &nbsp;
-                <asp:Label ID="lblLocation" runat="server" Text="Label"></asp:Label>
+                        					
+
                 <asp:HyperLink CssClass="dkgrey_orange12" ID="HypLoc" runat="server" NavigateUrl="index.aspx"></asp:HyperLink>
                 <span class="midorange12">&nbsp;></span>
                 <asp:Label CssClass="" ID="lblCat" runat="server"></asp:Label>
             </div>
             <div class="midorange26b" align="center">
-                <img src="images/s1x1.gif" height="3" alt="" /></div>
+                <img src="images/s1x1.gif" height="3" alt="" />
+            </div>
             <div class="midorange26b" align="center">
                 <asp:Label CssClass="midgrey18" ID="lblNoResult" runat="server"></asp:Label><br />
             </div>
             <div align="center">
-                <div align="center" id="container" style="width: 1000px; border: solid 1px blue">
-                    <div id="wrapper" align="center" style="width: 1000px; border: solid 1px black">
-                        <%--LEFT COLUMN--%>
-                        <%--FILTER--%>
-                          <%-- <div id="left" style="width: 170px;">     
-                             </div>--%>
+                <div align="center" id="container" style="width: 1200px; border: solid 0px blue">
 
-                           <%-- End LEFT COLUMN--%>
-                        <%--RIGHT COLUMN--%>
-                      
-                        <!-- end right column-- >
-        
-                    <!--CENTER COLUMN-->
-                   <%--     <div id="center" width="700">
-                            
-                            
-                            <br />
-                            <br />
-                        </div>--%>
-                        <%--END CENTER--%>
-                              <div width="500px" align="left" vertical_align="bottom" class="dkrgrey30b">
-                                &nbsp;
-                                <asp:Label CssClass="dkrgrey30b" ID="lblCount" runat="server"></asp:Label>&nbsp;Surfboards<span
-                                    class="dkrgrey18g">&nbsp;</span>
-                                <img src="images/s1x1.gif" height="10px" width="320" alt="" />
-                                <iframe src="http://www.facebook.com/plugins/like.php?href=www.boardhunt.com&amp;layout=button_count&amp;show_faces=true&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=21"
-                                    scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 80px;
-                                    height: 20px;" allowtransparency="true"></iframe>
-                            </div>
-                        <div class="slider_container_top">
-                      
-                            <bh:ShowBoost ID="boost" runat="server"></bh:ShowBoost>
-                        </div>
-                            <div class="clr_fix"></div>
-                        <div class="adver_lft_panel" style="border: solid 1px red">
-                            <asp:Panel runat="server" Width="142px" ID="pnlFilter" BorderStyle="solid" BorderColor="#99CC33"
+                    <!-- BOOST -->
+                    <div class="slider_container_top" style="border: dotted 0px red">
+                        <bh:ShowBoost ID="boost" runat="server"></bh:ShowBoost>
+                    </div>
+
+					<!-- WRAPPER -->
+                    <div id="wrapper" align="center" style="width: 1200px; border: solid 0px black">
+
+                        <div class="clr_fix"></div>
+
+
+                        <!--- FILTER LEFT-SIDE -->
+                        <div class="adver_lft_panel" style="border: solid 0px red">
+                            <asp:Panel runat="server" Width="196px" ID="pnlFilter" BorderStyle="solid" BorderColor="#99CC33"
                                 BorderWidth="0">
                                 <table border="0" bgcolor="#ffffff" width="142px" cellpadding="0" cellspacing="0">
                                     <tr>
@@ -222,7 +204,7 @@
                                     </tr>
                                     <tr>
                                         <td bgcolor="#669900" style="width: 147px">
-                                            &nbsp;&nbsp;<asp:DropDownList ID="cboLocation" Width="125" runat="server" CssClass="dkrgrey16">
+                                            &nbsp;&nbsp;<asp:DropDownList ID="cboLocation" Width="125" runat="server" CssClass="dkrgrey16" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -238,7 +220,7 @@
                                     </tr>
                                     <tr>
                                         <td bgcolor="#669900">
-                                            &nbsp;&nbsp;<asp:DropDownList ID="cboBoardType" Width="125" runat="server" CssClass="dkrgrey16">
+                                            &nbsp;&nbsp;<asp:DropDownList ID="cboBoardType" Width="125" runat="server" CssClass="dkrgrey16" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -281,10 +263,10 @@
                                             <td bgcolor="#FFFFFF" class="dkgrey14" style="width: 147px">
                                                 &nbsp;&nbsp;$
                                                 <asp:TextBox ID="txtMinPrice" runat="server" CssClass="dkrgrey12" OnClick="select()"
-                                                    Text="Min" Width="30"></asp:TextBox>
+                                                    Text="Min" Width="30" OnTextChanged="txtPrice_TextChanged"></asp:TextBox>
                                                 &nbsp;to&nbsp;$
                                                 <asp:TextBox ID="txtMaxPrice" runat="server" CssClass="dkrgrey12" OnClick="select()"
-                                                    Text="Max" Width="30"></asp:TextBox>
+                                                    Text="Max" Width="30" OnTextChanged="txtPrice_TextChanged" AutoPostBack="true"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -321,7 +303,7 @@
                                     <table border="0" bgcolor="#ffffff" width="142px" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td class="midgreen16b" align="left" valign="bottom">
-                                                &nbsp;&nbsp;<asp:CheckBox valign="middle" ID="chkReduced" runat="server" />&nbsp;Best
+                                                &nbsp;&nbsp;<asp:CheckBox valign="middle" ID="chkReduced" runat="server" OnCheckedChanged="Check_Clicked" AutoPostBack="true" EnableViewState="true" />&nbsp;Best
                                                 deals&nbsp;&nbsp;
                                             </td>
                                         </tr>
@@ -337,7 +319,7 @@
                                         </tr>
                                         <tr>
                                             <td bgcolor="#FFFFFF">
-                                                &nbsp;&nbsp;<asp:DropDownList ID="cboCondition" Width="125" runat="server" CssClass="dkrgrey12">
+                                                &nbsp;&nbsp;<asp:DropDownList ID="cboCondition" Width="125" runat="server" CssClass="dkrgrey12" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -353,7 +335,7 @@
                                         </tr>
                                         <tr>
                                             <td bgcolor="#FFFFFF" align="left">
-                                                &nbsp;&nbsp;<asp:DropDownList ID="cboFins" runat="server" CssClass="dkrgrey12" Width="125">
+                                                &nbsp;&nbsp;<asp:DropDownList ID="cboFins" runat="server" CssClass="dkrgrey12" Width="125" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -370,7 +352,7 @@
                                         <tr>
                                             <td bgcolor="#FFFFFF" align="left">
                                                 &nbsp;&nbsp;<asp:DropDownList ID="cboTailType" runat="server" CssClass="dkrgrey12"
-                                                    Width="125">
+                                                    Width="125" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -386,7 +368,7 @@
                                         </tr>
                                         <tr>
                                             <td style="width: 147px">
-                                                &nbsp;&nbsp;<asp:DropDownList ID="cboAdType" Width="125" runat="server" CssClass="dkrgrey12">
+                                                &nbsp;&nbsp;<asp:DropDownList ID="cboAdType" Width="125" runat="server" CssClass="dkrgrey12" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -402,7 +384,7 @@
                                         </tr>
                                         <tr>
                                             <td style="width: 147px">
-                                                &nbsp;&nbsp;<asp:DropDownList ID="cboPostingType" Width="125" runat="server" CssClass="dkrgrey12">
+                                                &nbsp;&nbsp;<asp:DropDownList ID="cboPostingType" Width="125" runat="server" CssClass="dkrgrey12" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="cboFilter_SelectedIndexChanged">
                                                     <asp:ListItem Value="All" Text="All"></asp:ListItem>
                                                     <asp:ListItem Value="2" Text="Business only"></asp:ListItem>
                                                     <asp:ListItem Value="1" Text="Private only"></asp:ListItem>
@@ -448,39 +430,39 @@
                             <!-- Start: Ads -->
                             <!-- #include file="include/ads/SkyScraperAd.htm" -->
                         </div>
-                            <div class="middle_adver_panel" style="border: solid 1px #CCCCCC">
+
+                            <div class="middle_adver_panel" style="border: solid 0px #CCCCCC">
                             <div align="center">
-                                <!-- Google ads: Links Only Horizontal -->
-                                <script type="text/javascript"><!--
-                                    google_ad_client = "ca-pub-0007702553564747";
-                                    /* Links Only Ad */
-                                    google_ad_slot = "1417965723";
-                                    google_ad_width = 468;
-                                    google_ad_height = 15;
-                            //-->
-                                </script>
-                                <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                                </script>
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True"> 
+								<ContentTemplate>
                                 <table border="0">
                                     <tr>
                                         <td height="20">
-                                            <img src="images/s1x1.gif" alt="" />
+										<!-- COUNTER -->
+				                        <div width="" align="left" vertical_align="bottom" class="dkrgrey30b">
+				                                
+				                                <asp:Label CssClass="dkrgrey30b" ID="lblCount" runat="server"></asp:Label>
+										</div>
                                         </td>
-                                    </tr>
-                                    <tr>
                                         <td valign="bottom">
                                             <asp:LinkButton ID="toplnkFirst" Text="first" runat="server" Visible="false" CssClass="grey_orange12u"></asp:LinkButton>&nbsp;
+                                            <!-- Paging -->
+                                            <asp:Panel id="pnlPageTop" runat="server">
                                             <div class="slct_box">
                                                 <div class="btn_left">
                                                     <asp:ImageButton ID="topcmdPrev" onmouseover="this.src='../images/left.gif'" onmouseout="this.src='../images/left_1.gif'"
                                                         ImageUrl="~/images/left_1.gif" runat="server"></asp:ImageButton>
                                                 </div>
                                                 <div class="info_txt">
-                                                    Page</div>
-                                                <asp:TextBox ID="toptxtCurrentPage" runat="server" CssClass="option_box" AutoPostBack="True"
-                                                    Visible="false" OnTextChanged="toptxtCurrentPage_TextChanged"></asp:TextBox>
+                                                    <asp:Label id="lblPage1" runat="server">Page</asp:Label>
+                                                </div>
+
+                                                <asp:TextBox ID="txtHiCurrentPage" runat="server" CssClass="option_box" AutoPostBack="True"
+                                                    Visible="true" OnTextChanged="OnPaging_TextChange"></asp:TextBox>
+                     
                                                 <div class="info_txt">
-                                                    <asp:Label ID="toplblcpage" CssClass="info_txt" runat="server" Visible="false"></asp:Label></div>
+                                                    <asp:Label ID="toplblcpage" CssClass="info_txt" runat="server" Visible="false"></asp:Label>
+                                                </div>
                                                 <div class="btn_left_blue">
                                                     <asp:ImageButton ID="topcmdNext" onmouseover="this.src='../images/right_1.gif'" onmouseout="this.src='../images/right.gif'"
                                                         runat="server" ImageUrl="images/right.gif"></asp:ImageButton>
@@ -488,16 +470,29 @@
                                                 <div class="cls">
                                                 </div>
                                             </div>
-                                            <!-- select box ends-->
+											</asp:Panel>
+
                                         </td>
                                     </tr>
                                 </table>
-                                <table  align="center">
-                                    <asp:DataList  RepeatLayout="Table" BorderColor="#CC6600" BorderStyle="Solid"
-                                        BorderWidth="1" ID="dlEntryList" runat="server" EnableViewState="true" OnItemCommand="View_ItemDetail">
+								<Triggers>
+								<asp:AsyncPostBackTrigger ControlID="topcmdNext"  eventname="click"/>
+								<asp:AsyncPostBackTrigger ControlID="topcmdPrev"  eventname="click"/>
+
+                                </Triggers>
+ 								</ContentTemplate>
+ 								</asp:UpdatePanel>
+
+
+
+								<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+								<ContentTemplate>
+									<table  align="center">
+                                    <asp:DataList  RepeatLayout="Table" BorderColor="#CC6600" BorderStyle="Solid" Width="770px"
+                                        BorderWidth="0" ID="dlEntryList" runat="server" EnableViewState="true" OnItemCommand="View_ItemDetail">
                                         <HeaderTemplate>
                                             <tr>
-                                                <td colspan="0" bgcolor="#ff9900" height="1px">
+                                                <td bgcolor="#ff9900" height="1px" colspan="7">
                                                     <img src="images/s1x1.gif" alt="" height="1" />
                                                 </td>
                                             </tr>
@@ -507,28 +502,31 @@
                                                 valign="middle" style="cursor: hand" onmouseover="SaveBG(style.backgroundColor);style.backgroundColor='#CCCCCC'"
                                                 onmouseout="style.backgroundColor=GetBG();">
                                                 <!--Date-->
-                                                <td>
+                                                <td width="25" style="border: solid blue 0px; padding-right:3px">
                                                     &nbsp;
                                                     <asp:LinkButton CssClass="dkgrey_white10" ID="LinkButton1" runat="server" OnCommand="GetValues"
                                                         CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-										    <%# DataBinder.Eval(Container.DataItem, "dCreateDate", "{0: MM/dd}") %>
+										    		<%# DataBinder.Eval(Container.DataItem, "dCreateDate", "{0: MM/dd}") %>
                                                     </asp:LinkButton>
                                                 </td>
                                                 <!--AdType-->
-                                                <td align="center">
-                                                    <asp:ImageButton runat="server" ID="imgAdType" OnCommand="GetValues" CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>'
+                                                <td align="center" style="border: solid black 0px" width="5px">
+
+
+                                                    <asp:ImageButton Visible="false" runat="server" ID="imgAdType" OnCommand="GetValues" CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>'
                                                         CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>' ImageUrl='<%# GetAdType(DataBinder.Eval(Container.DataItem, "adType")) %>'
                                                         ToolTip='<%# DecodeAdType(DataBinder.Eval(Container.DataItem, "adType"))%>'>
                                                     </asp:ImageButton>
+                                                
+                                                <asp:Image ID="imgPreview" runat="server" ImageUrl='<%# SetPicPath(DataBinder.Eval(Container.DataItem, "iCategory"), DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>'>
+                                                                    </asp:Image>
                                                 </td>
                                                 <!--HasPic-->
-                                                <td width="10">
+                                                <td width="10" style="border: solid blue 0px">
                                                     <asp:Panel ID="pnlPreview" CssClass="imgcontainer" runat="server">
                                                         <asp:LinkButton BorderWidth="0" runat="server" CssClass="thumbnail" ID="lnkBtnImg"
                                                             OnCommand="GetValues" CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>'
                                                             CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-                                                            <%--<asp:Image BorderWidth="0" ID="imgCameraPic" CssClass="thumbnail" onmouseover="this.src='images/camera2.gif'"
-                                                            onmouseout="this.src='images/camera.gif'" runat="server" ImageUrl='<%# VerifyImage(DataBinder.Eval(Container.DataItem, "txtImgPath1")) %>' />--%>
                                                             <asp:Image BorderWidth="0" ID="imgCameraPic" CssClass="thumbnail" runat="server"
                                                                 ImageUrl='<%# SetBoardPic(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue")) %>' />
                                                             <!--span-->
@@ -537,26 +535,22 @@
                                                                     &nbsp;
                                                                     <%# GetToolTip(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue"))%>
                                                                     <%--<span style="background-color:Black;color:White;Width:75px"></span>--%><br />
+                                                                    <%--
                                                                     <asp:Image ID="imgPreview" runat="server" ImageUrl='<%# SetPicPath(DataBinder.Eval(Container.DataItem, "iCategory"), DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>'>
                                                                     </asp:Image>
+                                                                    --%>
                                                                 </div>
                                                             </asp:Label>
                                                         </asp:LinkButton>
                                                     </asp:Panel>
                                                 </td>
-                                                <!--BoardTypePic-->
-                                                <%--                                            <td>
-                                                <asp:ImageButton CssClass="Tips1" runat="server" ID="imgBoardType" OnCommand="GetValues"
-                                                    CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'
-                                                    ImageUrl='<%# SetBoardPic(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue")) %>'
-                                                    ToolTip='<%# GetToolTip(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue"))%>'>
-                                                </asp:ImageButton>
-                                            </td>--%>
-                                                <td width="3px">
+
+                                                <td width="3px" style="border: solid blue 0px">
                                                     <img src="images/s1x1.gif" alt="" />
                                                 </td>
                                                 <!--Desc-->
-                                                <td class="dkgrey_white16b" align="left" width="290" nowrap>
+                                                <td class="dkgrey_white16b" align="left" width="400px"  style="border: 0px solid blue" nowrap>
+                                                    <!-- TODO: insert div -->
                                                     <asp:LinkButton CssClass="dkgrey_white16b" ID="LinkButton2" runat="server" OnCommand="GetValues"
                                                         CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
 										<%# FormatHeightFt(DataBinder.Eval(Container.DataItem, "iHtFt"))%>
@@ -565,22 +559,19 @@
 										
                                         <%# FormatBrand(DataBinder.Eval(Container.DataItem, "txtBrand"), DataBinder.Eval(Container.DataItem, "txtShaper"))%>
 										&nbsp;
-                                        <%--<%# FormatDetails(DataBinder.Eval(Container.DataItem, "txtShaper"), (object)22 )%>&nbsp;										
-										
-										<%# FormatDetails(DataBinder.Eval(Container.DataItem, "txtBrand"), (object)22 )%>
-										&nbsp;
-                                        <%# FormatDetails(DataBinder.Eval(Container.DataItem, "txtShaper"), (object)22 )%>&nbsp;--%>
 										<%# DataBinder.Eval(Container.DataItem, "txtOtherBoardType")%>
 										<%# DataBinder.Eval(Container.DataItem, "txtGearItem")%>										
                                                     </asp:LinkButton>&nbsp;<br />
-                                                    <span class="midgrey10">views:</span> <a class="dkgrey_white10" href='http://www.malzook.com/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
-                                                        <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%></a>
+                                                  
+                                                    <span class="midgrey10"></span><a class="dkgrey_white10" href='http://www.malzook.com/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
+                                                        <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%>&nbsp;views</a><span class="midgrey10">&nbsp;</span>
+                    
                                                 </td>
                                                 <!--Area-->
-                                                <td width="105" valign="middle" align="right">
+                                                <td width="10" valign="middle" align="right" style="border: solid red 0px">
                                                 </td>
                                                 <!--Price-->
-                                                <td align="left" class="header" width="100">
+                                                <td align="left" class="header" width="100" style="border: 0px solid blue">
                                                     <asp:LinkButton ID="lnkBtnPrice" CssClass="dkrgrey_white18b" runat="server" OnCommand="GetValues"
                                                         CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
                                                     <%# DataBinder.Eval(Container.DataItem, "fltPrice", "{0:c}") + "&nbsp;&nbsp;" %>
@@ -598,25 +589,48 @@
                                             </tr>
                                         </ItemTemplate>
                                     </asp:DataList>
-                                </table>
-                                <table border="0">
+                                    </table>
+					            </ContentTemplate>
+					            <Triggers>
+					                <asp:AsyncPostBackTrigger ControlID="btnSearch2" eventname="Click" />
+					                <asp:AsyncPostBackTrigger ControlID="btnSearch" eventname="Click" />
+					                <asp:AsyncPostBackTrigger ControlID="cboLocation"  eventname="SelectedIndexChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="cboBoardType"  eventname="SelectedIndexChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="txtMaxPrice"  eventname="TextChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="txtMinPrice"  eventname="TextChanged"/>
+
+					                 <asp:AsyncPostBackTrigger ControlID="cboCondition"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboFins"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboTailType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboAdType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboPostingType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="chkReduced"  />
+					            </Triggers>
+					        </asp:UpdatePanel>
+
+                                
+                                <table border="0" width="770px">
                                     <tr>
-                                        <td height="20">
+                                        <td height="20" width="">
                                             <img src="images/s1x1.gif" alt="" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td valign="top">
+                                    	<td width="237px"><img src="images/s1x1.gif" alt="" /></td>
+                                        <td valign="top" width="527px" align="right">
+                                        <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True">
+                                        <ContentTemplate>
+                                        <asp:Panel id="pnlPageBtm" runat="server">
                                             <div class="slct_box">
                                                 <div class="btn_left">
                                                     <asp:ImageButton ID="cmdPrev" onmouseover="this.src='../images/left.gif'" onmouseout="this.src='../images/left_1.gif'"
                                                         runat="server" ImageUrl="../images/left_1.gif"></asp:ImageButton>
                                                 </div>
                                                 <div class="info_txt">
-                                                    Page
+                                                	<asp:Label ID="lblPage2" runat="server">Page</asp:Label>  
                                                 </div>
-                                                <asp:TextBox ID="lblCurrentPage" runat="server" CssClass="option_box" AutoPostBack="True"
-                                                    Visible="false" OnTextChanged="lblCurrentPage_TextChanged"></asp:TextBox>
+                                                <asp:TextBox ID="txtLoCurrentPage" runat="server" CssClass="option_box" AutoPostBack="True"
+                                                    Visible="true" OnTextChanged="OnPaging_TextChange"></asp:TextBox>
                                                 <div class="info_txt">
                                                     <asp:Label ID="lblcpage" runat="server" Visible="false"></asp:Label>
                                                 </div>
@@ -626,6 +640,15 @@
                                                 <div class="cls">
                                                 </div>
                                             </div>
+										</asp:Panel>
+										<Triggers>
+										<asp:AsyncPostBackTrigger ControlID="cmdNext"  eventname="click"/>
+										<asp:AsyncPostBackTrigger ControlID="cmdPrev"  eventname="click"/>
+
+		                                </Triggers>
+		 								</ContentTemplate>
+										</asp:UpdatePanel>
+
                                             <!-- select box ends-->
                                             <asp:LinkButton ID="lnkFirst" Text="first" runat="server" Visible="false" CssClass="grey_orange12u"></asp:LinkButton>&nbsp;
                                             <asp:LinkButton ID="lnkLast" Text="last" runat="server" Visible="false" CssClass="grey_orange12u"></asp:LinkButton>
@@ -649,9 +672,7 @@
                               <div id="right">
                       
                             <%--BOOST HERE--%>
-                      
-                                  <asp:Button runat="server" ID="btnUpdates" Text="Get Live Updates" CssClass="btnGetLiveUpdt"
-                                OnClick="btnUpdates_Click" />
+
                             <!-- #include file="include/Boardhelp.aspx" -->
                              </div>
                             </div>
@@ -676,51 +697,8 @@
      
 
     <script type="text/javascript" src="include/js/googles.js"></script>
-    
-    <script type='text/javascript'>
 
-        var _ues = {
-            host: 'boardhunt.userecho.com',
-            forum: '6121',
-            lang: 'en',
-            tab_corner_radius: 10,
-            tab_font_size: 20,
-            tab_image_hash: 'RmVlZGJhY2s%3D',
-            tab_alignment: 'left',
-            tab_text_color: '#FFFFFF',
-            tab_bg_color: '#FF0000',
-            tab_hover_color: '#F45C5c'
-        };
 
-        (function () {
-            var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-            _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-        })();
-
-</script>
-<script type='text/javascript'>
-
-    var _ues = {
-        host: 'boardhunt.userecho.com',
-        forum: '6121',
-        lang: 'en',
-        tab_corner_radius: 10,
-        tab_font_size: 20,
-        tab_image_hash: 'RmVlZGJhY2s%3D',
-        tab_alignment: 'left',
-        tab_text_color: '#FFFFFF',
-        tab_bg_color: '#FF9900',
-        tab_hover_color: '#ff6600'
-    };
-
-    (function () {
-        var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-        _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-    })();
-
-</script>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <%--CrazyEgg--%>
