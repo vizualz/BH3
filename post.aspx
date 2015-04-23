@@ -12,6 +12,8 @@
             var autocomplete = new google.maps.places.Autocomplete(input);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
+
+        
     </script>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
@@ -31,43 +33,54 @@
         });
     });        
     </script>
-        <script type="text/javascript">
-            //Stop Form Submission of Enter Key Press
-            function stopRKey(evt) {
-                var evt = (evt) ? evt : ((event) ? event : null);
-                var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-                if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
-            }
-            document.onkeypress = stopRKey;
-    </script>
 
 </head>
-<body>
+<body onkeydown="return (event.keyCode!=13)">
     <div id="main" align="center">
         <form class="header" runat="server" id="Form1">
             <!-- #include file="include/Header.aspx" -->
-            <div align="center" style="width: 200px; height: 30px; margin: 0px auto;">
+            <div align="center" style="width: 250px; height: 30px; margin: 0px auto;">
                 <span class="midorange14b">
                     <asp:HyperLink runat="server" ID="lnkSell" NavigateUrl="UserMenu.aspx" CssClass="orange_orange14u">Menu&nbsp;</asp:HyperLink>
-                    &gt; Step 1: Post Item</span>
+                    &gt; Step 1 of 3: General Info</span>
             </div>
             <br />
             <br />
             <div align="center">
                 <div style="background-color: #F0F0F0; width: 420px">
-                    <div style="background-color: #CCCCCC; width: 420px; vertical-align: middle;"><br />
-                    <span class="white20b">Step 1 of 3: <span class="white20">Answer and click &quot;Next&quot;</span>
+                    <div style="background-color: #333333; width: 420px; vertical-align: middle;"><br />
+                    <span class="white16">Make it easy to find with accurate info.</span>
                     <br /></div>
                     
                     <div style="width: 330px; background-color: #F0F0F0" align="left"><br />
-                        <span class="dkgrey16">What Type of ad?</span>
                         <br />
-                        <asp:RadioButtonList ID="radioAdType" CellPadding="3" CellSpacing="3" OnDataBound="radioAdType_OnDataBound"
-                            CssClass="dkrgrey16" runat="server" RepeatDirection="Horizontal" TabIndex="1">
-                        </asp:RadioButtonList>
+                        <span class="dkgrey16" align="center">Region</span><br />
+                        <asp:DropDownList ID="cboRegion" Width="200px" runat="server" CssClass="dkrgrey16"
+                            TabIndex="3">
+                        </asp:DropDownList>
+                        <br /><br />
+                        <span class="dkrgrey16" align="center">City, State:</span><br />
+                        <asp:TextBox id="txtTown" runat="server" clientidmode="Static" type="text" size="45" CssClass="dkrgrey16" placeholder="Enter a location" autocomplete="on"  />
+                        <br />
+                                    <span class="midorange14">
+                                        (ex: Encinitas, CA) 
+                                    </span>                        
+                        <br /><br />
+                        <span class="dkrgrey16" align="center">Zip/Postal:</span><br />
+                        <asp:TextBox id="txtZip" runat="server" clientidmode="Static" type="text" size="45" CssClass="dkrgrey16" placeholder="Enter Zipcode" autocomplete="on"  />
+                         <br /><br />
+                        <asp:Panel ID="pnlCondition" runat="server" Visible="true">
+                            <span class="dkgrey16">What kind of condition?</span>
+                            <br />
+                            <asp:RadioButtonList CellPadding="3" CellSpacing="3" ID="radioConditionType" CssClass="dkrgrey16"
+                                runat="server" RepeatDirection="Horizontal" TabIndex="1">
+                            </asp:RadioButtonList><span class="midorange14">
+                                        (Boards must be in decent condition) 
+                                    </span> 
+                        </asp:Panel>
                         <br />
                         <asp:Panel ID="pnlShip" runat="server" Visible="true">
-                            <span class="dkgrey16">Will you ship?</span>
+                            <span class="dkgrey16">Are you willing to ship?</span>
                             <br />
                             <asp:RadioButtonList CellPadding="3" CellSpacing="3" ID="rdoShip" CssClass="dkrgrey16"
                                 runat="server" RepeatDirection="Horizontal" TabIndex="1">
@@ -76,52 +89,26 @@
                             </asp:RadioButtonList>
                         </asp:Panel>
                         <br />
-                        <asp:Panel ID="pnlCondition" runat="server" Visible="true">
-                            <span class="dkgrey16">What kind of condition?</span>
-                            <br />
-                            <asp:RadioButtonList CellPadding="3" CellSpacing="3" ID="radioConditionType" CssClass="dkrgrey16"
-                                runat="server" RepeatDirection="Horizontal" TabIndex="1">
-                            </asp:RadioButtonList><span class="midorange12">
-                                        (Postings below standards will be removed) 
-                                    </span> 
-                        </asp:Panel>
-                              
-                        <br />
-                        <span class="dkgrey16">Category</span><br />
-                        <asp:DropDownList ID="cboCategory" Width="200px" runat="server" CssClass="dkrgrey16"
-                            TabIndex="2">
-                        </asp:DropDownList>
-                        <br /><br />
-                        <span class="dkgrey16" align="center">General area</span><br />
-                        <asp:DropDownList ID="cboRegion" Width="200px" runat="server" CssClass="dkrgrey16"
-                            TabIndex="3">
-                        </asp:DropDownList>
-                        <br /><br />
-                        <span class="dkgrey16" align="center">City, State:</span><br />
-                        <asp:TextBox id="txtTown" runat="server" clientidmode="Static" type="text" size="50" CssClass="dkrgrey16" placeholder="Enter a location" autocomplete="on"  />
-                        <%--<asp:TextBox ID="txtTown" Width="200" runat="server" CssClass="dkrgrey16" TabIndex="4"></asp:TextBox>--%>
-                        <br />
-                                    <span class="midorange12">
-                                        (ex: La Jolla, CA) 
-                                    </span>                        
-                             
-                              <%--<input id="searchTextField" runat="server" clientidmode="Static" type="text" size="50" placeholder="Enter a location" autocomplete="on" />--%>
-                        <br /><br />
-                        <asp:Button ID="btnCancel" runat="server" CssClass="btnCancel" Height="35px" Text="Cancel" TabIndex="5" />
-                        <asp:Button ID="btnNext" runat="server" CssClass="btnStep" Height="35px" Text="Next" TabIndex="6" />
+                        <asp:Button ID="btnCancel" runat="server" CssClass="btnCancel" Width="75px" Height="35px" Text="Cancel" TabIndex="5" />
+                        <asp:Button ID="btnNext" runat="server" CssClass="btnStep" Width="75px" Height="35px" Text="Next" TabIndex="6" />
                         &nbsp;<br />&nbsp;<br />
                     </div>
                 </div>
                 <table align="center" cellspacing="0" width="450px" border="0" style="background-color: #F0F0F0;
                     border-color: #FF9900">
                 </table>
+                <div style="background-color: #F0F0F0; width: 420px">
+                    <div style="background-color: #333333; width: 420px; vertical-align: middle;"><br />
+                    <span class="white16">Avoid scams by dealing local.</span>
+                    <br /></div>
             </div>
             <asp:HiddenField ID="hdnAdType" runat="server" Value="" />
             <div id="push">
             </div>
             <br />
+        </div>
         </form>
-    </div>
+
     <br />
     <br />
     <div align="center">

@@ -90,7 +90,8 @@ namespace BoardHunt
                 lblLocation.Text = Global.SwapChar(DecodeRegion(Convert.ToInt32(bItem.Location))," ", "_");
                 if (bItem.Town.Length > 0)
                 {
-                    lblLocation.Text += " - " + bItem.Town;
+					lblLocation.Text += " - " + bItem.Town + " " + bItem.Zip;
+
                 }
             }
 
@@ -384,7 +385,7 @@ namespace BoardHunt
             classes.BoardItem oBoardItem = (classes.BoardItem)Session["Item"];
             oBoardItem.EditMode = true;
             Session["Item"] = oBoardItem;
-            Response.Redirect("post_item.aspx", true);        
+			Response.Redirect("post_item.aspx?", true);        
         }
         
 /**

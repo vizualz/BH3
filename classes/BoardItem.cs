@@ -184,8 +184,8 @@ namespace BoardHunt.classes
                     switch (AdType)
                     {
                         case 1: //selling
-                            strSQL = "INSERT INTO tblEntry (Location, txtTown, adType, iCategory, iBoardType, txtBrand, iHtFt, iHtIn, iTailType, iFins, txtDetails, dCreateDate, fltPrice, iUser, txtImgPath1, txtImgPath2, txtImgPath3, txtImgPath4, width, widthNum, widthDenum, Thick, ThickNum, ThickDenum, iRatingVal, iRatingCount, iCondition, activateCode, iShip, txtShaper, iStatus, txtModel)";
-                            strSQL += "VALUES ('" + Location + "', '" + Town + "', '" + AdType + "', '" + Category + "', '" + BoardType + "', '" + Brand + "', '" + HtFt +
+					strSQL = "INSERT INTO tblEntry (Location, txtTown, txtZip, adType, iCategory, iBoardType, txtBrand, iHtFt, iHtIn, iTailType, iFins, txtDetails, dCreateDate, fltPrice, iUser, txtImgPath1, txtImgPath2, txtImgPath3, txtImgPath4, width, widthNum, widthDenum, Thick, ThickNum, ThickDenum, iRatingVal, iRatingCount, iCondition, activateCode, iShip, txtShaper, iStatus, txtModel)";
+					strSQL += "VALUES ('" + Location + "', '" + Town + "', '" + Zip + "', '" + AdType + "', '" + Category + "', '" + BoardType + "', '" + Brand + "', '" + HtFt +
                                       "', '" + HtIn + "', '" + TailType + "', '" + Fins + "' , '" + Details + "' , '" + Created + "' , '" + Price + "', '" +
                                       IUser + "', '" + ImgPath1 + "', '" + ImgPath2 + "', '" + ImgPath3 + "', '" + ImgPath4 +
                                       "', '" + Width + "','" + WidthNum + "','" + WidthDenum + "','" + Thickness + "','" + ThickNum + "','" + ThickDenum + "','" + (int)0 +
@@ -303,8 +303,7 @@ namespace BoardHunt.classes
             string strSQL = "";
 
             //build SQL
-            strSQL = "UPDATE tblEntry SET dLastModified ='" + DateTime.Now + "',Location = '" + Location + "',txtTown = '" + Town + "',txtDetails = '" + Details + "',txtBrand = '" + Brand + "',fltPrice = '" + Price + "'";
-            //strSQL = "UPDATE tblEntry SET Location = '" + Location + "',txtTown = '" + Town + "',txtDetails = '" + Details + "',txtBrand = '" + Brand + "',fltPrice = '" + Price + "'";
+			strSQL = "UPDATE tblEntry SET dLastModified ='" + DateTime.Now + "',Location = '" + Location + "',txtTown = '" + Town + "',txtZip = '" + Zip + "',txtDetails = '" + Details + "',txtBrand = '" + Brand + "',fltPrice = '" + Price + "'";
 
             if (PriceChange == 1)
                 strSQL += ",iPriceChange ='" + 1 + "'";

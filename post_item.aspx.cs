@@ -76,7 +76,6 @@ namespace BoardHunt
 		{
             ErrorLog.ErrorRoutine(false, "PI: Pg_Load:IsPB: " + Page.IsPostBack + " SessionID: " + Session.SessionID + " Browser: " + Request.Browser.Browser);
 
-            
             HideErrorMessages();
 
             //TODO:SECURITY CHECK verify user and stuff object
@@ -643,10 +642,10 @@ namespace BoardHunt
                 img3.ImageUrl = "images/s1x1.gif";
                 img4.ImageUrl = "images/s1x1.gif";
                 string strServerURL = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"];
-                if (tempBoardItem.ImgPath1.Length > (int)0)
+				string path = strServerURL + @"/users/" + Session ["userDir"].ToString () + @"/temp/";
+				if (tempBoardItem.ImgPath1.Length > (int)0)
                 {
                     //get URL to show pic
-                    string path = strServerURL + @"\users\" + Session["userDir"].ToString() + @"\temp\";
                     string[] strArray;
                     char[] splitter = { '\\' };
                     strArray = tempBoardItem.ImgPath1.Split(splitter);
@@ -666,7 +665,6 @@ namespace BoardHunt
                 if (tempBoardItem.ImgPath2.Length > (int)0)
                 {
                     //get URL to show pic
-                    string path = strServerURL + @"\users\" + Session["userDir"].ToString() + @"\temp\";
                     string[] strArray;
                     char[] splitter = { '\\' };
                     strArray = tempBoardItem.ImgPath2.Split(splitter);
@@ -686,7 +684,6 @@ namespace BoardHunt
                 if (tempBoardItem.ImgPath3.Length > (int)0)
                 {
                     //get URL to show pic
-                    string path = strServerURL + @"\users\" + Session["userDir"].ToString() + @"\temp\";
                     string[] strArray;
                     char[] splitter = { '\\' };
                     strArray = tempBoardItem.ImgPath3.Split(splitter);
@@ -705,7 +702,6 @@ namespace BoardHunt
                 if (tempBoardItem.ImgPath4.Length > (int)0)
                 {
                     //get URL to show pic
-                    string path = strServerURL + @"\users\" + Session["userDir"].ToString() + @"\temp\";
                     string[] strArray;
                     char[] splitter = { '\\' };
                     strArray = tempBoardItem.ImgPath4.Split(splitter);
@@ -715,7 +711,6 @@ namespace BoardHunt
                 }
                 else
                 {
-
                     rdoImgMgr4.Items[2].Text = "Add";
                     rdoImgMgr4.Items.Remove("Delete");
                     rdoImgMgr4.Items.Remove("Keep");
@@ -1293,7 +1288,7 @@ namespace BoardHunt
                 classes.BoardItem oBoardItem = (classes.BoardItem)Session["Item"];
                 oBoardItem.EditMode = true;
                 Session["Item"] = oBoardItem;
-                Response.Redirect("post.aspx", true);
+				Response.Redirect("post.aspx?em=1", true);
             }
 
         }

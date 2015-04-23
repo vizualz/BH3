@@ -36,6 +36,7 @@ namespace BoardHunt.classes
         private int trade;
         private int status;
         private string town;
+		private string zipcode;
         private string genDimensions;
         private string webURL;
         private string adTitle;         //title that reads across the Showcase item
@@ -200,6 +201,13 @@ namespace BoardHunt.classes
             set { town = value; }
 
         }
+
+		public string Zip
+		{
+			get { return zipcode; }
+			set { zipcode = value; }
+
+		}
 
         public string GenDimensions
         {

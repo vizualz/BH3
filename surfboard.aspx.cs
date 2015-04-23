@@ -241,6 +241,8 @@ namespace BoardHunt
          */
         private void BindData()
         {
+
+
             string strSQL;
             string myConnectString;
             string strCat;
@@ -257,6 +259,7 @@ namespace BoardHunt
             strSQL += " FROM tblUser INNER JOIN tblEntry ON tblUser.Id = tblEntry.iUser ";
             strSQL += " LEFT JOIN tblVote t ON t.iEntry = tblEntry.iD ";
             strSQL += " WHERE tblEntry.iD = '" + hdnEId.Value + "'";
+
 
 
             SqlConnection myConnection = new SqlConnection(myConnectString);
@@ -287,7 +290,6 @@ namespace BoardHunt
                     else
                         btnPagePrev.Enabled = false;
 
-
                     //lblLocation.Text = Global.ProperSpace(DecodeRegion(SQLReader["Location"]));
                     lblLocation.Text = Global.SwapChar(DecodeRegion(SQLReader["Location"]), string.Empty, "_");
                     if (SQLReader["txtTown"].ToString().Length > 0)
@@ -295,9 +297,10 @@ namespace BoardHunt
                         lblLocation.Text += " (" + SQLReader["txtTown"].ToString() + ")";
                     }
 
+
                     //Brand
-                    //lblBrand.Text = "Brand:&nbsp";
-                    lblBrandData.Text = SQLReader["txtBrand"].ToString();
+					if (SQLReader["txtBrand"] != null)
+                    	lblBrandData.Text = SQLReader["txtBrand"].ToString();
 
                     //Model
                     if (SQLReader["txtModel"] != null)
@@ -307,14 +310,17 @@ namespace BoardHunt
                     }
 
                     //Price
+					if (SQLReader["fltPrice"] != null)
                     lblPriceData.Text = Global.FormatPrice(SQLReader["fltPrice"]);
 
                     //Details
+					if (SQLReader["txtDetails"] != null)
                     lblDetailsData.Text = SQLReader["txtDetails"].ToString();
+
+
 
                     //Contact
                     Session["Email"] = SQLReader["txtEmail"].ToString();
-                    //lnkEmailData.Text = ParseEmail(SQLReader["txtEmail"].ToString());
                     lnkEmailData.Text = "e-mail";
                     lnkEmailData.CommandArgument = SQLReader["txtEmail"].ToString();
 
@@ -349,6 +355,7 @@ namespace BoardHunt
                     //user
                     hdnUserId.Value = SQLReader["iUser"].ToString();
 
+
                     //Category
                     strCat = SQLReader["iCategory"].ToString();
                     hdniCat.Value = strCat;
@@ -359,6 +366,7 @@ namespace BoardHunt
                     itemType = SQLReader["adType"].ToString();
                     lblPageViewCount.Text = incPageViewCount(SQLReader["iPageViewCount"].ToString());
                     lblNudges.Text = SQLReader["numNudges"].ToString();
+
 
                     try
                     {
@@ -387,7 +395,10 @@ namespace BoardHunt
                     if (itemType == "1")
                     {
                         pnlCondition.Visible = true;
+						try{
                         lblCondition.Text = Global.ProperSpace(DecodeCondition(SQLReader["iCondition"]));
+						}
+						catch{}
 
                         pnlShip.Visible = true;
                         if (SQLReader["iShip"].ToString() == "1")

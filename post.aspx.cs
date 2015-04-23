@@ -28,16 +28,18 @@ namespace BoardHunt
 	/// </summary>
 	public class post : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.DropDownList cboCategory;
+
+
 		protected System.Web.UI.WebControls.DropDownList cboRegion;
 		protected System.Web.UI.WebControls.ImageButton imgNext;
 		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
 		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.RadioButtonList radioAdType;
+
         protected System.Web.UI.WebControls.RadioButtonList rdoShip;
         protected System.Web.UI.WebControls.RadioButtonList radioConditionType;
 		protected System.Web.UI.WebControls.LinkButton lnkPost;
         protected System.Web.UI.WebControls.TextBox txtTown;
+		protected System.Web.UI.WebControls.TextBox txtZip;
         protected System.Web.UI.WebControls.Panel pnlShip;
         protected System.Web.UI.WebControls.Panel pnlCondition;
         protected System.Web.UI.WebControls.HiddenField hdnAdType;
@@ -47,41 +49,54 @@ namespace BoardHunt
 	
 		private void Page_Load(object sender, System.EventArgs e)
 		{
-            //clear out any old session item
-            Session["Item"] = null;
-
-            ErrorLog.ErrorRoutine(false, "Post:Page_Load: " + Session.SessionID + " isPB: " + Page.IsPostBack);
-            //ErrorLog.ErrorRoutine(false, "Post:Page_Load: val: " + searchTextField.Text);
-
-            // Put user code to initialize the page here
+			// Put user code to initialize the page here
 			Global.AuthenticateUser("post.aspx");
-            //Global.AuthenticateUser();
 
 			string iUID = Session["userId"].ToString();
 			string i;
 
+			//check for ProUser
 			BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
 			i = oWS.isPro(Convert.ToInt32(iUID)).ToString();
-	
-			if (i != "1") //if not Pro acct the check to see if they're maxed out of posts
-            {
-				if (oWS.GetActiveBoardCount(Convert.ToInt32(iUID), 1, 0) > 4 )
-                    Response.Redirect("/UserMenu.aspx", true); 
-            }
 
-            // Put user code to initialize the page here
+			if (i != "1") //if not Pro acct the check to see if they're maxed out of posts
+			{
+				if (oWS.GetActiveBoardCount(Convert.ToInt32(iUID), 1, 0) > 4 )
+					Response.Redirect("/UserMenu.aspx", true); //TODO: add message that they're out of posts
+			}
+
+			BindData(); //unconditionally bind the data for the controls
+
+			//if (!Page.IsPostBack) 
+			//{
+			//	Session ["EditMode"] = "false"; //a check for edit mode ???
+			//} 
+
+			//check first time arrival or edit mode
+			string[] arString;
+			arString = Request.QueryString.GetValues("em");
+			if (arString != null)
+			{
+				if (HttpUtility.UrlDecode (arString [0].ToString ()) == "1") {
+					//load object values
+					classes.BoardItem tmpBoardItem = (classes.BoardItem)Session["Item"];
+					if (tmpBoardItem != null)
+					{
+						txtTown.Text = tmpBoardItem.Town;
+						txtZip.Text = tmpBoardItem.Zip;
+					}
+				}
+			}
+			else
+			{
+				Session ["EditMode"] = "false";
+			}
+
+			// Put user code to initialize the page here
 			lnkSignIn.Text = Global.SetLnkSignIn( );
 			lnkSignUp.Text = Global.SetLnkSignUp( );
 
-			if (!Page.IsPostBack)
-			{
-                //This tells us if we're in edit mode; user clicked edit on the preview_post page
-                Session["EditMode"] = "false";
-
-                //radioAdType.Attributes.Add("OnClick", "TogglePanel('div_condition','radioAdType')");
-                
-                BindData();
-			}
+			Session ["Item"] = null;
 
 		}
 
@@ -119,24 +134,19 @@ namespace BoardHunt
 
             ErrorLog.ErrorRoutine(false, "Post:btnNext_Click: " + Session.SessionID + " isPB: " + Page.IsPostBack);
 
-            //ErrorLog.ErrorRoutine(false, "Post:btnNext_Click: " + searchTextField.);
 
-            tmpItem.Category = Convert.ToInt32(cboCategory.SelectedItem.Value);
+			tmpItem.Category = 1; //hardcoded for ALWAYS surfboards
+			tmpItem.AdType = 1; //hardcoded for ALWAYS surfboards
+
             tmpItem.Location = Convert.ToInt32(cboRegion.SelectedItem.Value);
-            tmpItem.AdType = Convert.ToInt32(radioAdType.SelectedItem.Value);
             tmpItem.Ship = Convert.ToInt32(rdoShip.SelectedItem.Value);
-
-            //if selling ad type get the board/item condition
-            if (radioAdType.SelectedItem.Value == "1")
-            {
-                tmpItem.ICondition = Convert.ToInt32(radioConditionType.SelectedItem.Value);
-            }
-
             tmpItem.Town = txtTown.Text;
-            //tmpItem.Town = searchTextField.Text;
-
             tmpItem.EditMode = false;
 
+			tmpItem.Zip = txtZip.Text;
+			tmpItem.ICondition = Convert.ToInt32(radioConditionType.SelectedItem.Value);
+
+			//Used for convenient 1-click editing from emails.
             BoardHunt.classes.RandomPassword pwdGen = new BoardHunt.classes.RandomPassword();
             tmpItem.ActivateCode = pwdGen.Generate();
 
@@ -202,7 +212,7 @@ namespace BoardHunt
 			myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
 			
 			//Build SQL statement
-            strSQL = "SELECT * FROM LK_AdType ; SELECT * FROM LK_Category WHERE GroupId='1'; SELECT * FROM LK_Region ORDER BY Description DESC; SELECT iD,condition FROM LK_Condition";
+            strSQL = "SELECT * FROM LK_Region ORDER BY Description DESC; SELECT iD,condition FROM LK_Condition";
 			
 			SqlConnection myConnection = new SqlConnection(myConnectString);			
 
@@ -212,31 +222,11 @@ namespace BoardHunt
 
             try
             {
-                objAdapter.TableMappings.Add("Table", "tblAd");
-                objAdapter.TableMappings.Add("Table1", "tblCat");
-                objAdapter.TableMappings.Add("Table2", "tblRegion");
-                objAdapter.TableMappings.Add("Table3", "tblCondition");
+
+				objAdapter.TableMappings.Add("Table", "tblRegion");
+				objAdapter.TableMappings.Add("Table1", "tblCondition");
 
                 objAdapter.Fill(dsItems);
-
-                radioAdType.DataSource = dsItems;
-                radioAdType.DataMember = "tblAd";
-                radioAdType.DataTextField = "adType";
-                radioAdType.DataValueField = "iD";
-                radioAdType.DataBind();
-                radioAdType.SelectedIndex = (int)0;
-
-                //Remove showcase; Only admin privilege
-                //TODO: fix this tmp hack
-                radioAdType.Items.Remove(radioAdType.Items.FindByValue("3"));
-                radioAdType.Items.Remove(radioAdType.Items.FindByValue("4"));
-
-                cboCategory.DataSource = dsItems;
-                cboCategory.DataMember = "tblCat";
-                cboCategory.DataTextField = "Category";
-                cboCategory.DataValueField = "iD";
-                cboCategory.DataBind();
-                cboCategory.SelectedIndex = (int)0;
 
                 cboRegion.DataSource = dsItems;
                 cboRegion.DataMember = "tblRegion";
@@ -244,9 +234,10 @@ namespace BoardHunt
                 cboRegion.DataValueField = "iD";
                 cboRegion.DataBind();
 
-                for (int i = 0; i < cboRegion.Items.Count; i++)
+			
+				for (int i = 0; i < cboRegion.Items.Count; i++)
                 {
-                    switch (dsItems.Tables[2].Rows[i][2].ToString().Trim())
+					switch (dsItems.Tables[0].Rows[i][2].ToString().Trim())
                     {
                         case "State":
                             cboRegion.Items[i].Attributes.Add("style", "color:#000000");
@@ -260,6 +251,7 @@ namespace BoardHunt
 
                     }
                 }
+
                 cboRegion.SelectedIndex = (int)0;
 
                 radioConditionType.DataSource = dsItems;
@@ -269,9 +261,9 @@ namespace BoardHunt
                 radioConditionType.DataBind();
                 radioConditionType.SelectedIndex = (int)0;
             }
-            catch
+			catch (Exception ex)
             {
-                ErrorLog.ErrorRoutine(false, "Post.aspx: Error loading controls");
+				ErrorLog.ErrorRoutine(false, "Post.aspx: Error loading controls: " + ex.InnerException);
             }
 
             finally
