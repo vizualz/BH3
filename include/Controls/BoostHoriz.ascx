@@ -1,7 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BoostHoriz.ascx.cs" Inherits="BoardHunt.include.Controls.BoostHoriz" %>
 
-<link href="../../style/global.css" rel="stylesheet" type="text/css" />
-
 
 <%--style="width: 1285px; margin-left: 0px; height: 17px; margin-bottom: 0px;"--%>
 <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -10,63 +8,74 @@
     <div class="inner_slider">
            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-            <div class="left_arrrow">
-            <asp:ImageButton ID="btnPrev" OnClientClick="onNext();" runat="server" ImageUrl="~/images/left_arrow.png" OnClick="btnPrev_Click">
-            </asp:ImageButton>
-            </div>
-            <div class="images_area">
-                    <asp:Panel runat="server" ID="pnlHotBoards" ToolTip="Boost your board to show in this space.  It's $5 per ad or it's inclusive with PRO.  Ads will rotate until sold.">
-                        <asp:DataList ID="dlUpgrades" runat="server" RepeatDirection="Horizontal" Style="background-color: #ECF8E0;"
-                            RepeatColumns="10" ItemStyle-HorizontalAlign="Center" RepeatLayout="Table" >
-                            <HeaderTemplate>
-                                <div align="right">
-                                    <table>
-                                        <tr>
-                                            <td height="25px" align="left" valign="bottom" class="dkrgrey16">
-                                                <a class="orange_ltgreen12u" href="../../post_manager.aspx">add my board</a>&nbsp;&nbsp;
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkBtnUpBrand" runat="server" CssClass="dkgrey_orange12" OnCommand="ShowItem"
-                                    CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-                <%# DataBinder.Eval(Container.DataItem, "iHtFt")%>'<%# DataBinder.Eval(Container.DataItem, "iHtIn")%>"&nbsp;<%# DataBinder.Eval(Container.DataItem, "txtBrand")%>
-                </asp:LinkButton>
-                                <asp:ImageButton runat="server" ID="imgBtnHotBoard" CssClass="dkgrey_orange12" OnCommand="ShowItem"
-                                    CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'
-                                    ImageUrl='<%# SetBoostPicPath(DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>' />
-                                <br />
-                                &nbsp; <span class="midgrey10top">views:</span> <a class="dkgrey_white10" href='http://www.malzook.com/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
-                                    <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%></a>
-                                <br />
-                                <br />
-                            </ItemTemplate>
-                        </asp:DataList>
-                      </asp:Panel>
-                </div>
+	            <div class="left_arrrow">
+	            	<asp:ImageButton ID="btnPrev" OnClientClick="onNext();" runat="server" ImageUrl="~/images/left_arrow.png" OnClick="btnPrev_Click">
+	            	</asp:ImageButton>
+	            </div>
+	            <div class="images_area">
+	                    <asp:Panel runat="server" ID="pnlHotBoards" ToolTip="Upgrade to PRO or Boost your board!">
+	                        <asp:DataList ID="dlUpgrades" runat="server" RepeatDirection="Horizontal" Style="background-color: #FFFFFF;"
+	                            RepeatColumns="10" ItemStyle-HorizontalAlign="Center" RepeatLayout="Table" >
+	                            <HeaderTemplate>
+	                                <div align="right">
+	                                    <table>
+	                                        <tr>
+	                                        	<td class="orange_ltgreen12u">&nbsp;</td>
+	                                            <td height="25px" align="left" valign="bottom" class="dkrgrey16">
+	                                                <a class="orange_ltgreen12u" href="../../post_manager.aspx">add my board</a>&nbsp;&nbsp;
+	                                            </td>
+	                                        </tr>
+	                                    </table>
+	                                </div>
+	                            </HeaderTemplate>
+	                            <ItemTemplate>
+	                            <div style="border: 0px solid black; height:204px; width: 158px; margin-top:2px" >
+	                            <div style="border: 0px solid red; height:154px; width: 154px; background: url(images/blur3.png);
+    background-size: 154px 154px;
+    background-repeat: no-repeat;">
+
+	                                <asp:ImageButton Style="border:0px solid grey" runat="server" ID="imgBtnHotBoard" Height="151px" Width="151" CssClass="dkgrey_orange12" OnCommand="ShowItem"
+	                                    CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'
+	                                    ImageUrl='<%# SetBoostPicPath(DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>' />
+	                                <br />
+								</div>
+	                                <asp:LinkButton ID="lnkBtnUpBrand" runat="server" CssClass="orange_dkorange18" OnCommand="ShowItem"
+	                                    CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
+					                <%# DataBinder.Eval(Container.DataItem, "iHtFt")%>'<%# DataBinder.Eval(Container.DataItem, "iHtIn")%>"&nbsp;<%# trimIt(DataBinder.Eval(Container.DataItem, "txtBrand"))%>
+					                </asp:LinkButton>
+					                <br />
+	                                &nbsp; <span class="midgrey10top"></span> 
+	                                <a class="dkgrey_white10" href='http://www.malzook.com/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
+	                                    <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%>
+	                                    &nbsp;Views</a>
+	                                <br />
+	                                <br />
+
+	                                </div>
+	                            </ItemTemplate>
+	                        </asp:DataList>
+	                      </asp:Panel>
+	                </div>
                 <!--images area ends-->
             <div class="right_arrrow">
-            <asp:ImageButton ID="btnNext" OnClientClick="onNext();"  runat="server" ImageUrl="~/images/right_arrow.png"
-                OnCommand="btnNext_Click" />
-        </div>
+            	<asp:ImageButton ID="btnNext" OnClientClick="onNext();"  runat="server" ImageUrl="~/images/right_arrow.png"
+                	OnCommand="btnNext_Click" />
+        	</div>
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnNext" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnPrev" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
-       
+    <!--inner slider ends--->  
     </div>
-    <!--innder slider ends--->
-    <!--move slider ends-->
     <div class="loading" align="center">
-    Loading. Please wait.<br />
-    <br />
-    <img src="../../images/loading.gif" alt="" />
-</div>
-</div>
+	    Loading. Please wait.<br />
+	    <br />
+	    <img src="../../images/loading.gif" alt="" />
+	</div>
+<!--move slider ends-->
+</div>	    
 
 
 

@@ -35,9 +35,6 @@ namespace BoardHunt.include.Controls
         {
             try
             {
-                //if (!Page.IsPostBack)
-                //{
-                //    BindBoost();
 
                 if (!IsPostBack)
                 {
@@ -49,8 +46,6 @@ namespace BoardHunt.include.Controls
             {
                 Bind();
             }
-
-            //}
 
         }
 
@@ -65,81 +60,22 @@ namespace BoardHunt.include.Controls
                      PagedDataSource _pageDataSource = new PagedDataSource();
                      _pageDataSource.DataSource = dt.DefaultView;
                      _pageDataSource.AllowPaging = true;
-                     _pageDataSource.PageSize = 5;
+					_pageDataSource.PageSize = 7;
                      _pageDataSource.CurrentPageIndex = index;
                      ViewState["LastPage"] = _pageDataSource.PageCount - 1;
                      dlUpgrades.DataSource = _pageDataSource;
                      dlUpgrades.DataBind();
 
-                     //if (_pageDataSource.IsFirstPage == true)
-                     //{
-                     //    btnNext.Visible = true;
-                     //    btnPrev.Visible = false;
-                     //}
-                     //if (_pageDataSource.IsLastPage == true)
-                     //{
-                     //    btnPrev.Visible = true;
-                     //    btnNext.Visible = false;
-                     //}
-
-                     
-                     //if ((_pageDataSource.IsFirstPage != true) && (_pageDataSource.IsLastPage != true))
-                     //{
-                     //    btnPrev.Visible = true;
-                     //    btnNext.Visible = true;
-                     //}
-
-
-                     btnPrev.Visible = !_pageDataSource.IsFirstPage;
-                     btnNext.Visible = !_pageDataSource.IsLastPage;
-
-                     //lnkFirst.Visible = !_ pageDataSource.IsFirstPage;
-                     //lnkLast.Visible = !_ pageDataSource.IsLastPage;
+					//btnPrev.Visible = !_pageDataSource.IsFirstPage;
+					//btnNext.Visible = !_pageDataSource.IsLastPage;
 
                  }
-             }catch(Exception ex )
-             {
              }
+			catch(Exception ex )
+            {
+            }
         }
 
-
-
-//        protected void BindBoost()
-//        {
-//            string strSQL;
-//            IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-
-//            // TODO NOW Fix this query.
-//            strSQL = @"SELECT e.txtImgPath1, e.iD, e.iHtFt,e.iPageViewCount, e.iHtIn, e.iUser, e.txtBrand, u.userDir 
-//            FROM tblServices s
-//            INNER JOIN tblEntry e on s.iEntryId = e.iD
-//            INNER JOIN tblUser u on u.id = e.iUser
-//            WHERE e.iBoosted = 1
-//            AND (e.iStatus <> 3
-//            OR e.iStatus is NULL)
-//            ORDER BY NEWID()";
-//            //strSQL = @"select * from ShowBoostHoriz ORDER BY NEWID()";
-
-//            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
-
-//            try
-//            {
-//                dbManager.Open();
-//                dbManager.ExecuteReader(CommandType.Text, strSQL);
-//                dlUpgrades.DataSource = dbManager.DataReader;
-//                dlUpgrades.DataBind();
-
-//            }
-//            catch (Exception ex)
-//            {
-//                ErrorLog.ErrorRoutine(false, "Boost:BindBoost:Error: " + ex.Message);
-//            }
-//            finally
-//            {
-//                dbManager.Close();
-//                dbManager.Dispose();
-//            }        
-//        }
 
         public DataTable getTheData()
         {
@@ -156,26 +92,25 @@ namespace BoardHunt.include.Controls
 
             DataSet DS = new DataSet();
             SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConn"].ConnectionString);
-
             SqlDataAdapter objSQLAdapter = new SqlDataAdapter(strSQL, myConnection); objSQLAdapter.Fill(DS, "Customers");
-
 
             return DS.Tables[0];
 
         }
 
-       
         public string SetBoostPicPath(object uDir, object imgPath)
         {
-            if (imgPath == string.Empty)
-                return "images/s1x1.gif";
+			string retVal = "~/images/s1x1.gif";	//the default
 
-            //set the default"images/s1x1.gif"
-            string retVal = "images/s1x1.gif";
+			if (imgPath.ToString() == string.Empty)
+				return retVal;
+				
             if (uDir != null && imgPath != null)
             {
-                retVal = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString() + "/users/" + Global.ReplaceEx(uDir.ToString(), @"\", @"/") + "surfboards/" + "thmbNail_" + imgPath;
-            }
+				//retVal = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString() + "/users/" + Global.ReplaceEx(uDir.ToString(), @"\", @"/") + "surfboards/" + "thmbNail_" + imgPath;
+				retVal = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString() + "/users/" + Global.ReplaceEx(uDir.ToString(), @"\", @"/") + "surfboards/" + imgPath;
+
+			}
             return retVal;
         }
 
@@ -189,20 +124,37 @@ namespace BoardHunt.include.Controls
 
         public void btnPrev_Click(object sender, ImageClickEventArgs e)
         {
-            //Response.Redirect(Request.CurrentExecutionFilePath + "?Page=" + (CurPage - 1));
-            index -= 1;
+			//decrement unless we're on the first page
+			if (index == 0) 
+				index = Convert.ToInt32(ViewState ["LastPage"]);
+			else
+				index -= 1;
+
             Bind();
         }
 
         public void btnNext_Click(object src, CommandEventArgs e)
         {
-
-            index += 1;
-            Bind();
-            //Response.Redirect(Request.CurrentExecutionFilePath + "?Page=" + (CurPage + 1));
+			//increment unless we're on the last page
+			if (index == Convert.ToInt32 (ViewState ["LastPage"]))
+				index = 0;
+			else
+				index += 1;
+            
+			Bind();
         }
 
-    
+		public static string trimIt(object oVal)
+		{
+			if(oVal.ToString() == null)
+				return string.Empty;
+
+			if (oVal.ToString().Length > 9) {
+				int count = Math.Min (oVal.ToString ().Length, 9); //9 char string
+				return oVal.ToString ().Substring (0, count) + "...";
+			}
+			return oVal.ToString ();
+		}
         
     }
 }
