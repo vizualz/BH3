@@ -14,15 +14,7 @@ body
     */
 	
 }
-/*
-.body2 {
-	font-family: Arial; font-size: 16px;
-	font-weight: bold;
-	border-color: #CCCCCC; 
-	border-top: 3px;
-	border-style: solid;	
-}
-*/
+
 #left { float:left;
 width:160px;
 
@@ -895,6 +887,7 @@ html, body {
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+	border: solid 1px black
 }
 #footer, #push {
 	height: 150px; /* .push must be the same height as .footer */
@@ -1095,7 +1088,7 @@ margin: 0 auto;
     }
 /*****************************************************************************************************Div Alignment************************************/
 .slider_container_top{
-width:1000px;
+width:1190px;
 height:auto;
 }
 .clr_fix{
@@ -1104,23 +1097,24 @@ height:auto;
 	
 	}
 .adver_lft_panel{
-	  float: left;
-    left: 57px;
+	float: left;
+    left: 5px;
     margin-left: -1px;
     position: relative;	
     margin-top:10px;
+    border:solid 1px red;
 }	
 .adver_ryt_panel{
-	    float: left;
+	    float: right;
     margin-right: 5px;
     position: relative;
     right: 47px;
-    margin-top:10px;
+    margin-top:0px;
 	}		
 .middle_adver_panel{
 	float:left;
-	width:700px;
-	
+	width:800px;
+	border: solid 1px blue;
 	}	    
 
  .dkgrey_white16b

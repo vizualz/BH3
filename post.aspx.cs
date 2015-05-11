@@ -134,7 +134,6 @@ namespace BoardHunt
 
             ErrorLog.ErrorRoutine(false, "Post:btnNext_Click: " + Session.SessionID + " isPB: " + Page.IsPostBack);
 
-
 			tmpItem.Category = 1; //hardcoded for ALWAYS surfboards
 			tmpItem.AdType = 1; //hardcoded for ALWAYS surfboards
 

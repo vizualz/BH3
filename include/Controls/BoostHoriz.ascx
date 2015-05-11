@@ -30,7 +30,7 @@
 	                            </HeaderTemplate>
 	                            <ItemTemplate>
 	                            <div style="border: 0px solid black; height:204px; width: 158px; margin-top:2px" >
-	                            <div style="border: 0px solid red; height:154px; width: 154px; background: url(images/blur3.png);
+	                            <div style="border: 0px solid red; height:154px; width: 154px; background: url(images/blur3.jpg);
     background-size: 154px 154px;
     background-repeat: no-repeat;">
 

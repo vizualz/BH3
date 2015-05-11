@@ -440,7 +440,7 @@ namespace BoardHunt
                             lblBrandData.Text = SQLReader["txtBrand"].ToString();
                             lblBoardTypeData.Text = Global.ProperSpace(DecodeBoard(Convert.ToInt32(SQLReader["iBoardType"]), (int)1));
 
-                            lblHeight.Text = "Height:&nbsp";
+                            lblHeight.Text = "Height&nbsp";
 
                             lblHeightFtData.Text = SQLReader["iHtFt"].ToString() + "\'";
                             lblHeightInData.Text = SQLReader["iHtIn"].ToString() + "\"";
