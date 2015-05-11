@@ -2,8 +2,7 @@
                                 <div align="center">
                                     <div id='div_comment_wrapper' class="dkgrey14" align="center" style="background:#FFFFFF;height:30px">
                                      <div style="float:left; margin-top:10px">&nbsp;
-                                     <asp:Label ID="lblWall" runat="server" cssclass="dkgrey24b">Dialog</asp:Label>
-                                     <%--<span class="dkgrey24b">The Wall</span>--%>
+                                     <asp:Label ID="lblWall" runat="server" cssclass="dkgrey24b">Comments</asp:Label>
                                      
                                      &nbsp&nbsp;
                                      <asp:Label ID="lblWallMessage" runat="server"><a id="toggle2" class="orange_orange14u" href="#">Login</a>
@@ -128,7 +127,7 @@
                                                 <tr>
                                                     <td height="50px"><asp:CheckBox id="chkNotify" CssClass="dkrgrey14" Text="&nbsp;Notify me when anyone comments" runat="server"></asp:CheckBox></td>
                                                 <td align="right">
-                                                        <asp:Button align="right" ID="btnPostComment" Text="Submit" runat="server" CssClass="dkrgrey14"
+                                                        <asp:Button align="right" ID="btnPostComment" Text="Comment" runat="server" CssClass="dkrgrey14"
                                                             OnClick="btnPostComment_Click" />
                                                     </td>
                                                 </tr>
