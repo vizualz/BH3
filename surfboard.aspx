@@ -355,7 +355,7 @@
                                             </td>
                                             <!-- end left side -->
                                             <td style="width: 15px; background-color: #FFFFFF">
-                                                            <img src="images/s1x1.gif"></td>
+                                                            <img src="images/s1x1.gif" alt=""/></td>
                                             <!-- begin right side -->
                                             <td valign="top">
                                                 <table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" bordercolor="red">
@@ -363,10 +363,10 @@
                                                         <tr>
                                                             <td height="20px" class="dkgrey14" align="left">
                                                                 <span class="dkrgrey14">Item:</span>&nbsp;
-                                                                <asp:Label ID="lblGearItem" runat="server"></asp:Label>
+
                                                             </td>
                                                             <td>
-                                                                &nbsp;</td>
+                                                                &nbsp;<asp:Label ID="lblGearItem" runat="server"></asp:Label></td>
                                                         </tr>
                                                     </asp:Panel>
 
@@ -384,14 +384,14 @@
                                                         
                                                     </asp:Panel>
                                                     <tr>
-                                                        <td class="midorange12" align="left">
+                                                        <td class="midorange12" align="left" colspan="2">
                                                             in&nbsp;<asp:Label ID="lblLocation" runat="server"></asp:Label>
                                                         </td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td height="20">
-                                                            <img src="images/s1x1.gif"></td>
+                                                        <td height="20" colspan="2">
+                                                            <img src="images/s1x1.gif"/></td>
                                                     </tr>
                                                     
                                                     <asp:Panel ID="pnlAll" runat="server">
@@ -399,89 +399,89 @@
                                                             <td height="20px" class="dkrgrey14" align="left">
                                                                 <asp:Label ID="lblHeight" runat="server"></asp:Label>
                                                            
-                                                                <asp:Label ID="lblHeightFtData" runat="server">
+                                                                
+                                                          </td>
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblHeightFtData" runat="server">
                                                                 </asp:Label>
                                                                 <asp:Label ID="lblHeightInData" runat="server">
                                                                 </asp:Label>
-                                                          </td>
-                                                            <td>
-                                                                &nbsp;
                                                             </td>
                                                         </tr>
                                                     </asp:Panel>
                                                     <asp:Panel ID="pnlWidth" runat="server">
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Width:</span>&nbsp;
-                                                                <asp:Label ID="lblWidthData" runat="server">
-                                                                </asp:Label>
+                                                                <span class="dkrgrey14">Width</span>&nbsp;
+
                                                             </td>
-                                                            <td>
-                                                                &nbsp;
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblWidthData" runat="server">
+                                                                </asp:Label>
                                                             </td>
                                                         </tr>
                                                     </asp:Panel>
                                                     <asp:Panel ID="pnlSurfOnly" runat="server">
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Thickness:</span>&nbsp;
+                                                                <span class="dkrgrey14">Thickness</span>&nbsp;
                                                             
-                                                                <asp:Label ID="lblThickData" runat="server">
-                                                                </asp:Label>
+                                                                
                                                             </td>
-                                                            <td>
-                                                                &nbsp;
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblThickData" runat="server">
+                                                                </asp:Label>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Tail:</span>&nbsp;
-                                                                <asp:Label ID="lblTailData" runat="server">
-                                                                </asp:Label>
+                                                                <span class="dkrgrey14">Tail</span>&nbsp;
+
                                                            </td>
-                                                            <td>
-                                                                &nbsp;
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblTailData" runat="server">
+                                                                </asp:Label>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" valign="top" align="left">
-                                                                <span class="dkrgrey14">Fins:</span>&nbsp;                                                  
-                                                                <asp:Label ID="lblFinsData" runat="server">
-                                                                </asp:Label>
+                                                                <span class="dkrgrey14">Fins</span>&nbsp;                                                  
+
                                                             </td>
-                                                            <td>
-                                                                &nbsp;
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblFinsData" runat="server">
+                                                                </asp:Label>
                                                             </td>
                                                         </tr>
                                                     </asp:Panel>
                                                     <asp:Panel ID="pnlGenDims" Visible="false" runat="server">
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Dimensions:</span>&nbsp;
-                                                                <asp:Label ID="lblGenDims" runat="server">
-                                                                </asp:Label>
+                                                                <span class="dkrgrey14">Dimensions</span>&nbsp;
+
                                                             </td>
-                                                            <td>
-                                                                &nbsp;
+                                                            <td class="dkrgrey14">
+                                                                &nbsp;<asp:Label ID="lblGenDims" runat="server">
+                                                                </asp:Label>
                                                             </td>
                                                         </tr>
                                                     </asp:Panel>
                                                     <tr>
-                                                        <td style="height: 40px" class="dkrgrey16b" align="left" valign="bottom">
-                                                            Seller Says:&nbsp;</td>
+                                                        <td style="height: 40px" colspan="2" class="dkrgrey16b" align="left" valign="bottom">
+                                                            Seller Says&nbsp;</td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td class="dkgrey14" align="left" valign="bottom">
+                                                        <td class="dkgrey14" align="left" valign="bottom" colspan="2">
                                                             <asp:Label ID="lblDetailsData" runat="server"></asp:Label></td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td height="20">
-                                                            <img src="images/s1x1.gif"></td>
+                                                        <td height="20" colspan="2">
+                                                            <img src="images/s1x1.gif"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="midorange20" bgcolor="#FF9900" align="center" valign="bottom">
+                                                        <td class="midorange20" bgcolor="#FF9900" align="center" valign="bottom" colspan="2">
                                                             &nbsp;<asp:Label ID="lblPriceData" CssClass="white24b" runat="server">
                                                             </asp:Label>
                                                         </td>
@@ -489,45 +489,45 @@
                                                       <tr>
                                                             <asp:Panel ID="pnlShip" runat="server" Visible="true">
                                                         
-                                                            <td bgcolor="#FF9900" class="white12" align="center" bgcolor="#FFFFFF" valign="bottom">
+                                                            <td bgcolor="#FF9900" colspan="2" class="white12" align="center" bgcolor="#FFFFFF" valign="bottom">
                                                                 Will seller ship?&nbsp;<asp:Label ID="lblShip" CssClass="dkrgrey12b" runat="server">No</asp:Label>
-                                                                <%--<hr style="background-color:#FF9900;height:2px" />--%>
+
                                                             </td>
                                                         
                                                             </asp:Panel>
                                                    </tr>     
                                                     <tr>
-                                                        <td bgcolor="#FFFFFF" height="20px">
-                                                            <img src="images/s1x1.gif"></td>
+                                                        <td bgcolor="#FFFFFF" height="20px" colspan="2">
+                                                            <img src="images/s1x1.gif"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="right" class="dkgrey12"><asp:Button ID="btnNudge" Style="border-width: 1px" Width="90px" Height="40px" runat="server" CssClass="Tips"
+                                                        <td align="left" class="dkgrey12" colspan="2"><asp:Button ID="btnNudge" Style="border-width: 1px" Width="90px" Height="40px" runat="server" CssClass="Tips"
                                                                 Text="Nudge" OnClick="btnNudge_Click" />&nbsp;<asp:label id="lblNudgeText" runat="server"> to quickly check availablity</asp:label></td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="right" class="dkgrey12"><br /><span="midorange16">Or</span><br /><br />
+                                                        <td align="left" class="dkgrey12" colspan="2"><br /><br />
                                                             <img src="/images/email.gif" alt="Email seller" align="middle" />
                                                             <asp:LinkButton ID="lnkEmailData" runat="server" CssClass="grey_orange12u">
                                                             </asp:LinkButton>&nbsp;seller with more questions
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="midorange12" align="right" style="height:30px";>
+                                                        <td class="midorange12" align="left" style="height:30px" colspan="2">
                                                          <asp:Label ID="lblPhoneData" runat="server" CssClass="dkgrey12">
                                                         </asp:Label></td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td>
+                                                        <td colspan="2">
                                                             &nbsp;
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td bgcolor="#FFFFFF" style="height: 5px">
-                                                            <img src="images/s1x1.gif"></td>
+                                                        <td bgcolor="#FFFFFF" style="height: 5px" colspan="2">
+                                                            <img src="images/s1x1.gif"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="controls3" align="right" bgcolor="#FFFFFF">
+                                                        <td class="controls3" align="left" bgcolor="#FFFFFF" colspan="2">
                                                             <asp:LinkButton ID="btnMore" CssClass="orange_grey12u" runat="server" Text="See more from this seller"
                                                                 OnClick="btnMore_Click" /></td>
                                                     </tr>
@@ -535,7 +535,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="header" colspan="3">
+                                            <td class="header" colspan="2">
                                                 <asp:Label ID="lblStatus" runat="server"></asp:Label></td>
                                         </tr>
                                     </table>
@@ -546,7 +546,7 @@
                             <div align="center" style="width: 670px; margin: 0 auto; border: solid 0 #F0F0F0">
                                 <asp:Panel ID="pnlRatings" runat="server" HorizontalAlign="Center">
                                     <table align="center" bgcolor="#f0f0f0" border="0" cellpadding="0" cellspacing="0"
-                                        width="670px">
+                                        width="700px">
                                         <tr>
                                             <td bgcolor="#FFFFFF" colspan="4" style="height: 5px">
                                                 <img src="images/s1x1.gif" alt="" /></td>
@@ -554,7 +554,7 @@
                                         <tr>
                                             <td valign="top" bgcolor="#FFFFFF" align="left" colspan="2" style="height: 20px">
                                                 &nbsp;&nbsp;<asp:ImageButton ID="imgGoBack" ToolTip="Back to results" runat="server"
-                                                    ImageUrl="images/id_back.gif"></asp:ImageButton>&nbsp;<span class="dkrgrey16b">Back to main list
+                                                    ImageUrl="images/id_back.gif"></asp:ImageButton>&nbsp;<span class="dkrgrey16b">Back to Surfboards
                                                         </span></td>
                                             <td class="ltgrey10" align="right" bgcolor="#FFFFFF" colspan="2" valign="bottom"
                                                 style="height: 20px">
@@ -590,15 +590,6 @@
                                                 <asp:Label CssClass="midorange16" ID="lblPageViewCount" runat="server" ForeColor="#666666"></asp:Label> Views&nbsp;&nbsp;
                                             </td>
 
-                                                <%--<div class="addthis_toolbox addthis_default_style">
-                                                    <a href="http://www.addthis.com/bookmark.php?v=250&amp;pub=vizualz" class="addthis_button_compact">
-                                                        Share</a> <span class="addthis_separator">|</span> <a class="addthis_button_facebook">
-                                                        </a><a class="addthis_button_twitter"></a><a class="addthis_button_email"></a>
-                                                </div>
-
-                                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=vizualz"></script>--%>
-
-                                                <!-- AddThis Button END -->
                                             </td>
                                             
                                         </tr>
@@ -653,60 +644,9 @@
 
     <%--Google analytics--%>
     <script type="text/javascript" src="../include/js/googles.js"></script>
-        
-    <%--User Echo--%>
-    <script type='text/javascript'>
 
-        var _ues = {
-            host: 'boardhunt.userecho.com',
-            forum: '6121',
-            lang: 'en',
-            tab_corner_radius: 10,
-            tab_font_size: 20,
-            tab_image_hash: 'RmVlZGJhY2s%3D',
-            tab_alignment: 'left',
-            tab_text_color: '#FFFFFF',
-            tab_bg_color: '#FF9900',
-            tab_hover_color: '#ff6600'
-        };
 
-        (function () {
-            var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-            _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-        })();
 
-</script>
-
-  <%--Crazy Egg--%>
-<script type="text/javascript">
-    setTimeout(function () {
-        var a = document.createElement("script");
-        var b = document.getElementsByTagName('script')[0];
-        a.src = document.location.protocol + "//dnn506yrbagrg.cloudfront.net/pages/scripts/0011/7491.js";
-        a.async = true; a.type = "text/javascript"; b.parentNode.insertBefore(a, b)
-    }, 1);
-</script>
-
-<%--AdRoll--%>
-<script type="text/javascript">
-    adroll_adv_id = "2R4YZKILEVHVTDFGBJ62S4";
-    adroll_pix_id = "BOYLAOCAHZFRHBZL7BLSVA";
-    (function () {
-        var oldonload = window.onload;
-        window.onload = function () {
-            __adroll_loaded = true;
-            var scr = document.createElement("script");
-            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-            scr.setAttribute('async', 'true');
-            scr.type = "text/javascript";
-            scr.src = host + "/j/roundtrip.js";
-            ((document.getElementsByTagName('head') || [null])[0] ||
-    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-            if (oldonload) { oldonload() }
-        };
-    } ());
-</script>
 
     
 </body>
