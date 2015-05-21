@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Web;
 using System.Collections;
+using System.Collections.Generic;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Web.Script.Services;
 using DALLayer;
 using Rss;
 using System.Web.Script.Serialization;
+using System.Linq;
 
 namespace BoardHunt.wsBH
 {
@@ -161,6 +163,79 @@ namespace BoardHunt.wsBH
 			}
 
 		}
+
+		[WebMethod]
+		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public List<string> GetAllBrands(string prefixText, int count)
+		{
+			ErrorLog.ErrorRoutine(false, "GetAllBrands");
+
+			IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
+			//string strSQL = "Select brandName from tblBrand where brandName like ORDER by brandName DESC";
+			string strSQL = "Select top " + count + " txtBrand from tblBrands WHERE txtBrand like '" + prefixText + "%' ORDER by txtBrand ASC";
+			ErrorLog.ErrorRoutine(false, "strSQL: " + strSQL);
+			//DataSet dsItems = new DataSet();
+
+			try
+			{
+				dbManager.Open();
+				//dsItems = dbManager.ExecuteDataSet(CommandType.Text, strSQL);
+				dbManager.ExecuteReader(CommandType.Text, strSQL);
+
+				// Get the Products From Data Source
+				List <string> brandList = new List <string>();
+
+				while (dbManager.DataReader.Read())
+				{
+					brandList.Add(dbManager.DataReader["txtBrand"].ToString());
+				}
+
+
+
+				//DataTable dt = new DataTable();
+				//dt = dsItems.Tables[0];
+
+//				for (int i = 0; i < dt.Rows.Count; i++)
+//				{
+//					brandList.Add(dt.Rows[i][1].ToString());
+//				}
+	
+
+//				//Find All Matching Products
+//				var list = from p in brandList
+//						where p.Contains(prefixText)
+//					select p;
+//
+//				//Convert from List to Array as we need to return Array
+//				string[] prefixTextArray = list.ToArray<string>();
+//
+				ErrorLog.ErrorRoutine(false, "brandListCount: " + brandList.Count);
+
+				//Return surf brands
+				return brandList;
+
+			}
+			catch (Exception ex)
+			{
+				ErrorLog.ErrorRoutine(false, "GetAllDistinctBrands:Error:" + ex.Message);
+				List<string> ls = new List<string>();
+				ls.Add("Error1");
+				ls.Add("Error2");
+				//string[] array2 = new string[] { "ERROR1", "ERROR2" };
+			
+				return ls;
+			}
+			finally
+			{
+				dbManager.Close();
+				dbManager.Dispose();
+			}
+
+
+		}
+
 
 		[WebMethod]
 		//[ScriptMethod(ResponseFormat = ResponseFormat.Json)]

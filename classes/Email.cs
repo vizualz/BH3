@@ -6,8 +6,6 @@ using System.Web;
 using System.Web.Security;
 using System.Net.Mail; 
 using System.Collections;
-//using System.Web.Mail; 
-
 
 namespace BoardHunt.classes
 {
@@ -311,8 +309,8 @@ namespace BoardHunt.classes
                      mailBody += "<br><br>";
                      mailBody += "EDIT or REMOVE your ad:<br>";
                      mailBody += " Click <a href='http://www.malzook.com/edit_item.aspx?iD=" + linkArray[2] + "&Act="+ linkArray[1] +"'>HERE</a>.";
-                     mailBody += "<br>";
-                     mailBody += "IMPORTANT: If you sell you board and want your posting REMOVED, you will need to login to change the status.";
+				mailBody += "<br><br>";
+				mailBody += "BIG TIP: If you sell your board and want your posting REMOVED, you will need to login to change the status.";
                      mailBody += "<br>";
                      //mailBody += "Donate a board:<br>";
                     // mailBody += "<a href='www.thehiddenwavesfoundation.org'>www.thehiddenwavesfoundation.org</a>";

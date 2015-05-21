@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using System.Net.Mail;
 using System.Diagnostics;
 using System.Reflection;
+//using Hangfire;
 
 namespace BoardHunt 
 {
@@ -32,13 +33,16 @@ namespace BoardHunt
 		
 		protected void Application_Start(Object sender, EventArgs e)
 		{
-            //hack to prevent the session restart when temp files and handled (ie. creating, deleting)
+			//hack to prevent the session restart when temp files are handled (ie. creating, deleting)
             PropertyInfo p = typeof(System.Web.HttpRuntime).GetProperty("FileChangesMonitor", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
             object o = p.GetValue(null, null);
             FieldInfo f = o.GetType().GetField("_dirMonSubdirs", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.IgnoreCase);
             object monitor = f.GetValue(o);
             MethodInfo m = monitor.GetType().GetMethod("StopMonitoring", BindingFlags.Instance | BindingFlags.NonPublic);
             m.Invoke(monitor, new object[] { }); 
+
+
+			//GlobalConfiguration.Configuration.
 		}
  
 		protected void Session_Start(Object sender, EventArgs e)

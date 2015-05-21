@@ -69,27 +69,19 @@ namespace BoardHunt
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
 
-			ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isPB:" + Page.IsPostBack); 
-			ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isAsyncPB:" + ScriptManager.GetCurrent(this).IsInAsyncPostBack);
+			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isPB:" + Page.IsPostBack); 
+			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isAsyncPB:" + ScriptManager.GetCurrent(this).IsInAsyncPostBack);
 
-			if (ScriptManager.GetCurrent (this).IsInAsyncPostBack) {
-				ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: Ajax Kickout");
+
+
+			if (ScriptManager.GetCurrent (this).IsInAsyncPostBack || Page.IsPostBack) {
+				//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: Ajax Kickout");
 				return;
 			}
-
-			//btnSearch.OnClientClick = ("javascript:__doPostBack('btnSearch','');event.returnValue=false;return false;");
-			//btnSearch2.OnClientClick = ("javascript:__doPostBack('btnSearch','');event.returnValue=false;return false;");
 
 			lblNoResult.Text = string.Empty;
 			lblNoResult.Visible = false;
 
-			//Control ctl = LoadControl("~/include/Controls/BoostHoriz.ascx");  //loads into the page
-			//ctl.ID = "UC1";
-			//this.ContentPlaceHolder.Controls.Add(ctl); //adds to page control tree (or at least it should)
-
-			//doPaging();
-
-			//imgPreview.Visible = false;
 			if (!Page.IsPostBack)
 			{
 
@@ -101,26 +93,24 @@ namespace BoardHunt
 			}
 			else
 			{
-				string controlName = Request.Params.Get("__EVENTTARGET");
-
-				switch (controlName)
-				{
-				case "pageLnkButton":
-					string val = Request.Params.Get("__EVENTARGUMENT");
-					CurrentPage = Convert.ToInt32(val);
-					ItemsGet(false);
-					break;
-				case "btnSearch":
-					CurrentPage = 0;
-					break;
-				case "cboView":
-					//cboViewVal = cboView.SelectedValue;
-					//break;
-				default:
-					//View_ItemDetail();
-					//if (control.indexof > -1)
-					break;
-				}
+//				string controlName = Request.Params.Get("__EVENTTARGET");
+//
+//				switch (controlName)
+//				{
+//				case "pageLnkButton":
+//					string val = Request.Params.Get("__EVENTARGUMENT");
+//					CurrentPage = Convert.ToInt32(val);
+//					ItemsGet(false);
+//					break;
+//				case "btnSearch":
+//					CurrentPage = 0;
+//					break;
+//				case "cboView":
+//					//cboViewVal = cboView.SelectedValue;
+//					//break;
+//				default:
+//					break;
+//				}
 			}
 
 			HeaderInit();

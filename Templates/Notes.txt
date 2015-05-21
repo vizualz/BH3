@@ -43,6 +43,8 @@ SELECT iD, dCreateDate, dLastModified FROM tblEntry WHERE dCreateDate <> dLastMo
 3 = Showcase
 4 = ShaperHouse Models
 
+Categories
+
 Services
 1 = Boost
 2 = Bidder subsc

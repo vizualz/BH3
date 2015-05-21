@@ -88,7 +88,7 @@ namespace BoardHunt {
         protected global::System.Web.UI.WebControls.LinkButton lnkLast;
         
         protected global::System.Web.UI.WebControls.HiddenField hdnBackColor;
-
+	
         protected global::System.Web.UI.WebControls.HiddenField hdnLocVal;
         protected global::System.Web.UI.WebControls.HiddenField hdniCat;
         protected global::System.Web.UI.WebControls.HiddenField hdnServer;
