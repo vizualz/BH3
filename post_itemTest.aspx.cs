@@ -49,23 +49,26 @@ namespace BoardHunt
         protected const string strErrThick = "&nbsp;Arg! An error occured.  Please fix the thickness and use fractions. &nbsp;";
         protected const string strErrPrice = "&nbsp;Arg! An error occured.  Please fix the price. &nbsp;";
 
+        List<HttpPostedFile> lstUploadedFiles { get { return (List<HttpPostedFile>)Session["lstUploadedFiles"]; } set { Session["lstUploadedFiles"] = value; } }
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            Global.AuthenticateUser();
-
             if (Request.QueryString["name"] != null)
             {
-                List<HttpPostedFile> lstUploadedFiles = new List<HttpPostedFile>();
-
-                foreach (string fileName in Request.Files)
+                if (lstUploadedFiles == null)
                 {
-                    HttpPostedFile file = Request.Files[fileName];
+                    lstUploadedFiles = new List<HttpPostedFile>();
+                }
+
+                foreach (string s in Request.Files)
+                {
+                    HttpPostedFile file = Request.Files[s];
 
                     lstUploadedFiles.Add(file);
                 }
-
-                Session["UploadedFiles"] = lstUploadedFiles;
             }
+
+            Global.AuthenticateUser();
           
             ErrorLog.ErrorRoutine(false, "PI: Pg_Load:IsPB: " + Page.IsPostBack + " SessionID: " + Session.SessionID + " Browser: " + Request.Browser.Browser);
 
@@ -350,7 +353,7 @@ namespace BoardHunt
             //Get the Item session object
             classes.BoardItem tBoardItem = (classes.BoardItem)Session["Item"];
 
-            // Check if Any File marked for Deletion, then Physically delete it.
+            // Check if Any File marked for Deletion, then delete it from List.
             string sDeletedImageUrls = DeletedImageUrls.Value;
 
             if (!string.IsNullOrWhiteSpace(sDeletedImageUrls))
@@ -365,21 +368,15 @@ namespace BoardHunt
                     {
                         for (int i = 0; i < arrDeletedImages.Length; i++)
                         {
-                            string sFileName = arrDeletedImages[i].Replace("thmbNail_", "");
-                            
-                            if (sFileName.Contains(tBoardItem.ImgPath1))
+                            string sDeletedFileName = arrDeletedImages[i];
+
+                            foreach (HttpPostedFile file in lstUploadedFiles)
                             {
-                                tBoardItem.ImgPath1 = string.Empty;
-                            }
-                            
-                            if (sFileName.Contains(tBoardItem.ImgPath2))
-                            {
-                                tBoardItem.ImgPath2 = string.Empty;
-                            }
-                            
-                            if (sFileName.Contains(tBoardItem.ImgPath3))
-                            {
-                                tBoardItem.ImgPath3 = string.Empty;
+                                if (file.FileName == sDeletedFileName)
+                                {
+                                    lstUploadedFiles.Remove(file);
+                                    break;
+                                }
                             }
                         }
                     }
@@ -388,15 +385,50 @@ namespace BoardHunt
                 {
 
                 }
-            }
 
-            List<HttpPostedFile> lstUploadedFiles = null;
+                if (tBoardItem != null)
+                {
+                    try
+                    {
+                        DeletedImageUrls.Value = string.Empty;
 
-            if (Session["UploadedFiles"] != null)
-            {
-                lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles"];
-                Session["UploadedFiles"] = null;
+                        string[] arrDeletedImages = sDeletedImageUrls.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        if (arrDeletedImages.Length > 0)
+                        {
+                            for (int i = 0; i < arrDeletedImages.Length; i++)
+                            {
+                                string sFileName = arrDeletedImages[i].Replace("thmbNail_", "");
+
+                                if (sFileName.Contains(tBoardItem.ImgPath1))
+                                {
+                                    tBoardItem.ImgPath1 = string.Empty;
+                                }
+
+                                if (sFileName.Contains(tBoardItem.ImgPath2))
+                                {
+                                    tBoardItem.ImgPath2 = string.Empty;
+                                }
+
+                                if (sFileName.Contains(tBoardItem.ImgPath3))
+                                {
+                                    tBoardItem.ImgPath3 = string.Empty;
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
             }
+            
+            //if (Session["UploadedFiles"] != null)
+            //{
+            //    lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles"];
+            //    Session["UploadedFiles"] = null;
+            //}
 
             ErrorLog.ErrorRoutine(false, "PI:btnNext_Click: " + Session.SessionID);
 
@@ -525,6 +557,8 @@ namespace BoardHunt
                     tBoardItem = UpLoadAllImages(tBoardItem, strImgPathArray, lstUploadedFiles);
                 }
             }
+
+            lstUploadedFiles = new List<HttpPostedFile>();
 
             if (Session["Item"] == null)
             {
@@ -1355,7 +1389,7 @@ namespace BoardHunt
         */
         private void lnkSignIn_Click(object sender, System.EventArgs e)
         {
-
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
             Global.NavigatePage(lnkSignIn.Text);
 
         }
@@ -1560,7 +1594,16 @@ namespace BoardHunt
 
                             try
                             {
-                                System.Drawing.Image UploadedImage = System.Drawing.Image.FromStream(file.InputStream);
+                                byte[] fileData = null;
+                                using (var binaryReader = new BinaryReader(file.InputStream))
+                                {
+                                    fileData = binaryReader.ReadBytes(file.ContentLength);
+                                }
+
+                                ImageConverter imageConverter = new System.Drawing.ImageConverter();
+                                System.Drawing.Image UploadedImage = imageConverter.ConvertFrom(fileData) as System.Drawing.Image;
+
+                                // System.Drawing.Image UploadedImage = System.Drawing.Image.FromStream(file.InputStream);
                                 //Larger Image variables
                                 int maxWidth = 400;
                                 int maxHeight = 400;

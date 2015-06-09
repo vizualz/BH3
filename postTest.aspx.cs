@@ -147,6 +147,7 @@ namespace BoardHunt
 */        
 		private void lnkSignIn_Click(object sender, System.EventArgs e)
 		{
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
 			Global.NavigatePage(lnkSignIn.Text);
 		}
 /**

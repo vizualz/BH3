@@ -357,7 +357,7 @@
                             <hr />
                             <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
                                 <div>
-                                    <span class="fw600 fs15">Add images, or buyers may skip over your post.</span>
+                                    <span class="fw600 fs15">Add images, or buyers may skip over your post. (Max 3 Images)</span>
                                 </div>
                                 <div>
                                     <small>1MB limit per file, GIF or JPG only. If post breaks, it's probably too big.</small>
@@ -368,7 +368,7 @@
                                     <div id="divServer" runat="server">
                                         <div id="dropZonefrm" class="dropzone">
                                             <div class="fallback">
-                                                <input name="file" type="file" multiple="multiple" runat="server" />
+                                                <input name="file" type="file" multiple="multiple" runat="server" accept="image/*" capture="camera" />
                                                 <asp:Label ID="lblFallbackMessage" runat="server" />
                                                 <input name="btnUpload" type="submit" title="Upload" />
                                             </div>
@@ -878,17 +878,19 @@
         var myDropzone = '';
 
         $(document).ready(function () {
+
             Dropzone.autoDiscover = false;
+            Dropzone.options.dropZonefrm = { acceptedFiles: 'image/*' };
             myDropzone = new Dropzone('#dropZonefrm', {
-                paramName: "files",
-                maxFilesize: 1.0,
-                maxFiles: 3,
-                parallelUploads: 10000,
+                paramName: 'files',
+                autoProcessQueue: true,
                 uploadMultiple: true,
-                autoProcessQueue: false,
+                parallelUploads: 25,
+                maxFiles: 3,
+                maxFilesize: 3.0,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
-                url: "http://localhost/mz/post_itemTest.aspx?name=deepak",
+                url: "//localhost/mz/post_itemTest.aspx?name=deepak",
                 init: function () {
                     var myDropzone = this;
 
@@ -934,12 +936,24 @@
                     this.on("removedfile", function (file) {
                         // Only files that have been programmatically added should
                         // have a url property.
-                        if (file.url && file.url.trim().length > 0) {
-                            if ($("#DeletedImageUrls").val() != '') {
-                                $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.url);
+
+                        if (file.url == null) {
+                            if (file.name && file.name.trim().length > 0) {
+                                if ($("#DeletedImageUrls").val() != '') {
+                                    $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.name);
+                                }
+                                else {
+                                    $("#DeletedImageUrls").val(file.name);
+                                }
                             }
-                            else {
-                                $("#DeletedImageUrls").val(file.url);
+                        } else {
+                            if (file.url && file.url.trim().length > 0) {
+                                if ($("#DeletedImageUrls").val() != '') {
+                                    $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.url);
+                                }
+                                else {
+                                    $("#DeletedImageUrls").val(file.url);
+                                }
                             }
                         }
                     });
@@ -949,9 +963,9 @@
 
         });
 
-        $('#btnNext').click(function () {
-            myDropzone.processQueue();
-        });
+        //$('#btnNext').click(function () {
+        //    myDropzone.processQueue();
+        //});
 
     </script>
 
