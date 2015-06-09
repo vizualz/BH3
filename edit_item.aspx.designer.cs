@@ -21,13 +21,13 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.Label lblPageTitle;
 		
-		protected System.Web.UI.WebControls.Panel pnlAll;
-		
 		protected System.Web.UI.WebControls.Panel pnlSold;
 		
 		protected System.Web.UI.WebControls.Button btnBoost;
 		
 		protected System.Web.UI.WebControls.Button btnSold;
+		
+		protected System.Web.UI.WebControls.Panel pnlAll;
 		
 		protected System.Web.UI.WebControls.Panel pnlLocation;
 		
@@ -89,15 +89,17 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.CustomValidator CustomValidator9;
 		
-		protected System.Web.UI.WebControls.DropDownList cboFins;
-		
 		protected System.Web.UI.WebControls.DropDownList cboTailType;
+		
+		protected System.Web.UI.WebControls.DropDownList cboFins;
 		
 		protected System.Web.UI.WebControls.Panel pnlGenDims;
 		
 		protected System.Web.UI.WebControls.Label lblGenDims;
 		
 		protected System.Web.UI.WebControls.TextBox txtGenDims;
+		
+		protected System.Web.UI.WebControls.Label Label1;
 		
 		protected System.Web.UI.WebControls.TextBox txtPrice;
 		
@@ -107,15 +109,53 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.RadioButtonList rdoShip;
 		
+		protected System.Web.UI.WebControls.Label Label2;
+		
 		protected System.Web.UI.WebControls.TextBox txtDetails;
 		
 		protected System.Web.UI.WebControls.Panel pnlVideo;
 		
+		protected System.Web.UI.WebControls.Label Label3;
+		
 		protected System.Web.UI.WebControls.TextBox txtVideo;
+		
+		protected System.Web.UI.WebControls.Label Label4;
 		
 		protected System.Web.UI.WebControls.Button btnShowPnl;
 		
+		protected System.Web.UI.WebControls.Label lblStatus;
+		
 		protected System.Web.UI.WebControls.Panel pnlAddImages;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputFile File5;
+		
+		protected System.Web.UI.WebControls.Label lblFallbackMessage;
+		
+		protected System.Web.UI.WebControls.Button btnCancel;
+		
+		protected System.Web.UI.WebControls.Button btnFinish;
+		
+		protected System.Web.UI.WebControls.HiddenField HiddenField1;
+		
+		protected System.Web.UI.WebControls.HiddenField HiddenField2;
+		
+		protected System.Web.UI.WebControls.HiddenField HiddenField3;
+		
+		protected System.Web.UI.WebControls.HiddenField HiddenField4;
+		
+		protected System.Web.UI.HtmlControls.HtmlInputHidden DeletedImageUrls;
+		
+		protected System.Web.UI.WebControls.Label lbl2;
+		
+		protected System.Web.UI.WebControls.HiddenField hdnActCode;
+		
+		protected System.Web.UI.WebControls.HiddenField hdnEntryId;
+		
+		protected System.Web.UI.WebControls.HiddenField hdnPrice;
+		
+		protected System.Web.UI.WebControls.HiddenField hdnEntryType;
+		
+		protected System.Web.UI.WebControls.Panel panelimg;
 		
 		protected System.Web.UI.WebControls.Image img1;
 		
@@ -148,29 +188,5 @@ namespace BoardHunt {
 		protected System.Web.UI.HtmlControls.HtmlInputFile File4;
 		
 		protected System.Web.UI.WebControls.CustomValidator CustomValidator8;
-		
-		protected System.Web.UI.WebControls.Button btnCancel;
-		
-		protected System.Web.UI.WebControls.Button btnFinish;
-		
-		protected System.Web.UI.WebControls.Label lblStatus;
-		
-		protected System.Web.UI.WebControls.HiddenField HiddenField1;
-		
-		protected System.Web.UI.WebControls.HiddenField HiddenField2;
-		
-		protected System.Web.UI.WebControls.HiddenField HiddenField3;
-		
-		protected System.Web.UI.WebControls.HiddenField HiddenField4;
-		
-		protected System.Web.UI.WebControls.Label lbl2;
-		
-		protected System.Web.UI.WebControls.HiddenField hdnActCode;
-		
-		protected System.Web.UI.WebControls.HiddenField hdnEntryId;
-		
-		protected System.Web.UI.WebControls.HiddenField hdnPrice;
-		
-		protected System.Web.UI.WebControls.HiddenField hdnEntryType;
 	}
 }

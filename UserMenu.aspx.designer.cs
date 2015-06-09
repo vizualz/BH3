@@ -15,21 +15,35 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.HtmlControls.HtmlForm Form1;
 		
-		protected System.Web.UI.WebControls.Label lblMessage;
-		
-		protected System.Web.UI.WebControls.HyperLink hypAcctEdit;
+		protected System.Web.UI.WebControls.Button btnUpgradePro;
 		
 		protected System.Web.UI.WebControls.ImageButton imgBtnAcct;
 		
-		protected System.Web.UI.WebControls.Button btnEditProfile;
+		protected System.Web.UI.WebControls.HyperLink hypAcctEdit;
 		
-		protected System.Web.UI.WebControls.Button btnUpgradePro;
+		protected System.Web.UI.WebControls.LinkButton btnEditProfile;
 		
 		protected System.Web.UI.WebControls.LinkButton lnkFav;
 		
 		protected System.Web.UI.WebControls.Label lblBoardPostCnt;
 		
 		protected System.Web.UI.WebControls.Label lblNudgeCnt;
+		
+		protected System.Web.UI.WebControls.ImageButton ImageButton1;
+		
+		protected System.Web.UI.WebControls.Label lblBoardCount;
+		
+		protected System.Web.UI.WebControls.LinkButton lnkSellGear;
+		
+		protected System.Web.UI.WebControls.LinkButton lnkEditGear;
+		
+		protected System.Web.UI.WebControls.ImageButton ImageButton2;
+		
+		protected System.Web.UI.WebControls.LinkButton lnkAskNew;
+		
+		protected System.Web.UI.WebControls.LinkButton lnkAskEdit;
+		
+		protected System.Web.UI.WebControls.Label lblMessage;
 		
 		protected System.Web.UI.WebControls.Panel pnlShaper;
 		
@@ -56,20 +70,6 @@ namespace BoardHunt {
 		protected System.Web.UI.WebControls.LinkButton lnkManageQP;
 		
 		protected System.Web.UI.WebControls.LinkButton lnkSettings;
-		
-		protected System.Web.UI.WebControls.ImageButton ImageButton1;
-		
-		protected System.Web.UI.WebControls.Label lblBoardCount;
-		
-		protected System.Web.UI.WebControls.LinkButton lnkSellGear;
-		
-		protected System.Web.UI.WebControls.LinkButton lnkEditGear;
-		
-		protected System.Web.UI.WebControls.ImageButton ImageButton2;
-		
-		protected System.Web.UI.WebControls.LinkButton lnkAskNew;
-		
-		protected System.Web.UI.WebControls.LinkButton lnkAskEdit;
 		
 		protected System.Web.UI.WebControls.Panel pnlShowcase;
 		

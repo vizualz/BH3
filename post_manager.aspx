@@ -7,8 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
 
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
-
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
 
