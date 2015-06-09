@@ -32,10 +32,10 @@
         });
     </script>
 </head>
-<body>
+<body style="background: none repeat scroll 0 0 #fff;">
     <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
-        <div id="">
-            <!-- #include file="include/Header.aspx" -->
+        <div >
+            <!-- #include file="include/HeaderTest.aspx" -->
 
             <%--<span class="midgrey14">&nbsp;</span>--%>
             <%-- <asp:Panel ID="pnlSurf" align="center" runat="server" BorderWidth="0px" BorderColor="#CCCCCC"
