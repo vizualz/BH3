@@ -38,20 +38,24 @@ namespace BoardHunt
         protected const int picSizeThmbX = 75;
         protected const int picSizeThmbY = 75;
 
+        List<HttpPostedFile> lstEditUploadedFiles { get { return (List<HttpPostedFile>)Session["lstEditUploadedFiles"]; } set { Session["lstEditUploadedFiles"] = value; } }
+
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
             if (Request.QueryString["name"] != null)
             {
-                List<HttpPostedFile> lstUploadedFiles = new List<HttpPostedFile>();
-
-                foreach (string fileName in Request.Files)
+                if (lstEditUploadedFiles == null)
                 {
-                    HttpPostedFile file = Request.Files[fileName];
-
-                    lstUploadedFiles.Add(file);
+                    lstEditUploadedFiles = new List<HttpPostedFile>();
                 }
 
-                Session["UploadedFiles1"] = lstUploadedFiles;
+                foreach (string s in Request.Files)
+                {
+                    HttpPostedFile file = Request.Files[s];
+
+                    lstEditUploadedFiles.Add(file);
+                }
             }
             else
             {
@@ -771,7 +775,6 @@ namespace BoardHunt
                         {
                             for (int i = 0; i < delImgArray.Length; i++)
                             {
-
                                 string Filename = delImgArray[i].Substring(delImgArray[i].LastIndexOf('/') + 1);
                                 if (Filename == tmpBoardItem.ImgPath1)
                                 {
@@ -805,13 +808,22 @@ namespace BoardHunt
                 delImgs = false;
 
                 //upload imgs
-                List<HttpPostedFile> lstUploadedFiles = null;
+                //List<HttpPostedFile> lstUploadedFiles = null;
 
-                if (Session["UploadedFiles1"] != null)
+                //if (Session["UploadedFiles1"] != null)
+                //{
+                //    lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles1"];
+                //    Session["UploadedFiles1"] = null;
+                //    if (lstUploadedFiles != null)
+                //    {
+                //        blnProcImgs = true;
+                //    }
+                //}
+                if (lstEditUploadedFiles != null)
                 {
-                    lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles1"];
-                    Session["UploadedFiles1"] = null;
-                    if (lstUploadedFiles != null)
+                    //lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles1"];
+                    //Session["UploadedFiles1"] = null;
+                    //if (lstUploadedFiles != null)
                     {
                         blnProcImgs = true;
                     }
@@ -819,9 +831,9 @@ namespace BoardHunt
                 if (blnProcImgs)
                 {
                     //strImgPathArray = UpLoadAllImages(strImgPathArray);
-                    tmpBoardItem = UpLoadAllImages(tmpBoardItem, strImgPathArray, lstUploadedFiles);
+                    tmpBoardItem = UpLoadAllImages(tmpBoardItem, strImgPathArray, lstEditUploadedFiles);
+                    lstEditUploadedFiles = new List<HttpPostedFile>();
                 }
-
             }
 
             //save to DB
@@ -1293,6 +1305,26 @@ namespace BoardHunt
                 // HttpFileCollection uploadFilCol = System.Web.HttpContext.Current.Request.Files;
                 int count = lstUploadedFiles.Count;
 
+                bool bProcessFiles = true;
+
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath1))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath2))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath3))
+                {
+                    bProcessFiles = true;
+                }
+
+                if (!bProcessFiles)
+                {
+                    return bItem;
+                }
+
                 //loop thru for each posted file
                 for (int i = 0; i < count; i++)
                 {
@@ -1500,18 +1532,16 @@ namespace BoardHunt
                                 {
                                     bItem.ImgPath3 = strImgPathArray[i];
                                 }
-                                else if (string.IsNullOrWhiteSpace(bItem.ImgPath4))
-                                {
-                                    bItem.ImgPath4 = strImgPathArray[i];
-                                }
+                                //else if (string.IsNullOrWhiteSpace(bItem.ImgPath4))
+                                //{
+                                //    bItem.ImgPath4 = strImgPathArray[i];
+                                //}
 
                             }
                             catch
                             {
                                 lblStatus.Text = "Upload/Save Error!";
                             }
-
-
 
                         }//end if file > 0
                     }

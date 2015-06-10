@@ -94,9 +94,9 @@
     <script src="content/vendor/plugins/dropzone/dropzone.min.js"></script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <div id="main1" align="center">
+    <div id="main1">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderTest.aspx" -->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="col-md-12 col-sm-12 col-xs-12 text-left pn">
@@ -552,12 +552,12 @@
         $(document).ready(function () {
             Dropzone.autoDiscover = false;
             myDropzone = new Dropzone('#dropZonefrm', {
-                paramName: "files",
-                maxFilesize: 1.0,
-                maxFiles: 4,
-                parallelUploads: 10000,
+                paramName: 'files',
+                autoProcessQueue: true,
                 uploadMultiple: true,
-                autoProcessQueue: false,
+                parallelUploads: 25,
+                maxFiles: 3,
+                maxFilesize: 2.0,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
                 url: "http://localhost/mz/edit_itemTest.aspx?name=deepak",

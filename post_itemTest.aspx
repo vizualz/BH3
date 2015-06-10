@@ -142,9 +142,9 @@
     <script src="content/vendor/plugins/dropzone/dropzone.min.js"></script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <div id="main1" align="center">
+    <div id="main1">
         <form runat="server" class="header" id="form1">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderTest.aspx" -->
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
@@ -845,9 +845,9 @@
             <input type="hidden" runat="server" id="DeletedImageUrls" />
         </form>
     </div>
-    <div align="center">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+    
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
     <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
@@ -887,7 +887,7 @@
                 uploadMultiple: true,
                 parallelUploads: 25,
                 maxFiles: 3,
-                maxFilesize: 3.0,
+                maxFilesize: 2.0,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
                 url: "//localhost/mz/post_itemTest.aspx?name=deepak",

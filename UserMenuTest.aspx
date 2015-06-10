@@ -45,10 +45,10 @@
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 </head>
-<body>
+<body style="background: none repeat scroll 0 0 #fff;">
     <div id="main1" align="center">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderTest.aspx" -->
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-8 col-md-10 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
@@ -374,11 +374,9 @@
             </div>
         </form>
     </div>
-    <br />
-    <br />
-    <div align="center">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+    
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
     <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 

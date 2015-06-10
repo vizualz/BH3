@@ -438,6 +438,7 @@ namespace BoardHunt
                 if (!CheckUploadedFiles(lstUploadedFiles))
                 {
                     ResetImgMgr();
+                    lstUploadedFiles = new List<HttpPostedFile>();
                     return;
                 }
             }
@@ -450,6 +451,7 @@ namespace BoardHunt
                 //re-set anything here that needs a reset
                 ErrorLog.ErrorRoutine(false, "PI:btnNext_Click:PageNotValid");
                 ResetImgMgr();
+                lstUploadedFiles = new List<HttpPostedFile>();
                 return;
             }
 
@@ -1548,6 +1550,26 @@ namespace BoardHunt
                 if (count < 1)
                     return bItem;
 
+                bool bProcessFiles = true;
+
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath1))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath2))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath3))
+                {
+                    bProcessFiles = true;
+                }
+
+                if (!bProcessFiles)
+                {
+                    return bItem;
+                }
+
                 //loop thru for each posted file
                 for (int i = 0; i < count; i++)
                 {
@@ -1740,29 +1762,29 @@ namespace BoardHunt
                                 //    bItem.ImgPath4 = strImgPathArray[i];
                                 //}
 
-                                if (rdoImgMgr1.SelectedValue == "Change" || rdoImgMgr1.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
-                                {
-                                    bItem.ImgPath1 = strImgPathArray[i];
-                                    rdoImgMgr1.ClearSelection();
-                                }
-                                else if (rdoImgMgr2.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr2.SelectedValue == "")
-                                {
-                                    bItem.ImgPath2 = strImgPathArray[i];
-                                    rdoImgMgr2.ClearSelection();
-                                }
-                                else if (rdoImgMgr3.SelectedValue == "Change" || rdoImgMgr3.SelectedValue == "Add" || rdoImgMgr3.SelectedValue == "")
-                                {
-                                    bItem.ImgPath3 = strImgPathArray[i];
-                                    rdoImgMgr3.ClearSelection();
-                                }
-                                else
-                                {
-                                    if (rdoImgMgr4.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr2.SelectedValue == "")
-                                    {
-                                        bItem.ImgPath4 = strImgPathArray[i];
-                                        rdoImgMgr4.ClearSelection();
-                                    }
-                                }
+                                //if (rdoImgMgr1.SelectedValue == "Change" || rdoImgMgr1.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
+                                //{
+                                //    bItem.ImgPath1 = strImgPathArray[i];
+                                //    rdoImgMgr1.ClearSelection();
+                                //}
+                                //else if (rdoImgMgr2.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr2.SelectedValue == "")
+                                //{
+                                //    bItem.ImgPath2 = strImgPathArray[i];
+                                //    rdoImgMgr2.ClearSelection();
+                                //}
+                                //else if (rdoImgMgr3.SelectedValue == "Change" || rdoImgMgr3.SelectedValue == "Add" || rdoImgMgr3.SelectedValue == "")
+                                //{
+                                //    bItem.ImgPath3 = strImgPathArray[i];
+                                //    rdoImgMgr3.ClearSelection();
+                                //}
+                                //else
+                                //{
+                                //    if (rdoImgMgr4.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr2.SelectedValue == "")
+                                //    {
+                                //        bItem.ImgPath4 = strImgPathArray[i];
+                                //        rdoImgMgr4.ClearSelection();
+                                //    }
+                                //}
 
                                 if (string.IsNullOrWhiteSpace(bItem.ImgPath1))
                                 {

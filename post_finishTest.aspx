@@ -10,6 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
     <script type="text/javascript" src="include/js/superfish.js"></script>
@@ -43,18 +45,18 @@
     <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
     <!-- Theme CSS -->
 </head>
-<body>
-    <div id="main1" align="center">
+<body style="background: none repeat scroll 0 0 #fff;">
+    <div id="main1">
         <form id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderTest.aspx" -->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-8 col-md-8 col-sm-10 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
                         <div class="panel-heading">
                             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                
-                                    <asp:Image runat="server" ID="imgCheckDone" ImageUrl="images/greencheck.gif" />
-                                    <span class="panel-title">You&#39;re all set. </span>
+
+                                <asp:Image runat="server" ID="imgCheckDone" ImageUrl="images/greencheck.gif" />
+                                <span class="panel-title">You&#39;re all set. </span>
                             </div>
                         </div>
                         <div class="panel-body p15 pt10">
@@ -63,18 +65,23 @@
                                     <asp:Label ID="lblMessage" runat="server" ForeColor="#FFFFFF"></asp:Label>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 thumbnail br-n mn">
-                                    <asp:LinkButton ID="btnUpgradePro"  OnClick="btnUpgradePro_Click" runat="server">
-                                    <asp:Image ID="img1" runat="server" ImageUrl="images/ProUpgradeImage.jpg" /></asp:LinkButton>
+                                    <asp:LinkButton ID="btnUpgradePro" OnClick="btnUpgradePro_Click" runat="server">
+                                        <asp:Image ID="img1" runat="server" ImageUrl="images/ProUpgradeImage.jpg" />
+                                    </asp:LinkButton>
                                 </div>
-                                 <div class="col-md-6 col-sm-6 col-xs-12 thumbnail br-n mn">
+                                <div class="col-md-6 col-sm-6 col-xs-12 thumbnail br-n mn">
                                     <asp:LinkButton ID="lnkFBShare" runat="server">
                                     <img src="images/fb_share.jpg" border="0" alt="Post to your Facebook" align="top" />
                                     </asp:LinkButton>
+
+                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=deepakonwww" async="async"></script>
+                                    <div class="addthis_sharing_toolbox" addthis:title="Malzook.com"></div>
+
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 thumbnail br-n mn">
                                     <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/BoostImage.gif" OnClick="btnUpgrade_Click" />
                                 </div>
-                               
+
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label class="col-md-2 col-sm-2 col-xs-12 text-left field-label">View Your Post:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
@@ -106,10 +113,10 @@
             <div class="clearfix"></div>
         </form>
     </div>
-    <br />
-    <div align="center">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
+
     <script type='text/javascript'>
         var _ues = {
             host: 'boardhunt.userecho.com',

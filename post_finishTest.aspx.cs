@@ -26,6 +26,7 @@ namespace BoardHunt
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
+            return;
             // Put user code to initialize the page here
             Global.AuthenticateUser();
 

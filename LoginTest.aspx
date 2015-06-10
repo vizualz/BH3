@@ -34,118 +34,119 @@
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
     <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
-        <div >
-            <!-- #include file="include/HeaderTest.aspx" -->
 
-            <%--<span class="midgrey14">&nbsp;</span>--%>
-            <%-- <asp:Panel ID="pnlSurf" align="center" runat="server" BorderWidth="0px" BorderColor="#CCCCCC"
+        <!-- #include file="include/HeaderTest.aspx" -->
+
+        <%--<span class="midgrey14">&nbsp;</span>--%>
+        <%-- <asp:Panel ID="pnlSurf" align="center" runat="server" BorderWidth="0px" BorderColor="#CCCCCC"
                 BorderStyle="solid">--%>
-            <!-- Start: Main -->
-        </div>
+        <!-- Start: Main -->
+
 
         <!-- Begin: Content -->
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div role="tabpanel" id="login1" class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
-                <div class="panel panel-warning heading-border">
-                    <div class="panel-heading">
-                        <div class="col-md-4 col-sm-5 col-xs-6 text-left">
-                            <span class="panel-title"><i class="fa fa-sign-in hidden-xs"></i>Login</span>
-                        </div>
-                        <div class="login-links text-right">
-                            <a href="pages_login.html" class="active fs14" title="Sign In">Sign In</a>
-                            <span class="text-warning">| </span>
-                            <a href="pages_register.html" class="fs14" title="Register">Register</a>
-                        </div>
-                    </div>
-                    <div class="panel-body p15 pt10">
-                        <div class="section row">
-                            <div class="col-md-6 border-right">
-                                <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
-                                    <span>Login</span>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                        <label for="username" class="field-label text-left fs18 mb10">E-mail</label>
-                                    </div>
-                                    <div class="col-md-11 col-sm-11 col-xs-11 pn">
-                                        <label for="username" class="field prepend-icon">
-                                            <asp:TextBox ID="txtUsername" runat="server" class="gui-input" placeholder="Enter username"></asp:TextBox>
-                                            <label for="username" class="field-icon">
-                                                <i class="fa fa-user"></i>
-                                            </label>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtUsername" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
-                                        <asp:CustomValidator ID="CustomValidator1" CssClass="error" runat="server" ValidationGroup="Login" OnServerValidate="CheckUserName"
-                                            ErrorMessage="*"></asp:CustomValidator>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                        <label for="username" class="field-label text-left fs18 mb10">Password</label>
-                                    </div>
-                                    <div class="col-md-11 col-sm-11 col-xs-11 pn">
-                                        <label for="password" class="field prepend-icon">
-                                            <asp:TextBox ID="txtPassword" class="gui-input" placeholder="Enter password" runat="server" TextMode="Password"></asp:TextBox>
-                                            <label for="password" class="field-icon">
-                                                <i class="fa fa-lock"></i>
-                                            </label>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
-                                        <asp:CustomValidator ID="CustomValidator2" class="error" runat="server" ErrorMessage="*" ValidationGroup="Login" OnServerValidate="CheckPass"></asp:CustomValidator>
-                                    </div>
-                                </div>
+        <div class="container-fluid">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div role="tabpanel" id="login1" class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
+                    <div class="panel panel-warning heading-border">
+                        <div class="panel-heading">
+                            <div class="col-md-4 col-sm-5 col-xs-6 text-left">
+                                <span class="panel-title"><i class="fa fa-sign-in hidden-xs"></i>Login</span>
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
-                                    <span>OR Sign in With</span>
+                            <div class="login-links text-right">
+                                <a href="logintest.aspx" class="active fs14" title="Sign In">Sign In</a>
+                                <span class="text-warning">| </span>
+                                <a href="register_usertest.aspx" class="fs14" title="Register">Register</a>
+                            </div>
+                        </div>
+                        <div class="panel-body p15 pt10">
+                            <div class="section row">
+                                <div class="col-md-6 border-right">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
+                                        <span>Login</span>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                            <label for="username" class="field-label text-left fs18 mb10">E-mail</label>
+                                        </div>
+                                        <div class="col-md-11 col-sm-11 col-xs-11 pn">
+                                            <label for="username" class="field prepend-icon">
+                                                <asp:TextBox ID="txtUsername" runat="server" class="gui-input" placeholder="Enter username"></asp:TextBox>
+                                                <label for="username" class="field-icon">
+                                                    <i class="fa fa-user"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtUsername" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                            <asp:CustomValidator ID="CustomValidator1" CssClass="error" runat="server" ValidationGroup="Login" OnServerValidate="CheckUserName"
+                                                ErrorMessage="*"></asp:CustomValidator>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                            <label for="username" class="field-label text-left fs18 mb10">Password</label>
+                                        </div>
+                                        <div class="col-md-11 col-sm-11 col-xs-11 pn">
+                                            <label for="password" class="field prepend-icon">
+                                                <asp:TextBox ID="txtPassword" class="gui-input" placeholder="Enter password" runat="server" TextMode="Password"></asp:TextBox>
+                                                <label for="password" class="field-icon">
+                                                    <i class="fa fa-lock"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                            <asp:CustomValidator ID="CustomValidator2" class="error" runat="server" ErrorMessage="*" ValidationGroup="Login" OnServerValidate="CheckPass"></asp:CustomValidator>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                    <div class="col-md-11 col-sm-11 col-xs-11 pn">
-                                        <asp:LinkButton runat="server" ID="lnkFacebookLogin" CssClass="button btn-social facebook span-left btn-block" ValidationGroup="Facebook" OnClick="lnkFacebookLogin_Click">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
+                                        <span>OR Sign in With</span>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 pn">
+                                            <asp:LinkButton runat="server" ID="lnkFacebookLogin" CssClass="button btn-social facebook span-left btn-block" ValidationGroup="Facebook" OnClick="lnkFacebookLogin_Click">
                                             <span><i class="fa fa-facebook"></i>
                                             </span>Facebook</asp:LinkButton>
-                                    </div>
+                                        </div>
 
-                                    <asp:Label ID="lblMessage" ForeColor="Red" Style="border: solid 1px red" runat="server"
-                                        CssClass="error-text col-md-11 col-sm-11 col-xs-11 pn text-left fs14" Visible="false">&nbsp;</asp:Label>
+                                        <asp:Label ID="lblMessage" ForeColor="Red" Style="border: solid 1px red" runat="server"
+                                            CssClass="error-text col-md-11 col-sm-11 col-xs-11 pn text-left fs14" Visible="false">&nbsp;</asp:Label>
 
-                                    <%-- <a class="button btn-social twitter span-left btn-block" href="#">
+                                        <%-- <a class="button btn-social twitter span-left btn-block" href="#">
                                                 <span><i class="fa fa-twitter"></i>
                                                 </span>Twitter</a>
                                             <a class="button btn-social googleplus span-left btn-block" href="#">
                                                 <span><i class="fa fa-google-plus"></i>
                                                 </span>Google+</a>--%>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="Col-md-12 col-sm-12 col-xs-12 pn">
+                                <h3 class="mn">Not a member yet? It's free, and only takes seconds ! </h3>
+                            </div>
                         </div>
-                        <div class="Col-md-12 col-sm-12 col-xs-12 pn">
-                            <h3 class="mn">Not a member yet? It's free, and only takes seconds ! </h3>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12 panel-footer">
-                        <div class="col-md-3 col-sm-4 col-xs-7 pn">
-                            <label class="block mt15 option option-default">
-                                <asp:CheckBox ID="chkRememberMe" runat="server"></asp:CheckBox>
-                                <span class="checkbox"></span>Remember me
+                        <div class="col-md-12 col-sm-12 col-xs-12 panel-footer">
+                            <div class="col-md-3 col-sm-4 col-xs-7 pn">
+                                <label class="block mt15 option option-default">
+                                    <asp:CheckBox ID="chkRememberMe" runat="server"></asp:CheckBox>
+                                    <span class="checkbox"></span>Remember me
                                
-                            </label>
+                                </label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-5 pt20 pb10 pn">
+                                <a class="fs14" href="forget_pass.aspx">Forgot password?</a>
+                                <asp:Label ID="lblStatus" runat="server"></asp:Label>
+                            </div>
+                            <div class="col-md-6 col-sm-5 col-xs-12 pn text-right">
+                                <asp:Button ID="btnLogin" runat="server" ValidationGroup="Login" CssClass="button btn-primary" Text="Login" OnClick="btnLogin_Click" />
+                                <asp:Button ID="btnRegister" runat="server" CssClass="button btn-info mr5" Text="Sign Up" OnClick="btnRegister_Click" />
+                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-5 pt20 pb10 pn">
-                            <a class="fs14" href="forget_pass.aspx">Forgot password?</a>
-                            <asp:Label ID="lblStatus" runat="server"></asp:Label>
-                        </div>
-                        <div class="col-md-6 col-sm-5 col-xs-12 pn text-right">
-                            <asp:Button ID="btnLogin" runat="server" ValidationGroup="Login" CssClass="button btn-primary" Text="Login" OnClick="btnLogin_Click" />                            
-                            <asp:Button ID="btnRegister" runat="server" CssClass="button btn-info mr5" Text="Sign Up" OnClick="btnRegister_Click" />
-                        </div>
-                    </div>
-                    <asp:HiddenField ID="hdnVal" runat="server" />
+                        <asp:HiddenField ID="hdnVal" runat="server" />
 
+                    </div>
                 </div>
             </div>
         </div>

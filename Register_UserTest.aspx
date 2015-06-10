@@ -36,9 +36,8 @@
     </script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <div id="main1" align="center">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderTest.aspx" -->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
@@ -307,11 +306,10 @@
             </div>
             <asp:HiddenField ID="hdnMeVal" Value="0" runat="server" />
         </form>
-    </div>
 
-    <div align="center">
+    <div class="clearfix"></div>
         <!-- #include file="include/footer.aspx" -->
-    </div>
+    
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

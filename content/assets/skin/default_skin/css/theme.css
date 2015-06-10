@@ -11386,7 +11386,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 13px;
   text-align: left;
-  background-color: #ffffff;
+  background-color: #222222;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 1px;
@@ -11408,7 +11408,7 @@ tbody.collapse.in {
   display: block;
   padding: 5px 15px;
   clear: both;
-  color: #666666;
+  color: #fff;
   font-weight: normal;
   line-height: 1.5;
   white-space: nowrap;
@@ -11416,8 +11416,8 @@ tbody.collapse.in {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   text-decoration: none;
-  color: #595959;
-  background-color: #f5f5f5;
+  color: #ff9900;
+  /*background-color: #f5f5f5;*/
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -11848,7 +11848,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: none;
 }
 .nav > li.disabled > a {
   color: #777777;
@@ -11863,7 +11863,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eeeeee;
+  background-color: none;
   border-color: #CCC;
 }
 .nav .nav-divider {
@@ -12083,7 +12083,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -webkit-overflow-scrolling: touch;
 }
 .navbar-collapse.in {
-  overflow-y: auto;
+  overflow-y: initial;
 }
 @media (min-width: 480px) {
   .navbar-collapse {
@@ -19787,14 +19787,14 @@ ul.sidebar-nav ul#sideEight.sub-nav > li > a:hover {
   margin: 0;
 }
 .navbar .nav > li {
-  float: left;
+  
 }
 .navbar .nav > li > a {
-  color: #777;
+  color: #eeeeee;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 59px;
-  max-height: 59px;
+  height: 30px;
+  max-height: 35px;
 }
 .navbar .nav > li.open > a,
 .navbar .nav > li:hover > a,
@@ -19802,12 +19802,13 @@ ul.sidebar-nav ul#sideEight.sub-nav > li > a:hover {
 .navbar .nav > li.active > a,
 .navbar .nav > li > a:hover,
 .navbar .nav > li > a:focus {
-  color: #333;
-  background-color: #DDD;
+  color: #ff9900;
+  background-color: none;
 }
 .navbar .nav > li.dropdown.open .dropdown-menu {
-  margin-top: 10px;
-  border-top: 3px solid #4a89dc;
+  margin-bottom: 10px;
+  border-top: 3px solid #ff9900;
+  border-bottom: 3px solid #ff9900;
   border-radius: 2px;
 }
 .navbar .nav > li.dropdown.open .dropdown-menu:after {
@@ -19816,11 +19817,11 @@ ul.sidebar-nav ul#sideEight.sub-nav > li > a:hover {
   width: 0;
   height: 0;
   border-color: transparent;
-  border-style: solid;
-  right: 8px;
-  bottom: 100%;
-  border-width: 0 10px 10px;
-  border-bottom-color: #4a89dc;
+  /*border-style: solid;*/
+  /*right: 8px;*/*/
+  /*bottom: 100%;*/
+  /*border-width: 0 10px 10px;
+  border-bottom-color: #4a89dc;*/
 }
 /*navbranding*/
 .navbar-branding {
