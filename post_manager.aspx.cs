@@ -266,7 +266,7 @@ namespace BoardHunt
 		public void GetValues(object src, CommandEventArgs e)
 		{
 			//Go to edit item page			
-			Response.Redirect("edit_itemTest.aspx?" + "iD=" + e.CommandArgument.ToString());
+			Response.Redirect("edit_item.aspx?" + "iD=" + e.CommandArgument.ToString());
         }
 
 /*

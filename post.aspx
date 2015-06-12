@@ -1,4 +1,4 @@
-<% @ Page CodeBehind="post.aspx.cs" Language="c#" AutoEventWireup="false" EnableEventValidation="false" Inherits="BoardHunt.post" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="post.aspx.cs" Inherits="BoardHunt.post" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,10 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
 
+
     </script>
+
+    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
@@ -42,19 +45,19 @@
     </script>
 
     <!-- Font CSS (Via CDN) -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'/>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300"/>
-    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css"/>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
 
     <!-- Admin Forms CSS -->
-    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css"/>
+    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
     <!-- Theme CSS -->
-    
+
 </head>
-<body onkeydown="return (event.keyCode!=13)">
-    <div id="main1" align="center">
+<body onkeydown="return (event.keyCode!=13)" style="background: none repeat scroll 0 0 #fff;">
+    <div id="main1">
         <form class="header" runat="server" id="Form1">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderResponsive.aspx" -->
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
@@ -120,7 +123,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12 pl50 pr50 mb10">
                                 <div class="col-md-12 col-sm-12 col-xs-12 pn">
                                     <label for="What" class="field-label text-left fs18 mb10">What kind of condition? <small class="fs12">&nbsp;(Boards must be in decent condition)</small></label>
-                                   
+
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 pn">
                                     <div class="radio-custom mb5">
@@ -148,7 +151,7 @@
                         <div class="panel-footer col-md-12 col-sm-12 col-xs-12">
                             <asp:HiddenField ID="hdnAdType" runat="server" Value="" />
                             <div class="pull-left">
-                                <span style="color: #999;display: inline-block;font-size: 15px;">Avoid scams by dealing local.</span>
+                                <span style="color: #999; display: inline-block; font-size: 15px;">Avoid scams by dealing local.</span>
                             </div>
                             <div class="pull-right">
                                 <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-default" Text="Cancel" TabIndex="5" OnClick="btnCancel_Click" />
@@ -221,11 +224,8 @@
             </div>--%>
         </form>
 
-        <br />
-        <br />
-        <div align="center">
-            <!-- #include file="include/footer.aspx" -->
-        </div>
+        <div class="clearfix"></div>
+        <!-- #include file="include/footer.aspx" -->
 
         <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 

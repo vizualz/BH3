@@ -1,10 +1,5 @@
 'use strict';
-/*! main.js - v0.1.1
- * http://admindesigns.com/
- * Copyright (c) 2013 Admin Designs;*/
 
-/* Demo theme functions. Required for
- * Settings Pane and misc functions */
 var Demo = function() {
 
    // Demo AdminForm Functions

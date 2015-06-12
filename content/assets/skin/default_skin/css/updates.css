@@ -1,37 +1,3 @@
-/*
-
-Dedicated Update Styles
-Current Update: v1.2
-Help: support@admindesigns.com
-
-This file contains all of the style changes made in update v1.2
-It exist to help a user track down a problem that arised after patching.
-These changes already exist in theme.css and SHOULD NOT be added again
-Please see the update changelog for more details.
-
- - LESS users should never modify the AdminDesigns base theme. Style customizations
-and additions should always be placed to your child theme (skins/default-skin/less). 
-
-- Standard CSS users should never modify theme.css. All style customizations and
-additions should be added to a new stylesheet and included separately in your pages. 
-
-Seperating your work and customizations from the themes default styles is 
-absolutely key to smoothly transitioning through theme patches and updates.
-
-It is also highly recommended that ALL users use the themes LESS system
-as it is far superior, and offers a great deal of features and optimizations.
-Please contact us, or leave a comment if you would like to see a LESS tutorial
-added to the themes documentation.
-
-*/
-
-
-/*=======================================================
-  Changes added in update v1.2
-  - Navbar fixes and responsive changes
-  - Sidebar responsive changes
-  - Tray responsive styles
-========================================================= */
 
 /*Navbar Bug Fixes */
 /* Modify whitespace for user menu dropdown - Firefox alignment bug fix */

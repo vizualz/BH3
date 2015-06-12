@@ -1,4 +1,4 @@
-<%@ Page CodeBehind="register_user.aspx.cs" Language="c#" AutoEventWireup="True" Inherits="BoardHunt.register_user" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="register_user.aspx.cs" Inherits="BoardHunt.Register_User" %>
 
 <!DOCTYPE html>
 
@@ -6,21 +6,21 @@
 <head runat="server">
     <title>Signup and sell your surfboard | Boardhunt</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <%--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="include/js/superfish.js"></script>
     <script src="include/js/bh.js" type="text/javascript"></script>
     <link href="style/global.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
     <!-- Font CSS (Via CDN) -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'/>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300"/>
-
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+        
     <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
 
     <!-- Admin Forms CSS -->
-    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css"/>
-
+    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -35,9 +35,8 @@
     </script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <div id="main1" align="center">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderResponsive.aspx" -->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
@@ -189,7 +188,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn">
                                         <div class="thumbnail col-md-12 col-sm-12 col-xs-12 mn">
-                                            <img align="left" src="images/FreeVsPRO4.jpg" />
+                                            <img align="left" src="images/accounts.png" />
                                         </div>
                                         <%--<asp:Label ID="lblMessage" ForeColor="Red" Style="border: solid 1px red" runat="server"
                                             CssClass="error-text col-md-11 col-sm-11 col-xs-11 pn text-left fs14" Visible="false">&nbsp;</asp:Label>--%>
@@ -306,11 +305,10 @@
             </div>
             <asp:HiddenField ID="hdnMeVal" Value="0" runat="server" />
         </form>
-    </div>
 
-    <div align="center">
+    <div class="clearfix"></div>
         <!-- #include file="include/footer.aspx" -->
-    </div>
+    
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

@@ -1,5 +1,4 @@
-<%@ Page Codebehind="post_item.aspx.cs" MaintainScrollPositionOnPostback="true" EnableEventValidation="false"
-    ValidateRequest="false" Language="c#" AutoEventWireup="True" Inherits="BoardHunt.post_item" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="post_item.aspx.cs" Inherits="BoardHunt.post_item" %>
 
 <!DOCTYPE html>
 
@@ -143,9 +142,9 @@
     <script src="content/vendor/plugins/dropzone/dropzone.min.js"></script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <div id="main1" align="center">
+    <div id="main1">
         <form runat="server" class="header" id="form1">
-            <!-- #include file="include/Header.aspx" -->
+            <!-- #include file="include/HeaderResponsive.aspx" -->
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
@@ -159,7 +158,7 @@
                         <div class="panel-body p15 mt10">
                             <div class="text-center">
                                 <span style="color: #ff9900;" class="fw600">
-                                    <asp:HyperLink runat="server" ID="lnkSell" NavigateUrl="postTest.aspx" Style="color: #ff9900;" CssClass="fw600 fs14">Step 1 of 3: General Info</asp:HyperLink>
+                                    <asp:HyperLink runat="server" ID="lnkSell" NavigateUrl="post.aspx" Style="color: #ff9900;" CssClass="fw600 fs14">Step 1 of 3: General Info</asp:HyperLink>
                                     &gt; Step 2 of 3: 
                                     <asp:Label runat="server" ID="lblCat"></asp:Label>
                                     Details
@@ -194,7 +193,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Height</label>
+                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard"><strong class="text-danger">*</strong> Height</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="col-md-3 col-sm-3 col-xs-4 pn">
                                         <asp:TextBox ID="txtHtFt" runat="server" CssClass="gui-input" MaxLength="2"
@@ -215,7 +214,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Price</label>
+                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard"><strong class="text-danger">*</strong>  Price</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="col-md-4 col-sm-4 col-xs-4 pn">
                                         <asp:TextBox ID="txtPrice" runat="server" CssClass="gui-input" MaxLength="8"
@@ -358,10 +357,10 @@
                             <hr />
                             <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
                                 <div>
-                                    <span class="fw600 fs15">Add images, or buyers may skip over your post.</span>
+                                    <span class="fw600 fs15">Add images, or buyers may skip over your post. (Max 3 Images)</span>
                                 </div>
                                 <div>
-                                    <small>1MB limit per file, GIF or JPG only. If post breaks, it's probably too big.</small>
+                                    <small><strong>2MB limit per file</strong>, GIF or JPG only. If post breaks, it's probably too big.</small>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
@@ -369,7 +368,7 @@
                                     <div id="divServer" runat="server">
                                         <div id="dropZonefrm" class="dropzone">
                                             <div class="fallback">
-                                                <input name="file" type="file" multiple="multiple" runat="server" />
+                                                <input name="file" type="file" multiple="multiple" runat="server" accept="image/*" capture="camera" />
                                                 <asp:Label ID="lblFallbackMessage" runat="server" />
                                                 <input name="btnUpload" type="submit" title="Upload" />
                                             </div>
@@ -846,9 +845,9 @@
             <input type="hidden" runat="server" id="DeletedImageUrls" />
         </form>
     </div>
-    <div align="center">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+    
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
     <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
@@ -879,17 +878,19 @@
         var myDropzone = '';
 
         $(document).ready(function () {
+
             Dropzone.autoDiscover = false;
+            Dropzone.options.dropZonefrm = { acceptedFiles: 'image/*' };
             myDropzone = new Dropzone('#dropZonefrm', {
-                paramName: "files",
-                maxFilesize: 1.0,
-                maxFiles: 3,
-                parallelUploads: 10000,
+                paramName: 'files',
+                autoProcessQueue: true,
                 uploadMultiple: true,
-                autoProcessQueue: false,
+                parallelUploads: 25,
+                maxFiles: 3,
+                maxFilesize: 2.0,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
-                url: "http://localhost/mz/post_itemTest.aspx?name=deepak",
+                url: "//localhost/mz/post_item.aspx?name=deepak",
                 init: function () {
                     var myDropzone = this;
 
@@ -935,12 +936,24 @@
                     this.on("removedfile", function (file) {
                         // Only files that have been programmatically added should
                         // have a url property.
-                        if (file.url && file.url.trim().length > 0) {
-                            if ($("#DeletedImageUrls").val() != '') {
-                                $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.url);
+
+                        if (file.url == null) {
+                            if (file.name && file.name.trim().length > 0) {
+                                if ($("#DeletedImageUrls").val() != '') {
+                                    $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.name);
+                                }
+                                else {
+                                    $("#DeletedImageUrls").val(file.name);
+                                }
                             }
-                            else {
-                                $("#DeletedImageUrls").val(file.url);
+                        } else {
+                            if (file.url && file.url.trim().length > 0) {
+                                if ($("#DeletedImageUrls").val() != '') {
+                                    $("#DeletedImageUrls").val($("#DeletedImageUrls").val() + ',' + file.url);
+                                }
+                                else {
+                                    $("#DeletedImageUrls").val(file.url);
+                                }
                             }
                         }
                     });
@@ -950,9 +963,9 @@
 
         });
 
-        $('#btnNext').click(function () {
-            myDropzone.processQueue();
-        });
+        //$('#btnNext').click(function () {
+        //    myDropzone.processQueue();
+        //});
 
     </script>
 

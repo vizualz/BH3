@@ -1,10 +1,5 @@
 'use strict';
-/*! main.js - v0.1.1
- * http://admindesigns.com/
- * Copyright (c) 2013 Admin Designs;*/
 
-/* Core theme functions required for
- * most of the themes vital functionality */
 var Core = function(options) {
 
    // Variables
