@@ -71,7 +71,7 @@ namespace BoardHunt
                     lblMessage.Text = "&nbsp;Please login or <a class='alert' href='register_user.aspx'><u>sign up</u></a> first!&nbsp;";
                     lblMessage.BackColor = Color.White;
                     lblMessage.BorderColor = Color.Red;
-                    lblMessage.Visible = true;
+                    lblMessage.Visible = false;
                     lblMessage.Height = Unit.Pixel(16);
                 }
             }

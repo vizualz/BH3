@@ -63,7 +63,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-8 pn pb10 pl10">
+                        <div class="col-md-6 col-sm-6 col-xs-12 pn pb10 pl10">
                             <div class="col-md-3 col-sm-3 col-xs-4 pn">
                                 <asp:ImageButton ID="imgBtnAcct" CssClass="thumbnail" title="Account|Change your pic, displayname, or other account settings"
                                     ImageUrl="images/menu_account_off.gif" runat="server" />
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-4 pn pb10 pr10 text-right">
+                        <div class="col-md-6 col-sm-6 col-xs-12 pn pb10 pr10 text-right">
                             <div class="pt5">
                                 <asp:LinkButton ID="lnkFav" runat="server" CssClass="text-warning">Favorites</asp:LinkButton>
                             </div>

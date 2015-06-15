@@ -171,7 +171,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
                                 <span class="fw600 fs15">This section is required.</span>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <div class="col-md-12 col-sm-12 col-xs-12 mb15">
                                 <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">
                                     Board Type
                                     &nbsp;
@@ -192,7 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard"><strong class="text-danger">*</strong> Height</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="col-md-3 col-sm-3 col-xs-4 pn">
@@ -208,12 +208,14 @@
                                     </div>
                                     <div class="col-md-2 col-sm-2 col-xs-3  text-left">
                                         <asp:Label ID="lblHtIn" runat="server">in</asp:Label>
+                                    </div>
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 pn text-left">
                                         <asp:CustomValidator ID="CustomValidator3" runat="server" CssClass="error" OnServerValidate="CheckHeight"
                                             ErrorMessage="!"></asp:CustomValidator>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard"><strong class="text-danger">*</strong>  Price</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="col-md-4 col-sm-4 col-xs-4 pn">
@@ -225,157 +227,159 @@
                                             <asp:Label ID="lblPriceDir" runat="server">
                                          ($ USD) You can edit this later.
                                             </asp:Label></small>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pn text-left">
                                         <asp:CustomValidator ID="CustomValidator5" runat="server" CssClass="error" OnServerValidate="CheckPrice"
                                             ErrorMessage="!"></asp:CustomValidator>&nbsp;
                                     </div>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                            <hr />
-                            <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
-                                <span class="fw600 fs15">This section is optional, but highly recommended to enable all search features.</span>
+                        <div class="clearfix"></div>
+                        <hr />
+                        <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
+                            <span class="fw600 fs15">This section is optional, but highly recommended to enable all search features.</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Brand</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <asp:TextBox ID="txtBrand" runat="server" CssClass="gui-input" TabIndex="10"></asp:TextBox>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Brand</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <asp:TextBox ID="txtBrand" runat="server" CssClass="gui-input" TabIndex="10"></asp:TextBox>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Shaper</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <asp:TextBox ID="txtShaper" runat="server" CssClass="gui-input" TabIndex="11"></asp:TextBox>
+                                <asp:CustomValidator ID="CustomValidator2" runat="server" CssClass="error" Visible="false" OnServerValidate="CheckBrand"
+                                    ErrorMessage="!"></asp:CustomValidator>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Model</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <asp:TextBox ID="txtModelPost" runat="server" CssClass="gui-input" TabIndex="12"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Width</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtWidth" runat="server" CssClass="gui-input" MaxLength="2"
+                                        TabIndex="15"></asp:TextBox>
                                 </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Shaper</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <asp:TextBox ID="txtShaper" runat="server" CssClass="gui-input" TabIndex="11"></asp:TextBox>
-                                    <asp:CustomValidator ID="CustomValidator2" runat="server" CssClass="error" Visible="false" OnServerValidate="CheckBrand"
+                                <div class="col-md-1 col-sm-1 col-xs-2 pn">
+                                    <span>And</span>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtWidthNum" runat="server" CssClass="gui-input" MaxLength="1"
+                                        TabIndex="16"></asp:TextBox>
+                                </div>
+                                <div class="col-md-1 col-sm-1 col-xs-1 pn">
+                                    <span>/</span>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtWidthDNum" runat="server" CssClass="gui-input" MaxLength="2"
+                                        TabIndex="17"></asp:TextBox>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-3  text-left">
+                                    <small>&nbsp;in&nbsp;(ex: 18 and 1/4)
+                                    </small>
+                                    <asp:CustomValidator ID="CustomValidator4" runat="server" CssClass="error" OnServerValidate="CheckWidth"
                                         ErrorMessage="!"></asp:CustomValidator>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Model</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <asp:TextBox ID="txtModelPost" runat="server" CssClass="gui-input" TabIndex="12"></asp:TextBox>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Thickness</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtThick" runat="server" CssClass="gui-input" MaxLength="1"
+                                        TabIndex="18"></asp:TextBox>
+                                </div>
+                                <div class="col-md-1 col-sm-1 col-xs-2 pn">
+                                    <span>And</span>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtThickNum" runat="server" CssClass="gui-input" MaxLength="1"
+                                        TabIndex="19"></asp:TextBox>
+                                </div>
+                                <div class="col-md-1 col-sm-1 col-xs-1 pn">
+                                    <span>/</span>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 pn">
+                                    <asp:TextBox ID="txtThickDNum" runat="server" CssClass="gui-input" MaxLength="2"
+                                        TabIndex="20"></asp:TextBox>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-3  text-left">
+                                    <small>&nbsp;in&nbsp;(ex: 2 and 1/4)
+                                    </small>
+                                    <asp:CustomValidator ID="CustomValidator1" runat="server" CssClass="errorLabel" OnServerValidate="CheckThickness"
+                                        ErrorMessage="!"></asp:CustomValidator>&nbsp;<span class="help">
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Width</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtWidth" runat="server" CssClass="gui-input" MaxLength="2"
-                                            TabIndex="15"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-1 col-sm-1 col-xs-2 pn">
-                                        <span>And</span>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtWidthNum" runat="server" CssClass="gui-input" MaxLength="1"
-                                            TabIndex="16"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-1 col-sm-1 col-xs-1 pn">
-                                        <span>/</span>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtWidthDNum" runat="server" CssClass="gui-input" MaxLength="2"
-                                            TabIndex="17"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-3  text-left">
-                                        <small>&nbsp;in&nbsp;(ex: 18 and 1/4)
-                                        </small>
-                                        <asp:CustomValidator ID="CustomValidator4" runat="server" CssClass="error" OnServerValidate="CheckWidth"
-                                            ErrorMessage="!"></asp:CustomValidator>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Fins</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="field select">
+                                    <asp:DropDownList ID="cboFins" runat="server" TabIndex="22">
+                                    </asp:DropDownList>
+                                    <i class="arrow double"></i>
+                                </label>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Thickness</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtThick" runat="server" CssClass="gui-input" MaxLength="1"
-                                            TabIndex="18"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-1 col-sm-1 col-xs-2 pn">
-                                        <span>And</span>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtThickNum" runat="server" CssClass="gui-input" MaxLength="1"
-                                            TabIndex="19"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-1 col-sm-1 col-xs-1 pn">
-                                        <span>/</span>
-                                    </div>
-                                    <div class="col-md-2 col-sm-2 col-xs-2 pn">
-                                        <asp:TextBox ID="txtThickDNum" runat="server" CssClass="gui-input" MaxLength="2"
-                                            TabIndex="20"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-3  text-left">
-                                        <small>&nbsp;in&nbsp;(ex: 2 and 1/4)
-                                        </small>
-                                        <asp:CustomValidator ID="CustomValidator1" runat="server" CssClass="errorLabel" OnServerValidate="CheckThickness"
-                                            ErrorMessage="!"></asp:CustomValidator>&nbsp;<span class="help">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">Fins</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <label class="field select">
-                                        <asp:DropDownList ID="cboFins" runat="server" TabIndex="22">
-                                        </asp:DropDownList>
-                                        <i class="arrow double"></i>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <asp:Label CssClass="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard" ID="lblTail" runat="server">Tail
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <asp:Label CssClass="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard" ID="lblTail" runat="server">Tail
                                    &nbsp; <img src="images/help.gif" class="Tips" align="middle" id="imgFinHelp" rel="help/help.aspx?val=4"
                                     title="Tail Types" />
-                                </asp:Label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <label class="field select">
-                                        <asp:DropDownList ID="cboTailType" runat="server" TabIndex="23">
-                                        </asp:DropDownList>
-                                        <i class="arrow double"></i>
-                                    </label>
-                                </div>
+                            </asp:Label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="field select">
+                                    <asp:DropDownList ID="cboTailType" runat="server" TabIndex="23">
+                                    </asp:DropDownList>
+                                    <i class="arrow double"></i>
+                                </label>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb10">
-                                <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">The Deal</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <label class="field" for="comment">
-                                        <asp:TextBox ID="txtDetails" onkeydown="CountChars()" runat="server" CssClass="gui-textarea"
-                                            MaxLength="599" placeholder="Your comment" Rows="10" TextMode="MultiLine" TabIndex="30"></asp:TextBox>
-                                        <span class="input-footer text-justify">
-                                            <strong>DO:</strong>
-                                            <asp:Label ID="lblDetailTxt" runat="server">
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 mb10">
+                            <label class="col-md-3 col-sm-3 col-xs-12 field-label text-left mbn" for="inputStandard">The Deal</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="field" for="comment">
+                                    <asp:TextBox ID="txtDetails" onkeydown="CountChars()" runat="server" CssClass="gui-textarea"
+                                        MaxLength="599" placeholder="Your comment" Rows="10" TextMode="MultiLine" TabIndex="30"></asp:TextBox>
+                                    <span class="input-footer text-justify">
+                                        <strong>DO:</strong>
+                                        <asp:Label ID="lblDetailTxt" runat="server">
                                         How does it ride?,   &nbsp;&nbsp; Describe any dings.,&nbsp;&nbsp;Ideal height and weight?,&nbsp;&nbsp;
                                         Where should it be ridden?,&nbsp;&nbsp;How much did you pay?,&nbsp;&nbsp;What is it made of?,&nbsp;&nbsp;
                                         Why selling?
-                                            </asp:Label>
-                                        </span>
-                                    </label>
-                                </div>
+                                        </asp:Label>
+                                    </span>
+                                </label>
                             </div>
-                            <div class="clearfix"></div>
-                            <hr />
-                            <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
-                                <div>
-                                    <span class="fw600 fs15">Add images, or buyers may skip over your post. (Max 3 Images)</span>
-                                </div>
-                                <div>
-                                    <small><strong>2MB limit per file</strong>, GIF or JPG only. If post breaks, it's probably too big.</small>
-                                </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr />
+                        <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
+                            <div>
+                                <span class="fw600 fs15">Add images, or buyers may skip over your post. (Max 3 Images)</span>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
-                                <div class="tray-bin pl10 mb10" style="min-height: 250px;">
-                                    <div id="divServer" runat="server">
-                                        <div id="dropZonefrm" class="dropzone">
-                                            <div class="fallback">
-                                                <input name="file" type="file" multiple="multiple" runat="server" accept="image/*" capture="camera" />
-                                                <asp:Label ID="lblFallbackMessage" runat="server" />
-                                                <input name="btnUpload" type="submit" title="Upload" />
-                                            </div>
+                            <div>
+                                <small><strong>2MB limit per file</strong>, GIF or JPG only. If post breaks, it's probably too big.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
+                            <div class="tray-bin pl10 mb10" style="min-height: 250px;">
+                                <div id="divServer" runat="server">
+                                    <div id="dropZonefrm" class="dropzone">
+                                        <div class="fallback">
+                                            <input name="file" type="file" multiple="multiple" runat="server" accept="image/*" capture="camera" />
+                                            <asp:Label ID="lblFallbackMessage" runat="server" />
+                                            <input name="btnUpload" type="submit" title="Upload" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <div class="panel-footer col-md-12 col-sm-12 col-xs-12">
                             <div class="pull-right">
@@ -845,7 +849,7 @@
             <input type="hidden" runat="server" id="DeletedImageUrls" />
         </form>
     </div>
-    
+
     <div class="clearfix"></div>
     <!-- #include file="include/footer.aspx" -->
 
