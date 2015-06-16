@@ -894,6 +894,7 @@
                 maxFilesize: 2.0,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
+                dictDefaultMessage: '<i class="fa fa-cloud-upload"></i>  <strong class="main-text"><b>Drop Files</b> to upload</strong> <br />  <strong class="sub-text">(or click)</strong> ',
                 url: "//localhost/mz/post_item.aspx?name=deepak",
                 init: function () {
                     var myDropzone = this;
@@ -964,7 +965,8 @@
                 }
             });
 
-
+            $('div.dz-default.dz-message > span').show(); // Show message span
+            $('div.dz-default.dz-message').css({ 'opacity': 1, 'background-image': 'none' });
         });
 
         //$('#btnNext').click(function () {
