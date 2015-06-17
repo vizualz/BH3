@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
                                         <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                            <label for="username" class="field-label text-left fs18 mb10">E-mail</label>
+                                            <label for="username" class="field-label text-left fs18 mb10">E-mail<strong class="text-danger">&nbsp;*</strong></label>
                                         </div>
                                         <div class="col-md-11 col-sm-11 col-xs-11 pn">
                                             <label for="Email" class="field prepend-icon">
@@ -70,14 +70,14 @@
                                             </label>
                                         </div>
                                         <div class="col-md-1">
-                                            <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtEmail" ValidationGroup="Register" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtEmail" ValidationGroup="Register" CssClass="fs20 error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
                                             <asp:CustomValidator ID="CustomValidator3" runat="server" ErrorMessage="!"
                                                 OnServerValidate="CheckEmail" CssClass="error"></asp:CustomValidator>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
                                         <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                            <label for="username" class="field-label text-left fs18 mb10">Password</label>
+                                            <label for="username" class="field-label text-left fs18 mb10">Password<strong class="text-danger">&nbsp;*</strong></label>
                                         </div>
                                         <div class="col-md-11 col-sm-11 col-xs-11 pn">
                                             <label for="password" class="field prepend-icon">
@@ -88,7 +88,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-1">
-                                            <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword1" ValidationGroup="Register" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword1" ValidationGroup="Register" CssClass="fs20 error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
                                             <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="!" ValidationGroup="Register" OnServerValidate="CheckPassword"
                                                 CssClass="error"></asp:CustomValidator>
                                         </div>

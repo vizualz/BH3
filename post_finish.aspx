@@ -73,17 +73,19 @@
                                     <%--<img src="images/fb_share.jpg" border="0" alt="Post to your Facebook" align="top" />--%>
                                     </asp:LinkButton>
 
-                                   
+
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 thumbnail br-n mn">
                                     <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/BoostImage.gif" OnClick="btnUpgrade_Click" />
                                 </div>
 
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label class="col-md-12 col-sm-12 col-xs-12 text-left fs16 fw600 field-label">Copy Link</label>
+                                    <label class="col-md-12 col-sm-12 col-xs-12 text-left fs16 fw600 field-label">Copy Link And View Your Post</label>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <asp:TextBox align="left" ID="txtEntryLink" CssClass="gui-input" OnClick="select()"
-                                            runat="server"></asp:TextBox>
+                                        <a id="lnkViewPost" runat="server" target="_blank">
+                                            <asp:Label ID="txtEntryLink" CssClass="gui-input" OnClick="select()"
+                                                runat="server"></asp:Label>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -146,7 +148,7 @@
                                                 }
                                             }, function (t) { var e = Object.prototype.toString; t.exports = function (t) { return e.call(t) } }]));
                                         </script>
-                                    <div class="addthis_sharing_toolbox" addthis:title="Malzook.com"></div>
+                                        <div class="addthis_sharing_toolbox" addthis:title="Malzook.com"></div>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

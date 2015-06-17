@@ -24,7 +24,7 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav p15">
+                    <ul class="nav navbar-nav pt20">
                         <li class="pl20"><a href="/index.aspx" class="fs16 pn">Home</a></li>
                         <li class="dropdown pl20">
                             <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/Surfboardsforsale.aspx?iCat=1">Used Surfboards<span class="caret"></span></a>
@@ -67,15 +67,15 @@
                             <asp:linkbutton id="lnkPost" class="fs16 pn" runat="server">Sell</asp:linkbutton>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right p15">
+                    <ul class="nav navbar-nav navbar-right pt20">
                         <li class="pl20">
-                            <asp:linkbutton id="lnkSignUp" runat="server" class="pn fs16"><span class="glyphicon glyphicon-user"></span>Sign up</asp:linkbutton>
+                            <asp:linkbutton id="lnkSignUp" runat="server" class="pn fs16"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Sign up</asp:linkbutton>
                         </li>
                         <li class="pl20">
-                            <asp:linkbutton id="lnkSignIn" runat="server" class="pn fs16"><span class="glyphicon glyphicon-log-in"></span>Sign in</asp:linkbutton>
+                            <asp:linkbutton id="lnkSignIn" runat="server" class="pn fs16"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Sign in</asp:linkbutton>
                         </li>
                         <li class="pl20">
-                            <asp:linkbutton id="lnkUpgradeAcct" runat="server" class="pn fs16" visible="false"><i class="fa fa-plus"></i>Upgrade</asp:linkbutton>
+                            <asp:linkbutton id="lnkUpgradeAcct" runat="server" class="pn fs16" visible="false"><i class="fa fa-plus"></i>&nbsp;&nbsp;Upgrade</asp:linkbutton>
                         </li>
                     </ul>
                 </div>

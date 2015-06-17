@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
-                                        <span>OR Sign in With</span>
+                                        <span>OR Sign-In With</span>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn">
                                         <div class="col-md-11 col-sm-11 col-xs-11 pn">
