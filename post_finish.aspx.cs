@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -13,9 +13,7 @@ using System.Data.SqlClient;
 
 namespace BoardHunt
 {
-	/// <summary>
-	/// Summary description for post_finish.
-	/// </summary>
+
 	public partial class post_finish : System.Web.UI.Page
 	{
 		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
@@ -27,6 +25,7 @@ namespace BoardHunt
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
             // Put user code to initialize the page here
+
             Global.AuthenticateUser();
 
             lnkSignIn.Text = Global.SetLnkSignIn();
@@ -43,14 +42,16 @@ namespace BoardHunt
 
                 BoardHunt.wsBH.BHService oWS = new BoardHunt.wsBH.BHService();
                 oWS.InsertBoardForRatings(Convert.ToInt32(entryId.ToString()));
-                
+
                 string eLink;
 
                 //reg posts
                 if (tmpBoardItem.AdType != 4)
                 {
                     pnlBoost.Visible = true;
-                    eLink = serverURL + "/surfboard.aspx?iD=" + entryId; 
+
+                    eLink = serverURL + "/surfboard.aspx?iD=" + entryId;
+
                     hypLnkPost.Visible = true;
                     hypLnkPostModel.Visible = false;
                 }
@@ -68,7 +69,9 @@ namespace BoardHunt
                 lnkLivePost.NavigateUrl = eLink;
 
                 txtEntryLink.Text = eLink;
-                txtEntryLink.ReadOnly = true;
+
+                //txtEntryLink.ReadOnly = true;
+                lnkViewPost.HRef = eLink;
 
                 switch (tmpBoardItem.AdType)
                 {
@@ -85,7 +88,7 @@ namespace BoardHunt
                     default:
                         break;
                 }
-                
+
                 //hide upgrade for non-surf items
                 if (tmpBoardItem.Category != (int)1)
                 {
@@ -143,23 +146,25 @@ namespace BoardHunt
                 Session["Item"] = null;
 
             }
-		}
+        }
 
-		private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-    		Global.NavigatePage(lnkSignIn.Text);
-		}
+        private void lnkSignIn_Click(object sender, System.EventArgs e)
+        {
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
+            Global.NavigatePage(lnkSignIn.Text);
+        }
 
-		private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkSignUp.Text);
-			
-		}
+        private void lnkSignUp_Click(object sender, System.EventArgs e)
+        {
+            Global.NavigatePage(lnkSignUp.Text);
 
-		private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx", false);
-		}
+        }
+
+        private void lnkPost_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("post.aspx", false);
+        }
+
 
         protected void lnkUpgrade_Click1(object sender, EventArgs e)
         {
@@ -180,7 +185,9 @@ namespace BoardHunt
 
             strId = "";
             //Get connection string 
-            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+
+            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+
 
             //Formulate SQL  
             strSQL = "SELECT MAX(iD) FROM tblEntry";
@@ -198,7 +205,6 @@ namespace BoardHunt
                     //set control values
                     objId = SQLReader.GetValue(0);
                     strId = objId.ToString();
-                    
                 }
             }
 
@@ -212,49 +218,52 @@ namespace BoardHunt
             {
                 myConnection.Close();
                 SQLReader = null;
-                
+
             }
             return strId;
         }
-		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
-		{
-			//
-			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
-			//
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-		}
-		#endregion
-
-        protected void btnUpgradePro_Click(object sender, ImageClickEventArgs e)
+        #region Web Form Designer generated code
+        override protected void OnInit(EventArgs e)
         {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
+            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
+            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+
+        }
+
+        protected void btnUpgradePro_Click(object sender, EventArgs e)
+        {
             //Set session for posting upgrade
             Session["ServiceId"] = "6";
             Response.Redirect("/Pay/OrderForm.aspx", true);
         }
 
+        #endregion
+
+
         protected void btnUpgrade_Click(object sender, ImageClickEventArgs e)
         {
             ErrorLog.ErrorRoutine(false, "post_finish:btnUpgrade_Click");
-            
+
             //Set session for posting upgrade
             Session["ServiceId"] = "1";
             Session["TxnItemId"] = hdnEntryVal.Value;
 
-            Response.Redirect("/Pay/OrderForm.aspx",true);
+            Response.Redirect("/Pay/OrderForm.aspx", true);
+
         }
 
         protected void lnkBoost_Click(object sender, EventArgs e)
@@ -267,5 +276,7 @@ namespace BoardHunt
 
             Response.Redirect("/Pay/OrderForm.aspx", true);
         }
-	}
+
+    }
+
 };

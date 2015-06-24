@@ -1,14 +1,4 @@
-/*
- *      File: post.aspx
- *      
- *      This is the first page of a wizard that collects input from users wanting to post items.
- *      Collected here are the Adtype, BoardCategory, Location, and Town.
- * 
- *      @author: PRM
- * 
- * 
-*/
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -26,29 +16,19 @@ namespace BoardHunt
 	/// <summary>
 	/// Summary description for post.
 	/// </summary>
-	public class post : System.Web.UI.Page
+	public partial class post : System.Web.UI.Page
 	{
-
-
-		protected System.Web.UI.WebControls.DropDownList cboRegion;
 		protected System.Web.UI.WebControls.ImageButton imgNext;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
 
-        protected System.Web.UI.WebControls.RadioButtonList rdoShip;
-        protected System.Web.UI.WebControls.RadioButtonList radioConditionType;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
-        protected System.Web.UI.WebControls.TextBox txtTown;
-		protected System.Web.UI.WebControls.TextBox txtZip;
-        protected System.Web.UI.WebControls.Panel pnlShip;
-        protected System.Web.UI.WebControls.Panel pnlCondition;
-        protected System.Web.UI.WebControls.HiddenField hdnAdType;
-        protected System.Web.UI.WebControls.Button btnCancel;
-        protected System.Web.UI.WebControls.Button btnNext;
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
         //protected System.Web.UI.WebControls.TextBox searchTextField;
 	
-		private void Page_Load(object sender, System.EventArgs e)
+		protected void Page_Load(object sender, System.EventArgs e)
 		{
+            Global.AuthenticateUser();
+
 			// Put user code to initialize the page here
 			Global.AuthenticateUser("post.aspx");
 
@@ -93,8 +73,8 @@ namespace BoardHunt
 			}
 
 			// Put user code to initialize the page here
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
+			lnkSignIn.Text = Global.SetLnkSignIn();
+			lnkSignUp.Text = Global.SetLnkSignUp();
 
 			Session ["Item"] = null;
 
@@ -116,19 +96,16 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.Load += new System.EventHandler(this.Page_Load);
             this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
 			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
 			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
 		}
 		#endregion
 
 /**
 */
-        private void btnNext_Click(object sender, System.EventArgs e)
+        protected void btnNext_Click(object sender, System.EventArgs e)
         {
             classes.BoardItem tmpItem = new classes.BoardItem();
 
@@ -159,7 +136,7 @@ namespace BoardHunt
         }
 /**
 */
-        private void btnCancel_Click(object sender, System.EventArgs e)
+        protected void btnCancel_Click(object sender, System.EventArgs e)
         {
             Session["Item"] = null;
             Response.Redirect("UserMenu.aspx",true);
@@ -170,6 +147,7 @@ namespace BoardHunt
 */        
 		private void lnkSignIn_Click(object sender, System.EventArgs e)
 		{
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
 			Global.NavigatePage(lnkSignIn.Text);
 		}
 /**

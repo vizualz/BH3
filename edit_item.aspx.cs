@@ -1,18 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////
-///
-///		Project:		Boardhunt 
-///		File:			edit_item.apx.cs
-///		Project log:	
-
-///		09/12/06 -   page creations
-///					 Add edit functionality
-///     04/12/07 -   A few ugly hacks and hardcodes on this page:
-///                  mainly due to not having a img control array
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -28,22 +14,23 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using DALLayer;
+using System.Collections.Generic;
 
 
 namespace BoardHunt
 {
-	/// <summary>
-	/// Summary description for post_item.
-	/// </summary>
-	/// 
-	
-	public partial class edit_item : System.Web.UI.Page
-	{
-		protected System.Web.UI.WebControls.Label Label5;
-		protected System.Web.UI.WebControls.Button CmdUpload;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
+    /// <summary>
+    /// Summary description for post_item.
+    /// </summary>
+    /// 
+
+    public partial class edit_item : System.Web.UI.Page
+    {
+        protected System.Web.UI.WebControls.Label Label5;
+        protected System.Web.UI.WebControls.Button CmdUpload;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
 
         protected const int picSizeBigX = 400;
         protected const int picSizeBigY = 400;
@@ -51,79 +38,99 @@ namespace BoardHunt
         protected const int picSizeThmbX = 75;
         protected const int picSizeThmbY = 75;
 
+        List<HttpPostedFile> lstEditUploadedFiles { get { return (List<HttpPostedFile>)Session["lstEditUploadedFiles"]; } set { Session["lstEditUploadedFiles"] = value; } }
+
+
         protected void Page_Load(object sender, System.EventArgs e)
-		{
-            
-            //Logged in?
-            string[] arString;
-            arString = Request.QueryString.GetValues("Act");
-            if (arString != null)
+        {
+            if (Request.QueryString["name"] != null)
             {
-                hdnActCode.Value = arString[0].ToString();
+                if (lstEditUploadedFiles == null)
+                {
+                    lstEditUploadedFiles = new List<HttpPostedFile>();
+                }
+
+                foreach (string s in Request.Files)
+                {
+                    HttpPostedFile file = Request.Files[s];
+
+                    lstEditUploadedFiles.Add(file);
+                }
             }
             else
             {
-                Global.AuthenticateUser();         
+                //Logged in?
+                string[] arString;
+                arString = Request.QueryString.GetValues("Act");
+                if (arString != null)
+                {
+                    hdnActCode.Value = arString[0].ToString();
+                }
+                else
+                {
+                    Global.AuthenticateUser();
+                }
+
+                //Embed .js
+                //ClientScript.RegisterClientScriptInclude(this.GetType(),"bh",@"include\bh.js");
+
+                //Disable File Uploads
+                File1.Disabled = true;
+                File2.Disabled = true;
+                File3.Disabled = true;
+                File4.Disabled = true;
+
+                hdnEntryId.Value = Request.QueryString["iD"];
+
+
+                if (!(Page.IsPostBack))
+                {
+
+                    lnkSignIn.Text = Global.SetLnkSignIn();
+                    lnkSignUp.Text = Global.SetLnkSignUp();
+
+                    //default all pics to a clear gif
+                    img1.ImageUrl = @"\images\s1x1.gif";
+                    img2.ImageUrl = @"\images\s1x1.gif";
+                    img3.ImageUrl = @"\images\s1x1.gif";
+                    img4.ImageUrl = @"\images\s1x1.gif";
+
+                    BindItemData();
+
+                    //hide to minimize board post breaks
+                    rdoImgMgr4.Enabled = false;
+                    rdoImgMgr4.Style.Add("Display", "None");
+
+                }
             }
+        }
 
-            //Embed .js
-            //ClientScript.RegisterClientScriptInclude(this.GetType(),"bh",@"include\bh.js");
+        #region Web Form Designer generated code
+        override protected void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
 
-            //Disable File Uploads
-            File1.Disabled = true;
-            File2.Disabled = true;
-            File3.Disabled = true;
-            File4.Disabled = true;
-
-            hdnEntryId.Value = Request.QueryString["iD"];
-           
-            if (!(Page.IsPostBack))
-			{
-
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();                
-                
-                //default all pics to a clear gif
-                img1.ImageUrl = @"\images\s1x1.gif";
-                img2.ImageUrl = @"\images\s1x1.gif";
-                img3.ImageUrl = @"\images\s1x1.gif";
-                img4.ImageUrl = @"\images\s1x1.gif";
-
-                BindItemData();
-
-                //hide to minimize board post breaks
-                rdoImgMgr4.Enabled = false;
-                rdoImgMgr4.Style.Add("Display", "None");
-	
-			}
-		}
-
-		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
-		{
-			//
-			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
-			//
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
+            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
+            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
-            
-		}
-		#endregion
 
-/**
+        }
+        #endregion
+
+        /**
 */
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
@@ -132,22 +139,22 @@ namespace BoardHunt
             Response.Redirect("post_manager.aspx", true);
         }
 
-/**
- */
+        /**
+         */
         ////
         //Load up all the data for the selected item
         /// 
         public void BindItemData()
-		{
+        {
 
             string strSQL;
             string strServerURL;
             string strCat;
             int iStrCat;
             string adType;
-            
+
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
 
             classes.BoardItem tmpBoardItem = new classes.BoardItem();
             tmpBoardItem.EntryId = Convert.ToInt32(hdnEntryId.Value);
@@ -159,26 +166,26 @@ namespace BoardHunt
                        FROM tblEntry e 
                        INNER JOIN tblUser u 
                        ON e.iUser = u.id ";
-                                    //"AND e.iUser IN (select distinct id from tblUser where adtype < 3)";
+            //"AND e.iUser IN (select distinct id from tblUser where adtype < 3)";
             strSQL += @"WHERE e.iD = '" + hdnEntryId.Value + "'";
 
             //TODO: Change query for adtype!
-    		try
-			{
+            try
+            {
                 dbManager.Open();
                 dbManager.ExecuteReader(CommandType.Text, strSQL);
 
                 if (dbManager.DataReader.Read())
-				{
+                {
                     //ErrorLog.ErrorRoutine(false,"Seesion: " + Session["userId"].ToString() + " - DB: " + dbManager.DataReader["iUser"].ToString() + 
 
                     //SECURITY CHECK: Ensure creator or admin is editing
                     if (dbManager.DataReader["iUser"].ToString() != Session["userId"].ToString() && (Session["EmailId"].ToString() != "admin@boardhunt.com"))
                     {
                         Response.Redirect("UserMenu.aspx", true);
-                        classes.Email.SendEmail("hack attempt","info@boardhunt.com","Hack attempt at posting: " + hdnEntryId.Value); 
+                        classes.Email.SendEmail("hack attempt", "info@boardhunt.com", "Hack attempt at posting: " + hdnEntryId.Value);
                     }
-                        
+
 
                     //verify ACT code
                     if (hdnActCode.Value.Length > 0)
@@ -191,7 +198,7 @@ namespace BoardHunt
                     }
 
 
-                    hdnEntryType.Value = dbManager.DataReader["adType"].ToString();  
+                    hdnEntryType.Value = dbManager.DataReader["adType"].ToString();
 
                     //set control values
                     strCat = dbManager.DataReader["iCategory"].ToString();
@@ -202,13 +209,13 @@ namespace BoardHunt
 
                     cboRegion.SelectedValue = dbManager.DataReader["Location"].ToString();
                     txtTown.Text = dbManager.DataReader["txtTown"].ToString();
-                    
+
                     //Set and get values for textboxes
-					txtBrand.Text = dbManager.DataReader["txtBrand"].ToString();
+                    txtBrand.Text = dbManager.DataReader["txtBrand"].ToString();
 
                     lnkManage.NavigateUrl = "post_manager.aspx";
 
-                    
+
 
                     switch (strCat) //General category
                     {
@@ -280,7 +287,7 @@ namespace BoardHunt
                                     //stretch out textbox for width
                                     txtPrice.Width = Unit.Pixel(100);
 
-                                        //return string if it's not null; otherwise return flt if it's not null
+                                    //return string if it's not null; otherwise return flt if it's not null
                                     if (dbManager.DataReader["txtPrice"] != DBNull.Value)
                                         txtPrice.Text = dbManager.DataReader["txtPrice"].ToString();
                                     else
@@ -293,11 +300,11 @@ namespace BoardHunt
 
                                     hdnPrice.Value = txtPrice.Text;
                                     break;
-                                    
+
                                 default:
                                     break;
                             }
-		
+
                             break;
                         case "2":   //SNOWBOARDS
                             pnlHeight.Visible = true;
@@ -309,7 +316,7 @@ namespace BoardHunt
                             hdnPrice.Value = txtPrice.Text = dbManager.DataReader["fltPrice"].ToString();
                             break;
                         case "3":   //OTHER BOARDS
-                            if (dbManager.DataReader["iBoardType"] != System.DBNull.Value || dbManager.DataReader["iBoardType"].ToString() != "") 
+                            if (dbManager.DataReader["iBoardType"] != System.DBNull.Value || dbManager.DataReader["iBoardType"].ToString() != "")
                             {
                                 if (Convert.ToInt32(dbManager.DataReader["iBoardType"].ToString()) > (int)0)
                                 {
@@ -343,7 +350,7 @@ namespace BoardHunt
                     tmpBoardItem.ImgPath3 = dbManager.DataReader["txtImgPath3"].ToString();
                     tmpBoardItem.ImgPath4 = dbManager.DataReader["txtImgPath4"].ToString();
 
-                //TODO: add delete code
+                    //TODO: add delete code
 
                     //scale img place holders to fit page
                     img1.Height = 100;
@@ -369,9 +376,9 @@ namespace BoardHunt
                     }
                     else //don't show delete or keep; set "change" to "add"
                     {
-                        rdoImgMgr1.Items[2].Text = "Add"; 
-                        rdoImgMgr1.Items.Remove("Delete"); 
-                        rdoImgMgr1.Items.Remove("Keep");    
+                        rdoImgMgr1.Items[2].Text = "Add";
+                        rdoImgMgr1.Items.Remove("Delete");
+                        rdoImgMgr1.Items.Remove("Keep");
                     }
                     if (tmpBoardItem.ImgPath2.Length > (int)0)
                     {
@@ -384,7 +391,7 @@ namespace BoardHunt
                     {
                         rdoImgMgr2.Items[2].Text = "Add";
                         rdoImgMgr2.Items.Remove("Delete");
-                        rdoImgMgr2.Items.Remove("Keep");  
+                        rdoImgMgr2.Items.Remove("Keep");
                     }
 
                     if (tmpBoardItem.ImgPath3.Length > (int)0)
@@ -398,7 +405,7 @@ namespace BoardHunt
                     {
                         rdoImgMgr3.Items[2].Text = "Add";
                         rdoImgMgr3.Items.Remove("Delete");
-                        rdoImgMgr3.Items.Remove("Keep");  
+                        rdoImgMgr3.Items.Remove("Keep");
                     }
 
                     if (tmpBoardItem.ImgPath4.Length > (int)0)
@@ -412,7 +419,7 @@ namespace BoardHunt
                     {
                         rdoImgMgr4.Items[2].Text = "Add";
                         rdoImgMgr4.Items.Remove("Delete");
-                        rdoImgMgr4.Items.Remove("Keep");  
+                        rdoImgMgr4.Items.Remove("Keep");
                     }
                     adType = dbManager.DataReader["adType"].ToString();
                     tmpBoardItem.AdType = Convert.ToInt32(adType);
@@ -420,7 +427,7 @@ namespace BoardHunt
 
                     pnlAddImages.Visible = true;
                     //turn off unecessary controls if it's a wanted ad
-                    
+
                     if (adType == "2")
                     {
                         pnlAddImages.Visible = false;
@@ -436,39 +443,39 @@ namespace BoardHunt
                 Session["userDir"] = dbManager.DataReader["userDir"].ToString();
                 Session["eItem"] = tmpBoardItem;
             }
-	
-			catch (Exception ex)
-			{
+
+            catch (Exception ex)
+            {
                 ErrorLog.ErrorRoutine(false, "Error: " + ex.Message);
                 classes.Email.SendErrorEmail("EditItem:BindItemData: " + ex.Message);
-				lblStatus.Text = "Error. Click back on your browser and try again.";
-			}
+                lblStatus.Text = "Error. Click back on your browser and try again.";
+            }
 
-			finally
-			{
+            finally
+            {
                 dbManager.Close();
                 dbManager.Dispose();
-    		}
+            }
 
 
-		}
+        }
 
-/*
- * Loads/Binds the appropriate control data
- */ 
+        /*
+         * Loads/Binds the appropriate control data
+         */
         public void LoadControlData(string strCat)
         {
-           
+
             //declare variables	
             string strSQL;
             string myConnectString;
 
             //Create connect string
-            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
 
             //TODO: need try/catch
             //TODO: need switch statement
-            strSQL = "SELECT * FROM LK_BoardType WHERE BoardCategory = '" + strCat + "'; SELECT * FROM LK_TailType ; SELECT * FROM LK_FinType ;  SELECT * FROM LK_Region"; 
+            strSQL = "SELECT * FROM LK_BoardType WHERE BoardCategory = '" + strCat + "'; SELECT * FROM LK_TailType ; SELECT * FROM LK_FinType ;  SELECT * FROM LK_Region";
 
             SqlConnection myConnection = new SqlConnection(myConnectString);
 
@@ -510,40 +517,33 @@ namespace BoardHunt
             cboRegion.DataBind();
 
             myConnection.Close();
-       
+
         }
 
-/**
- * Update the user's entry changes
- */
+        /**
+         * Update the user's entry changes
+         */
 
         //private void imgUpdate_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         protected void btnFinish_Click(object sender, System.EventArgs e)
-		{
+        {
             //check for valid page
             if (!(Page.IsValid))
-				return;
+                return;
 
             //TODO: reset imgmgr
 
             Boolean delImgs = false;                          //flag to fire delete logic
 
             classes.BoardItem tmpBoardItem = (classes.BoardItem)Session["eItem"];   //get board item
-            
+
             int intHtFt, intHtIn, intWidth, intFins, TailType;
             int iWidthNum, iWidthDNum, iThick, iThickNum, iThickDNum;
-			decimal decPrice;
-			DateTime dLastModified;
+            decimal decPrice;
+            DateTime dLastModified;
             bool blnProcImgs;
 
             string[] strImgPathArray = new string[4];
-            string[] delImgArray = new string[4];
-
-            //init delImgArray
-            for (int j = 0; j < 4; j++)
-            {
-                delImgArray[j] = "";
-            }
 
             //Check for adtype;
             if (hdnEntryType.Value != "4")  //not ShaperHouse
@@ -566,7 +566,7 @@ namespace BoardHunt
             }
             else
                 tmpBoardItem.TxtPrice = txtPrice.Text;
-             
+
 
             dLastModified = DateTime.Now;
 
@@ -575,10 +575,10 @@ namespace BoardHunt
 
             //save board category specific data
             switch (tmpBoardItem.Category)
-			{
-				case 1: //surf
+            {
+                case 1: //surf
                     //boardtype
-                     tmpBoardItem.BoardType = Convert.ToInt32(cboBoardType.SelectedItem.Value);
+                    tmpBoardItem.BoardType = Convert.ToInt32(cboBoardType.SelectedItem.Value);
 
                     switch (tmpBoardItem.AdType)
                     {
@@ -618,7 +618,7 @@ namespace BoardHunt
 
                             //Fins
                             intFins = Convert.ToInt32(cboFins.SelectedValue);
-                            tmpBoardItem.Fins = intFins; 
+                            tmpBoardItem.Fins = intFins;
                             break;
                         case 2:
                             //TODO: WANTED
@@ -636,7 +636,7 @@ namespace BoardHunt
                     }
 
                     break;
-                
+
                 //snow
                 case 2:
                     //boardtype
@@ -650,13 +650,13 @@ namespace BoardHunt
                 case 3: //OTHER BOARDS
                     if (chkOther.Checked)
                     {
-                        tmpBoardItem.OtherBoardType = Global.CheckString(txtOtherBoard.Text); 
+                        tmpBoardItem.OtherBoardType = Global.CheckString(txtOtherBoard.Text);
                     }
                     else
                     {
                         tmpBoardItem.BoardType = Convert.ToInt32(cboBoardType.SelectedItem.Value);
                     }
-                    
+
                     tmpBoardItem.GenDimensions = Global.CheckString(txtGenDims.Text);
                     break;
                 case 4: //GEAR
@@ -676,233 +676,284 @@ namespace BoardHunt
 
                 tmpBoardItem.Ship = Convert.ToInt16(rdoShip.SelectedValue);
 
-                switch (rdoImgMgr1.SelectedValue)
-                {
-                    case "Keep":
-                        tmpBoardItem.ImgPath1 = "KEEP";
-                        break;
-                    case "Delete":
-                        delImgArray[0] = Path.GetFileName(tmpBoardItem.ImgPath1);
-                        delImgs = true;
-                        tmpBoardItem.ImgPath1 = "";
-                        break;
-                    case "Change":
-                        blnProcImgs = true;
-                        break;
-                    case "Add":
-                        blnProcImgs = true;
-                        break;
-                    default:
-                        tmpBoardItem.ImgPath1 = "KEEP";
-                        break;
-                }
+                //switch (rdoImgMgr1.SelectedValue)
+                //{
+                //    case "Keep":
+                //        tmpBoardItem.ImgPath1 = "KEEP";
+                //        break;
+                //    case "Delete":
+                //       delImgArray[0] = Path.GetFileName(tmpBoardItem.ImgPath1);
+                //        delImgs = true;
+                //        tmpBoardItem.ImgPath1 = "";
+                //        break;
+                //    case "Change":
+                //        blnProcImgs = true;
+                //        break;
+                //    case "Add":
+                //        blnProcImgs = true;
+                //        break;
+                //    default:
+                //        tmpBoardItem.ImgPath1 = "KEEP";
+                //        break;
+                //}
 
-                switch (rdoImgMgr2.SelectedValue)
-                {
-                    case "Keep":
-                        tmpBoardItem.ImgPath2 = "KEEP";
-                        break;
-                    case "Delete":
-                        delImgArray[1] = Path.GetFileName(tmpBoardItem.ImgPath2);
-                        delImgs = true;
-                        tmpBoardItem.ImgPath2 = "";
-                        break;
-                    case "Change":
-                        blnProcImgs = true;
-                        break;
-                    case "Add":
-                        blnProcImgs = true;
-                        break;
-                    default:
-                        tmpBoardItem.ImgPath2 = "KEEP";
-                        break;
-                }
+                //switch (rdoImgMgr2.SelectedValue)
+                //{
+                //    case "Keep":
+                //        tmpBoardItem.ImgPath2 = "KEEP";
+                //        break;
+                //    case "Delete":
+                //        delImgArray[1] = Path.GetFileName(tmpBoardItem.ImgPath2);
+                //        delImgs = true;
+                //        tmpBoardItem.ImgPath2 = "";
+                //        break;
+                //    case "Change":
+                //        blnProcImgs = true;
+                //        break;
+                //    case "Add":
+                //        blnProcImgs = true;
+                //        break;
+                //    default:
+                //        tmpBoardItem.ImgPath2 = "KEEP";
+                //        break;
+                //}
 
-                switch (rdoImgMgr3.SelectedValue)
-                {
-                    case "Keep":
-                        tmpBoardItem.ImgPath3 = "KEEP";
-                        break;
-                    case "Delete":
-                        delImgArray[2] = Path.GetFileName(tmpBoardItem.ImgPath3);
-                        delImgs = true;
-                        tmpBoardItem.ImgPath3 = "";
-                        break;
-                    case "Change":
-                        blnProcImgs = true;
-                        break;
-                    case "Add":
-                        blnProcImgs = true;
-                        break;
-                    default:
-                        tmpBoardItem.ImgPath3 = "KEEP";
-                        break;
-                }
+                //switch (rdoImgMgr3.SelectedValue)
+                //{
+                //    case "Keep":
+                //        tmpBoardItem.ImgPath3 = "KEEP";
+                //        break;
+                //    case "Delete":
+                //        delImgArray[2] = Path.GetFileName(tmpBoardItem.ImgPath3);
+                //        delImgs = true;
+                //        tmpBoardItem.ImgPath3 = "";
+                //        break;
+                //    case "Change":
+                //        blnProcImgs = true;
+                //        break;
+                //    case "Add":
+                //        blnProcImgs = true;
+                //        break;
+                //    default:
+                //        tmpBoardItem.ImgPath3 = "KEEP";
+                //        break;
+                //}
 
-                switch (rdoImgMgr4.SelectedValue)
-                {
-                    case "Keep":
-                        tmpBoardItem.ImgPath4 = "KEEP";
-                        break;
-                    case "Delete":
-                        delImgArray[3] = Path.GetFileName(tmpBoardItem.ImgPath4);
-                        delImgs = true;
-                        tmpBoardItem.ImgPath4 = "";
-                        break;
-                    case "Change":
-                        blnProcImgs = true;
-                        break;
-                    case "Add":
-                        blnProcImgs = true;
-                        break;
-                    default:
-                        tmpBoardItem.ImgPath4 = "KEEP";
-                        break;
-                }
+                //switch (rdoImgMgr4.SelectedValue)
+                //{
+                //    case "Keep":
+                //        tmpBoardItem.ImgPath4 = "KEEP";
+                //        break;
+                //    case "Delete":
+                //        delImgArray[3] = Path.GetFileName(tmpBoardItem.ImgPath4);
+                //        delImgs = true;
+                //        tmpBoardItem.ImgPath4 = "";
+                //        break;
+                //    case "Change":
+                //        blnProcImgs = true;
+                //        break;
+                //    case "Add":
+                //        blnProcImgs = true;
+                //        break;
+                //    default:
+                //        tmpBoardItem.ImgPath4 = "KEEP";
+                //        break;
+                //}
 
                 //process deletes for pics
-                if (delImgs)
+                string sDeletedImageUrls = DeletedImageUrls.Value;
+
+                if (!string.IsNullOrWhiteSpace(sDeletedImageUrls))
                 {
-                    for (int j=0;j<delImgArray.Length; j++)
+                    try
                     {
-                        if (delImgArray[j].Length != 0)
+                        DeletedImageUrls.Value = string.Empty;
+
+                        string[] delImgArray = sDeletedImageUrls.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        if (delImgArray != null && delImgArray.Length > 0)
                         {
-                            try
+                            for (int i = 0; i < delImgArray.Length; i++)
                             {
-                                DeleteServerFile(Server.MapPath(".\\" + @"\users\" + Session["userDir"].ToString() + @"\" + tmpBoardItem.Category.ToString() + @"\" + delImgArray[j]));
+                                string Filename = delImgArray[i].Substring(delImgArray[i].LastIndexOf('/') + 1);
+                                if (Filename == tmpBoardItem.ImgPath1)
+                                {
+                                    tmpBoardItem.ImgPath1 = string.Empty;
+                                }
+                                else if (Filename == tmpBoardItem.ImgPath2)
+                                {
+                                    tmpBoardItem.ImgPath2 = string.Empty;
+                                }
+                                else if (Filename == tmpBoardItem.ImgPath3)
+                                {
+                                    tmpBoardItem.ImgPath3 = string.Empty;
+                                }
+                                else if (Filename == tmpBoardItem.ImgPath4)
+                                {
+                                    tmpBoardItem.ImgPath4 = string.Empty;
+                                }
+                                try
+                                {
+                                    DeleteServerFile(Server.MapPath(".\\" + @"\users\" + Session["userDir"].ToString() + @"\" + tmpBoardItem.Category.ToString() + @"\" + Filename));
+                                }
+                                catch { ErrorLog.ErrorRoutine(false, "Error in delete"); }
                             }
-                            catch { ErrorLog.ErrorRoutine(false, "Error in delete"); }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+
                     }
                 }
                 delImgs = false;
 
                 //upload imgs
+                //List<HttpPostedFile> lstUploadedFiles = null;
+
+                //if (Session["UploadedFiles1"] != null)
+                //{
+                //    lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles1"];
+                //    Session["UploadedFiles1"] = null;
+                //    if (lstUploadedFiles != null)
+                //    {
+                //        blnProcImgs = true;
+                //    }
+                //}
+                if (lstEditUploadedFiles != null)
+                {
+                    //lstUploadedFiles = (List<HttpPostedFile>)Session["UploadedFiles1"];
+                    //Session["UploadedFiles1"] = null;
+                    //if (lstUploadedFiles != null)
+                    {
+                        blnProcImgs = true;
+                    }
+                }
                 if (blnProcImgs)
                 {
                     //strImgPathArray = UpLoadAllImages(strImgPathArray);
-                    tmpBoardItem = UpLoadAllImages(tmpBoardItem, strImgPathArray);
+                    tmpBoardItem = UpLoadAllImages(tmpBoardItem, strImgPathArray, lstEditUploadedFiles);
+                    lstEditUploadedFiles = new List<HttpPostedFile>();
                 }
+            }
 
-        }
-        
-        //save to DB
-        if (hdnEntryType.Value != "4")
-        {
-            //call object method to update handler
-            if (tmpBoardItem.UpdateItem())
+            //save to DB
+            if (hdnEntryType.Value != "4")
             {
-                if (hdnActCode.Value.Length > 0)
+                //call object method to update handler
+                if (tmpBoardItem.UpdateItem())
                 {
-                    //TODO: update to sold
-                    pnlAll.Visible = false;
-                    lnkMenu.Visible = false;
-                    lblPageTitle.Visible = false;
-                    lbl2.Text = "Your posting has been updated.<br><br><a href='index.aspx'>Return to Boardhunt</a>";
+                    if (hdnActCode.Value.Length > 0)
+                    {
+                        //TODO: update to sold
+                        pnlAll.Visible = false;
+                        lnkMenu.Visible = false;
+                        lblPageTitle.Visible = false;
+                        lbl2.Text = "Your posting has been updated.<br><br><a href='index.aspx'>Return to Boardhunt</a>";
+                    }
+                    else
+                    {
+                        Response.Redirect("post_manager.aspx", true);
+                    }
+                    Response.Redirect("post_manager.aspx", true);
                 }
                 else
                 {
-                    Response.Redirect("post_manager.aspx", true);
+                    lblStatus.Text = "Edit_item update error!";
                 }
-                Response.Redirect("post_manager.aspx", true);
             }
             else
             {
-                lblStatus.Text = "Edit_item update error!";
+                if (!tmpBoardItem.UpdateModel())
+                {
+                    lblStatus.Text = "Update model failed.";
+                }
+                else
+                    Response.Redirect("post_manager.aspx?q=4", true);
             }
-        }
-        else
-        {
-            if (!tmpBoardItem.UpdateModel())
-            {
-                lblStatus.Text = "Update model failed.";
-            }
-            else
-            Response.Redirect("post_manager.aspx?q=4", true);
-        }
 
         }
-/**
- */ 
-		private void imgCancel_Click(object sender, System.Web.UI.ImageClickEventArgs e)
-		{
+        /**
+         */
+        private void imgCancel_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
             if (hdnEntryType.Value == "4")
                 Response.Redirect("post_manager.aspx?q=4", true);
-			Response.Redirect ("post_manager.aspx", true);
-		}
+            Response.Redirect("post_manager.aspx", true);
+        }
 
-		//===============================
-		//Error Checking & Helper Functions
-		//===============================
+        //===============================
+        //Error Checking & Helper Functions
+        //===============================
 
 
         protected void btnShowPnl_Click(object sender, System.EventArgs e)
-		{
-			
-			if (pnlAddImages.Visible)
-			{
-				pnlAddImages.Visible = false;
-			}
-			else 
-			{
-				pnlAddImages.Visible = true;
-			}
-		}
+        {
 
-/**
-*/		
+            if (pnlAddImages.Visible)
+            {
+                pnlAddImages.Visible = false;
+            }
+            else
+            {
+                pnlAddImages.Visible = true;
+            }
+        }
+
+        /**
+        */
         private static string GenerateRandomString(int intLenghtOfString)
-		{
-			//Create a new StrinBuilder that would hold the random string.
-			StringBuilder randomString = new StringBuilder();
-			//Create a new instance of the class Random
-			Random randomNumber = new Random();
-			//Create a variable to hold the generated charater.
-			Char appendedChar;
-			//Create a loop that would iterate from 0 to the specified value of intLenghtOfString
-			for(int i= 0; i<= intLenghtOfString; ++i)
-			{
-				//Generate the char and assign it to appendedChar
-				appendedChar = Convert.ToChar(Convert.ToInt32(26 * randomNumber.NextDouble()) + 65);
-				//Append appendedChar to randomString
-				randomString.Append(appendedChar);
-			}
+        {
+            //Create a new StrinBuilder that would hold the random string.
+            StringBuilder randomString = new StringBuilder();
+            //Create a new instance of the class Random
+            Random randomNumber = new Random();
+            //Create a variable to hold the generated charater.
+            Char appendedChar;
+            //Create a loop that would iterate from 0 to the specified value of intLenghtOfString
+            for (int i = 0; i <= intLenghtOfString; ++i)
+            {
+                //Generate the char and assign it to appendedChar
+                appendedChar = Convert.ToChar(Convert.ToInt32(26 * randomNumber.NextDouble()) + 65);
+                //Append appendedChar to randomString
+                randomString.Append(appendedChar);
+            }
             //Strip out any non-alphacharacters
             //Regex.Replace(randomString.ToString, "([|])","x");
-            
+
             //Convert randomString to String and return the result.
-			return randomString.ToString();
-		}
+            return randomString.ToString();
+        }
 
-/**
-*/		//Determines if value is numeric
-		private bool IsNumeric(object valType)
-		{
-			double tempVal = new double();
-			string InputValue = Convert.ToString(valType);
+        /**
+        */
+        //Determines if value is numeric
+        private bool IsNumeric(object valType)
+        {
+            double tempVal = new double();
+            string InputValue = Convert.ToString(valType);
 
-			bool Numeric = double.TryParse(InputValue ,System.Globalization.NumberStyles.Any , null , out tempVal);
-		
-			return Numeric;
-		}
+            bool Numeric = double.TryParse(InputValue, System.Globalization.NumberStyles.Any, null, out tempVal);
 
-/**
-*/
-		protected void CheckBrand(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-		{
-			if (txtBrand.Text == "")
-			{
-				txtBrand.Text = "Unknown";
-			}
-		}
+            return Numeric;
+        }
 
-/**
- */ 
-		protected void CheckHeight(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-		{
-			args.IsValid = true;
+        /**
+        */
+        protected void CheckBrand(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            if (txtBrand.Text == "")
+            {
+                txtBrand.Text = "Unknown";
+            }
+        }
 
-			if (txtHtFt.Visible == true)
+        /**
+         */
+        protected void CheckHeight(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            args.IsValid = true;
+
+            if (txtHtFt.Visible == true)
             {
                 if (!IsNumeric(txtHtFt.Text))
                 {
@@ -925,15 +976,15 @@ namespace BoardHunt
                     CustomValidator3.ErrorMessage = "!";
                     args.IsValid = false;
                 }
-        
-            
+
+
             }
 
-		}
-/**
- */ 
-		protected void CheckWidth(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-		{
+        }
+        /**
+         */
+        protected void CheckWidth(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
             args.IsValid = true;
 
             if (txtWidth.Text.Length > 0)
@@ -1008,8 +1059,8 @@ namespace BoardHunt
             }
 
         }
-/*
- */
+        /*
+         */
         protected void CheckThickness(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
             //init to true; similar to innocent until proven guilty
@@ -1081,16 +1132,16 @@ namespace BoardHunt
                 CustomValidator1.Text = "!";
             }
 
-        } 
+        }
 
-/*
- */
+        /*
+         */
         public void CheckPrice(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-		{
-			
-			double tempVal;
+        {
 
-			args.IsValid = true;
+            double tempVal;
+
+            args.IsValid = true;
 
             //is it blank?
             if (txtPrice.Text.Length == 0)
@@ -1105,7 +1156,7 @@ namespace BoardHunt
                 if (txtPrice.Text.IndexOf("$") != -1)
                 {
                     txtPrice.Text = Global.StrReplace(txtPrice.Text, @"\$");
-                     
+
                 }
 
                 if (hdnEntryType.Value != "4")
@@ -1134,9 +1185,9 @@ namespace BoardHunt
                 }
             }
 
-		}
-/*
-*/ 
+        }
+        /*
+        */
         //Here we check the file type and size.
         public void CheckFileType(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
@@ -1157,7 +1208,7 @@ namespace BoardHunt
                 string fileExt = Path.GetExtension(file.FileName).ToLower();
                 int IntFileSize = file.ContentLength;
 
-                if ((fileName != string.Empty)||(fileName != ""))
+                if ((fileName != string.Empty) || (fileName != ""))
                 {
                     if ((!Regex.IsMatch(file.ContentType, "(.gif|.jpg|.jpeg|.bmp|.png)")))
                     {
@@ -1177,36 +1228,37 @@ namespace BoardHunt
             }
 
         }
-/**
- * 
-*/
-		private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-				Global.NavigatePage(lnkSignIn.Text);
-		}
-/**
- * 
-*/
+        /**
+         * 
+        */
+        private void lnkSignIn_Click(object sender, System.EventArgs e)
+        {
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
+            Global.NavigatePage(lnkSignIn.Text);
+        }
+        /**
+         * 
+        */
         private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkSignUp.Text);
-		}
-/**
- * 
-*/
-		private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx");
-		}
+        {
+            Global.NavigatePage(lnkSignUp.Text);
+        }
+        /**
+         * 
+        */
+        private void lnkPost_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("post.aspx");
+        }
 
-/** 
- */
+        /** 
+         */
         //Delete file from the server
-        private void DeleteServerFile (string strFileName)
-		{
+        private void DeleteServerFile(string strFileName)
+        {
 
-			if (strFileName.Trim().Length > 0)
-			{
+            if (strFileName.Trim().Length > 0)
+            {
                 try
                 {
                     FileInfo fi = new FileInfo(strFileName);
@@ -1224,15 +1276,15 @@ namespace BoardHunt
                 {
                     ErrorLog.ErrorRoutine(false, "Error deletingFile: ");
                 }
-			}
+            }
 
-		}
+        }
 
-/*
-* Upload any images
-*/
+        /*
+        * Upload any images
+        */
         //private string[] UpLoadAllImages(BoardItem bItem, string[] strImgPathArray)
-        private classes.BoardItem UpLoadAllImages(classes.BoardItem bItem, string[] strImgPathArray)
+        private classes.BoardItem UpLoadAllImages(classes.BoardItem bItem, string[] strImgPathArray, List<HttpPostedFile> lstUploadedFiles)
         {
 
             string tmpFile;
@@ -1250,27 +1302,47 @@ namespace BoardHunt
             {
 
                 //Collect files names, iterate through each and update accordingly
-                HttpFileCollection uploadFilCol = System.Web.HttpContext.Current.Request.Files;
-                int count = uploadFilCol.Count;
+                // HttpFileCollection uploadFilCol = System.Web.HttpContext.Current.Request.Files;
+                int count = lstUploadedFiles.Count;
+
+                bool bProcessFiles = true;
+
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath1))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath2))
+                {
+                    bProcessFiles = true;
+                }
+                if (string.IsNullOrWhiteSpace(bItem.ImgPath3))
+                {
+                    bProcessFiles = true;
+                }
+
+                if (!bProcessFiles)
+                {
+                    return bItem;
+                }
 
                 //loop thru for each posted file
                 for (int i = 0; i < count; i++)
                 {
                     //get handle to file
-                    HttpPostedFile file = uploadFilCol[i];
+                    HttpPostedFile file = lstUploadedFiles[i];
 
                     if (file.ContentLength > (int)0)
                     {
 
-                      //get file name & ext
-                      string fileName = Path.GetFileName(file.FileName);
-                      string fileExt = Path.GetExtension(file.FileName).ToLower();
+                        //get file name & ext
+                        string fileName = Path.GetFileName(file.FileName);
+                        string fileExt = Path.GetExtension(file.FileName).ToLower();
 
-                      //Create dir if non-existent
-                      if (!(Directory.Exists(Server.MapPath(".\\" + @"\users\" + userDir + strCat + @"\"))))  //Session["userDir"].ToString()
-                      {
-                          Directory.CreateDirectory(Server.MapPath(".\\" + @"\users\" + userDir + strCat + @"\"));
-                      }
+                        //Create dir if non-existent
+                        if (!(Directory.Exists(Server.MapPath(".\\" + @"\users\" + userDir + strCat + @"\"))))  //Session["userDir"].ToString()
+                        {
+                            Directory.CreateDirectory(Server.MapPath(".\\" + @"\users\" + userDir + strCat + @"\"));
+                        }
 
                         //get physical path to upload dir
                         string path = Server.MapPath(".\\" + @"\users\" + userDir + strCat + @"\");
@@ -1414,48 +1486,62 @@ namespace BoardHunt
                                 //Find out who is set to "change" or "add" so we know who to update
                                 //  - We call the clearSelection() to let ourselves know that index has been processed
 
-                                if (rdoImgMgr1.SelectedValue == "Change" || rdoImgMgr1.SelectedValue == "Add")
-                                {
+                                //if (rdoImgMgr1.SelectedValue == "Change" || rdoImgMgr1.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
+                                //{
 
+                                //    bItem.ImgPath1 = strImgPathArray[i];
+
+                                //    rdoImgMgr1.ClearSelection();
+
+                                //}
+                                //else if (rdoImgMgr2.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
+                                //{
+
+                                //    bItem.ImgPath2 = strImgPathArray[i];
+
+                                //    rdoImgMgr2.ClearSelection();
+
+                                //}
+                                //else if (rdoImgMgr3.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
+                                //{
+
+
+                                //    bItem.ImgPath3 = strImgPathArray[i];
+
+                                //    rdoImgMgr3.ClearSelection();
+                                //}
+                                //else
+                                //{
+                                //    if (rdoImgMgr4.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add" || rdoImgMgr1.SelectedValue == "")
+                                //    {
+
+                                //        bItem.ImgPath4 = strImgPathArray[i];
+
+                                //        rdoImgMgr4.ClearSelection();
+                                //    }
+                                //}
+                                if (string.IsNullOrWhiteSpace(bItem.ImgPath1))
+                                {
                                     bItem.ImgPath1 = strImgPathArray[i];
-
-                                    rdoImgMgr1.ClearSelection();
-
                                 }
-                                else if (rdoImgMgr2.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add")
+                                else if (string.IsNullOrWhiteSpace(bItem.ImgPath2))
                                 {
-
                                     bItem.ImgPath2 = strImgPathArray[i];
-   
-                                    rdoImgMgr2.ClearSelection();
-
                                 }
-                                else if (rdoImgMgr3.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add")
+                                else if (string.IsNullOrWhiteSpace(bItem.ImgPath3))
                                 {
-
- 
                                     bItem.ImgPath3 = strImgPathArray[i];
-   
-                                    rdoImgMgr3.ClearSelection();
                                 }
-                                else
-                                {
-                                    if (rdoImgMgr4.SelectedValue == "Change" || rdoImgMgr2.SelectedValue == "Add")
-                                    {
-
-                                        bItem.ImgPath4 = strImgPathArray[i];
-                               
-                                        rdoImgMgr4.ClearSelection();
-                                    }
-                                }
+                                //else if (string.IsNullOrWhiteSpace(bItem.ImgPath4))
+                                //{
+                                //    bItem.ImgPath4 = strImgPathArray[i];
+                                //}
 
                             }
                             catch
                             {
                                 lblStatus.Text = "Upload/Save Error!";
                             }
-
-
 
                         }//end if file > 0
                     }
@@ -1464,12 +1550,12 @@ namespace BoardHunt
             return bItem;
         }
 
-/*
- * Disable file control if not set to "change"
- */ 
+        /*
+         * Disable file control if not set to "change"
+         */
         protected void rdoImgMgr1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rdoImgMgr1.SelectedValue == "Change"){File1.Disabled = false;}
+            if (rdoImgMgr1.SelectedValue == "Change") { File1.Disabled = false; }
         }
         protected void rdoImgMgr2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1483,8 +1569,8 @@ namespace BoardHunt
         {
             if (rdoImgMgr1.SelectedValue == "Change") File4.Disabled = false;
         }
-/*
- */ 
+        /*
+         */
         protected void btnSold_Click(object sender, EventArgs e)
         {
             //TODO: update to sold
@@ -1502,14 +1588,14 @@ namespace BoardHunt
                 classes.Email.SendErrorEmail("Edit_item:Update to sold failed!");
             }
         }
-/*
- */
+        /*
+         */
         public bool UpdateToSold()
         {
-             string strSQL;
+            string strSQL;
 
-             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-             dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+            IDBManager dbManager = new DBManager(DataProvider.SqlServer);
+            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
 
             //Build SQL statement
             strSQL = "UPDATE tblEntry SET iStatus = '3' WHERE id='" + hdnEntryId.Value + "'";
@@ -1523,7 +1609,7 @@ namespace BoardHunt
             catch (Exception ex)
             {
                 lbl2.Text = "Error in update";
-                ErrorLog.ErrorRoutine(false,"Error:Edit_Item: " + ex.Message);
+                ErrorLog.ErrorRoutine(false, "Error:Edit_Item: " + ex.Message);
                 return false;
             }
             finally
@@ -1537,10 +1623,10 @@ namespace BoardHunt
         {
             Session["ServiceId"] = "1";
             Session["TxnItemId"] = hdnEntryId.Value;
-            Response.Redirect("/Pay/OrderForm.aspx",false);
+            Response.Redirect("/Pay/OrderForm.aspx", false);
         }
 
 
 
-	}
+    }
 }

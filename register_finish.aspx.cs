@@ -1,17 +1,4 @@
-//////////////////////////////////////////////////////////////////////////
-///
-///		Project:		Boardhunt 
-///		File:			register_finish.apx.cs
-///		Project log:	
-///						08/07/06:   Added code to create user directory after successful registration
-///                     04/01/06:   A temp dir is now created along with other board types upon user reg. completion
-///						
-///
-///
-//////////////////////////////////////////////////////////////////////////
-
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -29,16 +16,16 @@ using System.Web.Mail;
 
 namespace BoardHunt
 {
-	/// <summary>
-	/// Summary description for post_finish.
-	/// </summary>
-	public partial class register_finish : System.Web.UI.Page
-	{
-		protected System.Web.UI.WebControls.ImageButton ImageButton1;
-		protected System.Web.UI.WebControls.ImageButton ImageButton2;
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        protected System.Web.UI.WebControls.LinkButton lnkPost;
+    /// <summary>
+    /// Summary description for post_finish.
+    /// </summary>
+    public partial class register_Finish : System.Web.UI.Page
+    {
+        protected System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected System.Web.UI.WebControls.ImageButton ImageButton2;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
 
         #region Web Form Designer generated code
         override protected void OnInit(EventArgs e)
@@ -64,33 +51,33 @@ namespace BoardHunt
         #endregion
 
         protected void Page_Load(object sender, System.EventArgs e)
-		{
+        {
 
             String strSQL;
-			String myConnectString;
+            String myConnectString;
 
-			// Put user code to initialize the page here
-			Global.AuthenticateUser();
+            // Put user code to initialize the page here
+            Global.AuthenticateUser();
 
             Session["LoggedIn"] = "No";
 
             lnkSignIn.Text = Global.SetLnkSignIn();
             lnkSignUp.Text = Global.SetLnkSignUp();
-			
+
             if (!Page.IsPostBack)
             {
 
-			    // Put user code to initialize the page here
+                // Put user code to initialize the page here
                 ErrorLog.ErrorRoutine(false, "Registered EmailId: " + Session["EmailId"].ToString());
 
-			    //Get DB connect string 
-			    myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
-    				
-			    //***TODO: E-mail verfication & activation
+                //Get DB connect string 
+                myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
+
+                //***TODO: E-mail verfication & activation
                 //***see contact us page
 
-			    strSQL = "Select * FROM tblUser WHERE txtEmail = '" + Session["EmailId"].ToString() + "'";
-			    SqlConnection myConnection = new SqlConnection(myConnectString);
+                strSQL = "Select * FROM tblUser WHERE txtEmail = '" + Session["EmailId"].ToString() + "'";
+                SqlConnection myConnection = new SqlConnection(myConnectString);
 
                 string usersId = "unknown";
 
@@ -171,12 +158,12 @@ namespace BoardHunt
                 {
                     myConnection.Close();
                 }
-                
+
             }
-              
-		}
-/*
- */ 
+
+        }
+        /*
+         */
         private void SendCongratEmail()
         {
             //create e-mail msg
@@ -192,15 +179,15 @@ namespace BoardHunt
 
             classes.Email.SendEmail("Boardhunt Account", Session["EmailId"].ToString(), "info@boardhunt.com", mailBody, false);
 
-            Session["pw"] = null;   
+            Session["pw"] = null;
         }
-        
+
         //Creates the new user direcectory only after they have successfully registered
-		private bool CreateUserDir(string uId)
-		{
-		
+        private bool CreateUserDir(string uId)
+        {
+
             int i = 1;
-            int pad_size   = 10 - uId.Length;
+            int pad_size = 10 - uId.Length;
             string user_path = @Server.MapPath("/") + @"users\";
             string userDir = "";
             String strSQL;
@@ -208,33 +195,33 @@ namespace BoardHunt
 
             //pad the user ID with zeroes
             //construct dir path string
-            while (i<=pad_size)
+            while (i <= pad_size)
             {
-            userDir = userDir + @"0\";
-            user_path = user_path + @"0\";
-            i++;
+                userDir = userDir + @"0\";
+                user_path = user_path + @"0\";
+                i++;
             }
 
-            i = 0; 
+            i = 0;
             while (i < uId.Length)
             {
-              userDir = userDir + uId[i] + @"\";
-              user_path = user_path + @uId[i] + @"\";
-              i++;
+                userDir = userDir + uId[i] + @"\";
+                user_path = user_path + @uId[i] + @"\";
+                i++;
             }
 
             //create the users' directories
             Directory.CreateDirectory(user_path);
-            Directory.CreateDirectory(user_path +  Global.BOARDCAT_DIRS.surfboards.ToString()); 
-            Directory.CreateDirectory(user_path +  Global.BOARDCAT_DIRS.snowboards.ToString()); 
-            Directory.CreateDirectory(user_path +  Global.BOARDCAT_DIRS.other.ToString()); 
-            Directory.CreateDirectory(user_path +  Global.BOARDCAT_DIRS.accessories.ToString());
+            Directory.CreateDirectory(user_path + Global.BOARDCAT_DIRS.surfboards.ToString());
+            Directory.CreateDirectory(user_path + Global.BOARDCAT_DIRS.snowboards.ToString());
+            Directory.CreateDirectory(user_path + Global.BOARDCAT_DIRS.other.ToString());
+            Directory.CreateDirectory(user_path + Global.BOARDCAT_DIRS.accessories.ToString());
             Directory.CreateDirectory(user_path + @"temp");
 
-            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
 
             //Formulate SQL
-            strSQL = "UPDATE tblUser SET userDir = '" + userDir +  "' WHERE id = '" + uId + "'";
+            strSQL = "UPDATE tblUser SET userDir = '" + userDir + "' WHERE id = '" + uId + "'";
             SqlConnection myConnection = new SqlConnection(myConnectString);
 
             try
@@ -252,36 +239,36 @@ namespace BoardHunt
                 ErrorLog.ErrorRoutine(false, "Error setting userDir:" + ex.Message);
                 return false;
             }
- 
+
         }//end of method
 
-/*
- */
+        /*
+         */
         private void NotifyBHEmail(string uId)
         {
             classes.Email.SendEmail("New Boardhunt Registration", "info@boardhunt.com", "New User: " + uId + " - Email: " + Session["EmailId"].ToString());
         }
-           
-/*
- */ 
+
+        /*
+         */
         private void lnkSignIn_Click(object sender, System.EventArgs e)
         {
             Global.NavigatePage(lnkSignIn.Text);
         }
-/**
- */
+        /**
+         */
         private void lnkSignUp_Click(object sender, System.EventArgs e)
         {
             Global.NavigatePage(lnkSignUp.Text);
 
         }
-/**
- */
+        /**
+         */
         private void lnkPost_Click(object sender, System.EventArgs e)
         {
             Response.Redirect("post.aspx");
 
         }
 
-	}
-};
+    }
+}

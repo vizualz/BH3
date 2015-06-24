@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using DALLayer;
+using System.Web.Script.Serialization;
+using ASPSnippets.FaceBookAPI;
 
 namespace BoardHunt
 {
@@ -19,21 +21,31 @@ namespace BoardHunt
 	/// </summary>
 	public partial class UserMenu : System.Web.UI.Page
 	{
-		
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
+
 		protected const int FREE_BOARD_COUNT = 5;
 		protected const string NUDGE_UPGRADE = @"Time to Upgrade | You're out of Nudges. Upgrade your account now.";
 		protected const string POST_UPGRADE = @"Time to Upgrade | You're out of Posts. Upgrade your account now.";
-	
+
+        public class FaceBookUser
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+            public string UserName { get; set; }
+            public string PictureUrl { get; set; }
+            public string Email { get; set; }
+        }
+
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
+            Global.AuthenticateUser();
 
             if (!Page.IsPostBack)
             {
                 // Put user code to initialize the page here
-                Global.AuthenticateUser();
+                //Global.AuthenticateUser();
 
                 lnkSignIn.Text = Global.SetLnkSignIn();
                 lnkSignUp.Text = Global.SetLnkSignUp();
@@ -371,6 +383,7 @@ namespace BoardHunt
  */ 
         private void lnkSignIn_Click(object sender, System.EventArgs e)
         {
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
             Global.NavigatePage(lnkSignIn.Text);
         }
 /*

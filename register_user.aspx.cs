@@ -1,21 +1,4 @@
-//////////////////////////////////////////////////////////////////////////
-///
-///		Project:		Boardhunt 
-///		File:			RegisterUser.apx.cs
-///		Project log:	
-///						
-///						7/25/06 -	File creation
-///						7/31/06 -	User registration beta completed successfully!
-///						8/21/06 -	User registration forms checking - verify unique user e-mail id
-///							 		 
-///						
-///
-///
-//////////////////////////////////////////////////////////////////////////
-
-
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -34,34 +17,29 @@ using DALLayer;
 
 namespace BoardHunt
 {
-	/// <summary>
-	/// Summary description for postsurf.
-	/// </summary>
-	/// 
-	
-	public partial class register_user : System.Web.UI.Page
-	{
+    public partial class Register_User : System.Web.UI.Page
+    {
 
-		protected System.Web.UI.WebControls.Label Label5;
-		//protected System.Web.UI.WebControls.TextBox txtFirstName;
-		//protected System.Web.UI.WebControls.TextBox txtLastName;
+        protected System.Web.UI.WebControls.Label Label5;
+        //protected System.Web.UI.WebControls.TextBox txtFirstName;
+        //protected System.Web.UI.WebControls.TextBox txtLastName;
 
-		protected System.Web.UI.WebControls.TextBox txtPassword2;
-        protected System.Web.UI.WebControls.CustomValidator CustomValidator3;
+        protected System.Web.UI.WebControls.TextBox txtPassword2;
+        // protected System.Web.UI.WebControls.CustomValidator CustomValidator3;
         protected System.Web.UI.WebControls.CustomValidator CustomValidator5;
-		protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
         protected System.Web.UI.WebControls.CheckBox chkIAgree;
         protected System.Web.UI.WebControls.CheckBox chkCOPPA;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
-	
-		protected void Page_Load(object sender, System.EventArgs e)
-		{
-			// Put user code to initialize the page here
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
+
+        protected void Page_Load(object sender, System.EventArgs e)
+        {
+            // Put user code to initialize the page here
+            lnkSignIn.Text = Global.SetLnkSignIn();
+            lnkSignUp.Text = Global.SetLnkSignUp();
 
             //imgClear.CausesValidation = false;
 
@@ -69,7 +47,7 @@ namespace BoardHunt
 
             if (!Page.IsPostBack)
             {
-                
+
                 //txtFullName.Attributes.Add("OnBlur", "CheckControl('txtFullName')");
                 txtPassword1.Attributes.Add("OnBlur", "CheckControl('txtPassword1')");
                 txtEmail.Attributes.Add("OnBlur", "CheckControl('txtEmail')");
@@ -80,32 +58,32 @@ namespace BoardHunt
                 //txtEmail.Attributes.Add("OnBlur", "ToggleText('txtEmail','" + txtEmail.Text + "')");
             }
 
-		}
+        }
 
-		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
-		{
-			//
-			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
-			//
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+        #region Web Form Designer generated code
+        override protected void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
+            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
+            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             //this.imgClear.Click += new System.Web.UI.ImageClickEventHandler(this.imgClear_Click);
-			//this.imgFinish.Click += new System.Web.UI.ImageClickEventHandler(this.imgFinish_Click);
+            //this.imgFinish.Click += new System.Web.UI.ImageClickEventHandler(this.imgFinish_Click);
 
-		}
-		#endregion
+        }
+        #endregion
 
         //private void imgClear_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         //{
@@ -114,9 +92,9 @@ namespace BoardHunt
         //    lblStatus.Visible = false;
         //}
 
-		//===============================
-		//Error Checking & Helper Functions
-		//===============================
+        //===============================
+        //Error Checking & Helper Functions
+        //===============================
 
         protected void CheckIAgree(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
@@ -128,8 +106,8 @@ namespace BoardHunt
             }
         }
 
-/*
- */
+        /*
+         */
         protected void CheckCOPPA(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
             args.IsValid = true;
@@ -139,24 +117,24 @@ namespace BoardHunt
                 CustomValidator3.ErrorMessage = "!";
             }
         }
-        
+
         private bool IsNumeric(object ValueToCheck)
-		{
-			double Dummy = new double();
-			string InputValue = Convert.ToString(ValueToCheck);
+        {
+            double Dummy = new double();
+            string InputValue = Convert.ToString(ValueToCheck);
 
-			bool Numeric = double.TryParse( InputValue , System.Globalization.NumberStyles.Any , null , out Dummy);
-		
-			return Numeric;
-		}
+            bool Numeric = double.TryParse(InputValue, System.Globalization.NumberStyles.Any, null, out Dummy);
 
-		protected void CheckPassword(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-		{
-			args.IsValid = false;
-			
-			if (txtPassword1.Text == string.Empty || (txtPassword1.Text.Length < 6))
-			{
-			    CustomValidator1.ErrorMessage = "!";
+            return Numeric;
+        }
+
+        protected void CheckPassword(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+
+            if (txtPassword1.Text == string.Empty || (txtPassword1.Text.Length < 6))
+            {
+                CustomValidator1.ErrorMessage = "!";
                 pnlError.Visible = true;
                 lblStatus.Text = "Password needs to be 6 or more characters.";
                 lblStatus.Visible = true;
@@ -169,90 +147,89 @@ namespace BoardHunt
             //    pnlError.Visible = true;
             //    lblStatus.Text = "Password needs to be 6 or more characters.";
             //    lblStatus.Visible = true;
-			
+
             //}
-			else
-			{
-				args.IsValid = true;
-			}
-		
-		}
+            else
+            {
+                args.IsValid = true;
+            }
 
-		
-			protected void CheckPhoneNum(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
-			{
-				args.IsValid = true;
-			}
+        }
 
-		private bool verify_User(string myConnStr, string emailId)
-		{
-			
-			bool user_Registered = true;
 
-			string SQLstr = "SELECT iD FROM tblUser WHERE txtEmail ='" + emailId + "'";
-			
+        protected void CheckPhoneNum(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            args.IsValid = true;
+        }
+
+        private bool verify_User(string myConnStr, string emailId)
+        {
+
+            bool user_Registered = true;
+
+            string SQLstr = "SELECT iD FROM tblUser WHERE txtEmail ='" + emailId + "'";
+
             SqlConnection myConn = new SqlConnection(myConnStr);
-			SqlDataReader rdr = null;
-			SqlCommand objSQLCommand = new SqlCommand(SQLstr,myConn);
+            SqlDataReader rdr = null;
+            SqlCommand objSQLCommand = new SqlCommand(SQLstr, myConn);
 
-			try
-			{
-				myConn.Open();
-				rdr = objSQLCommand.ExecuteReader();
+            try
+            {
+                myConn.Open();
+                rdr = objSQLCommand.ExecuteReader();
 
-				if (rdr.Read())
-				{
-					user_Registered = true;
-					
-				}
-				else
-				{
-					user_Registered = false;
-				}
-				
-			}
-			catch
-			{
+                if (rdr.Read())
+                {
+                    user_Registered = true;
+
+                }
+                else
+                {
+                    user_Registered = false;
+                }
+            }
+            catch
+            {
                 pnlError.Visible = true;
-			    lblStatus.Text = "ERROR!";
-			}
-			finally
-			{
-				myConn.Close();
-			}
+                lblStatus.Text = "ERROR!";
+            }
+            finally
+            {
+                myConn.Close();
+            }
 
-			return user_Registered;
-		}
-/*
- */ 
-		private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("login.aspx");
-		}
-/*
- */ 
-		private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("register_user.aspx");
-			
-		}
-/*
- */ 
-		private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx");
-		}
-/*
- */ 
-		private void LinkButton1_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("register_user.aspx");
-		}
+            return user_Registered;
+        }
+        /*
+         */
+        private void lnkSignIn_Click(object sender, System.EventArgs e)
+        {            
+            Response.Redirect("login.aspx");
+        }
+        /*
+         */
+        private void lnkSignUp_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("register_user.aspx");
+
+        }
+        /*
+         */
+        private void lnkPost_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("post.aspx");
+        }
+        /*
+         */
+        private void LinkButton1_Click(object sender, System.EventArgs e)
+        {
+            Response.Redirect("register_user.aspx");
+        }
 
         protected void CheckEmail(object source, ServerValidateEventArgs args)
         {
             args.IsValid = false;
-            
+
             string patternLenient = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
             Regex reLenient = new Regex(patternLenient);
 
@@ -273,7 +250,7 @@ namespace BoardHunt
                 pnlError.Visible = true;
                 lblStatus.Text = "Enter in a valid e-mail.";
                 //lblStatus.CssClass = "errorLabel";
-                lblStatus.Visible = true;            
+                lblStatus.Visible = true;
             }
 
 
@@ -313,7 +290,7 @@ namespace BoardHunt
             //Validate form and get values
             txtFN = " ";
 
-           
+
             txtEmailId = txtEmail.Text;
             txtPassword = txtPassword1.Text;
             txtUserName = Global.ParseEmail(txtEmail.Text);
@@ -360,7 +337,7 @@ namespace BoardHunt
             String myConnectString;
 
             //Formulate connect string to DB
-            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+            myConnectString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString; ;
 
             //Verify unique e-mail id.  This is how we try to prevent users
             if (verify_User(myConnectString, txtEmailId))
@@ -434,5 +411,5 @@ namespace BoardHunt
 
         }
 
-	}
+    }
 }

@@ -1,9 +1,4 @@
-//
-//Project File Log:
-//2/20/07:  Using the core of the ItemDetails pg, this page is now used as a pre-post preview.
-//          Todo: add in new values to db; so far items are posting! =) 
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Configuration;
 using System.ComponentModel;
@@ -29,19 +24,21 @@ namespace BoardHunt
 	/// 
 	
 
-	public partial class preview_post : System.Web.UI.Page
+	public partial class Preview_post : System.Web.UI.Page
 	{
 
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+        //protected System.Web.UI.WebControls.LinkButton lnkPost;
 
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
+            Global.AuthenticateUser();
+
             classes.BoardItem tmpBoardItem = (classes.BoardItem)Session["Item"];
             
             //TODO: fix double load
-            ErrorLog.ErrorRoutine(false, "preview_post:Page_Load:SID: " + Session.SessionID + " isPB: " + Page.IsPostBack);
+            ErrorLog.ErrorRoutine(false, "Preview_post:Page_Load:SID: " + Session.SessionID + " isPB: " + Page.IsPostBack);
 
             if (tmpBoardItem == null)
             {
@@ -51,7 +48,7 @@ namespace BoardHunt
 
             if (!Page.IsPostBack)
             {
-                Global.AuthenticateUser();
+                //Global.AuthenticateUser();
     
                 // Put user code to initialize the page here
 			    lnkSignIn.Text = Global.SetLnkSignIn( );
@@ -68,7 +65,7 @@ namespace BoardHunt
 
 			}
 
-            ErrorLog.ErrorRoutine(false, "preview_post:Page_Load:END:SID:" + Session.SessionID + " isPB: " + Page.IsPostBack);
+            ErrorLog.ErrorRoutine(false, "Preview_post:Page_Load:END:SID:" + Session.SessionID + " isPB: " + Page.IsPostBack);
 		}
 
 /**
@@ -118,15 +115,15 @@ namespace BoardHunt
                 if (Pic1.ImageUrl.IndexOf("s1x1.gif") != -1)
                 {
                     Pic1.ImageUrl = "images/noimage.gif";
-                    Pic1.Width = 400;
-                    Pic1.Height = 468;
+                    //Pic1.Width = 400;
+                    //Pic1.Height = 400;
                     hdnProcPics.Value = "False";
                 }
                 else //do thmbnail
                 {
                     Pic1ThmbNail.ImageUrl = GetPicPath("thmbNail_" + bItem.ImgPath1);
                     Pic1ThmbNail.Visible = true;
-                    Pic1ThmbNail.Width = 75;
+                    //Pic1ThmbNail.Width = 75;
                     Pic1ThmbNail.Height = 75;
                     hdnProcPics.Value = "True";
                 }
@@ -143,7 +140,7 @@ namespace BoardHunt
                 {
                     Pic2ThmbNail.Visible = true;
                     Pic2ThmbNail.ImageUrl = GetPicPath("thmbNail_" + bItem.ImgPath2);
-                    Pic2ThmbNail.Width = 75;
+                    //Pic2ThmbNail.Width = 75;
                     Pic2ThmbNail.Height = 75;
                     hdnProcPics.Value = "True";
                 }
@@ -159,7 +156,7 @@ namespace BoardHunt
                 {
                     Pic3ThmbNail.Visible = true;
                     Pic3ThmbNail.ImageUrl = GetPicPath("thmbNail_" + bItem.ImgPath3);
-                    Pic3ThmbNail.Width = 75;
+                    //Pic3ThmbNail.Width = 75;
                     Pic3ThmbNail.Height = 75;
                     hdnProcPics.Value = "True";
                 }
@@ -175,7 +172,7 @@ namespace BoardHunt
                 {
                     Pic4ThmbNail.Visible = true;
                     Pic4ThmbNail.ImageUrl = GetPicPath("thmbNail_" + bItem.ImgPath4);
-                    Pic4ThmbNail.Width = 75;
+                   // Pic4ThmbNail.Width = 75;
                     Pic4ThmbNail.Height = 75;
                     hdnProcPics.Value = "True";
                 }
@@ -184,7 +181,7 @@ namespace BoardHunt
             {
                 Pic1.ImageUrl = "images//wantedbig.gif";
                 Pic1.Height = 214;
-                Pic1.Width = 168;
+                //Pic1.Width = 168;
                 hdnProcPics.Value = "False";
             }
 
@@ -463,7 +460,7 @@ namespace BoardHunt
 */ 
 		private void lnkSignIn_Click(object sender, System.EventArgs e)
 		{
-				
+            BusinessLogic.HelperFunctions.FaceBookLogout(Session);	
 			Global.NavigatePage(lnkSignIn.Text);
 
 		}
