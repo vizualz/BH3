@@ -21,9 +21,7 @@ namespace BoardHunt
 	/// </summary>
 	public partial class UserMenu : System.Web.UI.Page
 	{
-        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
+
 
 		protected const int FREE_BOARD_COUNT = 5;
 		protected const string NUDGE_UPGRADE = @"Time to Upgrade | You're out of Nudges. Upgrade your account now.";

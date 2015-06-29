@@ -12,7 +12,5 @@ namespace BoardHunt {
 	
 	
 	public partial class register_finish {
-		
-		protected System.Web.UI.WebControls.Label lblMessage;
 	}
 }
