@@ -19,7 +19,7 @@ namespace BoardHunt
 		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
 		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
 		protected System.Web.UI.WebControls.LinkButton lnkPost;		
-		protected System.Web.UI.WebControls.ImageButton ImageButton1;
+		//protected System.Web.UI.WebControls.ImageButton ImageButton1;
 		protected System.Web.UI.WebControls.ImageButton ImageButton2;
 	
 		protected void Page_Load(object sender, System.EventArgs e)

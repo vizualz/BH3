@@ -1384,6 +1384,13 @@
       <DependentUpon>register_user.aspx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="include\HeaderCtl.ascx" />
+    <Compile Include="include\HeaderCtl.ascx.cs">
+      <DependentUpon>HeaderCtl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="include\HeaderCtl.ascx.designer.cs">
+      <DependentUpon>HeaderCtl.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="help\boardhelp.aspx" />
@@ -1569,7 +1576,7 @@
       </FlavorProperties>
     </VisualStudio>
     <MonoDevelop>
-      <Properties VerifyCodeBehindFields="True" VerifyCodeBehindEvents="True">
+      <Properties>
         <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
       </Properties>
     </MonoDevelop>
