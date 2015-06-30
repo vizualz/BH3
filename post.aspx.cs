@@ -19,10 +19,7 @@ namespace BoardHunt
 	public partial class post : System.Web.UI.Page
 	{
 		protected System.Web.UI.WebControls.ImageButton imgNext;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
 
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
         //protected System.Web.UI.WebControls.TextBox searchTextField;
 	
 		protected void Page_Load(object sender, System.EventArgs e)
@@ -72,8 +69,11 @@ namespace BoardHunt
 				Session ["EditMode"] = "false";
 			}
 
+<<<<<<< HEAD
 			// Put user code to initialize the page here
 
+=======
+>>>>>>> Stash
 			Session ["Item"] = null;
 
 		}
@@ -94,6 +94,10 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
+<<<<<<< HEAD
+=======
+
+>>>>>>> Stash
 		}
 		#endregion
 
@@ -137,7 +141,11 @@ namespace BoardHunt
 
         }
 
+<<<<<<< HEAD
 /**
+=======
+
+>>>>>>> Stash
 /**
 */  
 		public void BindData()

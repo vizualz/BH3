@@ -23,10 +23,7 @@ namespace BoardHunt
     {
         protected System.Web.UI.WebControls.ImageButton ImageButton1;
         protected System.Web.UI.WebControls.ImageButton ImageButton2;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
-
+      
         #region Web Form Designer generated code
         override protected void OnInit(EventArgs e)
         {
@@ -57,9 +54,6 @@ namespace BoardHunt
             Global.AuthenticateUser();
 
             Session["LoggedIn"] = "No";
-
-            lnkSignIn.Text = Global.SetLnkSignIn();
-            lnkSignUp.Text = Global.SetLnkSignUp();
 
             if (!Page.IsPostBack)
             {

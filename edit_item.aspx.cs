@@ -118,7 +118,13 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
 
+=======
+            //this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
+            //this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
+            //this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+>>>>>>> Stash
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
 
@@ -1222,14 +1228,6 @@ namespace BoardHunt
                 }
             }
 
-        }
-
-        /**
-         * 
-        */
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx");
         }
 
         /** 

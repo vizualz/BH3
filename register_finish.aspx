@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="register_finish.aspx.cs" Inherits="BoardHunt.register_Finish" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register_finish.aspx.cs" Inherits="BoardHunt.register_Finish" %>
 
 <!DOCTYPE html>
 

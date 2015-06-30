@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="post_item.aspx.cs" Inherits="BoardHunt.post_item" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post_item.aspx.cs" Inherits="BoardHunt.post_item" %>
 
 <!DOCTYPE html>
 
@@ -11,8 +11,6 @@
         type="text/css" media="all" />
     <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css"
         type="text/css" media="all" />
-
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 

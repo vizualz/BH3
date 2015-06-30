@@ -1,6 +1,12 @@
-﻿<Properties>
+﻿<Properties StartupItem="BoardHunt.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="login.aspx.cs">
+    <Files>
+      <File FileName="login.aspx.cs" Line="1" Column="1" />
+      <File FileName="post_finish.aspx.cs" Line="1" Column="1" />
+      <File FileName="post_item.aspx.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

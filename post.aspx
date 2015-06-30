@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="post.aspx.cs" Inherits="BoardHunt.post" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post.aspx.cs" Inherits="BoardHunt.post" %>
 
 <!DOCTYPE html>
 

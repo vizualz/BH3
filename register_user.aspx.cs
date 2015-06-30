@@ -74,8 +74,11 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
 			//this.imgClear.Click += new System.Web.UI.ImageClickEventHandler(this.imgClear_Click);
             //this.imgFinish.Click += new System.Web.UI.ImageClickEventHandler(this.imgFinish_Click);
+=======
+>>>>>>> Stash
 
         }
         #endregion

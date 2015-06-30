@@ -100,8 +100,6 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-			//this.imgLogin.Click += new System.Web.UI.ImageClickEventHandler(this.imgLogin_Click);
-            //this.imgNewUser.Click += new System.Web.UI.ImageClickEventHandler(this.imgNewUser_Click);
 
         }
         #endregion
@@ -168,12 +166,7 @@ namespace BoardHunt
                 lblMessage.Visible = true;
             }
         }
-  
 
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx");
-        }
 
         public void CheckUserName(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {

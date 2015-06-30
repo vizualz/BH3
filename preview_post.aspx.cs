@@ -48,9 +48,12 @@ namespace BoardHunt
 
             if (!Page.IsPostBack)
             {
+<<<<<<< HEAD
                 //Global.AuthenticateUser();
     
                 // Put user code to initialize the page here
+=======
+>>>>>>> Stash
 
 			    //Hide all sub-panels then enable accordingly
 			    pnlAll.Visible = false;
@@ -452,6 +455,16 @@ namespace BoardHunt
 
 		}
 
+<<<<<<< HEAD
+=======
+/**
+ */         
+		private void lnkPost_Click(object sender, System.EventArgs e)
+		{
+			Response.Redirect("post.aspx");
+			
+		}
+>>>>>>> Stash
 /*
 */ 
   public void ShowContactDetails()
