@@ -86,9 +86,6 @@ namespace BoardHunt
                 if (!(Page.IsPostBack))
                 {
 
-                    lnkSignIn.Text = Global.SetLnkSignIn();
-                    lnkSignUp.Text = Global.SetLnkSignUp();
-
                     //default all pics to a clear gif
                     img1.ImageUrl = @"\images\s1x1.gif";
                     img2.ImageUrl = @"\images\s1x1.gif";
@@ -121,9 +118,7 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
 
@@ -1228,21 +1223,7 @@ namespace BoardHunt
             }
 
         }
-        /**
-         * 
-        */
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
-            Global.NavigatePage(lnkSignIn.Text);
-        }
-        /**
-         * 
-        */
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-        }
+
         /**
          * 
         */

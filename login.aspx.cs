@@ -40,11 +40,6 @@ namespace BoardHunt
             if (Session["LoggedIn"].ToString() == "Yes")
                 Response.Redirect("UserMenu.aspx", false);
 
-
-            // Put user code to initialize the page here
-            lnkSignIn.Text = Global.SetLnkSignIn();
-            lnkSignUp.Text = Global.SetLnkSignUp();
-
             hdnVal.Value = string.Empty;
 
             string code = Request.QueryString["code"];
@@ -105,10 +100,7 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            //this.imgLogin.Click += new System.Web.UI.ImageClickEventHandler(this.imgLogin_Click);
+			//this.imgLogin.Click += new System.Web.UI.ImageClickEventHandler(this.imgLogin_Click);
             //this.imgNewUser.Click += new System.Web.UI.ImageClickEventHandler(this.imgNewUser_Click);
 
         }
@@ -176,16 +168,7 @@ namespace BoardHunt
                 lblMessage.Visible = true;
             }
         }
-        
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {            
-            Global.NavigatePage(lnkSignIn.Text);
-        }
-
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-        }
+  
 
         private void lnkPost_Click(object sender, System.EventArgs e)
         {

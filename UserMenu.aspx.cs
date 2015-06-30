@@ -45,8 +45,7 @@ namespace BoardHunt
                 // Put user code to initialize the page here
                 //Global.AuthenticateUser();
 
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();
+
 
 				CheckForPro();
                 BindData();
@@ -86,10 +85,7 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-            this.btnBuyShaper.Click += new System.Web.UI.ImageClickEventHandler(this.btnBuyShaper_Click);
+			this.btnBuyShaper.Click += new System.Web.UI.ImageClickEventHandler(this.btnBuyShaper_Click);
             this.lnkAddNewModel.Click += new System.EventHandler(this.lnkAddNewModel_Click);
             this.lnkEditModel.Click += new System.EventHandler(this.lnkEditModel_Click);
             this.lnkFav.Click += new System.EventHandler(this.lnkFav_Click);
@@ -377,20 +373,8 @@ namespace BoardHunt
             Session["ServiceId"] = "3";
             Response.Redirect("Pay/OrderForm.aspx", false);
         }
-/*
- */ 
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
-            Global.NavigatePage(lnkSignIn.Text);
-        }
-/*
- */ 
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
 
-        }
+
 /*
  */
         private void lnkAddNewModel_Click(object sender, System.EventArgs e)

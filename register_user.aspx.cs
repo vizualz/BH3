@@ -38,8 +38,6 @@ namespace BoardHunt
         protected void Page_Load(object sender, System.EventArgs e)
         {
             // Put user code to initialize the page here
-            lnkSignIn.Text = Global.SetLnkSignIn();
-            lnkSignUp.Text = Global.SetLnkSignUp();
 
             //imgClear.CausesValidation = false;
 
@@ -76,10 +74,7 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-            //this.imgClear.Click += new System.Web.UI.ImageClickEventHandler(this.imgClear_Click);
+			//this.imgClear.Click += new System.Web.UI.ImageClickEventHandler(this.imgClear_Click);
             //this.imgFinish.Click += new System.Web.UI.ImageClickEventHandler(this.imgFinish_Click);
 
         }
