@@ -18,9 +18,23 @@ namespace BoardHunt
 	/// </summary>
 	public partial class post : System.Web.UI.Page
 	{
+		protected System.Web.UI.WebControls.DropDownList cboCategory;
+		protected System.Web.UI.WebControls.DropDownList cboRegion;
 		protected System.Web.UI.WebControls.ImageButton imgNext;
-
-        //protected System.Web.UI.WebControls.TextBox searchTextField;
+		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+		protected System.Web.UI.WebControls.RadioButtonList radioAdType;
+		protected System.Web.UI.WebControls.RadioButtonList rdoShip;
+		protected System.Web.UI.WebControls.RadioButtonList radioConditionType;
+		protected System.Web.UI.WebControls.LinkButton lnkPost;
+		protected System.Web.UI.WebControls.TextBox txtTown;
+		protected System.Web.UI.WebControls.TextBox txtZip;
+		protected System.Web.UI.WebControls.Panel pnlShip;
+		protected System.Web.UI.WebControls.Panel pnlCondition;
+		protected System.Web.UI.WebControls.HiddenField hdnAdType;
+		protected System.Web.UI.WebControls.Button btnCancel;
+		protected System.Web.UI.WebControls.Button btnNext;
+		//protected System.Web.UI.WebControls.TextBox searchTextField;
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
@@ -69,11 +83,7 @@ namespace BoardHunt
 				Session ["EditMode"] = "false";
 			}
 
-<<<<<<< HEAD
-			// Put user code to initialize the page here
 
-=======
->>>>>>> Stash
 			Session ["Item"] = null;
 
 		}
@@ -94,10 +104,7 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
-<<<<<<< HEAD
-=======
 
->>>>>>> Stash
 		}
 		#endregion
 
@@ -141,11 +148,7 @@ namespace BoardHunt
 
         }
 
-<<<<<<< HEAD
-/**
-=======
 
->>>>>>> Stash
 /**
 */  
 		public void BindData()

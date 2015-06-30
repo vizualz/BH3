@@ -152,3 +152,7 @@ bin/RSS.NET.dll
 BoardHunt.csproj
 
 BoardHunt.sln
+
+obj/Release/BoardHunt.dll
+
+obj/Release/BoardHunt.csproj.FilesWrittenAbsolute.txt

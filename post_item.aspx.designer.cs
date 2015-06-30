@@ -757,8 +757,8 @@ namespace BoardHunt {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
-        
+		protected global::System.Web.UI.WebControls.HiddenField HiddenField1; 
+		protected global::System.Web.UI.WebControls.HiddenField DeletedImageUrls;
         /// <summary>
         /// HiddenField2 control.
         /// </summary>
@@ -796,4 +796,3 @@ namespace BoardHunt {
         protected global::System.Web.UI.WebControls.HiddenField hdnAdType;
     }
 }
->>>>>>> Stash

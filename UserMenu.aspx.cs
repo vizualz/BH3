@@ -45,12 +45,6 @@ namespace BoardHunt
                 // Put user code to initialize the page here
                 //Global.AuthenticateUser();
 
-<<<<<<< HEAD
-
-=======
-                //lnkSignIn.Text = Global.SetLnkSignIn();
-                //lnkSignUp.Text = Global.SetLnkSignUp();
->>>>>>> Stash
 
 				CheckForPro();
                 BindData();
@@ -90,14 +84,9 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
-<<<<<<< HEAD
+
 			this.btnBuyShaper.Click += new System.Web.UI.ImageClickEventHandler(this.btnBuyShaper_Click);
-=======
-			//this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			//this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            //this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-            this.btnBuyShaper.Click += new System.Web.UI.ImageClickEventHandler(this.btnBuyShaper_Click);
->>>>>>> Stash
+
             this.lnkAddNewModel.Click += new System.EventHandler(this.lnkAddNewModel_Click);
             this.lnkEditModel.Click += new System.EventHandler(this.lnkEditModel_Click);
             this.lnkFav.Click += new System.EventHandler(this.lnkFav_Click);

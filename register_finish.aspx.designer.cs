@@ -11,14 +11,12 @@
 namespace BoardHunt {
 	
 	
-<<<<<<< HEAD
-	public partial class register_finish {
-=======
+
 	public partial class register_Finish {
 		
 		protected System.Web.UI.HtmlControls.HtmlForm Form1;
 		
 		protected System.Web.UI.WebControls.Label lblMessage;
->>>>>>> Stash
+
 	}
 }
