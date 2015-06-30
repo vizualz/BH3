@@ -124,3 +124,25 @@ surfboard.aspx.designer.cs
 bin/DALLayer.dll
 
 Surfboardsforsale.aspx.designer.cs
+
+obj/Release/BoardHunt.about.resources
+
+obj/Release/BoardHunt.advanced_search.resources
+
+obj/Release/BoardHunt.Bidder.BidDetails.resources
+
+obj/Release/BoardHunt.Bidder.BidResults.resources
+
+obj/Release/BoardHunt.Bidder.PostBid.resources
+
+obj/Release/BoardHunt.Blog.Blog.resources
+
+obj/Release/BoardHunt.Blog.BlogDetails.resources
+
+obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+
+bin/RSS.NET.dll
+
+bin/RSS.NET.dll
+
+bin/RSS.NET.dll
