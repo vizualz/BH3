@@ -1391,6 +1391,7 @@
     <Compile Include="include\HeaderCtl.ascx.designer.cs">
       <DependentUpon>HeaderCtl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\HelperFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="help\boardhelp.aspx" />
@@ -1541,6 +1542,7 @@
     <Folder Include="TempAddImages\" />
     <Folder Include="users\" />
     <Folder Include="Xml\" />
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="font\Helvetica LT Condensed Light.ttf" />
