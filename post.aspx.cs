@@ -18,15 +18,20 @@ namespace BoardHunt
 	/// </summary>
 	public partial class post : System.Web.UI.Page
 	{
+		//protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+		//protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+		//protected System.Web.UI.WebControls.LinkButton lnkPost;
+
 		protected System.Web.UI.WebControls.DropDownList cboCategory;
 		protected System.Web.UI.WebControls.DropDownList cboRegion;
 		protected System.Web.UI.WebControls.ImageButton imgNext;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+
+
+
 		protected System.Web.UI.WebControls.RadioButtonList radioAdType;
 		protected System.Web.UI.WebControls.RadioButtonList rdoShip;
 		protected System.Web.UI.WebControls.RadioButtonList radioConditionType;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
+
 		protected System.Web.UI.WebControls.TextBox txtTown;
 		protected System.Web.UI.WebControls.TextBox txtZip;
 		protected System.Web.UI.WebControls.Panel pnlShip;

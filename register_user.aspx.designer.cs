@@ -11,7 +11,7 @@
 namespace BoardHunt {
 	
 	
-	public partial class Register_User {
+	public partial class register_user {
 		
 		protected System.Web.UI.HtmlControls.HtmlForm Form1;
 		

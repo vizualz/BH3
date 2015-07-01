@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="BoardHunt.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BoardHunt.Login" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -7,8 +8,6 @@
     <title>Login - Boardhunt</title>
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
     <link href="style/global.css" type="text/css" rel="stylesheet" />
-
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="include/js/superfish.js"></script>
 
@@ -34,12 +33,8 @@
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
     <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
+	<bh:Header runat="server" />
 
-        <!-- #include file="include/HeaderResponsive.aspx" -->
-
-        <%--<span class="midgrey14">&nbsp;</span>--%>
-        <%-- <asp:Panel ID="pnlSurf" align="center" runat="server" BorderWidth="0px" BorderColor="#CCCCCC"
-                BorderStyle="solid">--%>
         <!-- Start: Main -->
 
 

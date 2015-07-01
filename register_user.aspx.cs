@@ -17,23 +17,17 @@ using DALLayer;
 
 namespace BoardHunt
 {
-    public partial class Register_User : System.Web.UI.Page
+    public partial class register_user : System.Web.UI.Page
     {
 
         protected System.Web.UI.WebControls.Label Label5;
-        //protected System.Web.UI.WebControls.TextBox txtFirstName;
-        //protected System.Web.UI.WebControls.TextBox txtLastName;
 
         protected System.Web.UI.WebControls.TextBox txtPassword2;
-        // protected System.Web.UI.WebControls.CustomValidator CustomValidator3;
         protected System.Web.UI.WebControls.CustomValidator CustomValidator5;
         protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
-        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
         protected System.Web.UI.WebControls.CheckBox chkIAgree;
         protected System.Web.UI.WebControls.CheckBox chkCOPPA;
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
 
         protected void Page_Load(object sender, System.EventArgs e)
         {

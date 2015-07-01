@@ -1,4 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post.aspx.cs" Inherits="BoardHunt.post" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -21,8 +22,6 @@
 
 
     </script>
-
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
@@ -57,7 +56,7 @@
 <body onkeydown="return (event.keyCode!=13)" style="background: none repeat scroll 0 0 #fff;">
     <div id="main1">
         <form class="header" runat="server" id="Form1">
-            <!-- #include file="include/HeaderResponsive.aspx" -->
+           <bh:Header runat="server" />
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">

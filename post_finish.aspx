@@ -1,4 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="post_finish.aspx.cs" Inherits="BoardHunt.post_finish" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -48,7 +49,7 @@
 <body style="background: none repeat scroll 0 0 #fff;">
     <div id="main1">
         <form id="Form1" runat="server">
-            <!-- #include file="include/HeaderResponsive.aspx" -->
+            <bh:Header runat="server" />
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-8 col-md-8 col-sm-10 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">

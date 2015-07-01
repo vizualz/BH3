@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" Inherits="BoardHunt.HeaderCtl" %>
+﻿<%@ Control Language="C#" Inherits="BoardHunt.include.HeaderCtl" CodeBehind="HeaderCtl.ascx.cs" %>
 <!-- Google ads: Leader -->
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb10">
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">

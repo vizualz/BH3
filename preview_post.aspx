@@ -1,4 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="preview_post.aspx.cs" Inherits="BoardHunt.Preview_post" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +7,6 @@
 <head runat="server">
     <title>Preview Post - Boardhunt</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
@@ -52,7 +52,7 @@
 <body style="background: none repeat scroll 0 0 #fff;">
     <div id="main1">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/HeaderResponsive.aspx" -->
+            <bh:Header runat="server" />
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="admin-form tab-pane active col-lg-8 col-md-8 col-sm-10 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">

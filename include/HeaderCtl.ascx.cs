@@ -2,22 +2,24 @@
 using System.Web;
 using System.Web.UI;
 
-namespace BoardHunt
+namespace BoardHunt.include
 {
 
 	public partial class HeaderCtl : System.Web.UI.UserControl
 	{
+		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
+		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
+		protected System.Web.UI.WebControls.LinkButton lnkPost;
+
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
-			Global.AuthenticateUser ();
+			//Global.AuthenticateUser ();
 
 			lnkSignIn.Text = Global.SetLnkSignIn();
 			lnkSignUp.Text = Global.SetLnkSignUp();
-
 		}
 
-
-		/*
+/*
  */ 
 		private void lnkSignIn_Click(object sender, System.EventArgs e)
 		{
@@ -38,7 +40,7 @@ namespace BoardHunt
 		{
 			Response.Redirect("post.aspx", true);
 		}
-
+/*
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)
 		{
@@ -62,7 +64,7 @@ namespace BoardHunt
 
 		}
 		#endregion
-
+*/
 	}
 }
 
