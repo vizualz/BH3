@@ -758,7 +758,7 @@ namespace BoardHunt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
 		protected global::System.Web.UI.WebControls.HiddenField HiddenField1; 
-		protected global::System.Web.UI.WebControls.HiddenField DeletedImageUrls;
+		protected global::System.Web.UI.HtmlControls.HtmlInputHidden DeletedImageUrls;
         /// <summary>
         /// HiddenField2 control.
         /// </summary>

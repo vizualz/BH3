@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="preview_post.aspx.cs" Inherits="BoardHunt.Preview_post" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="preview_post.aspx.cs" Inherits="BoardHunt.Preview_post" %>
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>

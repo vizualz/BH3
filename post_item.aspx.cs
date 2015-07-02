@@ -579,6 +579,8 @@ namespace BoardHunt
                 }
             }
 
+			ErrorLog.ErrorRoutine (false, "blnProcImages: " + blnProcImgs + " - lstUploadedFiles: " + lstUploadedFiles.Count);
+
             lstUploadedFiles = new List<HttpPostedFile>();
 
             if (Session["Item"] == null)
@@ -587,10 +589,8 @@ namespace BoardHunt
                 ShowErrorMessage(true, strErrOneMegPics);
                 return;
             }
-            else
-            {
-                ErrorLog.ErrorRoutine(false, "PI:btnNext_Click:checkAfterUpload:" + Session.SessionID + ":BoardItem OK");
-            }
+            ErrorLog.ErrorRoutine(false, "PI:btnNext_Click:checkAfterUpload:" + Session.SessionID + ":BoardItem OK");
+     
 
             //Save common data
             tBoardItem.Brand = txtBrand.Text;
@@ -1741,6 +1741,8 @@ namespace BoardHunt
                                 //Thumbnail
                                 grPhotoThmbNail.Save();
                                 bmPhotoThmbNail.Save(thmbNailPath);
+
+								ErrorLog.ErrorRoutine(false, "Post_Item:UpdateAllImages: " + strImgPathArray[i]);
 
                                 //Find out who is set to "change" or "add" so we know who to update
                                 //  - We call the clearSelection() to let ourselves know that index has been processed

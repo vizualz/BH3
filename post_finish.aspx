@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="post_finish.aspx.cs" Inherits="BoardHunt.post_finish" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post_finish.aspx.cs" Inherits="BoardHunt.post_finish" %>
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>

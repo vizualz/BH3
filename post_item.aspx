@@ -18,7 +18,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js"
         type="text/javascript"></script>
 
-    <script src="http://jquery-ui.googlecode.com/svn/tags/latest/external/jquery.bgiframe-2.1.1.js"
+    <script src="http://jquery-ui.googlecode.com/svn/tags/latest/external/jquery.bgiframe-2.1.2.js"
         type="text/javascript"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/i18n/jquery-ui-i18n.min.js"
@@ -142,7 +142,7 @@
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
     <div id="main1">
-        <form runat="server" class="header" id="form1">
+        <form runat="server" class="header" id="Form1">
             <bh:Header runat="server" />
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -488,17 +488,8 @@
                         <asp:Panel ID="pnlHeight" runat="server">
                             <tr>
                                 <td bgcolor="#cccccc" class="dkgrey16" align="right" style="width: 150px">Height:&nbsp;</td>
-                                <td bgcolor="#cccccc" class="dkgrey16" align="left">
-                                    <%-- <asp:TextBox ID="txtHtFt" runat="server" CssClass="dkrgrey16" Width="24px" MaxLength="2"
-                            TabIndex="5"></asp:TextBox>&nbsp;<asp:Label ID="lblHtFt" runat="server">ft</asp:Label>
-                        &nbsp;
-                                       
-                                <asp:TextBox ID="txtHtIn" runat="server" CssClass="dkrgrey16" Width="24px" MaxLength="2"
-                                    TabIndex="6"></asp:TextBox>&nbsp;
-                                       
-                                <asp:Label ID="lblHtIn" runat="server">in</asp:Label>
-                        <asp:CustomValidator ID="CustomValidator3" runat="server" CssClass="errorLabel" OnServerValidate="CheckHeight"
-                            ErrorMessage="!"></asp:CustomValidator></td>--%>
+                                <td bgcolor="#cccccc" class="dkgrey16" align="left"></td>
+
                             </tr>
                             <tr>
                                 <td bgcolor="#cccccc" height="5" colspan="2">
@@ -660,7 +651,7 @@
                         </asp:Panel>
                         <tr>
                             <td bgcolor="#CCCCCC" align="right" style="height: 30px; width: 150px;"></td>
-                            <td align="left" style="height: 30px; width: 482px;" bgcolor="#CCCCCC">
+                            <td align="left" style="height: 30px; width: 482px;" bgcolor="#CCCCCC"></td>
                                 <tr>
                                     <td bgcolor="#CCCCCC" align="left" colspan="2" height="20" class="black16b">&nbsp;&nbsp;Add images, or buyers may skip over your post.</td>
 
@@ -879,6 +870,7 @@
         });
 
         var myDropzone = '';
+        var myURL = window.location.hostname + "/post_item.aspx?name=deepak";
 
         $(document).ready(function () {
 
@@ -894,7 +886,8 @@
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
                 dictDefaultMessage: '<i class="fa fa-cloud-upload"></i>  <strong class="main-text"><b>Drop Files</b> to upload</strong> <br />  <strong class="sub-text">(or click)</strong> ',
-                url: "//localhost/mz/post_item.aspx?name=deepak",
+                url: "post_item.aspx?name=deepak", 
+                //url: "malzook.com?name=deepak", //window.location.hostname + "/post_item.aspx?name=deepak",
                 init: function () {
                     var myDropzone = this;
 
