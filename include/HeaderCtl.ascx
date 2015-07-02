@@ -26,7 +26,6 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav pt20">
-                        <li class="pl20"><a href="/index.aspx" class="fs16 pn">Home</a></li>
                         <li class="dropdown pl20">
                             <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/Surfboardsforsale.aspx?iCat=1">Used Surfboards<span class="caret"></span></a>
                             <ul class="dropdown-menu mtn p5">

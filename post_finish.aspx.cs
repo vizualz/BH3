@@ -16,9 +16,7 @@ namespace BoardHunt
 
 	public partial class post_finish : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;		
+
 		//protected System.Web.UI.WebControls.ImageButton ImageButton1;
 
 		protected System.Web.UI.WebControls.ImageButton ImageButton2;
@@ -29,9 +27,6 @@ namespace BoardHunt
             // Put user code to initialize the page here
 
             Global.AuthenticateUser();
-
-            lnkSignIn.Text = Global.SetLnkSignIn();
-            lnkSignUp.Text = Global.SetLnkSignUp();
 
             if (!Page.IsPostBack)
             {
@@ -149,23 +144,7 @@ namespace BoardHunt
 
             }
         }
-
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-            BusinessLogic.HelperFunctions.FaceBookLogout(Session);
-            Global.NavigatePage(lnkSignIn.Text);
-        }
-
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-
-        }
-
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx", false);
-        }
+			
 
 
         protected void lnkUpgrade_Click1(object sender, EventArgs e)
@@ -240,9 +219,6 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
 
         }
 

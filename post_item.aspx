@@ -882,7 +882,7 @@
                 uploadMultiple: true,
                 parallelUploads: 25,
                 maxFiles: 3,
-                maxFilesize: 2.0,
+                maxFilesize: 3.4,
                 addRemoveLinks: true,
                 acceptedFiles: ".jpg,.gif,.jpeg,.bmp,.png",
                 dictDefaultMessage: '<i class="fa fa-cloud-upload"></i>  <strong class="main-text"><b>Drop Files</b> to upload</strong> <br />  <strong class="sub-text">(or click)</strong> ',
