@@ -37,14 +37,6 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     <meta http-equiv="X-UA-Compatible" content="IE=9"/>
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="include/js/superfish.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            jQuery(function () {
-                jQuery('ul.sf-menu').superfish();
-            });
-        });
-    </script>
     <script type="text/javascript" language="JavaScript">
         function CheckForEnter(code) {
             if (code == 13) {
