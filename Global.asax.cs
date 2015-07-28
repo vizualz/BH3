@@ -292,11 +292,11 @@ namespace BoardHunt
 
 			if (HttpContext.Current.Session["LoggedIn"].ToString() == "Yes")
 			{
-				return "log out";
+				return "Log out";
 			}
 			else
 			{
-				return "log in";
+				return "Log in";
 			}
 		}
 		
@@ -305,11 +305,11 @@ namespace BoardHunt
 		{
 			if (HttpContext.Current.Session["LoggedIn"].ToString() == "Yes")
 			{
-				return "dashboard";
+				return "Dashboard";
 			}
 			else
 			{
-				return "sign up";
+				return "Join";
 			}		
 				
 		}
@@ -321,13 +321,13 @@ namespace BoardHunt
             
             switch (lnkText)
 			{
-				case "log in":
+				case "Log in":
                     HttpContext.Current.Response.Redirect(theURL + "/login.aspx", true);
 					break;
-				case "sign up":
+				case "Join":
                     HttpContext.Current.Response.Redirect(theURL + "/register_user.aspx", true);
 					break;
-				case "log out":
+				case "Log out":
 					HttpContext.Current.Session["LoggedIn"]= "No";
 					HttpContext.Current.Session.Abandon();
                     
@@ -341,7 +341,7 @@ namespace BoardHunt
                     //TODO: redir only if it's a secured page
                     HttpContext.Current.Response.Redirect(HttpContext.Current.Request.RawUrl, true);
 					break;
-			case "dashboard":
+			case "Dashboard":
                     HttpContext.Current.Response.Redirect(theURL + "/UserMenu.aspx", true);
 					break;
                 case "Upgrade":

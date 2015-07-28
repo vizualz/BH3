@@ -28,13 +28,12 @@ namespace BoardHunt
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
-
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
 	        panelMailSent.Visible = false;
 		}
+			
+			
 
-        private void imgContact_Click(object sender, System.EventArgs e)
+		public void btnSearch_Click(object sender, EventArgs e)
         {
 
             if (!Page.IsValid)
@@ -177,29 +176,6 @@ namespace BoardHunt
             return retVal;
 
         }	
-        
-/*
- */ 
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-
-            Global.NavigatePage(lnkSignIn.Text);
-
-        }
-/*
- */ 
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-
-        }
-/*
- */
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx");
-
-        }
 
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)
@@ -217,10 +193,8 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-            this.imgContact.Click += new System.Web.UI.ImageClickEventHandler(this.imgContact_Click);
+			
+			this.btnSearch.Click += new EventHandler(this.btnSearch_Click);
             
 		}
 		#endregion

@@ -3,28 +3,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
-    <title>Preview Post - Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Preview - Boardhunt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
-    <script type="text/javascript" src="include/js/superfish.js"></script>
 
     <script src="include/js/bh.js" type="text/javascript"></script>
 
     <link href="style/global.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            jQuery(function () {
-                jQuery('ul.sf-menu').superfish();
-            });
-        });
-    </script>
 
     <script type="text/javascript">
         var newWin = null;

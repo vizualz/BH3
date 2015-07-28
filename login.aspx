@@ -2,19 +2,22 @@
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
     <title>Login - Boardhunt</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery -->
+    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
     <link href="style/global.css" type="text/css" rel="stylesheet" />
-
-    <script type="text/javascript" src="include/js/superfish.js"></script>
-
     <script src="include/js/bh.js" type="text/javascript"></script>
+
     <!-- Font CSS (Via CDN) -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
@@ -22,21 +25,10 @@
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            jQuery(function () {
-                jQuery('ul.sf-menu').superfish();
-            });
-        });
-    </script>
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
-    <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
+    <form class="header" id="Form1" runat="server">
 	<bh:Header runat="server" />
-
-        <!-- Start: Main -->
-
 
         <!-- Begin: Content -->
         <div class="container-fluid">
@@ -47,18 +39,10 @@
                             <div class="col-md-4 col-sm-5 col-xs-6 text-left">
                                 <span class="panel-title"><i class="fa fa-sign-in hidden-xs"></i>Login</span>
                             </div>
-                            <div class="login-links text-right">
-                                <a href="login.aspx" class="active fs14" title="Sign In">Sign In</a>
-                                <span class="text-warning">| </span>
-                                <a href="register_user.aspx" class="fs14" title="Register">Register</a>
-                            </div>
                         </div>
                         <div class="panel-body p15 pt10">
                             <div class="section row">
-                                <div class="col-md-6 border-right">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
-                                        <span>Login</span>
-                                    </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
                                         <div class="col-md-12 col-sm-12 col-xs-12 pn">
                                             <label for="username" class="field-label text-left fs18 mb10">E-mail</label>
@@ -72,9 +56,11 @@
                                             </label>
                                         </div>
                                         <div class="col-md-1">
-                                            <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtUsername" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                        <!---
                                             <asp:CustomValidator ID="CustomValidator1" CssClass="error" runat="server" ValidationGroup="Login" OnServerValidate="CheckUserName"
                                                 ErrorMessage="*"></asp:CustomValidator>
+                                                -->
+
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn">
@@ -90,76 +76,68 @@
                                             </label>
                                         </div>
                                         <div class="col-md-1">
-                                            <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="Login" CssClass="error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
+                                        <!---
                                             <asp:CustomValidator ID="CustomValidator2" class="error" runat="server" ErrorMessage="*" ValidationGroup="Login" OnServerValidate="CheckPass"></asp:CustomValidator>
+                                            -->
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 pn section-divider mv40">
-                                        <span>OR Sign-In With</span>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12 pn">
-                                        <div class="col-md-11 col-sm-11 col-xs-11 pn">
-                                            <asp:LinkButton runat="server" ID="lnkFacebookLogin" CssClass="button btn-social facebook span-left btn-block" ValidationGroup="Facebook" OnClick="lnkFacebookLogin_Click">
-                                            <span><i class="fa fa-facebook"></i>
-                                            </span>Facebook</asp:LinkButton>
-                                        </div>
 
-                                        <asp:Label ID="lblMessage" ForeColor="Red" Style="border: solid 1px red" runat="server"
-                                            CssClass="error-text col-md-11 col-sm-11 col-xs-11 pn text-left fs14" Visible="false">&nbsp;</asp:Label>
-
-                                        <%-- <a class="button btn-social twitter span-left btn-block" href="#">
-                                                <span><i class="fa fa-twitter"></i>
-                                                </span>Twitter</a>
-                                            <a class="button btn-social googleplus span-left btn-block" href="#">
-                                                <span><i class="fa fa-google-plus"></i>
-                                                </span>Google+</a>--%>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="Col-md-12 col-sm-12 col-xs-12 pn">
-                                <h3 class="mn">Not a member yet? It's free, and only takes seconds ! </h3>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 panel-footer">
-                            <div class="col-md-3 col-sm-4 col-xs-7 pn">
+                            <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <label class="block mt15 option option-default">
                                     <asp:CheckBox ID="chkRememberMe" runat="server"></asp:CheckBox>
                                     <span class="checkbox"></span>Remember me
-                               
                                 </label>
                             </div>
-                            <div class="col-md-3 col-sm-3 col-xs-5 pt20 pb10 pn">
+                            <div class="col-md-6 col-sm-6 col-xs-6 mt15">
                                 <a class="fs14" href="forget_pass.aspx">Forgot password?</a>
                                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
                             </div>
-                            <div class="col-md-6 col-sm-5 col-xs-12 pn text-right">
-                                <asp:Button ID="btnLogin" runat="server" ValidationGroup="Login" CssClass="button btn-primary" Text="Login" OnClick="btnLogin_Click" />
-                                <asp:Button ID="btnRegister" runat="server" CssClass="button btn-info mr5" Text="Sign Up" OnClick="btnRegister_Click" />
+                            </div>
+
+                             <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
+                             	<div class="col-md-11 col-sm-11 col-xs-11 pn">
+                             		<asp:Button ID="btnLogin" runat="server" ValidationGroup="Login" Style="width: 100%" CssClass="button btn-primary" Text="Log in" OnClick="btnLogin_Click" />
+                             	</div>
+                             </div>
+
+                                  <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 pn">
+                                            <asp:LinkButton runat="server" ID="lnkFacebookLogin" CssClass="button btn-social facebook span-left btn-block" ValidationGroup="Facebook" OnClick="lnkFacebookLogin_Click">
+                                            <span><i class="fa fa-facebook"></i>
+                                            </span>Log in with Facebook</asp:LinkButton>
+                                        </div>
+								</div>
+                                </div>
+
                             </div>
                         </div>
-                        <asp:HiddenField ID="hdnVal" runat="server" />
+                        <div class="col-md-12 col-sm-12 col-xs-12 panel-footer">
+                            <div class="col-md-6 col-sm-6 col-xs-6 pn text-left">
+                                No Account?
 
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 pn text-right">
+                            <asp:Button ID="btnRegister" runat="server" CssClass="button btn-info mr5" Text="Sign Up" OnClick="btnRegister_Click" /></div>
+                        </div>
+                        <asp:HiddenField ID="hdnVal" runat="server" />
+                        <div class="col-md-12 col-sm-12 col-xs-12 pn">
+                                    <!-- TODO: Remove -->
+                                        <asp:Label ID="lblMessage" ForeColor="Red" Style="border: solid 1px red" runat="server"
+                                            CssClass="error-text col-md-11 col-sm-11 col-xs-11 pn text-left fs14" Visible="false">&nbsp;</asp:Label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </form>
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
-
-    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
     <!-- Bootstrap -->
     <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Page Plugins -->
-
-    <%--<script type="text/javascript" src="content/assets/js/pages/login/EasePack.min.js"></script>
-    <script type="text/javascript" src="content/assets/js/pages/login/rAF.js"></script>
-    <script type="text/javascript" src="content/assets/js/pages/login/TweenLite.min.js"></script>
-    <script type="text/javascript" src="content/assets/js/pages/login/login.js"></script>--%>
 
     <!-- Theme Javascript -->
     <script type="text/javascript" src="content/assets/js/utility/utility.js"></script>
@@ -169,15 +147,13 @@
     <!-- Page Javascript -->
     <script type="text/javascript">
         jQuery(document).ready(function () {
-
             "use strict";
-
             // Init Theme Core      
             Core.init();
-
             // Init Demo JS
             Demo.init();
         });
     </script>
 </body>
 </html>
+

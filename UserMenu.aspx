@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
     <title>User Menu - Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
 
     <script type="text/javascript" src="include/js/superfish.js"></script>
@@ -100,7 +101,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pn">
                                         <span class="text-success fs24 fw600">Sell Surfboards</span>
                                         <br />
-                                        <small>New, used, or wanted items.</small><br />
+                                        <small>New or Used</small><br />
                                         <asp:Label ID="lblBoardCount" runat="server" CssClass="midorange12"></asp:Label>
                                     </div>
                                 </div>

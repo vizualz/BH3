@@ -1019,7 +1019,7 @@ namespace BoardHunt
             string uidvalue = HttpUtility.UrlEncode(Encrypt(Session["userId"].ToString().Trim()));
             string bidvalue = HttpUtility.UrlEncode(Encrypt(hdnEId.Value));
 
-            msg += "<a href=http://www.boardhunt.com/changepoststatus.aspx?uid=" + uidvalue + "&bid=" + bidvalue + ">If your board is sold or is no longer available then click HERE to remove it:</a>";
+            msg += "<a href=http://www.boardhunt.com/changepoststatus.aspx?uid=" + uidvalue + "&bid=" + bidvalue + ">Sold your board? Just click HERE to remove it.</a>";
 
 
 

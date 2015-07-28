@@ -19,21 +19,17 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.TextBox name;
 		
-		protected System.Web.UI.WebControls.Label lblErrName;
-		
 		protected System.Web.UI.WebControls.TextBox email;
-		
-		protected System.Web.UI.WebControls.Label lblErrEmail;
 		
 		protected System.Web.UI.WebControls.DropDownList cboSubject;
 		
 		protected System.Web.UI.WebControls.TextBox message;
 		
-		protected System.Web.UI.WebControls.Label lblErrMessage;
-		
 		protected System.Web.UI.WebControls.Button btnSend;
 		
 		protected System.Web.UI.WebControls.CustomValidator CustomValidator1;
+		
+		protected System.Web.UI.WebControls.Label lblErrorMsg;
 		
 		protected System.Web.UI.WebControls.Panel panelMailSent;
 	}

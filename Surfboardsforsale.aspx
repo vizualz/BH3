@@ -1,5 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Surfboardsforsale.aspx.cs" Inherits="BoardHunt.Surfboardsforsale" %>
 <%@ Register TagPrefix="bh" TagName="ShowBoost" Src="~/include/Controls/BoostHoriz.ascx" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 
 <%@ Reference Control="~/include/Controls/BoostHoriz.ascx"%>
@@ -8,16 +9,22 @@
 
 <head>
     <title>Used Surfboards | Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Find new and used surfboards for sale by others in the surfing community"/>
     <meta name="keywords" content="used surfboards, surfboards for sale, buy surfboards, sell surfboards, surfboard, surfboards, surfboard blogs, surfing blogs, surfboard advice" />
 
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/i18n/jquery-ui-i18n.min.js" type="text/javascript"></script>
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
     
     <script type="text/javascript" src="include/js/superfish.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
@@ -132,7 +139,7 @@
 <body>
     <form id="Form1" runat="server">
     <div id="main" align="center">
-        <!-- #include file="include/Header.aspx" -->
+	<bh:Header runat="server" />
         <%--PAGE NAV--%>
         <div align="center" style="width: 100%; border: 0px solid red">
             <div class="dkgrey12" align="left" style="width: 1000px; margin-left: 0px; margin-top: 20px;
@@ -687,50 +694,30 @@
             <div class="push">
             </div>
         </div>
-        <%--END MAIN--%>
-        <div align="center">
-            <!-- #include file="include/footer.aspx" -->
-        </div>
+        <%--END MAIN--%> 
     </div>        
   </form>
-
-     
-
-    <script type="text/javascript" src="include/js/googles.js"></script>
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>
 
-<%--CrazyEgg--%>
+    <!-- Theme Javascript -->
+    <script type="text/javascript" src="content/assets/js/utility/utility.js"></script>
+    <script type="text/javascript" src="content/assets/js/main.js"></script>
+    <script type="text/javascript" src="content/assets/js/demo.js"></script>
 
-<script type="text/javascript">
-    setTimeout(function () {
-        var a = document.createElement("script");
-        var b = document.getElementsByTagName('script')[0];
-        a.src = document.location.protocol + "//dnn506yrbagrg.cloudfront.net/pages/scripts/0011/7491.js";
-        a.async = true; a.type = "text/javascript"; b.parentNode.insertBefore(a, b)
-    }, 1);
-</script>
-
-<%--AdRoll
-<script type="text/javascript">
-    adroll_adv_id = "2R4YZKILEVHVTDFGBJ62S4";
-    adroll_pix_id = "BOYLAOCAHZFRHBZL7BLSVA";
-    (function () {
-        var oldonload = window.onload;
-        window.onload = function () {
-            __adroll_loaded = true;
-            var scr = document.createElement("script");
-            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-            scr.setAttribute('async', 'true');
-            scr.type = "text/javascript";
-            scr.src = host + "/j/roundtrip.js";
-            ((document.getElementsByTagName('head') || [null])[0] ||
-    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-            if (oldonload) { oldonload() }
-        };
-    } ());
-</script>
---%>
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            "use strict";
+            // Init Theme Core      
+            Core.init();
+            // Init Demo JS
+            Demo.init();
+        });
+    </script>
 </body>
 </html>

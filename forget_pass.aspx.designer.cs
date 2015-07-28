@@ -21,7 +21,7 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 		
-		protected System.Web.UI.WebControls.ImageButton imgContact;
+		protected System.Web.UI.WebControls.Button btnSearch;
 		
 		protected System.Web.UI.WebControls.Label lblStatus;
 		

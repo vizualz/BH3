@@ -25,12 +25,11 @@ namespace BoardHunt
     /// </summary>
     public partial class Login : System.Web.UI.Page
     {
-        //protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        //protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
+
         
         protected void Page_Load(object sender, System.EventArgs e)
         {
+			ErrorLog.ErrorRoutine (false, "Login: Page_Load");
             //FaceBookConnect.API_Key = "110490412616411";
             //FaceBookConnect.API_Secret = "be2db8948341ed782d6369120514dd55";
 
@@ -171,17 +170,17 @@ namespace BoardHunt
         public void CheckUserName(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
             args.IsValid = true;
+		
 
-            string usr = txtUsername.Text;
-
-            if ((!Regex.IsMatch(usr, @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")) || usr.Length == (int)0)
+			if ((!Regex.IsMatch(txtUsername.Text, @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")) || txtUsername.Text.Length < (int)1)
             {
                 args.IsValid = false;
-                CustomValidator1.ErrorMessage = "!";
+				//CustomValidator1.ErrorMessage = string.Empty;
                 lblMessage.Text = "&nbsp;Missing or invalid e-mail.&nbsp;";
                 lblMessage.BackColor = Color.White;
                 lblMessage.BorderColor = Color.Red;
                 lblMessage.Visible = true;
+				txtUsername.BorderColor = Color.Red;
             }
 
         }
@@ -190,14 +189,15 @@ namespace BoardHunt
 
             args.IsValid = true;
 
-            if ((string.Empty == txtPassword.Text) || (txtPassword.Text == ""))
+			if ((string.Empty == txtPassword.Text) || (txtUsername.Text.Length < (int)1))
             {
                 args.IsValid = false;
-                CustomValidator2.ErrorMessage = "!";
+				//CustomValidator2.ErrorMessage = string.Empty;
                 lblMessage.Text = "&nbsp;Type in a password.&nbsp;";
                 lblMessage.BackColor = Color.White;
                 lblMessage.BorderColor = Color.Red;
                 lblMessage.Visible = true;
+				txtPassword.BorderColor = Color.Red;
             }
         }
         /*

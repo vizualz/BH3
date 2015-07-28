@@ -1,7 +1,45 @@
-<div style="text-align: center;">
-<!-- Leader -->
-<script type='text/javascript'>
-    GA_googleFillSlot("Leader");
-</script>
-</div>
+    <div id="google-ads-1" style="text-align: center;"></div>
+    <script type="text/javascript"> 
+     
+        /* Calculate the width of available ad space */
+        ad = document.getElementById('google-ads-1');
+     
+        if (ad.getBoundingClientRect().width) {
+            adWidth = ad.getBoundingClientRect().width; // for modern browsers 
+        } else {
+            adWidth = ad.offsetWidth; // for old IE 
+        }
+
+        /* Replace ca-pub-XXX with your AdSense Publisher ID */ 
+        google_ad_client = "ca-pub-0007702553564747";
+     
+        /* Replace 1234567890 with the AdSense Ad Slot ID */ 
+        google_ad_slot = "2717757720";
+      
+        /* Do not change anything after this line */
+        if ( adWidth >= 728 )
+          google_ad_size = ["728", "90"];  /* Leaderboard 728x90 */
+        else if ( adWidth >= 468 )
+          google_ad_size = ["468", "60"];  /* Banner (468 x 60) */
+        else if ( adWidth >= 320 )
+          google_ad_size = ["320", "100"]; /* Large banner (320 x 100) */
+        else if ( adWidth >= 234 )
+          google_ad_size = ["234", "60"]; /* half banner (234 x 60) */
+        else
+          google_ad_size = ["125", "125"]; /* Button (125 x 125) */
+     
+        document.write (
+         '<ins class="adsbygoogle" style="display:inline-block;width:' 
+          + google_ad_size[0] + 'px;height:' 
+          + google_ad_size[1] + 'px" data-ad-client="' 
+          + google_ad_client + '" data-ad-slot="' 
+          + google_ad_slot + '"></ins>'
+        );
+      
+        (adsbygoogle = window.adsbygoogle || []).push({});
+     
+    </script>
+     
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
 

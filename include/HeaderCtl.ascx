@@ -41,7 +41,7 @@
                             </ul>
                         </li>
                         <li class="dropdown pl20">
-                            <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/Shaper/surfboards.aspx">New Surfboards<span class="caret"></span></a>
+                            <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/Shaper/surfboards.aspx">Shapers<span class="caret"></span></a>
                             <ul class="dropdown-menu mtn p5">
                                 <li><a href="/Shaper/ShaperHouse.aspx" class="fs15">ShaperHouse</a></li>
                                 <li><a href="/Shaper/surfboards.aspx" class="fs15">Latest Models</a></li>
@@ -49,20 +49,28 @@
                             </ul>
                         </li>
                         <li class="dropdown pl20">
-                            <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="#">Media<span class="caret"></span></a>
-                            <ul class="dropdown-menu mn p5">
-                                <li><a href="http://www.boardhunt.tumblr.com" class="fs15">Blog</a></li>
-                                <li><a href="/Shaper/ShaperVideos.aspx" class="fs15">Videos</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown pl20">
-                            <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/qna/list.aspx?iCat=1');">Tools<span class="caret"></span></a>
+                            <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="/Shaper/surfboards.aspx">Surf Shops<span class="caret"></span></a>
                             <ul class="dropdown-menu mtn p5">
-                                <li><a href="/qna/list.aspx?iCat=1" class="fs15">Ask-a-Pro</a></li>
-                                <li><a href="/Matrix.aspx" class="fs15">Board Matrix</a></li>
+                                <li><a href="/Shaper/ShaperHouse.aspx" class="fs15">Coming Soon!</a></li>
                             </ul>
                         </li>
-                        <li class="pl20"><a href="/Surfboardsforsale.aspx?loc=all&iCat=1" class="fs16 pn">Hunt</a></li>
+
+                        <li class="dropdown pl20">
+                        <a class="dropdown-toggle fs16 pn" data-toggle="dropdown" href="#">Other<span class="caret"></span></a>
+                           <ul class="dropdown-menu mtn p5">
+                                <li><a href="#" data-toggle="dropdown" class="fs15">Media</a></li>
+	      
+		                                <li><a href="http://www.boardhunt.tumblr.com" class="fs15">Blog</a></li>
+		                                <li><a href="/Shaper/ShaperVideos.aspx" class="fs15">Videos</a></li>
+
+                                
+                                <li><a href="#" data-toggle="dropdown" class="fs15">Tools</a></li>
+
+		                                <li><a href="/qna/list.aspx?iCat=1" class="fs15">Ask-a-Pro</a></li>
+		                                <li><a href="/Matrix.aspx" class="fs15">Board Matrix</a></li>
+                            </ul>
+                        </li>
+
                         <li class="pl20">
                             <asp:linkbutton id="lnkPost" class="fs16 pn" runat="server">Sell</asp:linkbutton>
                         </li>

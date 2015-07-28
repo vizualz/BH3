@@ -6,7 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Signup and sell your surfboard | Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="include/js/superfish.js"></script>
     <script src="include/js/bh.js" type="text/javascript"></script>
@@ -70,9 +71,11 @@
                                             </label>
                                         </div>
                                         <div class="col-md-1">
+                                        <!---
                                             <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtEmail" ValidationGroup="Register" CssClass="fs20 error" ErrorMessage="!" Display="Static"></asp:RequiredFieldValidator>
                                             <asp:CustomValidator ID="CustomValidator3" runat="server" ErrorMessage="!"
                                                 OnServerValidate="CheckEmail" CssClass="error"></asp:CustomValidator>
+                                                -->
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 pn mb10">
@@ -336,31 +339,6 @@
         //    }
         //}
     </script>
-    <script type='text/javascript'>
-
-        var _ues = {
-            host: 'boardhunt.userecho.com',
-            forum: '6121',
-            lang: 'en',
-            tab_corner_radius: 10,
-            tab_font_size: 20,
-            tab_image_hash: 'RmVlZGJhY2s%3D',
-            tab_alignment: 'left',
-            tab_text_color: '#FFFFFF',
-            tab_bg_color: '#FF9900',
-            tab_hover_color: '#FF6600'
-        };
-
-        (function () {
-            var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-            _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-        })();
-
-
-
-
-</script>
 
 
     <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>

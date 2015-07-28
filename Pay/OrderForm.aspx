@@ -1,22 +1,23 @@
 <%@ Page Language="C#" AutoEventWireup="false" Codebehind="OrderForm.aspx.cs" Inherits="BoardHunt.Pay.OrderForm" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html >
+<html lang="en">
 <head id="Head1" runat="server">
     <title>Buy - Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="../style/global.css" type="text/css" rel="stylesheet" />
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
-    <script type="text/javascript" src="../include/js/superfish.js"></script>
-
-    <script src="../include/js/bh.js" type="text/javascript"></script>
-
-    <link rel="stylesheet" type="text/css" media="screen" href="../style/superfish.css" />
+    <link href="style/global.css" type="text/css" rel="stylesheet" />
+    <script src="include/js/bh.js" type="text/javascript"></script>
 
     <script src="../include/js/jquery.cluetip.js" type="text/javascript"></script>
-
     <link rel="stylesheet" href="../style/jquery.cluetip.css" type="text/css" />
 
     <script type="text/javascript">
@@ -24,17 +25,17 @@
 
     $('input.Tips').cluetip({splitTitle: '|',clickThrough:     true});
 
-    jQuery(function(){
-        jQuery('ul.sf-menu').superfish();
-        });
     });
     </script>
 
 </head>
-<body>
-    <div id="main" align="center">
-        <form id="form1" runat="server">
-            <!--#include file="../include/header.aspx"-->
+<body style="background: none repeat scroll 0 0 #fff;">
+
+    <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
+	<bh:Header runat="server" />
+
+	<!--- BOOTSTRAPPY -->
+
             <div align="center">
                 <div align="center">
                     <div align="center" style="border: solid 0px red; width: 500px">
@@ -145,7 +146,6 @@
                             </div>
                             <div style="float: right; width: 200px; border: solid 0px red">
                                 <asp:ImageButton ID="imgBtnPay" runat="server" ImageUrl="../images/PP_btn_xpressCheckout.gif" OnClick="btnSubmit_Click" />
-                                <%--<span class="dkgrey14">[?]</span> --%>
                             </div>
                         </div>
                     </asp:Panel>
@@ -166,8 +166,6 @@
                     OnClick="btnSubmit_Click"></asp:Button>&nbsp;
                 <asp:Button ID="btnSubscribe" runat="server" CssClass="midgrey10" Text="Subscribe"
                     ForeColor="Black" BackColor="#ffcc00" OnClick="btnSubscribe_Click" Visible="false" />
-                <%--                <img src="../images/PymtsBy_150x40.gif" alt="PP" align="top" />&nbsp;<span class="Tips1"
-                    title="PayPal is a::fast, easy, and secure way to make online pymts"><span class="dkgrey14">[?]</span></span>--%>
             </div>
             <asp:HiddenField ID="hdnDiscountAmt" Value="0" runat="server" />
             <asp:HiddenField ID="hdnInvoiceNo" Value="0" runat="server" />
@@ -183,9 +181,32 @@
             </div>
         </form>
         <br />
-    </div>
-    <div align="center">
-        <!--#include file="../include/footer.aspx"-->
-    </div>
+
+
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Page Plugins -->
+
+    <!-- Theme Javascript -->
+    <script type="text/javascript" src="content/assets/js/utility/utility.js"></script>
+    <script type="text/javascript" src="content/assets/js/main.js"></script>
+    <script type="text/javascript" src="content/assets/js/demo.js"></script>
+
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            "use strict";
+
+            // Init Theme Core      
+            Core.init();
+
+            // Init Demo JS
+            Demo.init();
+        });
+    </script>
 </body>
 </html>

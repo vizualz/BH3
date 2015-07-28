@@ -8,7 +8,6 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
-//using System.Net.Mail;
 
 
 namespace BoardHunt
@@ -18,10 +17,6 @@ namespace BoardHunt
 	/// </summary>
 	public partial class contact : System.Web.UI.Page
 	{
-
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        protected System.Web.UI.WebControls.LinkButton lnkPost;
         
 
         #region Web Form Designer generated code
@@ -40,9 +35,6 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
 
         }
@@ -52,8 +44,6 @@ namespace BoardHunt
         protected void Page_Load(object sender, System.EventArgs e)
 		{
 
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
 	        panelMailSent.Visible = false;
 
             if (!Page.IsPostBack)
@@ -84,47 +74,26 @@ namespace BoardHunt
             if (!(name.Text.Length > 0))
             {
                 args.IsValid = false;
-                lblErrName.Text = "!";
+				name.BorderColor = Color.Red;
             }
 
             if (!(email.Text.Length > 0))
             {
                 args.IsValid = false;
-                lblErrEmail.Text = "!";
+				email.BorderColor = Color.Red;
             }
 
             if (!(message.Text.Length > 0))
             {
                 args.IsValid = false;
-                lblErrMessage.Text = "!";
+				message.BorderColor = Color.Red;
             }
         }
-/**
-*/ 
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
 
-            Global.NavigatePage(lnkSignIn.Text);
-
-        }
-/*
- */ 
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-
-        }
-/*
- */ 
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx");
-
-        }
 
 /*
 */
-        private void btnSend_Click(object sender, System.EventArgs e)
+        public void btnSend_Click(object sender, System.EventArgs e)
         {
             if (!Page.IsValid) 
                 return;
@@ -141,9 +110,10 @@ namespace BoardHunt
             }
             catch (System.Web.HttpException ehttp)
             {
-                ErrorLog.ErrorRoutine(false, "Error: " + ehttp.Message);
-                lblErrMessage.Text = "Your e-mail address is invalid.  Please fix and resend.";
-                lblErrMessage.CssClass = "errorLabel";
+                ErrorLog.ErrorRoutine(false, "ContactUs_Send: " + ehttp.Message);
+				lblErrorMsg.Text = "E-mail address is invalid.";
+				lblErrorMsg.BorderColor = Color.Red;
+
             }
 
             finally

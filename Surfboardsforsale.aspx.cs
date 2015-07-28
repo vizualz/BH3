@@ -36,9 +36,6 @@ namespace BoardHunt
 		protected System.Web.UI.WebControls.Panel pnlPageBtm;
 
 		protected System.Web.UI.WebControls.LinkButton lnkBtnImg;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
 		protected System.Web.UI.WebControls.LinkButton LinkButton1;
 		protected System.Web.UI.WebControls.LinkButton LinkButton2;
 		protected System.Web.UI.WebControls.LinkButton lnkBtnPrice;
@@ -133,16 +130,12 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+
 			this.cmdPrev.Click  += new System.Web.UI.ImageClickEventHandler(this.cmdPrev_Click);
 			this.topcmdPrev.Click += new System.Web.UI.ImageClickEventHandler(this.cmdPrev_Click);
 			this.cmdNext.Click += new System.Web.UI.ImageClickEventHandler(this.cmdNext_Click);
 			this.topcmdNext.Click += new System.Web.UI.ImageClickEventHandler(this.cmdNext_Click);
-			this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
-
-			//this.cmdNext.TextChanged += new System.EventHandler(this.cmdNext.TextChanged);
+			//this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
 
 		}
 		#endregion
@@ -155,7 +148,7 @@ namespace BoardHunt
 
 				if (Session["isPro"].ToString() == "1")
 				{
-					lnkUpgradeAcct.Visible = false;
+					//lnkUpgradeAcct.Visible = false;
 					hdnSash.Value = "1";
 				}
 				else
@@ -164,14 +157,10 @@ namespace BoardHunt
 			}
 			else
 			{
-				lnkUpgradeAcct.Visible = false;
+				//lnkUpgradeAcct.Visible = false;
 				hdnSash.Value = "0";
 			}
-
-
-			// Put user code to initialize the page here
-			lnkSignIn.Text = Global.SetLnkSignIn();
-			lnkSignUp.Text = Global.SetLnkSignUp();
+				
 
 		}
 
@@ -1303,23 +1292,7 @@ namespace BoardHunt
 		{
 			Response.Redirect("surfboard.aspx?" + "iD=" + e.CommandArgument.ToString());//+ "&uId=" + e.CommandName.ToString() + "&iCat=" + Request.QueryString["iCat"].ToString());
 		}
-
-		private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkSignIn.Text);
-		}
-
-		private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkSignUp.Text);
-
-		}
-
-		private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx", true);
-
-		}
+			
 
 		private void cmdPrev_Click(object sender, System.Web.UI.ImageClickEventArgs e)
 		{
@@ -1331,11 +1304,7 @@ namespace BoardHunt
 			UpdatePanel1.Update ();
 
 		}
-
-		private void lnkUpgradeAcct_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkUpgradeAcct.Text);
-		}
+			
 
 		private void cmdNext_Click(object sender, System.Web.UI.ImageClickEventArgs e)
 		{

@@ -1,84 +1,50 @@
-Trace:    :Post:btnNext_Click: ly4qn33yp03cticvlr2lmj44 isPB: True
-Date		: 7/1/2015 Time: 22:30:32.9258649
+Trace:    :ItemsGet-Start: DLCount: 0 fromBtnSearch: False isAscyncPB: False
+Date		: 7/27/2015 Time: 12:39:09.2585961
 ^^-------------------------------------------------------------------^^
-Trace:    :PI: Pg_Load:IsPB: False SessionID: ly4qn33yp03cticvlr2lmj44 Browser: Chrome
-Date		: 7/1/2015 Time: 22:30:33.7539901
+Trace:    :SFS2:ItemsGet:strSQL: backFromQuery 
+Date		: 7/27/2015 Time: 12:39:09.2898431
 ^^-------------------------------------------------------------------^^
-Trace:    :PI: Pg_Load:IsPB: False SessionID: ly4qn33yp03cticvlr2lmj44 Browser: Chrome
-Date		: 7/1/2015 Time: 22:30:53.5352417
+Trace:    :IG: CurrentPage: 0
+Date		: 7/27/2015 Time: 12:39:09.2898431
 ^^-------------------------------------------------------------------^^
-Trace:    :PI: Pg_Load:IsPB: False SessionID: ly4qn33yp03cticvlr2lmj44 Browser: Chrome
-Date		: 7/1/2015 Time: 22:31:10.5196087
+Trace:    :IG: CurrentPage: txtHiCurrentPage:1
+Date		: 7/27/2015 Time: 12:39:09.2898431
 ^^-------------------------------------------------------------------^^
-Trace:    :PI: Pg_Load:IsPB: False SessionID: ly4qn33yp03cticvlr2lmj44 Browser: Chrome
-Date		: 7/1/2015 Time: 22:31:21.3008560
+Trace:    :SFS2:ItemsGet END: DLCountEnd: 50
+Date		: 7/27/2015 Time: 12:39:09.3054676
 ^^-------------------------------------------------------------------^^
-Trace:    :PI: Pg_Load:IsPB: True SessionID: ly4qn33yp03cticvlr2lmj44 Browser: Chrome
-Date		: 7/1/2015 Time: 22:31:27.3633585
+Trace:    :Error: BH Application Error
+
+URL: http://www.malzook.com/Surfboardsforsale.aspx?iCat=1&bt=1
+
+Error in Path :/Surfboardsforsale.aspx
+
+Referral URL : http://www.malzook.com/register_user.aspx
+
+Error Raw Url :/Surfboardsforsale.aspx?iCat=1&bt=1
+
+Error InnerException :System.NullReferenceException: Object reference not set to an instance of an object.
+   at BoardHunt.Surfboardsforsale.HeaderInit()
+   at BoardHunt.Surfboardsforsale.Page_Load(Object sender, EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+Error Message :Exception of type 'System.Web.HttpUnhandledException' was thrown.
+
+Error Source :System.Web
+
+Error Stack Trace :   at System.Web.UI.Page.HandleError(Exception e)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   at System.Web.UI.Page.ProcessRequest()
+   at System.Web.UI.Page.ProcessRequest(HttpContext context)
+   at ASP.surfboardsforsale_aspx.ProcessRequest(HttpContext context) in c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\4139257e\588f6731\App_Web_surfboardsforsale.aspx.cdcab7d2.abdm_8wi.0.cs:line 0
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+Error TargetSite :Boolean HandleError(System.Exception)
+Date		: 7/27/2015 Time: 12:39:10.3523443
 ^^-------------------------------------------------------------------^^
-Trace:    :PI:btnNext_Click: ly4qn33yp03cticvlr2lmj44
-Date		: 7/1/2015 Time: 22:31:27.4102472
-^^-------------------------------------------------------------------^^
-Trace:    :FileCnt: 3 SID: ly4qn33yp03cticvlr2lmj44
-Date		: 7/1/2015 Time: 22:31:27.4258702
-^^-------------------------------------------------------------------^^
-Trace:    :File 0:136463
-Date		: 7/1/2015 Time: 22:31:27.4258702
-^^-------------------------------------------------------------------^^
-Trace:    :File 1:1518342
-Date		: 7/1/2015 Time: 22:31:27.4258702
-^^-------------------------------------------------------------------^^
-Trace:    :File 2:293363
-Date		: 7/1/2015 Time: 22:31:27.4258702
-^^-------------------------------------------------------------------^^
-Trace:    :PI:btnNext_Click:Done ly4qn33yp03cticvlr2lmj44
-Date		: 7/1/2015 Time: 22:31:27.4414910
-^^-------------------------------------------------------------------^^
-Trace:    :PI:btnNext_Click:BoardItem OK:SID: ly4qn33yp03cticvlr2lmj44
-Date		: 7/1/2015 Time: 22:31:27.4414910
-^^-------------------------------------------------------------------^^
-Trace:    :UpLoadAllImages
-Date		: 7/1/2015 Time: 22:31:27.4571174
-^^-------------------------------------------------------------------^^
-Trace:    :UpLoadAllImages:path: E:\HostingSpaces\vizualz\malzook.com\wwwroot\users\0\0\0\0\0\0\0\1\6\2\temp\
-Date		: 7/1/2015 Time: 22:31:27.4571174
-^^-------------------------------------------------------------------^^
-Trace:    :Post_Item:UpdateAllImages-Error: Cannot access a closed file.
-Date		: 7/1/2015 Time: 22:31:27.4571174
-^^-------------------------------------------------------------------^^
-Trace:    :UpLoadAllImages:path: E:\HostingSpaces\vizualz\malzook.com\wwwroot\users\0\0\0\0\0\0\0\1\6\2\temp\
-Date		: 7/1/2015 Time: 22:31:27.4571174
-^^-------------------------------------------------------------------^^
-Trace:    :Post_Item:UpdateAllImages-Error: Cannot access a closed file.
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :UpLoadAllImages:path: E:\HostingSpaces\vizualz\malzook.com\wwwroot\users\0\0\0\0\0\0\0\1\6\2\temp\
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :Post_Item:UpdateAllImages-Error: Cannot access a closed file.
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :blnProcImages: True - lstUploadedFiles: 3
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :PI:btnNext_Click:checkAfterUpload:ly4qn33yp03cticvlr2lmj44:BoardItem OK
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :PI:btnNext_Click(): EOF: SESSION item OK
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :going to post_prev
-Date		: 7/1/2015 Time: 22:31:27.4727408
-^^-------------------------------------------------------------------^^
-Trace:    :Preview_post:Page_Load:SID: ly4qn33yp03cticvlr2lmj44 isPB: False
-Date		: 7/1/2015 Time: 22:31:28.1602320
-^^-------------------------------------------------------------------^^
-Trace:    :Preview_post:Page_Load:END:SID:ly4qn33yp03cticvlr2lmj44 isPB: False
-Date		: 7/1/2015 Time: 22:31:28.1914828
-^^-------------------------------------------------------------------^^
-Trace:    :Preview_post:Page_Load:SID: ly4qn33yp03cticvlr2lmj44 isPB: False
-Date		: 7/1/2015 Time: 22:31:28.1914828
-^^-------------------------------------------------------------------^^
-Trace:    :Preview_post:Page_Load:END:SID:ly4qn33yp03cticvlr2lmj44 isPB: False
-Date		: 7/1/2015 Time: 22:31:28.1914828
+Trace:    :About to Redirect to error page: UnhandledException
+Date		: 7/27/2015 Time: 12:39:10.3523443
 ^^-------------------------------------------------------------------^^

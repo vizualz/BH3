@@ -86,9 +86,6 @@ namespace BoardHunt.Pay
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             this.Load += new System.EventHandler(this.Page_Load);
 
         }
@@ -101,11 +98,7 @@ namespace BoardHunt.Pay
             if (!Page.IsPostBack)
             {
                 Global.AuthenticateUser();
-				classes.Email.SendErrorEmail("Pageview on Orderform: user: " + Session["userId"].ToString() + " ServiceId: " + Session["ServiceId"] );
-
-                // Put user code to initialize the page here
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();
+				classes.Email.SendErrorEmail("FYI: Pageview on Orderform: user: " + Session["userId"].ToString() + " ServiceId: " + Session["ServiceId"] );
 
                 pnlError.Visible = false;
                 lblErrorMessage.Text = string.Empty;
@@ -293,12 +286,10 @@ namespace BoardHunt.Pay
                         pnlError.Visible = true;
                         lblErrorMessage.Text = "How did you hear about surfboard voucher?";
                         lblErrorMessage.Visible = true;
-                        cboRefer.BackColor = Color.Pink;
+                        cboRefer.BackColor = Color.Red;
                         return;
                     }
                 }
-                //TODO: log the referral
-
 
                 //Lets go to PayPal site
                 this.HandlePayPalRedirection(); // this will end this request!

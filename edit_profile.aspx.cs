@@ -43,9 +43,6 @@ namespace BoardHunt
 		protected System.Web.UI.WebControls.Label Label5;
         protected System.Web.UI.WebControls.TextBox txtPassword2;
         protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
 
         //for Shaperhouse
         protected const int BitMask_0 = 1;
@@ -77,10 +74,6 @@ namespace BoardHunt
 			
 			// Put user code to initialize the page here
             Global.AuthenticateUser(Request.Url.ToString());			
-			
-			// Put user code to initialize the page here
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
 	
 			if (!(Page.IsPostBack))
 			{
@@ -92,27 +85,6 @@ namespace BoardHunt
 
 		}
 
-		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
-		{
-			//
-			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
-			//
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
-		}
-		#endregion
 
 		//===============================
 		//Error Checking & Helper Functions
@@ -223,26 +195,7 @@ namespace BoardHunt
         {
             pnlChangePwd.Visible = pnlChangePwd.Visible ? false : true;
         }
-/*
- */ 
-		private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-				Global.NavigatePage(lnkSignIn.Text);
-		}
-/*
- */ 
-		private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-				Global.NavigatePage(lnkSignUp.Text);
-			
-		}
-/**
-*/
-         private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx");
-			
-		}		
+	
 
 /**
  */ 
@@ -359,7 +312,6 @@ namespace BoardHunt
             catch (Exception ex)
             {
                 ErrorLog.ErrorRoutine(false, "Edit_Profile:Error:" + ex.Message);
-                //classes.Email.SendErrorEmail("Edit_Profile:Error" + ex.Message);
             }
             finally
             {

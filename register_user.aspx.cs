@@ -89,7 +89,7 @@ namespace BoardHunt
             if (!chkIAgree.Checked)
             {
                 args.IsValid = false;
-                CustomValidator3.ErrorMessage = "!";
+                //CustomValidator3.ErrorMessage = "!";
             }
         }
 
@@ -101,7 +101,7 @@ namespace BoardHunt
             if (!chkCOPPA.Checked)
             {
                 args.IsValid = false;
-                CustomValidator3.ErrorMessage = "!";
+                //CustomValidator3.ErrorMessage = "!";
             }
         }
 
@@ -233,7 +233,7 @@ namespace BoardHunt
             }
             else
             {
-                CustomValidator3.ErrorMessage = "!";
+                //CustomValidator3.ErrorMessage = "!";
                 pnlError.Visible = true;
                 lblStatus.Text = "Enter in a valid e-mail.";
                 //lblStatus.CssClass = "errorLabel";

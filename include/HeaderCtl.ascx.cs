@@ -13,7 +13,6 @@ namespace BoardHunt.include
 
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
-			//Global.AuthenticateUser ();
 
 			lnkSignIn.Text = Global.SetLnkSignIn();
 			lnkSignUp.Text = Global.SetLnkSignUp();
@@ -40,7 +39,7 @@ namespace BoardHunt.include
 		{
 			Response.Redirect("post.aspx", true);
 		}
-/*
+
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)
 		{
@@ -64,7 +63,7 @@ namespace BoardHunt.include
 
 		}
 		#endregion
-*/
+
 	}
 }
 

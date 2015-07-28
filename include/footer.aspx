@@ -38,7 +38,7 @@
                     <img src="http://boardhunt.com/images/social/stumbleupon_footer.gif" border="0" alt="stumbleupon" /></a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pn">
-                <span class="text-white">© 2012 Boardhunt LLC</span>
+                <span class="text-white">© 2015 Boardhunt LLC</span>
             </div>
         </div>
     </div>

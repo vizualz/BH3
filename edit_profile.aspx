@@ -1,4 +1,5 @@
 <%@ Page Codebehind="edit_profile.aspx.cs" Language="c#" AutoEventWireup="True" Inherits="BoardHunt.edit_profile" %>
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,7 +28,7 @@
 <body>
     <div id="main" align="center">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <bh:Header runat="server" />
             <div align="center">
                 <div align="center" style="width: 400px">
                     <span class="midorange14b">

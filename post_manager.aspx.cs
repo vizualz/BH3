@@ -26,9 +26,6 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.HiddenField hdnCat;
         protected System.Web.UI.WebControls.CheckBox chkPublish;
 		//protected System.Web.UI.WebControls.Button btnDelete;
-		protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-		protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-		protected System.Web.UI.WebControls.LinkButton lnkPost;
         //protected System.Web.UI.WebControls.LinkButton lnkBtnView;
 		
 		protected void Page_Load(object sender, System.EventArgs e)
@@ -49,10 +46,7 @@ namespace BoardHunt
             {
                 Global.AuthenticateUser(Request.Url.ToString());
             }
-
-			// Put user code to initialize the page here
-			lnkSignIn.Text = Global.SetLnkSignIn( );
-			lnkSignUp.Text = Global.SetLnkSignUp( );
+				
 
             // Call the ItemsGet method to populate control,
             ItemsGet();
@@ -78,9 +72,6 @@ namespace BoardHunt
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-			this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-			this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             this.cmdPrev.Click += new System.Web.UI.ImageClickEventHandler(this.cmdPrev_Click);
             this.cmdNext.Click += new System.Web.UI.ImageClickEventHandler(this.cmdNext_Click);
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -465,27 +456,7 @@ namespace BoardHunt
 
         } 
 
-/**
- */         
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-		{
-            BusinessLogic.HelperFunctions.FaceBookLogout(Session);	
-			Global.NavigatePage(lnkSignIn.Text);
-		}
-/**
- */ 
-		private void lnkSignUp_Click(object sender, System.EventArgs e)
-		{
-			Global.NavigatePage(lnkSignUp.Text);
-			
-		}
-/**
- */ 
-		private void lnkPost_Click(object sender, System.EventArgs e)
-		{
-			Response.Redirect("post.aspx", true);
-			
-		}
+
 /**
  */
         public void ViewItem(object src, CommandEventArgs e)

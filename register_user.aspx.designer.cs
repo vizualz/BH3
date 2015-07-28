@@ -17,10 +17,6 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.TextBox txtEmail;
 		
-		protected System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
-		
-		protected System.Web.UI.WebControls.CustomValidator CustomValidator3;
-		
 		protected System.Web.UI.WebControls.TextBox txtPassword1;
 		
 		protected System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;

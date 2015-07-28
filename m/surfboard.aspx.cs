@@ -882,7 +882,7 @@ namespace BoardHunt.m
         {
             string msg = "I'm interested in your " + lblBrandData.Text + " board:<br>";
             msg += Request.Url.ToString();
-            msg += "<br><br>Email me back and let me know if it's still available.  Thanks.";
+            msg += "<br><br>Email me back and let me know if it's still available.  Thanks.<br/>";
 
             ErrorLog.ErrorRoutine(false, "To: " + Session["Email"].ToString() + " From: " + Session["EmailId"].ToString());
             classes.Email.SendEmail("Your board was Nudged", Session["Email"].ToString(), Session["EmailId"].ToString(), msg, true);

@@ -80,24 +80,13 @@ namespace BoardHunt
 {
     public partial class index : System.Web.UI.Page
     {
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        //protected System.Web.UI.WebControls.LinkButton lnkPost;
-        //protected System.Web.UI.WebControls.DropDownList cboLocation;
+
         protected System.Web.UI.WebControls.TextBox txtKeywords;
         protected System.Web.UI.WebControls.Label lblSold;
 
         #region Web Form Designer generated code
         override protected void OnInit(EventArgs e)
         {
-            //int i = Request.Url.ToString().IndexOf("www.");
-            //if (i == -1)
-            //{
-            //    //Response.Clear();
-            //    //Response.Status = "301 Moved Permanently";
-            //    //Response.AddHeader("Location", System.Configuration.ConfigurationSettings.AppSettings["ServerURL"].ToString());
-            //    //Response.End();
-            //}
 
             //
             // CODEGEN: This call is required by the ASP.NET Web Form Designer.
@@ -112,9 +101,6 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            //this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
             this.Load += new System.EventHandler(this.Page_Load);
 
         }
@@ -123,47 +109,18 @@ namespace BoardHunt
         protected void Page_Load(object sender, EventArgs e)
         {
             // Put user code to initialize the page here
-            if (!Page.IsPostBack)
-            {
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();
-                BindData();
-            }
+            //if (!Page.IsPostBack)
+            //{
+            //    BindData();
+            //}
 
-            //ErrorLog.ErrorRoutine(false, "Ver: " + System.Environment.Version);
-            //ErrorLog.ErrorRoutine(false, "SerVer: " + Request.ServerVariables["SERVER_SOFTWARE"]);
         }
 /*
  */
         public void BindData()
         {
             return;
-            string strSQL = string.Empty;
-            strSQL = "SELECT COUNT(*) as scount FROM tblEntry WHERE iStatus = 3";
 
-            IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
-
-            try
-            {
-                dbManager.Open();
-                dbManager.ExecuteReader(CommandType.Text, strSQL);
-                if (dbManager.DataReader.Read())
-                {
-                    lblSold.Text = dbManager.DataReader["scount"].ToString() + " Boards SOLD"; 
-                    
-                }
-
-            }
-            catch (Exception ex)
-            {
-                ErrorLog.ErrorRoutine(false, "index:bindData:Error:" + ex.Message);
-            }
-            finally
-            {
-                dbManager.Close();
-                dbManager.Dispose();
-            }
         }
 /*
  */
@@ -189,14 +146,11 @@ namespace BoardHunt
                 string redirHere = "Surfboardsforsale.aspx?" + qryString;
                 Response.Redirect(redirHere, true);
             }
+			else if(e.CommandName == ""){
 
+			}
         }
-/*
- */
-        public void txtKeywords_Click(Object sender, System.Web.UI.WebControls.CommandEventArgs e)
-        {
 
-        }
 /*
  */
         public string FormatHeightFt(object heightFt)
@@ -264,30 +218,9 @@ namespace BoardHunt
             //txtChunk = oChunk.ToString().PadRight(15, c);
             //return Global.ReplaceEx(txtChunk, "#", @"&nbsp;");
         }
-        /*
-         */
-        public void View_ItemDetail(object sender, DataListCommandEventArgs e)
-        {
 
-        }
-/*
- */
-        protected void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignIn.Text);
-        }
 /*
 */
-        protected void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-        }
-/*
-*/
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx",true);
-        }
 
         protected void btnSearchSurfboard_Click(object sender, EventArgs e)
         {
@@ -298,5 +231,10 @@ namespace BoardHunt
         {
             Response.Redirect("post.aspx", true);
         }
+
+		protected void btnLogin_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("login.aspx", true);
+		}
     }
 }
