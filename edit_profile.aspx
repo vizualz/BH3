@@ -1,32 +1,33 @@
 <%@ Page Codebehind="edit_profile.aspx.cs" Language="c#" AutoEventWireup="True" Inherits="BoardHunt.edit_profile" %>
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Edit Profile - Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <title>Profile - Boardhunt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery -->
+    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
     <script type="text/javascript" src="include/js/bh.js"></script>
-
     <link href="style/global.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <!-- Font CSS (Via CDN) -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
 
-    <script type="text/javascript" src="include/js/superfish.js"></script>
 
-    <script type="text/javascript">
-          $(document).ready(function() {
-            jQuery(function(){
-                jQuery('ul.sf-menu').superfish();
-            });
-          });
-    </script>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
+
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 
 </head>
-<body>
-    <div id="main" align="center">
+<body style="background: none repeat scroll 0 0 #fff;">
+<div class="container-fluid">
         <form class="header" id="Form1" runat="server">
             <bh:Header runat="server" />
             <div align="center">
@@ -35,6 +36,26 @@
                         <asp:HyperLink runat="server" ID="lnkMenu" NavigateUrl="UserMenu.aspx" CssClass="orange_orange14u">MENU</asp:HyperLink>
                         &nbsp;&gt;&nbsp;MY ACCOUNT INFO</span>
                 </div>
+
+                <!--- FAB!!!  We need to wrap everything inside this block below-->
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div role="tabpanel" id="login1" class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
+                    <div class="panel panel-warning heading-border">
+                        <div class="panel-heading">
+                            <div class="col-md-4 col-sm-5 col-xs-6 text-left">
+                                <span class="panel-title"><i class="fa fa-sign-in hidden-xs"></i>Login</span>
+                            </div>
+                        </div>
+                        <div class="panel-body p15 pt10">
+                            <div class="section row">
+                            </div>
+						</div>
+					</div>
+				</div>
+</div>
+<!--- wrap everything below to the above block -->
+
+
                 <asp:Panel ID="pnlRegister" runat="server">
                     <table cellspacing="0" cellpadding="0" bgcolor="F0F0F0" border="0" bordercolor="#CCCCCC">
                         <tr>
@@ -44,13 +65,9 @@
                                         <td bgcolor="#CCCCCC" colspan="2" style="height: 5px">
                                             <img src="images/s1x1.gif" alt="" /></td>
                                     </tr>
-                                    <%--                                    <tr>
-                                        <td bgcolor="#CCCCCC" class="white20b" align="center" colspan="3" height="10px">
-                                            &nbsp;&nbsp;&nbsp;Edit Your Info and click &quot;Save&quot;</td>
-                                    </tr>--%>
                                     <tr>
                                         <td class="white24b" style="background-color: #CCCCCC;" align="left" colspan="2">
-                                            <span >&nbsp;Profile:</span></td>
+                                            <span >&nbsp;Profile</span></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -87,8 +104,6 @@
                                             Full name:&nbsp;</td>
                                         <td align="left" style="width: 300px">
                                             <asp:TextBox ID="txtFullName" runat="server" CssClass="dkrgrey14" Style="width: 200px"></asp:TextBox>
-                                            <!-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFullName"
-                                                Font-Bold="True" ErrorMessage="!"></asp:RequiredFieldValidator>-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -148,7 +163,7 @@
                                     </tr>
                                     <tr>
                                         <td class="dkgrey18b" style="height: 40px;" align="left" valign="top" colspan="2">
-                                            <span style="width: 100%">&nbsp;Settings:&nbsp;</span><br />
+                                            <span style="width: 100%">&nbsp;Settings&nbsp;</span><br />
                                             <hr />
                                         </td>
                                     </tr>
@@ -225,7 +240,7 @@
                                         <tr>
                                             <td colspan="2" align="left" style="height:10px">
                                                 <asp:Label runat="server" ID="lblShaperHouse" CssClass="dkgrey18b">
-                                            &nbsp;ShaperHouse Profile:
+                                            &nbsp;ShaperHouse Profile
                                             </asp:Label>
                                                 <br />
                                                 <hr />
@@ -344,9 +359,30 @@
             <div id="push">
             </div>
         </form>
-    </div>
-    <div align="center">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+
+
+</div><!-- END CONTAINER -->
+
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Theme Javascript -->
+    <script type="text/javascript" src="content/assets/js/utility/utility.js"></script>
+    <script type="text/javascript" src="content/assets/js/main.js"></script>
+    <script type="text/javascript" src="content/assets/js/demo.js"></script>
+
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            "use strict";
+            // Init Theme Core      
+            Core.init();
+            // Init Demo JS
+            Demo.init();
+        });
+    </script>
 </body>
 </html>

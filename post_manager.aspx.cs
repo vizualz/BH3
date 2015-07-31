@@ -27,30 +27,43 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.CheckBox chkPublish;
 		//protected System.Web.UI.WebControls.Button btnDelete;
         //protected System.Web.UI.WebControls.LinkButton lnkBtnView;
-		
+		protected System.Web.UI.WebControls.LinkButton lnkBtnAddNew;
+
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
             
             
-            //LinkButton lnkBtn = new LinkButton();
-            //lnkBtn = (LinkButton)FindControl("lnkBtnAddNew");
 
-            //if (lnkBtn == null)
-            //{
-            //    Response.Write("Not cool");
-            //    return;
-            //}
 
             // Put user code to initialize the page here
             if (!Page.IsPostBack)
             {
                 Global.AuthenticateUser(Request.Url.ToString());
+				/*
+				LinkButton lnkButton = (LinkButton)e.Item.FindControl("lnkBtnAddNew");
+				if (lnkButton != null)
+				{
+					lnkButton.Click += new EventHandler(ProcessClick);
+
+					switch (hdnAdType.Value)
+					{
+					case "1":
+						lnkButton.Text = "[+ New]";
+						break;
+					case "4":
+						lnkButton.Text = "[+ New]";
+						break;
+					default:
+						break;
+
+					}
+				}
+				*/
             }
 				
 
-            // Call the ItemsGet method to populate control,
+            // Call the ItemsGet method to populate controls
             ItemsGet();
-
             Page.DataBind();
 
  
@@ -77,7 +90,7 @@ namespace BoardHunt
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             //this.lnkBtnView.Click += new System.EventHandler(this.lnkBtnView_Click);
-            //this.lnkBtnAddNew.Click += new System.EventHandler(this.lnkBtnAddNew_Click);
+            this.lnkBtnAddNew.Click += new System.EventHandler(this.lnkBtnAddNew_Click);
 
 		}
 		#endregion
@@ -164,7 +177,6 @@ namespace BoardHunt
                 dlEntryList.DataSource = objPds;
                 dlEntryList.DataBind();
 
-                //if hdnAdType
             }
             catch (Exception ex)
             {
@@ -185,13 +197,12 @@ namespace BoardHunt
                 case "1":
                     btnCancel.Visible = false;
                     btnUpdate.Visible = false;
-                    
-                    //lnkBtnAddNew.Text = "[+ Add New]";
+                    lnkBtnAddNew.Text = "+ Board";
                     break;
                 case "4":
                     btnCancel.Visible = true;
                     btnUpdate.Visible = true;
-                    //lnkBtnAddNew.Text = "[+ Add New Model]";
+                    lnkBtnAddNew.Text = "+ Model";
                     break;
                 default:
                     break;
@@ -377,7 +388,9 @@ namespace BoardHunt
  */
         public void dlEntryList_OnItemCreated(object sender, DataListItemEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Header)
+
+			/*
+			if (e.Item.ItemType == ListItemType.Header)
             {
                 LinkButton lnkButton = (LinkButton)e.Item.FindControl("lnkBtnAddNew");
                 if (lnkButton != null)
@@ -387,17 +400,17 @@ namespace BoardHunt
                     switch (hdnAdType.Value)
                     {
                         case "1":
-                            lnkButton.Text = "[+ Add New]";
+                            lnkButton.Text = "[+ Board]";
                             break;
                         case "4":
-                            lnkButton.Text = "[+ Add New Model]";
+                            lnkButton.Text = "[+ Model]";
                             break;
                         default:
                             break;
 
                     }
                 }
-            }
+            }*/
 
             if (e.Item.ItemType != ListItemType.Header || e.Item.ItemType != ListItemType.Footer)
             {
@@ -406,7 +419,7 @@ namespace BoardHunt
                 LinkButton lnkbtnView = (LinkButton)e.Item.FindControl("lnkBtnView");
                 LinkButton lnkbtn2 = (LinkButton)e.Item.FindControl("lnkBtnSold");
                 ImageButton imgBtnBoost = (ImageButton)e.Item.FindControl("btnUpgrade");
-                ImageButton imgBtnFB = (ImageButton)e.Item.FindControl("imgBtnFB");
+                //ImageButton imgBtnFB = (ImageButton)e.Item.FindControl("imgBtnFB");
                 CheckBox chkBox = (CheckBox)e.Item.FindControl("chkPublish");
                 if (chkBox != null)
                 {
@@ -420,7 +433,7 @@ namespace BoardHunt
                     {
                         imgBtnBoost.Visible = false;
                         lnkbtn2.Visible = false;
-                        imgBtnFB.Visible = true;
+                        //imgBtnFB.Visible = true;
                         chkBox.Visible = true;
                         return;
                     }
@@ -437,6 +450,7 @@ namespace BoardHunt
         {
 
         }
+
 /*
  */
         //private void ProcessClick(Object sender, CommandEventArgs e)
@@ -455,6 +469,8 @@ namespace BoardHunt
             }
 
         } 
+
+
 
 
 /**
@@ -699,6 +715,20 @@ namespace BoardHunt
         {
             Response.Redirect("UserMenu.aspx", false);
         }
+
+		public void lnkBtnAddNew_Click(Object sender, EventArgs e) 
+		{
+			switch (hdnAdType.Value)
+			{
+			case "4":
+				Response.Redirect("post_item.aspx?q=4", true);
+				break;
+			default:
+				Response.Redirect("post.aspx", true);
+				break;
+
+			}
+		}
 
     }
 }

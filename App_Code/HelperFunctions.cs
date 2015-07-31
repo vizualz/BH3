@@ -27,7 +27,9 @@ namespace BusinessLogic
 
         public static bool FaceBookLogin(FaceBookUser faceBookUser, System.Web.SessionState.HttpSessionState Session)
         {
-            myConnStr = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+			BoardHunt.ErrorLog.ErrorRoutine (false, "Trying FB");
+
+			myConnStr = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
 
             SqlConnection myConn = new SqlConnection(myConnStr);
 

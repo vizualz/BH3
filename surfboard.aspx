@@ -1,27 +1,32 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="surfboard.aspx.cs" Inherits="BoardHunt.surfboard" %>
-
+<%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 <%@ Register TagPrefix="bh" TagName="ShowBoost" Src="include/Controls/Boost.ascx" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
     <title>Surfboard For Sale | Boardhunt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Surfboards and other gear for sale, posted by surfers in the Boardhunt community." />
+   <!-- jQuery -->
+    <script type="text/javascript" src="content/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="content/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+
+    <!-- Font CSS (Via CDN) -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/skin/default_skin/css/theme.css">
+
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 
     <script language="JavaScript" src="include/js/bh.js" type="text/javascript"></script>
-
     <link href="style/global.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
-    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/base/jquery-ui.css" />
-
-   <%-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>--%>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
-
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-
-    <script type="text/javascript" src="include/js/superfish.js"></script>
 
     <script type="text/javascript" src="include/js/jquery.jgrowl.js"></script>
 
@@ -33,10 +38,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-
-            jQuery(function () {
-                jQuery('ul.sf-menu').superfish();
-            });
 
             $(function () {
                 $('#imgTup').hover(function () {
@@ -196,59 +197,29 @@
     </script>
 
 
-<!-- Google ads: Leader -->
+<!-- Google ads: Wide Skyscraper & Box -->
 
 <script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
 </script>
 <script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
-    GA_googleAddSlot("ca-pub-0007702553564747", "Leader");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
+    //GS_googleAddAdSenseService("ca-pub-0007702553564747");
+    //GS_googleEnableAllServices();
 </script>
 
-
-<!-- Google ads: Wide Skyscraper -->
-
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+<script type='text/javascript'>
+    //GA_googleAddSlot("ca-pub-0007702553564747", "Wide_Skyscraper");
+    //GA_googleAddSlot("ca-pub-0007702553564747", "Box");
+    //GA_googleAddSlot("ca-pub-0007702553564747", "Leader");
 </script>
 <script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
+    //GA_googleFetchAds();
 </script>
-<script type='text/javascript'>
-    GA_googleAddSlot("ca-pub-0007702553564747", "Wide_Skyscraper");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
-</script>
-
-<!-- Google ads: Box -->
-
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
-    GA_googleAddSlot("ca-pub-0007702553564747", "Box");
-</script>
-<script type='text/javascript'>
-    GA_googleFetchAds();
-</script>
-
-
 
 </head>
 <body bgcolor="#ffffff" onload="PreLoadImgs();">
     <div id="main" align="center">
         <form class="header" id="Form1" runat="server">
-            <!-- #include file="include/Header.aspx" -->
+            <bh:Header runat="server" />
             <%--PAGE NAV--%>
             <div align="left" style="width: 500px; margin-top:40px; margin-bottom:30px; margin-left:245px">
                 
@@ -350,7 +321,7 @@
                                                             <td colspan="2" style="height: 15px; background-color: #FFFFFF">
                                                                 <img src="images/s1x1.gif" alt=""></img></td>
                                                         </tr>
-                                                    </tr>
+                                                 
                                                 </table>
                                             </td>
                                             <!-- end left side -->
@@ -634,14 +605,29 @@
             <div id="push">
             </div>
         </form>
-        <%--MAIN--%>
-    </div>
-    <br />
-    <br />
-    <div align="center" id="footer">
-        <!-- #include file="include/footer.aspx" -->
-    </div>
+        </div>
+    <div class="clearfix"></div>
+    <!-- #include file="include/footer.aspx" -->
 
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Theme Javascript -->
+    <script type="text/javascript" src="content/assets/js/utility/utility.js"></script>
+    <script type="text/javascript" src="content/assets/js/main.js"></script>
+    <script type="text/javascript" src="content/assets/js/demo.js"></script>
+
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            "use strict";
+            // Init Theme Core      
+            Core.init();
+            // Init Demo JS
+            Demo.init();
+        });
+    </script>
     <%--Google analytics--%>
     <script type="text/javascript" src="../include/js/googles.js"></script>
 

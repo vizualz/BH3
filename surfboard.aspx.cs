@@ -77,10 +77,9 @@ namespace BoardHunt
         private void InitializeComponent()
         {
             //this.lnkLoginFirst.Click += new System.EventHandler(this.lnkLoginFirst_Click);
-            this.lnkSignIn.Click += new System.EventHandler(this.lnkSignIn_Click);
-            this.lnkSignUp.Click += new System.EventHandler(this.lnkSignUp_Click);
-            this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
-            this.lnkPost.Click += new System.EventHandler(this.lnkPost_Click);
+
+            //this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
+
             this.imgGoBack.Click += new System.Web.UI.ImageClickEventHandler(this.imgGoBack_Click);
             this.imgAddFav.Click += new System.Web.UI.ImageClickEventHandler(this.imgAddFav_Click);
 
@@ -1309,25 +1308,21 @@ namespace BoardHunt
          */
 
         public void HeaderInit()
-        {
+		{
+			/*
             if (Session["LoggedIn"].ToString() == "Yes")
             {
                 if (hdnAcctStatus.Value == "1")
-                    lnkUpgradeAcct.Visible = false;
+                    //lnkUpgradeAcct.Visible = false;
                 else
                     lnkUpgradeAcct.Visible = true;
             }
             else
                 lnkUpgradeAcct.Visible = false;
 
-
-
-            // Put user code to initialize the page here
-            lnkSignIn.Text = Global.SetLnkSignIn();
-            lnkSignUp.Text = Global.SetLnkSignUp();
         }
-        /*
-         */
+			*/
+		}
         public string FormatPicPath(object oDir, object oPic)
         {
             string serverURL = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"];
