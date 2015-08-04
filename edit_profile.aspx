@@ -108,8 +108,9 @@
                                             <asp:TextBox ID="txtAreaCode" runat="server" CssClass="dkrgrey14" Width="40px" MaxLength="3"></asp:TextBox>&nbsp;)
                                             -
                                             <asp:TextBox ID="txtPhoneNum" runat="server" CssClass="dkrgrey14" Width="100px" MaxLength="8"></asp:TextBox>
+
                                             <asp:CustomValidator ID="Customvalidator2" runat="server" Font-Bold="True" ErrorMessage="!"
-                                                OnServerValidate="CheckPhoneNum"></asp:CustomValidator></td>
+                                                OnServerValidate="CheckPhoneNum"></asp:CustomValidator></td> 
                                     </tr>
                                     <tr>
               
