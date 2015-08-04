@@ -212,7 +212,7 @@ namespace BoardHunt
             int iPhoneLength;
 
             pnlShaper.Visible = false;
-            pnlShaping.Visible = false;
+            //pnlShaping.Visible = false;
 
             tempPhone = string.Empty;
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
@@ -300,7 +300,7 @@ namespace BoardHunt
                     {
                         hdnIsShaper.Value = "1";
                         pnlShaper.Visible = true;
-                        pnlShaping.Visible = true;
+                        //pnlShaping.Visible = true;
                         txtHomeTown.Text = dbManager.DataReader["txtHomeTown"].ToString();
                         txtDetails.Text = dbManager.DataReader["txtUserDetails"].ToString();
                         txtShapingYrs.Text = dbManager.DataReader["iWisdom"].ToString();
