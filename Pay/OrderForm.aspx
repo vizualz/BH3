@@ -51,7 +51,6 @@
                     </asp:Panel>                
                 <br />
                 <div align="center">
-                    <asp:Panel ID="pnlCart" runat="server">
                         <div style="border: solid 1px #999999; width: 650px">
                             <table style="text-align:center" width="649" border="0" cellpadding="0" cellspacing="0">
                                 <tr class="white16b" style="background-color: #ff9900" align="center">
@@ -116,7 +115,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="5">
-                                        &nbsp;</td>
+                                        </td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="height: 10px" align="left">
@@ -148,7 +147,6 @@
                                 <asp:ImageButton ID="imgBtnPay" runat="server" ImageUrl="../images/PP_btn_xpressCheckout.gif" OnClick="btnSubmit_Click" />
                             </div>
                         </div>
-                    </asp:Panel>
                 </div>
                 <br />
                 <br />
@@ -184,7 +182,7 @@
 
 
     <div class="clearfix"></div>
-    <!-- #include file="include/footer.aspx" -->
+    <!-- #include file="../include/footer.aspx" -->
 
     <!-- Bootstrap -->
     <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>

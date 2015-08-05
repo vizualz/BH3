@@ -116,6 +116,8 @@ namespace BoardHunt.Pay
                 hdnServiceVal.Value = Session["ServiceId"].ToString();
                 hdnUserDir.Value = Session["userDir"].ToString();
 
+				ErrorLog.ErrorRoutine (false, "PageLoad" + " " + hdnServiceVal.Value + " " + hdnUserDir.Value);
+
                 switch (Session["ServiceId"].ToString())
                 {
                     case SVCS_COUPON:
@@ -168,7 +170,7 @@ namespace BoardHunt.Pay
 
             //TODO: UI tweaks for serviceIDs
             //Hide posting
-            lnkPost.Visible = false;
+            //lnkPost.Visible = false;
         }
 /*
  */
@@ -538,7 +540,7 @@ namespace BoardHunt.Pay
                             break;
                     }
                     imgBtnPay.Visible = false;
-                    pnlCart.Visible = false;
+                    //pnlCart.Visible = false;
 
                     btnSubmit.Visible = false;
                     btnSubscribe.Visible = false;
@@ -918,7 +920,9 @@ namespace BoardHunt.Pay
             unitVal = string.Empty;
 
             IDBManager dbManager = new DBManager(DataProvider.SqlServer);
-            dbManager.ConnectionString = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;;
+			dbManager.ConnectionString = ConfigurationManager.ConnectionStrings ["myConn"].ConnectionString;
+
+			ErrorLog.ErrorRoutine (false, "LoadService");
 
             strSQL = GetSQLForService();
 
@@ -960,6 +964,8 @@ namespace BoardHunt.Pay
 
                     lblTotal.Text = "$" + String.Format("{0:0.00}", decimal.Parse(this.OrderAmount.ToString()));
 
+					ErrorLog.ErrorRoutine (false, "LoadService: About to Switch");
+
                     //lblShipping, imgItem, lblUnitPrice, lnkBack, imgBtnPay, lblSubTotal
                     switch (Session["ServiceId"].ToString())
                     {
@@ -991,6 +997,7 @@ namespace BoardHunt.Pay
                             txtQuantity.ReadOnly = true;
                             txtQuantity.Visible = true;
                             btnUpdate.Visible = false;
+						ErrorLog.ErrorRoutine (false, "LoadService: Done w 1");
                             break;
                         //BIDDER
                         case "2":
@@ -1338,7 +1345,7 @@ namespace BoardHunt.Pay
 
             if (hideAll)
             {
-                pnlCart.Visible = false;
+                //pnlCart.Visible = false;
                 lblPageTitle.Visible = false;
                 lblPageTitleMsg.Visible = false;
             }
