@@ -62,7 +62,7 @@ namespace BoardHunt
 
                 if (qStr == "1")
                 {
-                    lblMessage.Text = "&nbsp;Please login or <a class='alert' href='register_user.aspx'><u>sign up</u></a> first!&nbsp;";
+                    lblMessage.Text = "&nbsp;Please login or <a class='alert' href='register_user.aspx'><u>join</u></a> first!&nbsp;";
                     lblMessage.BackColor = Color.White;
                     lblMessage.BorderColor = Color.Red;
                     lblMessage.Visible = false;

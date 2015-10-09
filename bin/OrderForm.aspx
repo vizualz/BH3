@@ -38,112 +38,102 @@
 <body style="background: none repeat scroll 0 0 #fff;">
 
     <form class="header" id="Form1" runat="server">
-            <bh:Header runat="server" />
-            <div class="container-fluid">
+        <div class="container-fluid">
+        <bh:Header runat="server" />
 
-           <div class="col-lg-12 col-md-12 col-sm-12col-xs-12">
-                <div class="admin-form tab-pane active col-lg-12 col-md-12 col-sm-12 col-xs-12" style=" float: none; margin: 0 auto;">
+    <!-- BOOTSTRAPPY leaving out the shell for now -->
+
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
-                        <div class="panel-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-                            <asp:Label ID="lblPageTitle" runat="server"></asp:Label><br />
-                            <asp:Label ID="lblPageTitleMsg" runat="server"></asp:Label>  
+                        <div class="panel-heading">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                            <asp:Label ID="lblPageTitle" CssClass="dkorange26b" runat="server"></asp:Label><br />
+                            <asp:Label ID="lblPageTitleMsg" CssClass="dkgrey12b" runat="server"></asp:Label>  
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                             <asp:Panel ID="pnlError" runat="server" CssClass="errorLabel" Visible="false">
-                            <asp:Label ID="lblErrorMessage" runat="server" ></asp:Label>
+                            <asp:Label ID="lblErrorMessage" runat="server" Height="80px" CssClass="black12b"></asp:Label>
                             </asp:Panel>  
                         </div>
                     </div>
                     <div class="panel-body p15 pt10">
-                    <div class="section row">
-	                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-	                    	<h2>&nbsp;Boardhunt Membership</h2>
-	                    </div>
-                    </div>
                         <div class="section row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                            	Description
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                            	Quantity
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                            	Shipping
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            	Price
+                            <div class="col-md-6 border-right">
                             </div>
                         </div>
                     </div>     
-                    <div class="container-responsive">
- 
+                    <div class="container">
+                            <h2>Boardhunt Membership</h2>
+                            <p>Our PRO membership makes board-hunting much easier. Send us an email at info @ boardhunt.com with your height, weight, boardtype, brand name and board height that you're looking for - and we will give you a FREE 3 month membership</p>  
                         <table class="table table-striped">
-
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Shipping</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-	                                    <asp:Label ID="lblItemTitle" runat="server" Visible="false"></asp:Label><br>
-	                                                 
-	                                    <asp:DropDownList ID="cboItemList" runat="server" Visible="false" OnSelectedIndexChanged="SelectedIndexChanged"></asp:DropDownList> 
-	                                                                       
-	                                    <asp:Label ID="lblItemDesc" runat="server"></asp:Label><br>
-	                                    <asp:Image ID="imgItem" runat="server" ImageUrl="../images/s1x1.gif" />
-	                                 </td>
-
-                                    <td>
-                                    	<asp:Label ID="lblQuantity" runat="server" Visible="false">
+                                    <td><asp:Label ID="lblItemTitle" CssClass="black12b" runat="server" Visible="false"></asp:Label>
+                                    </td>
+                                 
+                                    <td><asp:DropDownList ID="cboItemList" CssClass='dkgrey12b' runat="server" Visible="false" OnSelectedIndexChanged="SelectedIndexChanged"></asp:DropDownList></td>
+                                    <td><asp:Image ID="imgItem" runat="server" ImageUrl="../images/s1x1.gif" /></td>                                      
+                                    <td><asp:Label ID="lblItemDesc" CssClass="midgrey12b" runat="server"></asp:Label></td>
+                                     
+                                    <td><asp:DropDownList ID="cboRefer" CssClass='dkgrey12b' runat="server" 
+                                        Visible="false">
+                                        <asp:ListItem Text="Referred by..." Value="-1"></asp:ListItem>
+                                        <asp:ListItem Text="Sacred Craft" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList></td>
+                                    <td><asp:Label ID="lblQuantity" CssClass="midgrey12b" runat="server" Visible="false">
                                         </asp:Label>
-                                        <asp:TextBox ID="txtQuantity" runat="server" Visible="false">
+                                        <asp:TextBox ID="txtQuantity" CssClass='midgrey12b' runat="server" Visible="false">
                                         </asp:TextBox>
                                         <br />
                                         <br />
-                                        <asp:Button ID="btnUpdate" Text="Update" OnCommand="UpdateQuantity" CssClass="btnDoSm"
-                                            runat="server" />
-                                    </td>
-                                    <td><asp:Label ID="lblShipping" runat="server"></asp:Label></td>
-                                    <td><asp:Label runat="server" ID="lblUnitPrice"></asp:Label></td>
-                                    
+                                        <asp:Button ID="btnUpdate" Text="Update" OnCommand="UpdateQuantity" Width="70" CssClass="btnDoSm"
+                                            runat="server" /></td>
+                                </tr>
+                                <tr>           
+                                    <td><asp:Label CssClass='midgrey12b' ID="lblShipping" runat="server"></asp:Label></td>
+                                    <td><asp:Label CssClass='midgrey12b' runat="server" ID="lblUnitPrice"></asp:Label></td>
+                                    <td><asp:Label CssClass="dkgrey10" ID="lblLegalStuff" runat="server"></asp:Label></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Label ID="lblLegalStuff" runat="server"></asp:Label></td>
                                     <td><b>Subtotal:</b></td>
                                     <td><asp:Label ID="lblSubTotal" runat="server"></asp:Label>&nbsp;</td>
-                                    <td>filler</td>
-                                   <!-- <td><b>Shipping:</b><asp:Label ID="lblShippingAmt" runat="server"></asp:Label>&nbsp;</td> -->
+                                    <td><b>Shipping:</b><asp:Label ID="lblShippingAmt" runat="server"></asp:Label>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Label ID="lblPromo" runat="server" CssClass="fs14" Visible="false">Promo Code:
-                                        </asp:Label><asp:TextBox ID="txtPromo" runat="server" Visible="false"></asp:TextBox>&nbsp;<asp:Button
+                                    <td><asp:Label ID="lblPromo" CssClass="dkorange12" runat="server" Visible="false">Promo Code:
+                                        </asp:Label><asp:TextBox ID="txtPromo" CssClass="dkgrey12" runat="server" Visible="false"></asp:TextBox>&nbsp;<asp:Button
                                             ID="btnPCode" Visible="false" runat="server" OnClick="btnPCode_Click" CssClass="btnCancel"
-                                            Text="Go" />
-                                    </td>
+                                            Text="Go" /></td>
                                     <td><asp:LinkButton ID="lnkBack" runat="server" Visible="false" OnClick="lnkBack_Click">&nbsp;Back to Menu</asp:LinkButton></td>
-                                    <td>Grand Total</td>
-                                    <td><asp:Label runat="server" ID="lblTotal"></asp:Label></td>
+                                    <td>Grand Total:</td>
+                                    <td><asp:Label runat="server" ID="lblTotal" CssClass="dkgrey16b"></asp:Label></td>
                                 </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div style>
-                                            <div style="float: right; border: solid 0px black" align="left">
-                                            &nbsp;<asp:LinkButton ID="lnkCancel" runat="server" Text="Cancel"
-                                            OnClick="btnCancel_Click"></asp:LinkButton>
-                                            <asp:Button ID="btnCancel" runat="server" Text="Go back to Menu"
-                                            OnClick="btnCancel_Click" Visible="false" /> &nbsp;
-                                            </div>
-                                            <div style="float: right; border: solid 0px red">
-                                            <asp:ImageButton ID="imgBtnPay" runat="server" ImageUrl="../images/PP_btn_xpressCheckout.gif" OnClick="btnSubmit_Click" />
-                                            </div>
-                                        </div>
-                                    </td>   
-                                </tr>     
-                                
                             </tbody>
                         </table>  
                     </div>         
                 </div>
             </div>        
-                    
+                    <div style>
+                        <div style="float: left; border: solid 0px black" align="left">
+                            <asp:LinkButton ID="lnkCancel" runat="server" CssClass="grey_orange12u" Text="Cancel and go back"
+                                    OnClick="btnCancel_Click"></asp:LinkButton>
+                            <asp:Button ID="btnCancel" runat="server" CssClass="dkgrey10" Text="Go back to Menu"
+                                    OnClick="btnCancel_Click" Visible="false" />
+                        </div>
+                        <div style="float: right; border: solid 0px red">
+                            <asp:ImageButton ID="imgBtnPay" runat="server" ImageUrl="../images/PP_btn_xpressCheckout.gif" OnClick="btnSubmit_Click" />
+                        </div>
+                    </div>
                   
                 <br />
                 <br />
@@ -152,12 +142,12 @@
                 <%-- OLD CODE--%>
                 <asp:Label CssClass="dkgrey10b" runat="server" ID="lblClosing"></asp:Label>
                 <asp:Label CssClass="midorange14b" runat="server" ID="lblPrice"></asp:Label>
-                <asp:RadioButtonList ID="txtCCType" CssClass="midgrey12b" runat="server" 
+                <asp:RadioButtonList ID="txtCCType" CssClass="midgrey12b" runat="server" Width="176px"
                     Height="40px" Visible="false">
                     <asp:ListItem Value="PP">Process with PayPal</asp:ListItem>
                     <asp:ListItem Value="CC">Process by Credit Card</asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:TextBox ID="txtOrderAmount" runat="server" Visible="false"></asp:TextBox>
+                <asp:TextBox ID="txtOrderAmount" runat="server" Width="112px" Visible="false"></asp:TextBox>
                 <%--Order Amount:--%>
                 <asp:Button Visible="false" ID="btnSubmit" runat="server" CssClass="dkgrey20b" Text="Continue"
                     OnClick="btnSubmit_Click"></asp:Button>&nbsp;

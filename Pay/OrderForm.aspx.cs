@@ -978,11 +978,17 @@ namespace BoardHunt.Pay
                             imgItem.Width = 75;
                             lblShipping.Text = "n/a";
 
+							ErrorLog.ErrorRoutine (false, "LoadService: Done w 0");
+
                             string strBoardDesc = dbManager.DataReader["txtBrand"].ToString() + " " + dbManager.DataReader["iHtFt"].ToString() + "' " + dbManager.DataReader["iHtIn"].ToString() + "\"";
-                            lblPageTitle.Text = "Boost your board";
+                            
+							lblPageTitle.Text = "Boost your board";
+						ErrorLog.ErrorRoutine (false, "LoadService: Done w 0.5");
                             lblPageTitleMsg.Text = "Boosting helps your board sell faster."; 
                             
                             //lblPageTitle.Text = "For the price of 2 fish tacos you'll sell your board even faster";
+
+							ErrorLog.ErrorRoutine (false, "LoadService: Done w 1");
 
                             lblItemDesc.Text = "<b>" + strBoardDesc + "</b><br><br>";
                             lblItemDesc.Text += @"
@@ -997,7 +1003,7 @@ namespace BoardHunt.Pay
                             txtQuantity.ReadOnly = true;
                             txtQuantity.Visible = true;
                             btnUpdate.Visible = false;
-						ErrorLog.ErrorRoutine (false, "LoadService: Done w 1");
+						ErrorLog.ErrorRoutine (false, "LoadService: Done w 2");
                             break;
                         //BIDDER
                         case "2":

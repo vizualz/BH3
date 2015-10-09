@@ -33,7 +33,12 @@ namespace BoardHunt.include.Controls
      
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+			pnlHotBoards.Visible = false;
+			btnNext.Visible = false;
+			btnPrev.Visible = false;
+			return;
+
+			try
             {
 
                 if (!IsPostBack)

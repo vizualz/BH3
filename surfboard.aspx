@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="surfboard.aspx.cs" Inherits="BoardHunt.surfboard" %>
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
-<%@ Register TagPrefix="bh" TagName="ShowBoost" Src="include/Controls/Boost.ascx" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +28,9 @@
     <link href="style/global.css" type="text/css" rel="stylesheet" />
 
     <script type="text/javascript" src="include/js/jquery.jgrowl.js"></script>
-
     <link rel="stylesheet" type="text/css" media="screen" href="style/jquery.jgrowl.css" />
 
     <script src="include/js/jquery.cluetip.js" type="text/javascript"></script>
-
     <link rel="stylesheet" href="style/jquery.cluetip.css" type="text/css" />
 
     <script type="text/javascript">
@@ -177,89 +174,37 @@
             });
         });
     </script>
-
-    <script type="text/javascript">
-        function PreLoadImgs() {
-            var i;
-            var imgArray = new Array();
-
-            for (i = 0; i <= 3; i++) {
-                imgArray[i] = "hdnPicVal" + (i + 1);
-
-                var ctl = document.getElementById("hdnPic" + (i + 1) + "URL");
-
-                if (ctl.value != "") {
-                    imgArray[i] = new Image(400, 400);
-                    imgArray[i].src = ctl.value;
-                }
-            }
-        }
-    </script>
-
-
-<!-- Google ads: Wide Skyscraper & Box -->
-
-<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-    //GS_googleAddAdSenseService("ca-pub-0007702553564747");
-    //GS_googleEnableAllServices();
-</script>
-
-<script type='text/javascript'>
-    //GA_googleAddSlot("ca-pub-0007702553564747", "Wide_Skyscraper");
-    //GA_googleAddSlot("ca-pub-0007702553564747", "Box");
-    //GA_googleAddSlot("ca-pub-0007702553564747", "Leader");
-</script>
-<script type='text/javascript'>
-    //GA_googleFetchAds();
-</script>
-
 </head>
-<body bgcolor="#ffffff" onload="PreLoadImgs();">
-    <div id="main" align="center">
+
+<body style="background: none repeat scroll 0 0 #fff;">
+
         <form class="header" id="Form1" runat="server">
             <bh:Header runat="server" />
+
             <%--PAGE NAV--%>
-            <div align="left" style="width: 500px; margin-top:40px; margin-bottom:30px; margin-left:245px">
+            <div align="left">
                 
-                            <br />
-                  <asp:HyperLink CssClass="dkgrey_orange12" ID="HypLoc" runat="server" NavigateUrl="index.aspx"></asp:HyperLink>                           
-                <span class="midorange12">&nbsp;>&nbsp;
-                    <asp:HyperLink CssClass="dkgrey_orange12" ID="HypCat" runat="server" NavigateUrl="Surfboardsforsale.aspx">
-                </asp:HyperLink>
-                    <span class="midorange12">&nbsp;>&nbsp;<span class="midorange12">Details</span> </span>
-                </span>
-             <div align="left" style="width: 150px; margin-bottom:30px; margin-top:5px; margin-left:0px">    
-                        <span class="dkrgrey20b"> 
-                        <asp:Button ID="btnPageNext" runat="server" Text="&uarr;" Width="50px" Height="40px" OnClick="btnPage_Click" title="Scroll Up" CssClass="btnTips btnStep" style="font-style:normal; font-weight:bolder; font-size: 22px;" />
-                        &nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnPagePrev" runat="server" Text="&darr;" Width="50px" Height="40px" OnClick="btnPage_Click" title="Scroll Down" CssClass="btnTips btnStep" style="font-style:normal; font-weight:bolder; font-size: 22px;" />
-                            <br />
-          
+				<br />
+					<asp:HyperLink CssClass="dkgrey_orange12" ID="HypLoc" runat="server" NavigateUrl="index.aspx"></asp:HyperLink>                           
+					<span class="midorange12">&nbsp;>&nbsp;
+						<asp:HyperLink CssClass="dkgrey_orange12" ID="HypCat" runat="server" NavigateUrl="Surfboardsforsale.aspx">
+						</asp:HyperLink>
+						<span class="midorange12">&nbsp;>&nbsp;
+							<span class="midorange12">Details</span> 
+						</span>
+					</span>
+
+				<div align="left" style="width: 150px; margin-bottom:30px; margin-top:5px; margin-left:0px">    
+					<span class="dkrgrey20b"> 
+					<asp:Button ID="btnPageNext" runat="server" Text="&uarr;" Width="50px" Height="40px" OnClick="btnPage_Click" title="Scroll Up" CssClass="btnTips btnStep" style="font-style:normal; font-weight:bolder; font-size: 22px;" />
+					&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<asp:Button ID="btnPagePrev" runat="server" Text="&darr;" Width="50px" Height="40px" OnClick="btnPage_Click" title="Scroll Down" CssClass="btnTips btnStep" style="font-style:normal; font-weight:bolder; font-size: 22px;" />
+					<br />
+	          	</div>
           </div>
 
-          </div>
-            <div align="center">
-                <div align="center" id="container" style="width: 1100px">
-                    <div id="wrapper" align="center" style="width: 1090px">
-                        <%--LEFT COLUMN--%>
-                        <div id="left">
-                            <!-- #include file="include/ads/SkyScraperAd.htm" -->
-                        </div>
-                        <%--RIGHT COLUMN--%>
-                        <div id="right">
-                            <%--BOOST HERE--%>
-                            <bh:ShowBoost ID="boost1" runat="server">
-                            </bh:ShowBoost>
-                        </div>
-                        <%--CENTER COLUMN--%>
-                        <div id="center">
-                            <asp:Panel ID="pnlDetails" runat="server" Style="width: 765px; height:602px; margin-left:30px" BorderColor="#FF9900"
-                                BorderStyle="solid" BorderWidth="0px">
-                                    
-
-                                <div style="margin-left:60px; width:680px; float:left">
+          					
+                            <asp:Panel ID="pnlDetails" runat="server" role="tabpanel" class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
                                     <!-- Master Table -->
                                     <table cellspacing="0" align="center" width="680px" cellpadding="0" border="0" bgcolor="#FFFFFF"
                                         bordercolor="#999966" style="border:solid 0px black">
@@ -283,11 +228,7 @@
                                                             &nbsp;&nbsp;
                                                             <asp:Image ID="Pic1" runat="server"></asp:Image>&nbsp;</td>
                                                     </tr>
-                                                        <tr>
-                                                            <td colspan="2" style="height: 1px">
-                                                                <img src="images/s1x1.gif" alt="" />
-                                                            </td>
-                                                        </tr>
+  
                                                         <tr>
                                                             
                                                             <td>
@@ -319,7 +260,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2" style="height: 15px; background-color: #FFFFFF">
-                                                                <img src="images/s1x1.gif" alt=""></img></td>
+                                                                <img src="images/s1x1.gif" alt="">
+                                                            </td>
                                                         </tr>
                                                  
                                                 </table>
@@ -330,18 +272,7 @@
                                             <!-- begin right side -->
                                             <td valign="top">
                                                 <table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" bordercolor="red">
-                                                    <asp:Panel runat="server" ID="pnlGearItem" Visible="false">
-                                                        <tr>
-                                                            <td height="20px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Item:</span>&nbsp;
 
-                                                            </td>
-                                                            <td>
-                                                                &nbsp;<asp:Label ID="lblGearItem" runat="server"></asp:Label></td>
-                                                        </tr>
-                                                    </asp:Panel>
-
-                                                    <asp:Panel runat="server" ID="pnlBoardType">
                                                         <tr>
                                                             <td colspan="2" class="dkrgrey16b" align="left">
                                                                 <asp:Label ID="lblCondition" runat="server"></asp:Label>
@@ -350,10 +281,7 @@
                                                                 <asp:Label ID="lblBoardType" runat="server" nowrap></asp:Label>
                                                             </td>
                                                         </tr>
-                                                    </asp:Panel>
-                                                    <asp:Panel runat="server" ID="pnlCondition" Visible="false">
-                                                        
-                                                    </asp:Panel>
+
                                                     <tr>
                                                         <td class="midorange12" align="left" colspan="2">
                                                             in&nbsp;<asp:Label ID="lblLocation" runat="server"></asp:Label>
@@ -364,8 +292,7 @@
                                                         <td height="20" colspan="2">
                                                             <img src="images/s1x1.gif"/></td>
                                                     </tr>
-                                                    
-                                                    <asp:Panel ID="pnlAll" runat="server">
+
                                                         <tr>
                                                             <td height="20px" class="dkrgrey14" align="left">
                                                                 <asp:Label ID="lblHeight" runat="server"></asp:Label>
@@ -379,8 +306,8 @@
                                                                 </asp:Label>
                                                             </td>
                                                         </tr>
-                                                    </asp:Panel>
-                                                    <asp:Panel ID="pnlWidth" runat="server">
+
+
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
                                                                 <span class="dkrgrey14">Width</span>&nbsp;
@@ -391,8 +318,7 @@
                                                                 </asp:Label>
                                                             </td>
                                                         </tr>
-                                                    </asp:Panel>
-                                                    <asp:Panel ID="pnlSurfOnly" runat="server">
+
                                                         <tr>
                                                             <td height="18px" class="dkgrey14" align="left">
                                                                 <span class="dkrgrey14">Thickness</span>&nbsp;
@@ -424,19 +350,8 @@
                                                                 </asp:Label>
                                                             </td>
                                                         </tr>
-                                                    </asp:Panel>
-                                                    <asp:Panel ID="pnlGenDims" Visible="false" runat="server">
-                                                        <tr>
-                                                            <td height="18px" class="dkgrey14" align="left">
-                                                                <span class="dkrgrey14">Dimensions</span>&nbsp;
 
-                                                            </td>
-                                                            <td class="dkrgrey14">
-                                                                &nbsp;<asp:Label ID="lblGenDims" runat="server">
-                                                                </asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                    </asp:Panel>
+
                                                     <tr>
                                                         <td style="height: 40px" colspan="2" class="dkrgrey16b" align="left" valign="bottom">
                                                             Seller Says&nbsp;</td>
@@ -458,14 +373,14 @@
                                                         </td>
                                                      </tr>
                                                       <tr>
-                                                            <asp:Panel ID="pnlShip" runat="server" Visible="true">
+                                                            
                                                         
                                                             <td bgcolor="#FF9900" colspan="2" class="white12" align="center" bgcolor="#FFFFFF" valign="bottom">
                                                                 Will seller ship?&nbsp;<asp:Label ID="lblShip" CssClass="dkrgrey12b" runat="server">No</asp:Label>
 
                                                             </td>
                                                         
-                                                            </asp:Panel>
+
                                                    </tr>     
                                                     <tr>
                                                         <td bgcolor="#FFFFFF" height="20px" colspan="2">
@@ -510,12 +425,11 @@
                                                 <asp:Label ID="lblStatus" runat="server"></asp:Label></td>
                                         </tr>
                                     </table>
-                                    <!-- end master table -->
-                                    </div>
                             </asp:Panel>
+
                             <%--RATINGS--%>
                             <div align="center" style="width: 670px; margin: 0 auto; border: solid 0 #F0F0F0">
-                                <asp:Panel ID="pnlRatings" runat="server" HorizontalAlign="Center">
+
                                     <table align="center" bgcolor="#f0f0f0" border="0" cellpadding="0" cellspacing="0"
                                         width="700px">
                                         <tr>
@@ -543,47 +457,19 @@
                                                 </asp:ImageButton>
                                             </td>
                                             <td align="center">
-                                                
-                                                <!-- AddThis Button BEGIN -->
-                                                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                                                    <a class="addthis_button_preferred_1"></a>
-                                                    <a class="addthis_button_preferred_2"></a>
-                                                    <a class="addthis_button_preferred_3"></a>
-                                                    <a class="addthis_button_compact"></a>
-                                                </div>
-                                                    <script type="text/javascript">                                                        var addthis_config = { "data_track_clickback": true };</script>
-                                                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4df1178f225b17c1"></script>
-                                                <!-- AddThis Button END -->
-
-                                            
+												SOCIAL Plugins
                                              <td align="right" class="dkgrey12">  
                                                 <asp:Label CssClass="midorange16" ID="lblNudges" runat="server" ForeColor="#666666"></asp:Label> Nudges&nbsp;&nbsp; 
                                                 <asp:Label CssClass="midorange16" ID="lblPageViewCount" runat="server" ForeColor="#666666"></asp:Label> Views&nbsp;&nbsp;
-                                            </td>
-
-                                            </td>
-                                            
+                                            </td> 
                                         </tr>
                                     </table>
-                                </asp:Panel>
+
                             </div>
                             <br />
                             <%--BEGIN COMMENTS--%>
                             <!-- #include file="include/Comments.aspx" -->
 
-                            <%--TILEAD--%>
-                            <div align="center">
-                                <br />
-                                <br />
-                                <br />
-                                <!-- #include file="include/ads/tileAd.htm" -->
-                            </div>
-                        </div>
-                        <%--WRAPPER--%>
-                    </div>
-                    <%--CONTAINER--%>
-                </div>
-            </div>
             <asp:Image ID="Pic2" runat="server" Visible="false"></asp:Image>
             <asp:Image ID="Pic3" runat="server" Visible="false"></asp:Image>
             <asp:Image ID="Pic4" runat="server" Visible="false"></asp:Image>
@@ -605,7 +491,7 @@
             <div id="push">
             </div>
         </form>
-        </div>
+
     <div class="clearfix"></div>
     <!-- #include file="include/footer.aspx" -->
 

@@ -25,7 +25,7 @@ namespace BoardHunt
     public partial class surfboard : System.Web.UI.Page
     {
 
-        protected System.Web.UI.WebControls.Panel pnlWeb;
+        //protected System.Web.UI.WebControls.Panel pnlWeb;
 
         protected System.Web.UI.WebControls.LinkButton lnkUpgradeAcct;
         protected System.Web.UI.WebControls.LinkButton lnkSignIn;
@@ -76,9 +76,6 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            //this.lnkLoginFirst.Click += new System.EventHandler(this.lnkLoginFirst_Click);
-
-            //this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
 
             this.imgGoBack.Click += new System.Web.UI.ImageClickEventHandler(this.imgGoBack_Click);
             this.imgAddFav.Click += new System.Web.UI.ImageClickEventHandler(this.imgAddFav_Click);
@@ -89,11 +86,8 @@ namespace BoardHunt
         protected void Page_Load(object sender, System.EventArgs e)
         {
 
-            //Hide all sub-panels then enable accordingly
-            //pnlDetails.Visible = false;
-            pnlAll.Visible = true;
-            pnlWidth.Visible = false;
-            pnlSurfOnly.Visible = false;
+
+            //pnlSurfOnly.Visible = false;
             imgAddFav.Visible = true;
             // Retriving www.malzook.com from web configration
             //serverurl = ConfigurationManager.AppSettings["ServerURL"].ToString();
@@ -388,18 +382,15 @@ namespace BoardHunt
                         lblNoCnt.Text = "0";
                     }
 
-                    pnlShip.Visible = false;
-
                     //Set Rating if adtype is selling
                     if (itemType == "1")
                     {
-                        pnlCondition.Visible = true;
+
 						try{
-                        lblCondition.Text = Global.ProperSpace(DecodeCondition(SQLReader["iCondition"]));
+                        	lblCondition.Text = Global.ProperSpace(DecodeCondition(SQLReader["iCondition"]));
 						}
 						catch{}
 
-                        pnlShip.Visible = true;
                         if (SQLReader["iShip"].ToString() == "1")
                             lblShip.Text = "Yes";
 
@@ -423,6 +414,8 @@ namespace BoardHunt
                             }
                         }
                     }
+
+					ErrorLog.ErrorRoutine(false,"About to CASE");
 
                     //Set category specific
                     switch (strCat)
@@ -466,18 +459,18 @@ namespace BoardHunt
                                 lblTailData.Text = Global.ProperSpace(DecodeTail(SQLReader["iTailType"]));
                                 lblFinsData.Text = DecodeFins(SQLReader["iFins"]);
 
-                                pnlWidth.Visible = true;
-                                pnlSurfOnly.Visible = true;
+                                //pnlWidth.Visible = true;
+                                //pnlSurfOnly.Visible = true;
                             }
                             else
                             {
-                                pnlSurfOnly.Visible = false;
+                                //pnlSurfOnly.Visible = false;
                             }
 
                             break;
 
                         case "2": //snow
-
+						/*
                             lblBoardTypeData.Text = Global.ProperSpace(DecodeBoard(Convert.ToInt32(SQLReader["iBoardType"]), (int)2));
                             lblBoardType.Text = "Board type:&nbsp";
 
@@ -486,10 +479,12 @@ namespace BoardHunt
                             lblHeight.Text = "Height:&nbsp";
 
                             lblHeightFtData.Text = SQLReader["iHtFt"].ToString() + " cm";
-
+						*/
                             break;
 
+
                         case "3": //other
+						/*
                             lblBoardType.Text = "Board type:&nbsp";
                             if (SQLReader["iBoardType"].ToString() == "" || SQLReader["iBoardType"].ToString() == null)
                             {
@@ -500,16 +495,16 @@ namespace BoardHunt
                                 lblBoardTypeData.Text = DecodeBoard(Convert.ToInt32(SQLReader["iBoardType"]), (int)3);
                             }
 
-                            pnlGenDims.Visible = true;
-                            lblGenDims.Text = SQLReader["txtGenDimensions"].ToString();
+                            //pnlGenDims.Visible = true;
+                            //lblGenDims.Text = SQLReader["txtGenDimensions"].ToString();
+                             */
                             break;
+                           
                         case "4": //gear
-                            pnlGearItem.Visible = true;
-                            lblGearItem.Text = SQLReader["txtGearItem"].ToString();
-                            pnlAll.Visible = false;
+						//pnlGearItem.Visible = true;
 
                             break;
-
+						
                     }
 
                     //selling or wanted ad type? selling=1; wanted=2
@@ -518,8 +513,6 @@ namespace BoardHunt
                         //just show wanted pic
                         Pic1.ImageUrl = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"] + "/images/wantedbig.gif";
 
-                        //hide ratings
-                        pnlRatings.Visible = true;
 
                         //hide comments
                         pnlComments.Visible = true;
@@ -614,7 +607,6 @@ namespace BoardHunt
                         //NO IMAGES were uploaded
                         if (picCount < 1)
                         {
-                            pnlRatings.Visible = false;
                             Pic1.ImageUrl = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"] + "/images/noimage.gif";
                             pnlComments.Visible = true;
 
@@ -663,7 +655,7 @@ namespace BoardHunt
                 ShowErrorMessage(ERR_MSG2);
                 //divComments.Visible = false;
 
-                ErrorLog.ErrorRoutine(false, "Error->ItemDetails:BindData: " + ex.Message);
+                ErrorLog.ErrorRoutine(false, "Error->Surboard.aspx:BindData: " + ex.Message);
                 classes.Email.SendErrorEmail("Error:ID:BindData:eId:" + hdnEId.Value + " :" + ex.Message);
             }
 
@@ -694,8 +686,7 @@ namespace BoardHunt
             //lbl.CssClass = "errorLabel";
             pnlDetails.Controls.Add(pnlMsg);
             pnlMsg.Controls.Add(litMsg);
-
-            pnlRatings.Visible = false;
+			//TODO: Wrap entire page in a panel to hide when error message displays
             pnlLogin.Visible = false;
             pnlLoginMsg.Visible = false;
             pnlComments.Visible = false;
@@ -1251,26 +1242,37 @@ namespace BoardHunt
             classes.Login clsLogin = new classes.Login();
             if (clsLogin.DoLogin(txtUsername.Text, txtPassword.Text, true, false))
             {
+				
+				ErrorLog.ErrorRoutine (false, "Surfboard.DoLogin.TRUE");
+
                 BindComments();
 
                 dlCommentList.Visible = true;
                 pnlCommentBox.Visible = true;
 
-                //Get text for login links
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();
-
-                lblWallMessage.Text = "Write a comment below";
+                lblWallMessage.Text = "Add a comment";
 
                 btnNudge.Visible = true;
                 btnNudge.Enabled = true;
                 btnNudge.CssClass = "Tips btnGo";
 
+				//BoardHunt.include.HeaderCtl.
+
+				//LinkButton l1 = (LinkButton)this.Page.FindControl("ctl12_lnkSignUp");
+				//LinkButton l2 = (LinkButton)this.Page.FindControl("ctl12_lnkSignUp");
+
+
+				//l1.Text = Global.SetLnkSignIn ();
+				//l2.Text = Global.SetLnkSignUp ();
+
+				//ErrorLog.ErrorRoutine (false, "SignIn: " + l1.Text);
+				//ErrorLog.ErrorRoutine (false, "SignUp: " + l2.Text);
+
+
             }
-            //login failed 
             else
             {
-                lblWallMessage.Text = "Wrong username or password.&nbsp;&nbsp;<a id='toggle2' class='orange_orange14u' href='#'>Login&nbsp;again.</a>";
+                lblWallMessage.Text = "Login failed.&nbsp;&nbsp;<a id='toggle2' class='orange_orange14u' href='#'>Try&nbsp;again.</a>";
                 lblWallMessage.ForeColor = Color.Red;
                 //Response.Redirect(Request.Url.ToString(), false);
 

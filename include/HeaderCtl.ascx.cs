@@ -18,6 +18,11 @@ namespace BoardHunt.include
 			lnkSignUp.Text = Global.SetLnkSignUp();
 		}
 
+		public bool UpdateLinks()
+		{
+			return true;
+		}
+
 /*
  */ 
 		private void lnkSignIn_Click(object sender, System.EventArgs e)
