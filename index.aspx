@@ -35,13 +35,6 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="content/assets/admin-tools/admin-forms/css/admin-forms.css">
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            jQuery(function () {
-                jQuery('ul.sf-menu').superfish();
-            });
-        });
-    </script>
     <script type="text/javascript" language="JavaScript">
         function CheckForEnter(code) {
             if (code == 13) {
