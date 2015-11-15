@@ -1,6 +1,6 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt20 mb20" style="background-color: #333333;">
     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" style="float: none; margin: 0 auto;">
-        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 pn text-center hidden-xs">
+        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 pn text-center hidden-xs"><br>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/about.aspx">About</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6  pn mn"><a class="fs16 text-white" href="/register_user.aspx">Join</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/Blog/BlogResults.aspx">Blog</a></label>
@@ -45,5 +45,5 @@
 </div>
 <div>
     <iframe src="http://www.facebook.com/plugins/like.php?href=www.boardhunt.com&amp;layout=button_count&amp;show_faces=true&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=21"
-        scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 80px; height: 25px;" allowtransparency="true"></iframe>
+        scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 80px; height: 25px;" allowtransparency="true"></iframe><br>
 </div>

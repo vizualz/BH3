@@ -95,29 +95,34 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
             <!-- top half -->
         <img class="img-responsive" src="../images/HomepageHarlan.jpg" height="50%" width="100%" alt="Used Surfboards - Boardhunt">
         </div>
-
-                <H1>Join Boardhunt - Used Surfboards for Sale</H1>
-                <P>Custom Built for Surfers Since 2006.</P>
-                    
-                    
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <H1>Used Surfboards for Sale - Premium Online Marketplace</H1>
+                    <P>Custom Built for Surfers Since 2006.</P>
+                </div>
+            </div>        
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">&nbsp;&nbsp;
                     <asp:Button ID="btnSearchSurfboard" OnCommand="ImageButton_Click" CssClass="btnBigOrg" style="padding:10px" 
                         CommandName="btnSearch" runat="server" ToolTip="Search for your next board" 
-                        Text="Find Surfboards" onclick="btnSearchSurfboard_Click" />
+                        Text="Find Surfboards" onclick="btnSearchSurfboard_Click" />&nbsp;&nbsp;
                     <asp:Button ID="btnSellSurfboard" OnCommand="ImageButton_Click" CssClass="btnBigGreen" style="padding:10px" 
                         CommandName="btnSell" runat="server" ToolTip="Sell your board now" 
                         Text="Sell Surfboards" onclick="btnSellSurfboard_Click" />
-                    <br />
-
-                    <asp:Button ID="btnLogin" OnCommand="ImageButton_Click" CssClass="button" style="" 
-                        CommandName="btnSell" runat="server" ToolTip="Log in now" 
-                        Text="Log in" onclick="btnLogin_Click" />              
-       				
-
-           
-
-  <P>Free | Easier | Quality | Secure | Accurate</P>
-  
-  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">&nbsp;&nbsp;      
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><br>&nbsp;&nbsp;
+                    <asp:Button ID="btnLogin" OnCommand="ImageButton_Click" CssClass="button btn-primary" style="border:0"
+                        CommandName="btnSell" runat="server" 
+                        Text="Log in" onclick="btnLogin_Click" /> 
+                </div>                
+                <br>
+                <P>&nbsp;&nbsp;Free | Easier | Quality | Secure | Accurate</P>
+            </div>
+    </div>
     </form>
 
        <br />

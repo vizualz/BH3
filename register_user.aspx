@@ -39,7 +39,7 @@
         <form class="header" id="Form1" runat="server">
             <bh:Header runat="server" />
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
+                <div class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12 style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
                         <div class="panel-heading">
                             <div class="col-md-6 col-sm-6 col-xs-6 text-left">
