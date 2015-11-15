@@ -66,11 +66,6 @@ namespace BoardHunt
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
 
-			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isPB:" + Page.IsPostBack); 
-			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isAsyncPB:" + ScriptManager.GetCurrent(this).IsInAsyncPostBack);
-
-
-
 			if (ScriptManager.GetCurrent (this).IsInAsyncPostBack || Page.IsPostBack) {
 				//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: Ajax Kickout");
 				return;
@@ -90,24 +85,24 @@ namespace BoardHunt
 			}
 			else
 			{
-//				string controlName = Request.Params.Get("__EVENTTARGET");
-//
-//				switch (controlName)
-//				{
-//				case "pageLnkButton":
-//					string val = Request.Params.Get("__EVENTARGUMENT");
-//					CurrentPage = Convert.ToInt32(val);
-//					ItemsGet(false);
-//					break;
-//				case "btnSearch":
-//					CurrentPage = 0;
-//					break;
-//				case "cboView":
-//					//cboViewVal = cboView.SelectedValue;
-//					//break;
-//				default:
-//					break;
-//				}
+				//				string controlName = Request.Params.Get("__EVENTTARGET");
+				//
+				//				switch (controlName)
+				//				{
+				//				case "pageLnkButton":
+				//					string val = Request.Params.Get("__EVENTARGUMENT");
+				//					CurrentPage = Convert.ToInt32(val);
+				//					ItemsGet(false);
+				//					break;
+				//				case "btnSearch":
+				//					CurrentPage = 0;
+				//					break;
+				//				case "cboView":
+				//					//cboViewVal = cboView.SelectedValue;
+				//					//break;
+				//				default:
+				//					break;
+				//				}
 			}
 
 			HeaderInit();
@@ -160,7 +155,7 @@ namespace BoardHunt
 				//lnkUpgradeAcct.Visible = false;
 				hdnSash.Value = "0";
 			}
-				
+
 
 		}
 
@@ -225,6 +220,7 @@ namespace BoardHunt
 			strSQL += " e.iCategory = '" + hdniCat.Value + "'";
 
 			//ADTYPE:filter
+			/*
 			if (cboAdTypeVal != "All")
 			{
 				strSQL += " AND e.adType = '" + cboAdTypeVal + "'";
@@ -233,6 +229,7 @@ namespace BoardHunt
 			{
 				strSQL += " AND e.adType < 3 ";
 			}
+			*/
 
 			//BOARD CONDITION:filter
 			if (cboCondition.SelectedValue != "All" && cboCondition.SelectedIndex >= (int)0)
@@ -269,19 +266,19 @@ namespace BoardHunt
 
 
 			//fix filter for empty boxes
-			if (txtMinPrice.Text.Length == (int)0) { txtMinPrice.Text = "Min"; }
-			if (!IsNumeric(txtMinPrice.Text)) { txtMinPrice.Text = "Min"; }
+			if (txtMinPrice.Text.Length == (int)0) { txtMinPrice.Text = "$Min"; }
+			if (!IsNumeric(txtMinPrice.Text)) { txtMinPrice.Text = "$Min"; }
 
-			if (txtMaxPrice.Text.Length == (int)0) { txtMaxPrice.Text = "Max"; }
-			if (!IsNumeric(txtMaxPrice.Text)) { txtMaxPrice.Text = "Max"; }
+			if (txtMaxPrice.Text.Length == (int)0) { txtMaxPrice.Text = "$Max"; }
+			if (!IsNumeric(txtMaxPrice.Text)) { txtMaxPrice.Text = "$Max"; }
 
 			//check filter for price
-			if (txtMinPrice.Text != "Min")
+			if (txtMinPrice.Text != "$Min")
 			{
 				strSQL += " AND e.fltPrice >= '" + Convert.ToDouble(txtMinPrice.Text) + "'";
 			}
 
-			if (txtMaxPrice.Text != "Max")
+			if (txtMaxPrice.Text != "$Max")
 			{
 				strSQL += " AND e.fltPrice <= '" + Convert.ToDouble(txtMaxPrice.Text) + "'";
 			}
@@ -467,8 +464,8 @@ namespace BoardHunt
 				if(!bln)
 				{
 					////akshat
-					toplblcpage.Text = " Of " + objPds.PageCount.ToString();
-					lblcpage.Text = " Of " + objPds.PageCount.ToString();
+					toplblcpage.Text = " of " + objPds.PageCount.ToString();
+					lblcpage.Text = " of " + objPds.PageCount.ToString();
 
 				}
 
@@ -657,8 +654,8 @@ namespace BoardHunt
 				this.ViewState["_cboTailTypeVal"] = value;
 			}
 		}
+
 		/*
-         */
 		public string cboAdTypeVal
 		{
 			get
@@ -675,8 +672,10 @@ namespace BoardHunt
 				this.ViewState["_cboAdTypeVal"] = value;
 			}
 		}
+		 */
+
 		/*
-         */
+		*/
 		public string cboConditionVal
 		{
 			get
@@ -750,93 +749,7 @@ namespace BoardHunt
 			}
 			return retVal;
 		}
-		/*
-         */
-		private void BuildPageLinks(int pgCount)
-		{
-			//rules: only 10 links ever; if more then ...
 
-			//build page links if only if we have more than one page
-			if (pgCount < 2)
-				return;
-
-			int iStart = 0;
-			int iEnd = 0;
-			int iLimit = 50;
-			int iLimitHalf = (iLimit - 1) / 2;
-
-			lnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;");
-			toplnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;"); 
-			lnkLast.OnClientClick = ("javascript:__doPostBack('pageLnkButton','" + (pgCount - 1) + "');event.returnValue=false;return false;");
-
-			if (pgCount <= iLimit)  //less that limit; just show them
-			{
-				iStart = 0;
-				iEnd = pgCount;
-				lnkFirst.Visible = false;
-				toplnkFirst.Visible = false;
-				lnkLast.Visible = false;
-			}
-			else//pgCount over limit (30 over 15)  :: TODO: add case for getting back to beginning
-			{
-				if (pgCount - CurrentPage > iLimitHalf) //(30 - 20) > 7? need to scroll over
-				{
-					if (CurrentPage - iLimitHalf > 0) // check for negative vals
-					{
-						iStart = CurrentPage - iLimitHalf; //re-set start page so that current is in middle
-						lnkFirst.Visible = true ;
-						toplnkFirst.Visible = true; 
-						lnkLast.Visible = true ;
-					}
-					else
-					{
-						iStart = 0;//CurrentPage; // if negative value then just set start to current
-						lnkFirst.Visible = false;
-						toplnkFirst.Visible = false;
-						lnkLast.Visible = true;
-					}
-					iEnd = iStart + iLimit; //set end to  whatever startVal + the limit
-
-					//add ...
-				}
-				else
-				{
-					if (pgCount - CurrentPage <= iLimitHalf) // (middle spot is too close to pgCount)
-					{
-						iStart = pgCount - iLimit;  //set start from pgCount
-						iEnd = pgCount;// set end to pgCount
-						lnkFirst.Visible = true;
-						toplnkFirst.Visible = true; 
-						lnkLast.Visible = false;
-					}
-				}
-			}
-
-			//clear out any old ones if we're posting back
-			//placeHolder.Controls.Clear();   //changebyme
-
-			////loop through and create each page link adding the page # as the visible text - OLD code
-			for (int i = iStart; i < iEnd; i++)
-			{
-				//string dots = "...";
-
-				//Label lbl = new Label();
-				//lbl.Text = dots;
-
-				LinkButton lnkButton = new LinkButton();
-				lnkButton.Text = "&nbsp;" + Convert.ToInt32(i + 1).ToString() + "&nbsp;";
-				lnkButton.OnClientClick = ("javascript:__doPostBack('pageLnkButton','" + i + "');event.returnValue=false;return false;");
-
-				if (CurrentPage == i)
-				{
-					lnkButton.ForeColor = Color.Orange;
-					lnkButton.BorderWidth = 1;
-					lnkButton.BorderColor = Color.Black;
-				}
-				//placeHolder.Controls.Add(lnkButton);  //changebyme
-			}
-
-		}
 		/*
         */
 		public string SetPricePic(object iPCVal)
@@ -1218,6 +1131,21 @@ namespace BoardHunt
 		}
 		/*
          */
+		public string FormatLoc(object Loc)
+		{
+			if (Loc.ToString().Length > 0)
+			{
+				string pl = Loc.ToString ();
+				int idx = pl.IndexOf(", United States");
+				if (idx > 0)
+					pl = pl.Substring(0, idx);
+				return pl;
+			}
+			return Loc.ToString ();
+		}
+
+		/*
+         */
 		public string FormatHeightIn(object heightIn)
 		{
 
@@ -1267,7 +1195,7 @@ namespace BoardHunt
 				string strServerURL;
 
 				strImgPath = Global.ReplaceEx(oImgPath.ToString(), @"\", @"/");
-				strImgPath = "thmbNail_" + strImgPath;
+				//strImgPath = "thmbNail_" + strImgPath;
 
 
 				hdnServer.Value = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"];
@@ -1292,7 +1220,7 @@ namespace BoardHunt
 		{
 			Response.Redirect("surfboard.aspx?" + "iD=" + e.CommandArgument.ToString());//+ "&uId=" + e.CommandName.ToString() + "&iCat=" + Request.QueryString["iCat"].ToString());
 		}
-			
+
 
 		private void cmdPrev_Click(object sender, System.Web.UI.ImageClickEventArgs e)
 		{
@@ -1304,7 +1232,7 @@ namespace BoardHunt
 			UpdatePanel1.Update ();
 
 		}
-			
+
 
 		private void cmdNext_Click(object sender, System.Web.UI.ImageClickEventArgs e)
 		{
@@ -1384,7 +1312,7 @@ namespace BoardHunt
 			cboLocationVal = cboLocation.SelectedValue.ToString();
 
 
-			cboAdTypeVal = cboAdType.SelectedValue.ToString();
+			//cboAdTypeVal = cboAdType.SelectedValue.ToString();
 			cboPostingTypeVal = cboPostingType.SelectedValue.ToString();
 			cboConditionVal = cboCondition.SelectedValue.ToString();
 			if (hdniCat.Value == "1")
@@ -1403,7 +1331,7 @@ namespace BoardHunt
 			//User has chosen to filter results     
 			ItemsGet(false);
 
-			UpdatePanel2.Update();
+			//UpdatePanel2.Update();
 			UpdatePanel3.Update();
 
 		}
@@ -1432,7 +1360,7 @@ namespace BoardHunt
 			cboLocationVal = cboLocation.SelectedValue.ToString();
 
 
-			cboAdTypeVal = cboAdType.SelectedValue.ToString();
+			//cboAdTypeVal = cboAdType.SelectedValue.ToString();
 			cboPostingTypeVal = cboPostingType.SelectedValue.ToString();
 			cboConditionVal = cboCondition.SelectedValue.ToString();
 			if (hdniCat.Value == "1")
@@ -1504,12 +1432,12 @@ namespace BoardHunt
 
 			//Create and add the (default) "All" entry
 			//boardtype
-			ListItem liAllBT = new ListItem("All", "All");  //boardtype
-			ListItem liAllFin = new ListItem("All", "All");  //fins
-			ListItem liAllLoc = new ListItem("All", "All"); //loc
-			ListItem liAllTail = new ListItem("All", "All"); //tail
-			ListItem liAllType = new ListItem("All", "All"); //ad type
-			ListItem liAllCondType = new ListItem("All", "All"); //condition
+			ListItem liAllBT = new ListItem( "Boards", "All");  //boardtype
+			ListItem liAllFin = new ListItem("Fins", "All");  //fins
+			ListItem liAllLoc = new ListItem("Region", "All"); //loc
+			ListItem liAllTail = new ListItem("Tail", "All"); //tail
+			//ListItem liAllType = new ListItem("All", "All"); //ad type
+			ListItem liAllCondType = new ListItem("Cond", "All"); //condition
 
 			try
 			{
@@ -1588,6 +1516,7 @@ namespace BoardHunt
 				cboTailType.SelectedIndex = cboTailType.Items.Count - 1;
 				//cboTailType.SelectedIndex = cboTailTypeVal;
 
+				/*
 				//ADTYPE: For Sale, Wanted, Showcase
 				cboAdType.Items.Clear();
 				cboAdType.DataSource = dsItems;
@@ -1602,6 +1531,7 @@ namespace BoardHunt
 				cboAdType.ClearSelection();
 				cboAdType.SelectedIndex = cboAdType.Items.Count - 1;
 				//cboAdType.SelectedIndex = cboAdTypeVal;
+				*/
 
 				//CONDITION
 				cboCondition.Items.Clear();
@@ -1629,6 +1559,14 @@ namespace BoardHunt
 			{
 				myConnection.Close();
 			}
+
+			cboCondition.Visible = true;
+			cboFins.Visible = true;
+			cboTailType.Visible = true;
+			cboAdType.Visible = false;
+			cboPostingType.Visible = true;
+			chkReduced.Visible = true;
+
 		}
 		/**
          */
@@ -1651,8 +1589,8 @@ namespace BoardHunt
 			cboCondition.ClearSelection();
 			cboCondition.Items.FindByValue(cboConditionVal).Selected = true;
 
-			cboAdType.ClearSelection();
-			cboAdType.Items.FindByValue(cboAdTypeVal).Selected = true;
+			//cboAdType.ClearSelection();
+			//cboAdType.Items.FindByValue(cboAdTypeVal).Selected = true;
 
 
 			if (hdniCat.Value == "1")

@@ -5,20 +5,19 @@
 <head>
     <title>Used Surfboards - Boardhunt</title>
     <meta name="description" content="Find or sell used surfboards, snowboards, and other boarding gear across the board riding communities.">
-    <link href="style/global.css" type="text/css" rel="stylesheet">
+    <link href="http://malzook.com/style/global.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <form class="header" id="Form1" enctype="multipart/form-data" runat="server">
         <table width="900" align="center" class="list">
             <tr>
                 <td>
-                    <img src="http://www.malzook.com/images/BHLogo.gif" border="0"></td>
+                    <img src="http://malzook.com/images/BHLogo.gif" border="0"></td>
             </tr>
             <tr>
                 <td colspan="10">
-                    <img height="3" src="http://www.malzook.com/images/colornavbar.gif" width="900"></td>
+                    <img height="3" src="http://malzook.com/images/colornavbar.gif" width="900"></td>
             </tr>
-            <tr>
         </table>
         <div align="center">
             <p class="cathead">
@@ -41,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td height="3" colspan="3" bordercolor="transparent">
-                                        <img src="images/s1x1.gif"></td>
+                                        <img src="http://malzook.com/images/s1x1.gif"></td>
                                 </tr>
                                 <tr>
                                     <td class="hugeorange">
@@ -50,11 +49,11 @@
                                 </tr>
                                 <tr>
                                     <td height="5" colspan="3">
-                                        <img src="images/s1x1.gif"></td>
+                                        <img src="http://malzook.com/images/s1x1.gif"></td>
                                 </tr>
                                 <tr>
                                     <td align="center">
-                                        <img src="images/FreakCoder.gif" alt="thefreak" /></td>
+                                        <img src="http://malzook.com/images/FreakCoder.gif" alt="thefreak" /></td>
                                 </tr>
                             </table>
                             </td>
@@ -64,6 +63,6 @@
         </div>
     </form>
     <div class="footer" align="center">
-        © 2012 Boardhunt</div>
+        © 2015 Boardhunt</div>
 </body>
 </html>

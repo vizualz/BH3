@@ -40,6 +40,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace BoardHunt
@@ -721,9 +722,6 @@ namespace BoardHunt
             Session["Item"] = tBoardItem;
             tBoardItem = null;
 
-            //????
-            //tBoardItem = null;
-
             if (Session["Item"] == null)
                 ErrorLog.ErrorRoutine(false, "PI:btnNext_Click(): EOF: SESSION obj was NULL");
             else
@@ -731,7 +729,7 @@ namespace BoardHunt
 
             ErrorLog.ErrorRoutine(false, "going to post_prev");
 
-            //Goto preview_post
+            //Go to preview_post
             Response.Redirect("preview_post.aspx", false);
         }
 
@@ -1524,7 +1522,7 @@ namespace BoardHunt
         */
         private classes.BoardItem UpLoadAllImages(classes.BoardItem bItem, string[] strImgPathArray, List<HttpPostedFile> lstUploadedFiles)
         {
-            ErrorLog.ErrorRoutine(false, "UpLoadAllImages");
+            ErrorLog.ErrorRoutine(false, "PI: UpLoadAllImages");
 
             string tmpFile;
             string thmbNailPath;
@@ -1572,15 +1570,16 @@ namespace BoardHunt
 
                 //loop thru for each posted file
                 for (int i = 0; i < count; i++)
-                {
-
+				{
                     //get handle to file
                     HttpPostedFile file = lstUploadedFiles[i];
 
                     if (file.ContentLength > (int)0)    //needed?  we already checked
                     {
+						
 
-                        //get file name & ext
+
+						//get file name & ext
                         string fileName = Path.GetFileName(file.FileName);
                         string fileExt = Path.GetExtension(file.FileName).ToLower();
 
@@ -1624,7 +1623,53 @@ namespace BoardHunt
 
                                 ImageConverter imageConverter = new System.Drawing.ImageConverter();
                                 System.Drawing.Image UploadedImage = imageConverter.ConvertFrom(fileData) as System.Drawing.Image;
+								//
 
+
+
+								//see if we need to rotate the file
+								/*
+								byte[] imageData = new byte[file.ContentLength];
+								file.InputStream.Read(imageData, 0, file.ContentLength);
+
+
+								MemoryStream ms = new MemoryStream(imageData);
+
+								System.Drawing.Image originalImage = System.Drawing.Image.FromStream(ms);
+
+								ErrorLog.ErrorRoutine (false, "!ImagePropID!: " + originalImage.GetPropertyItem(0x0112).Value[0]);
+								*/
+
+
+								if (UploadedImage.PropertyIdList.Contains(0x0112))
+								{
+									int rotationValue = UploadedImage.GetPropertyItem(0x0112).Value[0];
+									switch (rotationValue)
+									{
+									case 1: // landscape, do nothing
+										break;
+
+									case 8: // rotated 90 right
+										// de-rotate:
+										UploadedImage.RotateFlip(rotateFlipType: RotateFlipType.Rotate270FlipNone);
+										break;
+
+									case 3: // bottoms up
+										UploadedImage.RotateFlip(rotateFlipType: RotateFlipType.Rotate180FlipNone);
+										break;
+
+									case 6: // rotated 90 left
+										UploadedImage.RotateFlip(rotateFlipType: RotateFlipType.Rotate90FlipNone);
+										break;
+									}
+								}
+
+								//file = originalImage;
+
+
+
+
+								//
                                 // System.Drawing.Image UploadedImage = System.Drawing.Image.FromStream(file.InputStream);
                                 //Larger Image variables
                                 int maxWidth = 400;
@@ -1694,6 +1739,8 @@ namespace BoardHunt
                                 Bitmap bmPhoto = new Bitmap(maxWidth, maxHeight);
                                 bmPhoto.SetResolution(UploadedImage.HorizontalResolution,
                                                  UploadedImage.VerticalResolution);
+								
+								//bmPhoto.RotateFlip
 
                                 //create the thumbnail bitmap
                                 Bitmap bmPhotoThmbNail = new Bitmap(maxWidth_T, maxHeight_T);

@@ -204,7 +204,7 @@ namespace BoardHunt
 
 		protected void Session_End(Object sender, EventArgs e)
 		{
-
+			ErrorLog.ErrorRoutine(false, "Session_END");
 		}
 
 		protected void Application_End(Object sender, EventArgs e)

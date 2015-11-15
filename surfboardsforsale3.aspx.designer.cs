@@ -71,8 +71,6 @@ namespace BoardHunt {
 		
 		protected System.Web.UI.WebControls.Panel pnlPreview;
 		
-		protected System.Web.UI.WebControls.LinkButton lnBtnTown;
-		
 		protected System.Web.UI.WebControls.ImageButton imgBtnReduced;
 		
 		protected System.Web.UI.WebControls.ImageButton cmdPrev;

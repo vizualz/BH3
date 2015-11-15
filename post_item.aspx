@@ -279,8 +279,8 @@
                                         TabIndex="17"></asp:TextBox>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-3  text-left">
-                                    <small>&nbsp;in&nbsp;(ex: 18 and 1/4)
-                                    </small>
+                                    <small>&nbsp;in&nbsp;</small><div class="clearfix">(ex: 18 and 1/4)</div>
+
                                     <asp:CustomValidator ID="CustomValidator4" runat="server" CssClass="error" OnServerValidate="CheckWidth"
                                         ErrorMessage="!"></asp:CustomValidator>
                                 </div>
@@ -308,10 +308,10 @@
                                         TabIndex="20"></asp:TextBox>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-3  text-left">
-                                    <small>&nbsp;in&nbsp;(ex: 2 and 1/4)
-                                    </small>
+                                    <small>&nbsp;in&nbsp;</small><div class="clearfix">(ex: 2 and 1/4)</div>
+
                                     <asp:CustomValidator ID="CustomValidator1" runat="server" CssClass="errorLabel" OnServerValidate="CheckThickness"
-                                        ErrorMessage="!"></asp:CustomValidator>&nbsp;<span class="help">
+                                        ErrorMessage="!"></asp:CustomValidator>&nbsp;<span class="help"></span>
                                 </div>
                             </div>
                         </div>
@@ -359,10 +359,10 @@
                         <hr />
                         <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">
                             <div>
-                                <span class="fw600 fs15">Add images, or buyers may skip over your post. (Max 3 Images)</span>
+                                <span class="fw600 fs15">Add images and wait for the <span class="text-success">green checkbox</span>. Then hit Next. (Max 3 Images)</span>
                             </div>
                             <div>
-                                <small><strong>2MB limit per file</strong>, GIF or JPG only. If post breaks, it's probably too big.</small>
+                                <small><strong>3MB limit per file</strong>, GIF or JPG only. A <span class="text-danger">red X</span> means file was too big.</small>
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 pn text-left pb10">

@@ -3,7 +3,7 @@
         <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 pn text-center hidden-xs">
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/about.aspx">About</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6  pn mn"><a class="fs16 text-white" href="/register_user.aspx">Join</a></label>
-            <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/Blog/BlogResults.aspx">Blog</a></label>
+            <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="http://boardhunt.tumblr.com/">Blog</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/surfboardsforsale.aspx">Used Boards</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="javascript:void(0);" onclick="popUpHelp('5');event.returnValue=false;return false;">Privacy</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pn mn"><a class="fs16 text-white" href="/contact.aspx?iD=0">Contact</a></label>
@@ -17,7 +17,7 @@
         <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 pn text-center visible-xs">
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="/about.aspx">About</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4  pn mn"><a class="fs12 text-white" href="/register_user.aspx">Join</a></label>
-            <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="/Blog/BlogResults.aspx">Blog</a></label>
+            <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="http://boardhunt.tumblr.com/">Blog</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="/surfboardsforsale.aspx">Used Boards</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="javascript:void(0);" onclick="popUpHelp('5');event.returnValue=false;return false;">Privacy</a></label>
             <label class="col-lg-3 col-md-3 col-sm-4 col-xs-4 pn mn"><a class="fs12 text-white" href="/contact.aspx?iD=0">Contact</a></label>

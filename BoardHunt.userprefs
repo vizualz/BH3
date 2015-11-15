@@ -1,10 +1,15 @@
 ﻿<Properties StartupItem="BoardHunt.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="login.aspx.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="classes/Simple.cs">
     <Files>
-      <File FileName="login.aspx.cs" Line="1" Column="1" />
-      <File FileName="post_finish.aspx.cs" Line="1" Column="1" />
-      <File FileName="post_item.aspx.cs" Line="1" Column="1" />
+      <File FileName="surfboardsforsale3.aspx" Line="329" Column="63" />
+      <File FileName="Surfboardsforsale.aspx" Line="343" Column="26" />
+      <File FileName="surfboardsforsale3.aspx.cs" Line="17" Column="20" />
+      <File FileName="Surfboardsforsale.aspx.cs" Line="19" Column="40" />
+      <File FileName="Labs/Moo.aspx" Line="1" Column="1" />
+      <File FileName="Labs/DudiersTest.aspx" Line="22" Column="9" />
+      <File FileName="classes/AdSenseHelper.cs" Line="1" Column="1" />
+      <File FileName="classes/Simple.cs" Line="13" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

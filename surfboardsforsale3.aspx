@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
     <script src="include/js/bh.js" type="text/javascript"></script>
     <link rel="alternate" type="application/rss+xml" title="Boardhunt: Surfboards For Sale" href="http://www.malzook.com/rss/surfboards.xml"/>
-    <link href="style/global.css" rel="stylesheet" type="text/css" />
+   <link href="style/global.css" rel="stylesheet" type="text/css" />
     <link href="style/hover.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="include/js/jquery.jgrowl.js"></script>
@@ -278,11 +278,6 @@
 
 			</div>
 
-        <!--- OLD -->
-
-
-
-
             <div class="midorange26b" align="center">
                 <asp:Label CssClass="" ID="lblNoResult" runat="server"></asp:Label><br />
             </div>
@@ -335,7 +330,7 @@
 								<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
 								<ContentTemplate>
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <asp:DataList  RepeatLayout="Flow" BorderColor="#CCCCCC" BorderStyle="Solid" Style="display: "
+                                    <asp:DataList  RepeatLayout="Flow" BorderColor="#CCCCCC" BorderStyle="Solid" Style=""
                                         BorderWidth="1" ID="dlEntryList" runat="server" EnableViewState="true" OnItemCommand="View_ItemDetail" >
                                         <HeaderTemplate>
                                         &nbsp;
@@ -343,82 +338,94 @@
 
                                         <ItemTemplate>
                                         <div class="panel">
-                                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 0px solid red">
-                                        		<div class="text-center col-xs-3">
-                                        			<div>
+                                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt5 mb5" style="border-bottom-style: solid; border-width: 1px; ">
+                                        		<div class="col-xs-3">
+		                                        	<asp:Image ID="imgPreview" class="img-responsive" width="151px" height="151px" runat="server" ImageUrl='<%# SetPicPath(DataBinder.Eval(Container.DataItem, "iCategory"), DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>'>
+		                                            </asp:Image>
+	                                                <asp:Panel ID="pnlPreview" CssClass="imgcontainer" runat="server">
+	                                                </asp:Panel>
+                                        		</div>
+                                        		<div class="col-xs-8">
+                                        			<div class="col-xs-12">
+		                                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			                                                <div class="clearfix">
+			                                                <h3>
+			                                                    <asp:LinkButton CssClass="" ID="LinkButton2" runat="server" OnCommand="GetValues" style="vertical-align:middle"
+			                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
+																	<%# FormatHeightFt(DataBinder.Eval(Container.DataItem, "iHtFt"))%>
+																	
+																	<%# FormatHeightIn(DataBinder.Eval(Container.DataItem, "iHtIn"))%>
+																	
+							                                        <%# FormatBrand(DataBinder.Eval(Container.DataItem, "txtBrand"), DataBinder.Eval(Container.DataItem, "txtShaper"))%>
+																	&nbsp;
+																	<%# DataBinder.Eval(Container.DataItem, "txtOtherBoardType")%>
+																	<%# DataBinder.Eval(Container.DataItem, "txtGearItem")%>										
+			                                                    </asp:LinkButton>&nbsp;
+			                                               	</h3>
+			                                                </div>
+		                                                </div>                                     
+														<div class="hidden">
+		                                               	<!-- <div class="col-lg-3 xs-hidden"> -->
+															<div>
+		                										<h6>
+			                										<asp:LinkButton BorderWidth="0" runat="server" ID="lnkBtnImg"
+			                                                            OnCommand="GetValues" CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>'
+			                                                            CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
+			                                                            <asp:Image BorderWidth="0" ID="imgCameraPic" runat="server"
+			                                                                ImageUrl='<%# SetBoardPic(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue")) %>' />
+			                                                        </asp:LinkButton>
+		                                                        </h6>
+		                									</div>
+		                									<div class="clearfix">
+		                										<h3>
+		                											<%# GetToolTip(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue"))%>
+		                										</h3>
+		                									</div>
+		                									 
+														</div>
+		                                        		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="">
+
+		                                                 	<div class="clearfix"> 
+		                                                   	 	<a class="label label-default" href='/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
+		                                                        <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%>&nbsp;views</a>
+														 	</div>
+														</div>
+
+
+														<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+															<div class="clearfix">
+																<h3>
+				                                                    <asp:LinkButton ID="lnkBtnPrice" CssClass="label label-success" runat="server" OnCommand="GetValues"
+				                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
+				                                                    <%# DataBinder.Eval(Container.DataItem, "fltPrice", "{0:c}") %>
+				                                                    </asp:LinkButton>
+			                                                    </h3>
+			                                                </div>
+															<%--
+															<h4>
+			                                                    <asp:LinkButton ID="lnBtnTown" CssClass="dkgrey_white10" runat="server" OnCommand="GetValues"
+			                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
+			                                                    <%# FormatLoc(DataBinder.Eval(Container.DataItem, "txtTown")) %>
+			                                                    &nbsp;&nbsp;
+			                                                    </asp:LinkButton>
+		                                                    </h4>
+		                                                    --%>
+														</div>
+													</div>
+	                                            </div>
+	                                            <div class="col-xs-1">
+	                                    			<div>
 	                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnCommand="GetValues"
 	                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
 											    		<%# DataBinder.Eval(Container.DataItem, "dCreateDate", "{0: MMM dd}") %>
 	                                                    </asp:LinkButton>
-                									</div>
-                                                 	<div class="clearfix"> 
-                                                   	 	<span class="midgrey10"></span><a class="label label-default" href='/surfboard.aspx?iD=<%# DataBinder.Eval(Container.DataItem, "iD") %>'>
-                                                        <%# DataBinder.Eval(Container.DataItem, "iPageViewCount")%>&nbsp;views</a><span class="midgrey10">&nbsp;</span>
-												 	</div>
-												</div>
-                                                <div class="col-xs-3">
-	                                                <div class="clearfix">
-	                                                    <asp:LinkButton CssClass="dkgrey_white16b" ID="LinkButton2" runat="server" OnCommand="GetValues"
-	                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-															<%# FormatHeightFt(DataBinder.Eval(Container.DataItem, "iHtFt"))%>
-															
-															<%# FormatHeightIn(DataBinder.Eval(Container.DataItem, "iHtIn"))%>
-															
-					                                        <%# FormatBrand(DataBinder.Eval(Container.DataItem, "txtBrand"), DataBinder.Eval(Container.DataItem, "txtShaper"))%>
-															&nbsp;
-															<%# DataBinder.Eval(Container.DataItem, "txtOtherBoardType")%>
-															<%# DataBinder.Eval(Container.DataItem, "txtGearItem")%>										
-	                                                    </asp:LinkButton>&nbsp;
-	                                                </div>
-	                                                <div>
-		                                                <asp:Image ID="imgPreview" width="151px" height="151px" runat="server" ImageUrl='<%# SetPicPath(DataBinder.Eval(Container.DataItem, "iCategory"), DataBinder.Eval(Container.DataItem, "userDir"), DataBinder.Eval(Container.DataItem, "txtImgPath1"))%>'>
-		                                                </asp:Image>
-	                                                    <asp:Panel ID="pnlPreview" CssClass="imgcontainer" runat="server">
-	                                                    </asp:Panel>
-													</div>
-                                                </div>
-                                                <div class="col-lg-3 xs-hidden">
-													<div>
-                										<h6>
-	                										<asp:LinkButton BorderWidth="0" runat="server" ID="lnkBtnImg"
-	                                                            OnCommand="GetValues" CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>'
-	                                                            CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-	                                                            <asp:Image BorderWidth="0" ID="imgCameraPic" runat="server"
-	                                                                ImageUrl='<%# SetBoardPic(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue")) %>' />
-	                                                        </asp:LinkButton>
-                                                        </h6>
-                									</div>
-                									<div class="clearfix">
-                										<h3>
-                											<%# GetToolTip(DataBinder.Eval(Container.DataItem, "iCategory"),DataBinder.Eval(Container.DataItem, "iValue"))%>
-                										</h3>
-                									</div>
-                									 
-												</div>
-												<div class="col-xs-3">
-													<h3>
-	                                                    <asp:LinkButton ID="lnkBtnPrice" CssClass="label label-success" runat="server" OnCommand="GetValues"
-	                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-	                                                    <%# DataBinder.Eval(Container.DataItem, "fltPrice", "{0:c}") %>
-	                                                    </asp:LinkButton>
-                                                    </h3>
-													<div class="col-xs-12">
-                                                    <asp:LinkButton ID="lnBtnTown" CssClass="dkgrey_white10" runat="server" OnCommand="GetValues"
-                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
-                                                    <%# FormatLoc(DataBinder.Eval(Container.DataItem, "txtTown")) %>
-                                                    &nbsp;&nbsp;
-                                                    </asp:LinkButton>
-													</div>
-													<div class="col-xs-12">
+	            									</div>
+	            									<div>
 														<asp:ImageButton runat="server" class="Tips" title='<%# GetTip(DataBinder.Eval(Container.DataItem, "iPriceChange")) %>'
 	                                                        OnCommand="GetValues" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'
 	                                                        ID="imgBtnReduced" ImageUrl='<%# SetPricePic(DataBinder.Eval(Container.DataItem, "iPriceChange")) %>' />
-                                                        </div>
-												</div>
-                                            	<div class="col-xs-3">
-
-                                            	</div>
-
+	            									</div>
+	                                            </div>
                                         	</div>
                                         	</div>
                                         </ItemTemplate>

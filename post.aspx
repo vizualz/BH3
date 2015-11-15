@@ -140,7 +140,7 @@
                         <div class="panel-footer col-md-12 col-sm-12 col-xs-12">
                             <asp:HiddenField ID="hdnAdType" runat="server" Value="" />
                             <div class="pull-left">
-                                <span style="color: #999; display: inline-block; font-size: 15px;">Avoid scams by dealing local.</span>
+                                <span style="color: #999; display: inline-block; font-size: 15px;">Avoid scams by dealing local. <span class="text-danger">DO NOT ACCEPT Cashier's checks.</span>
                             </div>
                             <div class="pull-right">
                                 <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-default" Text="Cancel" TabIndex="5" OnClick="btnCancel_Click" />
