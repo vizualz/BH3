@@ -437,6 +437,7 @@ namespace BoardHunt
 					toplblcpage.Visible = true; 
 				}
 
+				ErrorLog.ErrorRoutine(false, "IG: ListCount: " + listCount.ToString());
 				lblCount.Text = "(" + listCount.ToString() + ") " + "Surfboards";
 
 				//Build Paging for control with PageDataSource.  Get the default view
@@ -765,17 +766,17 @@ namespace BoardHunt
 			int iLimit = 50;
 			int iLimitHalf = (iLimit - 1) / 2;
 
-			lnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;");
-			toplnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;"); 
-			lnkLast.OnClientClick = ("javascript:__doPostBack('pageLnkButton','" + (pgCount - 1) + "');event.returnValue=false;return false;");
+			//lnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;");
+			//toplnkFirst.OnClientClick = ("javascript:__doPostBack('pageLnkButton','0');event.returnValue=false;return false;"); 
+			//lnkLast.OnClientClick = ("javascript:__doPostBack('pageLnkButton','" + (pgCount - 1) + "');event.returnValue=false;return false;");
 
 			if (pgCount <= iLimit)  //less that limit; just show them
 			{
 				iStart = 0;
 				iEnd = pgCount;
-				lnkFirst.Visible = false;
-				toplnkFirst.Visible = false;
-				lnkLast.Visible = false;
+				//lnkFirst.Visible = false;
+				//toplnkFirst.Visible = false;
+				//lnkLast.Visible = false;
 			}
 			else//pgCount over limit (30 over 15)  :: TODO: add case for getting back to beginning
 			{
@@ -784,16 +785,16 @@ namespace BoardHunt
 					if (CurrentPage - iLimitHalf > 0) // check for negative vals
 					{
 						iStart = CurrentPage - iLimitHalf; //re-set start page so that current is in middle
-						lnkFirst.Visible = true ;
-						toplnkFirst.Visible = true; 
-						lnkLast.Visible = true ;
+						//lnkFirst.Visible = true ;
+						//toplnkFirst.Visible = true; 
+						//lnkLast.Visible = true ;
 					}
 					else
 					{
 						iStart = 0;//CurrentPage; // if negative value then just set start to current
-						lnkFirst.Visible = false;
-						toplnkFirst.Visible = false;
-						lnkLast.Visible = true;
+						//lnkFirst.Visible = false;
+						//toplnkFirst.Visible = false;
+						//lnkLast.Visible = true;
 					}
 					iEnd = iStart + iLimit; //set end to  whatever startVal + the limit
 
@@ -805,9 +806,9 @@ namespace BoardHunt
 					{
 						iStart = pgCount - iLimit;  //set start from pgCount
 						iEnd = pgCount;// set end to pgCount
-						lnkFirst.Visible = true;
-						toplnkFirst.Visible = true; 
-						lnkLast.Visible = false;
+						//lnkFirst.Visible = true;
+						//toplnkFirst.Visible = true; 
+						//lnkLast.Visible = false;
 					}
 				}
 			}
@@ -1394,6 +1395,7 @@ namespace BoardHunt
 				cboTailTypeVal = cboTailType.SelectedValue.ToString();
 			}
 
+			//clear out the Datalist
 			dlEntryList.DataSource = null;
 			dlEntryList.DataBind();
 

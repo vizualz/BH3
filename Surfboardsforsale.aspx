@@ -319,11 +319,25 @@
 											</asp:Panel>
 										</div>
 								</div>
+ 								</ContentTemplate>
 								<Triggers>
 									<asp:AsyncPostBackTrigger ControlID="topcmdNext"  eventname="click"/>
 									<asp:AsyncPostBackTrigger ControlID="topcmdPrev"  eventname="click"/>
+					                <asp:AsyncPostBackTrigger ControlID="btnSearch2" eventname="Click" />
+					                <asp:AsyncPostBackTrigger ControlID="btnSearch" eventname="Click" />
+					                <asp:AsyncPostBackTrigger ControlID="cboLocation"  eventname="SelectedIndexChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="cboBoardType"  eventname="SelectedIndexChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="txtMaxPrice"  eventname="TextChanged"/>
+					                <asp:AsyncPostBackTrigger ControlID="txtMinPrice"  eventname="TextChanged"/>
+
+					                 <asp:AsyncPostBackTrigger ControlID="cboCondition"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboFins"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboTailType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboAdType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="cboPostingType"  eventname="SelectedIndexChanged"/>
+					                 <asp:AsyncPostBackTrigger ControlID="chkReduced"  />
                                 </Triggers>
- 								</ContentTemplate>
+
  								</asp:UpdatePanel>
 
  								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -471,6 +485,19 @@
 												<Triggers>
 												<asp:AsyncPostBackTrigger ControlID="cmdNext"  eventname="click"/>
 												<asp:AsyncPostBackTrigger ControlID="cmdPrev"  eventname="click"/>
+								                <asp:AsyncPostBackTrigger ControlID="btnSearch2" eventname="Click" />
+								                <asp:AsyncPostBackTrigger ControlID="btnSearch" eventname="Click" />
+								                <asp:AsyncPostBackTrigger ControlID="cboLocation"  eventname="SelectedIndexChanged"/>
+								                <asp:AsyncPostBackTrigger ControlID="cboBoardType"  eventname="SelectedIndexChanged"/>
+								                <asp:AsyncPostBackTrigger ControlID="txtMaxPrice"  eventname="TextChanged"/>
+								                <asp:AsyncPostBackTrigger ControlID="txtMinPrice"  eventname="TextChanged"/>
+
+								                 <asp:AsyncPostBackTrigger ControlID="cboCondition"  eventname="SelectedIndexChanged"/>
+								                 <asp:AsyncPostBackTrigger ControlID="cboFins"  eventname="SelectedIndexChanged"/>
+								                 <asp:AsyncPostBackTrigger ControlID="cboTailType"  eventname="SelectedIndexChanged"/>
+								                 <asp:AsyncPostBackTrigger ControlID="cboAdType"  eventname="SelectedIndexChanged"/>
+								                 <asp:AsyncPostBackTrigger ControlID="cboPostingType"  eventname="SelectedIndexChanged"/>
+								                 <asp:AsyncPostBackTrigger ControlID="chkReduced"  />
 				                                </Triggers>
 				                            </div>
 			                                </div>
