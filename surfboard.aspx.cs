@@ -25,14 +25,9 @@ namespace BoardHunt
     public partial class surfboard : System.Web.UI.Page
     {
 
-        protected System.Web.UI.WebControls.Panel pnlWeb;
 
-        protected System.Web.UI.WebControls.LinkButton lnkUpgradeAcct;
-        protected System.Web.UI.WebControls.LinkButton lnkSignIn;
-        protected System.Web.UI.WebControls.LinkButton lnkSignUp;
-        protected System.Web.UI.WebControls.LinkButton lnkPost;
-        protected System.Web.UI.WebControls.LinkButton lnkAbuse;
-        protected System.Web.UI.WebControls.LinkButton lnkLoginFirst;
+        //protected System.Web.UI.WebControls.LinkButton lnkAbuse;
+        //protected System.Web.UI.WebControls.LinkButton lnkLoginFirst;
         protected System.Web.UI.WebControls.DataList dlCommentList;
 
         protected System.Web.UI.WebControls.Panel pnlCommentBox;
@@ -48,10 +43,10 @@ namespace BoardHunt
         protected System.Web.UI.WebControls.TextBox txtPassword;
         protected System.Web.UI.WebControls.CheckBox chkNotify;
 
-		protected const string ERR_MSG = @"Whoops!  Something happened.  Team Geek will 
-                                    have this fixed real soon.";
-        protected const string ERR_MSG2 = @"Dah!  Something happened.  Boardhunt is on it.  Check back shortly. Meanwhile check out some 
-                                        other boards <a href='/surfboardsforsale.aspx' class='midorange14b'>here</a>";
+		protected const string ERR_MSG = @"Whoops!  Something happened.  The Geeks will 
+                                    have this fixed shortly.";
+        protected const string ERR_MSG2 = @"Shite!  Something happened.  Boardhunt is on it.  Check back shortly. Meanwhile check out some 
+                                        other boards -> <a href='/surfboardsforsale.aspx' class=''>here</a>";
 		protected const string MSG_NUDGED = @"The seller was Nudged.";
 		protected const string LOGIN_FIRST = @"Pro Account Feature|Nudge automatically sends the seller an email asking, ""Is the board still for sale?""  Check your e-mail for a reply.";
 		protected const string LOGIN_FIRST_NAG = @"You must log in to use the time-saving Nudge feature. ";
@@ -76,12 +71,7 @@ namespace BoardHunt
         /// </summary>
         private void InitializeComponent()
         {
-            //this.lnkLoginFirst.Click += new System.EventHandler(this.lnkLoginFirst_Click);
-
-            //this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
-
             this.imgGoBack.Click += new System.Web.UI.ImageClickEventHandler(this.imgGoBack_Click);
-            this.imgAddFav.Click += new System.Web.UI.ImageClickEventHandler(this.imgAddFav_Click);
 
         }
         #endregion
@@ -89,15 +79,19 @@ namespace BoardHunt
         protected void Page_Load(object sender, System.EventArgs e)
         {
 
+			ErrorLog.ErrorRoutine(false, "YAP: PL");
+
             //Hide all sub-panels then enable accordingly
             //pnlDetails.Visible = false;
-            pnlAll.Visible = true;
-            pnlWidth.Visible = false;
-            pnlSurfOnly.Visible = false;
-            imgAddFav.Visible = true;
+            //pnlAll.Visible = true;
+            //pnlWidth.Visible = false;
+            //pnlSurfOnly.Visible = false;
+            //imgAddFav.Visible = true;
             // Retriving www.malzook.com from web configration
             //serverurl = ConfigurationManager.AppSettings["ServerURL"].ToString();
             hdnMsg.Value = string.Empty;
+
+			ErrorLog.ErrorRoutine(false, "YAP");
 
             //CATEGORY:intCatType - uses hdnVal because category has no filter element
             string[] arString;
@@ -121,6 +115,9 @@ namespace BoardHunt
                 lblStatus.ForeColor = Color.White;
                 return;
             }
+
+
+			ErrorLog.ErrorRoutine(false, "WHERE AM I?");
 
             imgGoBack.Attributes.Add("onClick", "javascript:history.go(-1); return false;");
 
@@ -240,7 +237,7 @@ namespace BoardHunt
          */
         private void BindData()
         {
-
+			ErrorLog.ErrorRoutine(false, "SurfBoards: Binding Data");
 
             string strSQL;
             string myConnectString;
@@ -388,18 +385,18 @@ namespace BoardHunt
                         lblNoCnt.Text = "0";
                     }
 
-                    pnlShip.Visible = false;
+                    //pnlShip.Visible = false;
 
                     //Set Rating if adtype is selling
                     if (itemType == "1")
                     {
-                        pnlCondition.Visible = true;
+                        //pnlCondition.Visible = true;
 						try{
                         lblCondition.Text = Global.ProperSpace(DecodeCondition(SQLReader["iCondition"]));
 						}
 						catch{}
 
-                        pnlShip.Visible = true;
+                        //pnlShip.Visible = true;
                         if (SQLReader["iShip"].ToString() == "1")
                             lblShip.Text = "Yes";
 
@@ -428,6 +425,8 @@ namespace BoardHunt
                     switch (strCat)
                     {
                         case "1": //surf
+
+						ErrorLog.ErrorRoutine(false, "SURFBOARDS");
 
                             //lblBrand.Text = "Shaper:&nbsp";
                             lblBrandData.Text = SQLReader["txtBrand"].ToString();
@@ -466,13 +465,15 @@ namespace BoardHunt
                                 lblTailData.Text = Global.ProperSpace(DecodeTail(SQLReader["iTailType"]));
                                 lblFinsData.Text = DecodeFins(SQLReader["iFins"]);
 
-                                pnlWidth.Visible = true;
-                                pnlSurfOnly.Visible = true;
+                                //pnlWidth.Visible = true;
+                                //pnlSurfOnly.Visible = true;
                             }
                             else
                             {
-                                pnlSurfOnly.Visible = false;
+                                //pnlSurfOnly.Visible = false;
                             }
+
+						ErrorLog.ErrorRoutine(false, "SURFBOARDS2");
 
                             break;
 
@@ -500,13 +501,13 @@ namespace BoardHunt
                                 lblBoardTypeData.Text = DecodeBoard(Convert.ToInt32(SQLReader["iBoardType"]), (int)3);
                             }
 
-                            pnlGenDims.Visible = true;
+                            //pnlGenDims.Visible = true;
                             lblGenDims.Text = SQLReader["txtGenDimensions"].ToString();
                             break;
                         case "4": //gear
-                            pnlGearItem.Visible = true;
+                            //pnlGearItem.Visible = true;
                             lblGearItem.Text = SQLReader["txtGearItem"].ToString();
-                            pnlAll.Visible = false;
+                            //pnlAll.Visible = false;
 
                             break;
 
@@ -519,13 +520,13 @@ namespace BoardHunt
                         Pic1.ImageUrl = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"] + "/images/wantedbig.gif";
 
                         //hide ratings
-                        pnlRatings.Visible = true;
+                        //pnlRatings.Visible = true;
 
                         //hide comments
                         pnlComments.Visible = true;
 
                         //lblBrand.Text = "";
-                        pnlWidth.Visible = false;
+                        //pnlWidth.Visible = false;
 
                     }
                     //for selling
@@ -614,7 +615,7 @@ namespace BoardHunt
                         //NO IMAGES were uploaded
                         if (picCount < 1)
                         {
-                            pnlRatings.Visible = false;
+                            //pnlRatings.Visible = false;
                             Pic1.ImageUrl = System.Configuration.ConfigurationSettings.AppSettings["ServerURL"] + "/images/noimage.gif";
                             pnlComments.Visible = true;
 
@@ -681,6 +682,8 @@ namespace BoardHunt
         */
         public void ShowErrorMessage(string msg)
         {
+			ErrorLog.ErrorRoutine(false, ":Surfboards:ShowErrorMessage");
+
             pnlDetails.Controls.Clear();
             Panel pnlMsg = new Panel();
             pnlMsg.CssClass = "errorLabel";
@@ -689,13 +692,10 @@ namespace BoardHunt
             pnlMsg.Attributes.Add("style", "margin-top: 5px");
             Literal litMsg = new Literal();
             litMsg.Text = msg;
-            //Label lbl = new Label();
-            //lbl.Text = "<br/><br/>Dah!  Something happened.  Boardhunt is on it.  Check back shortly. Meanwhile check out some other boards <a href='/surfboardsforsale.aspx'>here</a>";
-            //lbl.CssClass = "errorLabel";
             pnlDetails.Controls.Add(pnlMsg);
             pnlMsg.Controls.Add(litMsg);
 
-            pnlRatings.Visible = false;
+            //pnlRatings.Visible = false;
             pnlLogin.Visible = false;
             pnlLoginMsg.Visible = false;
             pnlComments.Visible = false;
@@ -909,26 +909,8 @@ namespace BoardHunt
         {
             return Enum.GetName(typeof(Global.TAIL), TailCode);
         }
-
-        private void lnkUpgradeAcct_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkUpgradeAcct.Text);
-        }
-
-        private void lnkSignIn_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignIn.Text);
-        }
-
-        private void lnkSignUp_Click(object sender, System.EventArgs e)
-        {
-            Global.NavigatePage(lnkSignUp.Text);
-        }
-
-        private void lnkPost_Click(object sender, System.EventArgs e)
-        {
-            Response.Redirect("post.aspx");
-        }
+			
+			
 
         private void imgAddFav_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
@@ -1255,10 +1237,6 @@ namespace BoardHunt
 
                 dlCommentList.Visible = true;
                 pnlCommentBox.Visible = true;
-
-                //Get text for login links
-                lnkSignIn.Text = Global.SetLnkSignIn();
-                lnkSignUp.Text = Global.SetLnkSignUp();
 
                 lblWallMessage.Text = "Write a comment below";
 

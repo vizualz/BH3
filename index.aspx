@@ -16,7 +16,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     <script src="include/js/bh.js" type="text/javascript"></script>
     <link rel="alternate" type="application/rss+xml" title="Boardhunt Surfboards For Sale"
         href="http://www.malzook.com/rss/surfboards.xml" />
-    <link href="style/global.css" type="text/css" rel="stylesheet" />
+
     <link rel="shortcut icon" href="favicon.ico" />
     <meta http-equiv="Page-Enter" content="RevealTrans(Duration=0,Transition=0)" />
     <meta name="description" content="Find new and used surfboards for sale by others in the surfing community.  Find surfboard shapers and get surfboard advice." />
@@ -69,34 +69,37 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 
         <div align="center">
             <!-- top half -->
-        <img class="img-responsive" src="../images/HomepageHarlan.jpg" height="50%" width="100%" alt="Used Surfboards - Boardhunt">
+        	<img class="img-responsive" src="../images/HomepageHarlan.jpg" height="50%" width="100%" alt="Used Surfboards - Boardhunt">
         </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                     <H1>Used Surfboards for Sale - Premium Online Marketplace</H1>
                     <P>Custom Built for Surfers Since 2006.</P>
                 </div>
             </div>        
             <div class="row">
-                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">&nbsp;&nbsp;
-                    <asp:Button ID="btnSearchSurfboard" OnCommand="ImageButton_Click" CssClass="btnBigOrg" style="padding:10px" 
-                        CommandName="btnSearch" runat="server" ToolTip="Search for your next board" 
-                        Text="Find Surfboards" onclick="btnSearchSurfboard_Click" />&nbsp;&nbsp;
-                    <asp:Button ID="btnSellSurfboard" OnCommand="ImageButton_Click" CssClass="btnBigGreen" style="padding:10px" 
-                        CommandName="btnSell" runat="server" ToolTip="Sell your board now" 
-                        Text="Sell Surfboards" onclick="btnSellSurfboard_Click" />
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">&nbsp;&nbsp;      
+                <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 text-center">
+
+	                    <asp:Button ID="btnSearchSurfboard" OnCommand="ImageButton_Click" CssClass="btn btn-primary btn-lg mt5" 
+	                        CommandName="btnSearch" runat="server" ToolTip="Search for your next board" 
+	                        Text="Find Surfboards" onclick="btnSearchSurfboard_Click" />
+
+	                    <asp:Button ID="btnSellSurfboard" OnCommand="ImageButton_Click" CssClass="btn btn-warning btn-lg mt5" 
+	                        CommandName="btnSell" runat="server" ToolTip="Sell your board now" 
+	                        Text="Sell Surfboards" onclick="btnSellSurfboard_Click" />
+
+	                    <asp:Button ID="btnLogin" OnCommand="ImageButton_Click" CssClass="btn btn-success btn-lg mt5"
+	                        CommandName="btnSell" runat="server" 
+	                        Text="Log in" PostBackUrl="~/login.aspx" /> 
+
                 </div>
             </div>    
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><br>&nbsp;&nbsp;
-                    <asp:Button ID="btnLogin" OnCommand="ImageButton_Click" CssClass="button btn-primary" style="border:0"
-                        CommandName="btnSell" runat="server" 
-                        Text="Log in" onclick="btnLogin_Click" /> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center mt10">
+                	<P>&nbsp;&nbsp;Free | Easier | Quality | Secure | Accurate</P>
                 </div>                
                 <br>
-                <P>&nbsp;&nbsp;Free | Easier | Quality | Secure | Accurate</P>
+
             </div>
     </div>
     </form>

@@ -857,10 +857,10 @@ td, textarea, input, select {}
 /* Error stuff */
 .errorLabel
 {
- background-color: #ffE4E1;
+ background-color: red;
  border:solid 1px red;
- color: Black;
- font-size: 12px;
+ color: White;
+ font-size: 14px;
  font-weight:normal;
  font-family: Verdana;
 }

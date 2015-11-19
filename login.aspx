@@ -27,11 +27,12 @@
 
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
+    <!-- Begin: Content -->
+    <div class="container-fluid">
     <form class="header" id="Form1" runat="server">
 	<bh:Header runat="server" />
 
-        <!-- Begin: Content -->
-        <div class="container-fluid">
+
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div role="tabpanel" id="login1" class="admin-form tab-pane active col-lg-6 col-md-8 col-sm-9 col-xs-12" style="float: none; margin: 0 auto;">
                     <div class="panel panel-warning heading-border">
@@ -129,12 +130,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-
     </form>
+
     <div class="clearfix"></div>
     <!-- #include file="include/footer.aspx" -->
-
+    </div> <!-- end container fluid -->
 
     <!-- Bootstrap -->
     <script type="text/javascript" src="content/assets/js/bootstrap/bootstrap.min.js"></script>

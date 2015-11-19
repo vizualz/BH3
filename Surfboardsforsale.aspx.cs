@@ -47,9 +47,6 @@ namespace BoardHunt
 		protected System.Web.UI.UpdatePanel UpdatePanel2;
 		protected System.Web.UI.UpdatePanel UpdatePanel3;
 
-		//protected global::System.Web.UI.WebControls.DataList dlEntryList;
-
-
 		protected const int BitMask_0 = 1;
 		protected const int BitMask_1 = 2;
 		protected const int BitMask_2 = 4;
@@ -65,14 +62,10 @@ namespace BoardHunt
 
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
-
-			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isPB:" + Page.IsPostBack); 
-			//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: isAsyncPB:" + ScriptManager.GetCurrent(this).IsInAsyncPostBack);
-
+			ErrorLog.ErrorRoutine (false, "SFS: PageLoad");
 
 
 			if (ScriptManager.GetCurrent (this).IsInAsyncPostBack || Page.IsPostBack) {
-				//ErrorLog.ErrorRoutine (false, "SFS2: Page_Load: Ajax Kickout");
 				return;
 			}
 
@@ -81,11 +74,9 @@ namespace BoardHunt
 
 			if (!Page.IsPostBack)
 			{
-
-				LoadFilter();
-				LoadViewCtl();
-				GetSetQueryStrings();
-				ItemsGet(false);
+				LoadFilters(); 			//loads the values into the filters
+				GetSetQueryStrings(); 	//gets the querystring and syncs to viewstate
+				ItemsGet(false); 		//runs query to db to get the list of boards based on the filters
 				SyncFilter();
 			}
 			else
@@ -135,7 +126,6 @@ namespace BoardHunt
 			this.topcmdPrev.Click += new System.Web.UI.ImageClickEventHandler(this.cmdPrev_Click);
 			this.cmdNext.Click += new System.Web.UI.ImageClickEventHandler(this.cmdNext_Click);
 			this.topcmdNext.Click += new System.Web.UI.ImageClickEventHandler(this.cmdNext_Click);
-			//this.lnkUpgradeAcct.Click += new System.EventHandler(this.lnkUpgradeAcct_Click);
 
 		}
 		#endregion
@@ -166,19 +156,18 @@ namespace BoardHunt
 
 		private void ItemsGet(bool bln)
 		{
-			ErrorLog.ErrorRoutine (false, "ItemsGet-Start: DLCount: " + dlEntryList.Items.Count + " fromBtnSearch: " + bln + " isAscyncPB: " + ScriptManager.GetCurrent(this).IsInAsyncPostBack);
+			ErrorLog.ErrorRoutine (false, "ItemsGet-Start");
 
 			string strSQL;
-			string strBoardType;
 
+			string strBoardType; // not used
 			strBoardType = string.Empty;
 
 			//TODO: handle all or empty
 			if (cboBoardVal != "All")
 				strBoardType = BuildQryBoardType(cboBoardVal);
 
-			//LOCATION: Display Only
-			//if (cboLocationVal.ToString() != "all" || cboLocationVal.ToString() != "All" || cboLocationVal.ToString() != string.Empty)
+			//Display Region value
 			if (cboLocationVal.ToLower() != "all" && cboLocationVal.ToString() != string.Empty)
 			{
 				HypLoc.Text = Global.SwapChar(DecodeRegion(Convert.ToInt32(cboLocationVal)), " ", "_");
@@ -269,19 +258,19 @@ namespace BoardHunt
 
 
 			//fix filter for empty boxes
-			if (txtMinPrice.Text.Length == (int)0) { txtMinPrice.Text = "Min"; }
-			if (!IsNumeric(txtMinPrice.Text)) { txtMinPrice.Text = "Min"; }
+			if (txtMinPrice.Text.Length == (int)0) { txtMinPrice.Text = "$Min"; }
+			if (!IsNumeric(txtMinPrice.Text)) { txtMinPrice.Text = "$Min"; }
 
-			if (txtMaxPrice.Text.Length == (int)0) { txtMaxPrice.Text = "Max"; }
-			if (!IsNumeric(txtMaxPrice.Text)) { txtMaxPrice.Text = "Max"; }
+			if (txtMaxPrice.Text.Length == (int)0) { txtMaxPrice.Text = "$Max"; }
+			if (!IsNumeric(txtMaxPrice.Text)) { txtMaxPrice.Text = "$Max"; }
 
 			//check filter for price
-			if (txtMinPrice.Text != "Min")
+			if (txtMinPrice.Text != "$Min")
 			{
 				strSQL += " AND e.fltPrice >= '" + Convert.ToDouble(txtMinPrice.Text) + "'";
 			}
 
-			if (txtMaxPrice.Text != "Max")
+			if (txtMaxPrice.Text != "$Max")
 			{
 				strSQL += " AND e.fltPrice <= '" + Convert.ToDouble(txtMaxPrice.Text) + "'";
 			}
@@ -1014,13 +1003,15 @@ namespace BoardHunt
 			return retVal;
 		}
 		/*
-         * Gets available query strings and assigns them to hidden elements
+         * GetSetQueryStrings() syncs the incoming query strings to the viewstate and clsFilter object
          */
 		private void GetSetQueryStrings()
 		{
+			
 
-			//CATEGORY:intCatType - uses hdnVal because category has no filter element
+			//CATEGORY:intCatType - uses hdnVal because category has no associated filter control
 			string[] arString;
+
 			arString = Request.QueryString.GetValues("iCat");
 			if (arString != null)
 			{
@@ -1032,9 +1023,10 @@ namespace BoardHunt
 				//default to surfing
 				hdniCat.Value = "1";
 			}
-			lblCat.Text = "All " + Global.up1(DecodeiCat(Convert.ToInt32(hdniCat.Value)));
 
-			//VIEWCOUNT:cboViewVal          50 is the default
+			lblCat.Text = "All " + Global.up1(DecodeiCat(Convert.ToInt32("1"))); //always for Surfboards
+
+			//VIEWCOUNT:cboViewVal - 50 is the default
 			arString = Request.QueryString.GetValues("v");
 			if (arString != null)
 			{
@@ -1121,7 +1113,62 @@ namespace BoardHunt
 				cboPostingTypeVal = String.Empty;
 			}
 			//TODO: put other possible query values here; ideas: use array and pass into ItemsGet
+
+
+			//Pre-set the dropdowns based on saved settings in the session
+			if (Session ["filter"] == null)
+				return;
+
+			//Check for saved filter settings in session -- this could replace all of the code above
+			BoardHunt.classes.clsFilter filter = new BoardHunt.classes.clsFilter();
+			filter = (classes.clsFilter)Session ["filter"];
+
+			//Set controls from query strings and syncs with Viewstate
+			cboKeywordsVal = txtFilterKwd.Text = filter.Keywords; //add check control conditions for non-default values
+
+			cboFinVal = filter.Fins;
+			cboFins.Items.FindByValue (cboFinVal).Selected = true;
+
+			cboLocationVal = filter.Loc;
+			cboLocation.Items.FindByValue(cboLocationVal).Selected = true;
+
+			cboTailTypeVal = filter.Tail;
+			cboTailType.Items.FindByValue(cboTailTypeVal).Selected = true;
+
+			cboBoardVal = filter.BoardType;
+			cboBoardType.Items.FindByValue(cboBoardVal).Selected = true;
+
+			txtMaxPrice.Text = filter.PriceMax;
+			txtMinPrice.Text = filter.PriceMin;
+
+			txtHtFt.Text = filter.F_HtFt;
+			txtHtIn.Text = filter.F_HtIn;
+
+			txtHtFtMax.Text = filter.T_HtFt;
+			txtHtInMax.Text = filter.T_HtIn;
+
+			if (filter.HotDeal > 0)
+				chkReduced.Checked = true;
+
+			//destroy
+			Session ["filter"] = null;
+			filter = null;
+
 		}
+		/*
+         */
+		//Returns truncated string with configurable number of characters
+		public string FormatLoc(object oTown)
+		{
+			
+			int index = oTown.ToString().LastIndexOf(",");
+			if (index > 0)
+				return oTown.ToString().Substring(0, index);
+
+			return oTown.ToString();
+		}
+
+
 		/*
          */
 		//Returns truncated string with configurable number of characters
@@ -1291,6 +1338,39 @@ namespace BoardHunt
 		//Fired when user clicks the DataList item.  NOTE:  This handler will not fire unless VIEWSTATE is set to False.
 		public void GetValues(object src, CommandEventArgs e)
 		{
+			//TODO: stuff filter state in here
+		
+			BoardHunt.classes.clsFilter filter = new BoardHunt.classes.clsFilter();
+			filter.Keywords = txtFilterKwd.Text;
+			filter.Fins = cboFins.SelectedValue;
+			filter.Loc = cboLocation.SelectedValue;
+			filter.Tail = cboTailType.SelectedValue;
+			filter.BoardType = cboBoardType.SelectedValue;
+
+			if (chkReduced.Checked)
+				filter.HotDeal = 1;
+
+			if (txtMinPrice.Text.Length > 0) {
+				try {
+					filter.PriceMin = txtMinPrice.Text;
+				} catch {
+					txtMinPrice.Text = string.Empty;
+
+				}
+			}
+
+			if (txtMaxPrice.Text.Length > 0) {
+				try {
+					filter.PriceMax = txtMaxPrice.Text;
+				} catch {
+					txtMaxPrice.Text = string.Empty;
+
+				}
+			}
+
+
+			Session ["filter"] = filter;
+
 			Response.Redirect("surfboard.aspx?" + "iD=" + e.CommandArgument.ToString());//+ "&uId=" + e.CommandName.ToString() + "&iCat=" + Request.QueryString["iCat"].ToString());
 		}
 			
@@ -1453,28 +1533,15 @@ namespace BoardHunt
 			//User has chosen to filter results     
 			ItemsGet(false);
 		}
-
-		private void LoadViewCtl()
-		{
-			return;
-
-			//TODO: remove hardcodings and calculate
-			//cboView.Items.Clear();
-			//ListItem liViewAll = new ListItem("All", "-1");  //view all on 1 page
-			//ListItem liView50 = new ListItem("50", "50");
-			//ListItem liView15 = new ListItem("15", "15");
-			//cboView.Items.Add(liView15);
-			//cboView.Items.Add(liView50);
-			//cboView.Items.Add(liViewAll);
-		}
+			
 
 		/*
-         * Here we just load and set everything to the default values.
+         * Here we just load and set the controls to the default values.
          * NOTE: When any filter fields are changed followed by a search button click, 
          * the new vaules are set and the page will requery.
          * TODO: Add panels for snow, other, and gear
          * */
-		private void LoadFilter()
+		private void LoadFilters()
 		{
 			//declare variables	
 			string strSQL;
@@ -1506,12 +1573,12 @@ namespace BoardHunt
 
 			//Create and add the (default) "All" entry
 			//boardtype
-			ListItem liAllBT = new ListItem("All", "All");  //boardtype
-			ListItem liAllFin = new ListItem("All", "All");  //fins
-			ListItem liAllLoc = new ListItem("All", "All"); //loc
-			ListItem liAllTail = new ListItem("All", "All"); //tail
+			ListItem liAllBT = new ListItem("Boards", "All");  //boardtype
+			ListItem liAllFin = new ListItem("Fins", "All");  //fins
+			ListItem liAllLoc = new ListItem("Region", "All"); //loc
+			ListItem liAllTail = new ListItem("Tail", "All"); //tail
 			ListItem liAllType = new ListItem("All", "All"); //ad type
-			ListItem liAllCondType = new ListItem("All", "All"); //condition
+			ListItem liAllCondType = new ListItem("Cond", "All"); //condition
 
 			try
 			{
@@ -1588,7 +1655,6 @@ namespace BoardHunt
 				cboTailType.Items.Add(liAllTail);
 				cboTailType.ClearSelection();
 				cboTailType.SelectedIndex = cboTailType.Items.Count - 1;
-				//cboTailType.SelectedIndex = cboTailTypeVal;
 
 				//ADTYPE: For Sale, Wanted, Showcase
 				cboAdType.Items.Clear();
@@ -1603,7 +1669,6 @@ namespace BoardHunt
 				cboAdType.Items.RemoveAt(2);
 				cboAdType.ClearSelection();
 				cboAdType.SelectedIndex = cboAdType.Items.Count - 1;
-				//cboAdType.SelectedIndex = cboAdTypeVal;
 
 				//CONDITION
 				cboCondition.Items.Clear();
@@ -1615,13 +1680,7 @@ namespace BoardHunt
 				cboCondition.Items.Add(liAllCondType);
 				cboCondition.ClearSelection();
 				cboCondition.SelectedIndex = cboCondition.Items.Count - 1;
-				//cboCondition.SelectedIndex = cboConditionVal;
 
-				//?
-				//if (!Page.IsPostBack)
-				//{
-				//    SyncFilter();
-				//}
 			}
 			catch (Exception ex)
 			{
@@ -1673,6 +1732,7 @@ namespace BoardHunt
 
 			}
 		}
+
 		/**
         */
 		public string DecodeRegion(object RegionCode)
@@ -1727,7 +1787,7 @@ namespace BoardHunt
 			return Numeric;
 		}
 
-		/*
+		/* WTF is this?
          */
 		//<option value="1">Shortboard     </option>1
 		//<option value="2">Longboard      </option>2

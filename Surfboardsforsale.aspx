@@ -1,5 +1,4 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Surfboardsforsale.aspx.cs" Inherits="BoardHunt.Surfboardsforsale" %>
-<%@ Register TagPrefix="bh" TagName="ShowBoost" Src="~/include/Controls/BoostHoriz.ascx" %>
 <%@ Register TagPrefix="bh" TagName="Header" Src="~/include/HeaderCtl.ascx" %>
 
 
@@ -28,7 +27,7 @@
     <script type="text/javascript" src="include/js/superfish.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="style/superfish.css" />
     <script src="include/js/bh.js" type="text/javascript"></script>
-    <link rel="alternate" type="application/rss+xml" title="Boardhunt: Surfboards For Sale" href="http://www.malzook.com/rss/surfboards.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="Boardhunt: Surfboards For Sale" href="http://www.boardhunt.com/rss/surfboards.xml"/>
    <link href="style/global.css" rel="stylesheet" type="text/css" />
     <link href="style/hover.css" rel="stylesheet" type="text/css" />
 
@@ -120,11 +119,14 @@
 
 </head>
 <body style="background: none repeat scroll 0 0 #fff;">
+    <div class="container-fluid">
     <form id="Form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+	</asp:ScriptManager>
 	<bh:Header runat="server" />
 
         <!-- Begin: Content -->
-        <div class="container-fluid">
+
         	<%--PAGE NAV--%>
 			<ul class="breadcrumb">
 			    <li><asp:HyperLink ID="HypLoc" runat="server" NavigateUrl="index.aspx"></asp:HyperLink></li>
@@ -282,11 +284,11 @@
                 <asp:Label CssClass="" ID="lblNoResult" runat="server"></asp:Label><br />
             </div>
 
-                    <!-- BOOST -->
+                    <%--BOOST 
                     <div class="slider_container_top" style="border: dotted 0px red">
                         <bh:ShowBoost ID="boost" runat="server"></bh:ShowBoost>
                     </div>
-
+                    --%>
                     <div align="center">
 
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True"> 
@@ -417,7 +419,7 @@
 				                                                    </asp:LinkButton>
 			                                                    </h3>
 			                                                </div>
-															<%--
+															
 															<h4>
 			                                                    <asp:LinkButton ID="lnBtnTown" CssClass="dkgrey_white10" runat="server" OnCommand="GetValues"
 			                                                        CommandName='<%# DataBinder.Eval(Container.DataItem, "iUser")%>' CommandArgument='<%# DataBinder.Eval(Container.DataItem, "iD")%>'>
@@ -425,7 +427,7 @@
 			                                                    &nbsp;&nbsp;
 			                                                    </asp:LinkButton>
 		                                                    </h4>
-		                                                    --%>
+
 														</div>
 													</div>
 	                                            </div>
@@ -525,8 +527,9 @@
 
             <div class="push">
             </div>
-    		</div> <!--- End container fluid -->
+    		
   </form>
+  </div> <!--- End container fluid -->
     <div class="clearfix"></div>
     <!-- #include file="include/footer.aspx" -->
 
